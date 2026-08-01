@@ -3,6 +3,9 @@
 node_modules/
 npm-debug.log*
 
+# Scratch handoff note between tools working this folder. Not part of the guide.
+PUSH-HANDOFF.md
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
