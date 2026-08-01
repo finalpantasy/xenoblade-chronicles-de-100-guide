@@ -392,7 +392,7 @@ const ROUTE = [
         d: "<span class=step><b>Triggers:</b> walk to the <b>waterfall southeast of Gaur Plain</b>, near the <b>Volff Lair</b> on the Ragrinar Canyon Path. Available once the story sends you after Juju.</span>"
          + "<span class=step><b>Do:</b> kill <b>4x Ferocious Volff</b> menacing the bathing woman, then talk to her.</span>"
          + "<span class=step><b>Pays:</b> 1,200 G · 300 EXP · Diver Top · Diver Bottoms (empty gem slot) · +50 Rep.</span>" },
-      { id: "c4-06", f: "d", t: "🔴 The rest of the Refugee Camp board — <b>19 more quests</b>",
+      { id: "c4-06", f: "d", t: "🔴 Clear the rest of the <b>Refugee Camp timed quest board</b>",
         d: "<span class=step><b>Named, from the camp:</b> Being a Good Grandfather (Satata) · A Thoughtful Idea (Matryona) · A Dash of Colour (Ewan) · The Greedy Monster (Satata) · <b>Earnest's Fibs → Earnest's Mischief → Earnest's Solitude</b> (Earnest, a three-part chain worth 2,950 G and a Grand Boots).</span>"
          + "<span class=step><b>Generic, auto-complete:</b> Monster Quest 2 · Monster Quest 3 Parts 1-2 · Challenge 1 Parts 1-2 · Challenge 2 Parts 1-2 · Material Quest 1-4 · Collection Quest 1-2 · Search Quest 1-2.</span>"
          + "<span class=step><b>All of it dies at the relocation.</b> The generic ones auto-complete in the field, so take every one before you go monster hunting and they will tick off as you go.</span>" },
@@ -1785,3 +1785,59 @@ const ROUTE = [
     ]
   }
 ];
+
+// Optional, independently persistent checkpoints for route cards that bundle several
+// objectives. The parent card remains the final confirmation; these prevent partial
+// sweeps from disappearing into paragraph text.
+const ROUTE_SUBCHECK_LABELS = {
+  "c1-miss-brave-protectors": ["Register Andreas", "Register Dorothy", "Register Kantz", "Register Emmy Leater", "Register Miller", "Register Minnie", "Register Monica", "Register Nic", "Register Raoul"],
+  "c1-21": ["Bank 3× Rainbow Zirconia", "Bank 3× Rabbit Diode"],
+  "c4-06": ["Being a Good Grandfather", "A Thoughtful Idea", "A Dash of Colour", "The Greedy Monster", "Earnest's Fibs", "Earnest's Mischief", "Earnest's Solitude", "Monster Quest 2", "Monster Quest 3 — Part 1", "Monster Quest 3 — Part 2", "Challenge 1 — Part 1", "Challenge 1 — Part 2", "Challenge 2 — Part 1", "Challenge 2 — Part 2", "Material Quest 1", "Material Quest 2", "Material Quest 3", "Material Quest 4", "Collection Quest 1", "Collection Quest 2", "Search Quest 1", "Search Quest 2"],
+  "c5-03": ["Bank 2× Ready Coil", "Bank 2× Black Beetle"],
+  "c7-41": ["Complete Makna Forest Collectopaedia", "Complete Frontier Village Collectopaedia"],
+  "c8-16": ["Collect 5× Green Diode", "Collect 3× Astas Remote Unit"],
+  "c8-18": ["Speak to Kaleka", "Collect the Attachment Part in the Second Treasury", "Return to Kaleka", "Return to Elior"],
+  "c8-39": ["Defeat Turbulent Belmo", "Defeat Subterranean Zomar", "Defeat Cumulus Danaemos", "Defeat Calm Anzabi"],
+  "c8-53": ["Complete Eryth Sea Collectopaedia", "Complete Alcamoth Collectopaedia", "Complete High Entia Tomb Collectopaedia"],
+  "c9-03": ["Alcamoth Orbital — Shulk", "Alcamoth Orbital — Reyn", "Alcamoth Orbital — Fiora", "Alcamoth Orbital — Dunban", "Alcamoth Orbital — Sharla", "Alcamoth Orbital — Riki", "Alcamoth Orbital — Melia", "Alcamoth at Dawn — Shulk", "Alcamoth at Dawn — Reyn", "Alcamoth at Dawn — Fiora", "Alcamoth at Dawn — Dunban", "Alcamoth at Dawn — Sharla", "Alcamoth at Dawn — Riki", "Alcamoth at Dawn — Melia"],
+  "c10-09": ["Defeat Glorious Buer", "Defeat Moonlight Paimon", "Defeat Vague Barbas"],
+  "c10-10": ["Defeat Agile Barbatos at night", "Defeat Hidden Gamigin at night", "Defeat North Star Gusion during a night blizzard"],
+  "c11-10": ["Complete Sword Valley Collectopaedia", "Complete Galahad Fortress Collectopaedia"],
+  "c12-13": ["Bank 3× Warning Lamp", "Bank 3× Sour Turnip", "Bank 3× Oil Oyster", "Bank 3× White Plum", "Bank 2× Rainbow Slug"],
+  "c14-06": ["Bank 4× New Part S", "Bank 5× Fairy Tale Diode", "Bank 3× New Part L", "Bank 6× Grape Spring"],
+  "c14-07": ["Examine Phoenix corpse — Helas Pillar", "Examine Phoenix corpse — Dios Pillar", "Examine Phoenix corpse — Effigy of Meyneth", "Examine Phoenix corpse — Calcos Pillar", "Examine Gigas corpse — Residential District 1", "Examine Gigas corpse — Helas Pillar", "Examine Gigas corpse — Telethia Bridge", "Examine Gigas corpse — Judicial District"],
+  "c14-08": ["Defeat Experienced Tristan", "Defeat Destructive Bors", "Defeat Soothed Aglovale", "Defeat Sentimental Flamral"],
+  "c14-17": ["Defeat Amorous Arca", "Defeat Destroyer Salvacion", "Defeat Commander Oracion"],
+  "c14-18": ["Bank 2× Mossy Panel", "Bank 2× Azure Hollyhock"],
+  "c14-19": ["Complete Mechonis Field Collectopaedia", "Complete Agniratha Collectopaedia"],
+  "c14-23": ["Defeat Mild Florence", "Defeat Faithful Lancelot", "Defeat Synchronised Gaheris", "Defeat Balanced Palamedes", "Defeat Sinful Lamorak", "Defeat Temporal Gawain", "Defeat Magestic Mordred"],
+  "c14-24": ["Bank 2× Angel Engine X", "Bank 2× Black Styrene"],
+  "c15-01": ["Dangerous Ambition", "Find the Kingpin", "Adviser Hunt", "Evidence Collection", "Destroying the City Trade", "The Deciphering Machine", "A Necessary Upgrade", "Talia's Research", "Bring Back My Son!", "Teaching Materials", "Brave Actions", "Protect the Capital!", "How Do They Feel?", "How Do I Feel?", "Together Forever", "A Friend in Need", "Preparing for Adventure 1", "Preparing for Adventure 2", "Preparing for Adventure 3", "Adventurers in Peril", "Building Bridges", "Believing Again", "Starlight Seeker", "Starlight Gazer", "Back Pain", "Looking for Gold Bugs", "Losing the Taste for Alcohol", "Looking for a Lost Son", "Looking for a Lost Daughter", "Going Out to Play", "Getting a Member's Card"],
+  "c15-04": ["Speak to Zel Argentis", "Speak to En Argentis", "Invite Don first", "Invite either Zel or En Argentis"],
+  "c16-03": ["Bank 2× Angel Engine X", "Bank 2× Black Styrene"],
+  "c17-03": ["Defeat Reckless Zanden", "Defeat Firework Geldesia"],
+  "c17-05": ["Collect Transmission Bypass", "Collect Exhaust Pump", "Collect Mini Reactor", "Accept Stunted Growth with Dunban leading", "Turn in Stunted Growth with Shulk leading"],
+  "c17-10": ["Complete Replica Monado 1 — Monado Rudra", "Complete Replica Monado 2 — Monado Agni", "Complete Replica Monado 3 — Monado Abyss", "Complete Replica Monado 4 — Monado Dogma", "Complete Replica Monado 5 — Monado Saga"],
+  "c17-13": ["Collect Truth of the Giants", "Collect Daring of the Giants", "Collect Heart of the Giants", "Unseal the door at Three Sage Summit"],
+  "c17-18": ["The Elite Captain's Anguish", "Getting to Know Minnie", "Getting to Know Dorothy", "Lifespan of a Machine", "A Poet's Concerns", "Delivering the Undeliverable", "Finding the Unfindable", "A Dauntless Trader", "Nopon Determination (only on Mefimefi route)", "Defend Colony 6 — Ancient", "Defend Colony 6 — Demon"],
+  "c17-19": ["Challenge", "For a Friend", "A Merciful End", "A Release from Duty", "The Imperial Ceremony", "Imperial Ceremony Offerings", "The Ancient Ceremony", "Ancient Ceremony Offerings"],
+  "c17-21": ["Bank 3× Flexible Selua Cell", "Bank 3× Steel Selua Cell"],
+  "c17-22": ["Bank 2× Inferno Element", "Bank 2× Bolt Element"],
+  "c17-23": ["Defeat Active Impulso", "Defeat Mystical Klesida", "Defeat Victorious Gross", "Defeat Clandestine Apety", "Defeat Vivid Anstan", "Defeat Officer Robusto", "Defeat Ghostly Mahatos", "Defeat Dark King Barbarus"],
+  "c17-24": ["Defeat Ageless Moabit", "Defeat Serene Imlaly", "Defeat Inferno Heinrich", "Defeat Cold Ageshu", "Defeat Abnormal Clone Barg", "Defeat Majestic Clone Barg", "Defeat Masterful Gigapur"],
+  "pg-06": ["Reyn & Dunban — Tranquil Square at night", "Reyn & Fiora — Kneecap Hill", "Dunban & Sharla — Rho Oasis", "Shulk & Dunban — Colony 6 Main Entrance east", "Shulk & Sharla — Colony 6 building top northwest", "Reyn & Sharla — Central Terminal", "Sharla & Riki — Crown Tree", "Dunban & Riki — Riki's House", "Fiora & Riki — Syrath Lighthouse top", "Reyn & Melia — Sky Terrace", "Shulk & Melia — Hall of Trials", "Shulk & Riki — Distant Fingertip", "Fiora & Dunban — Junks 2F", "Fiora & Melia — Digit 1", "Dunban & Melia — Black Wreckage"],
+  "pg-09": ["Housing Level 5", "Commerce Level 5", "Nature Level 5", "Special Level 5"],
+  "pg-10": ["Colony 9 Area Affinity — 5★", "Colony 6 Area Affinity — 5★", "Central Bionis Area Affinity — 5★", "Upper Bionis Area Affinity — 5★", "Hidden Machina Village Area Affinity — 5★"],
+  "pg-11": ["Colony 9 page", "Tephra Cave page", "Bionis' Leg page", "Colony 6 page", "Ether Mine page", "Satorl Marsh page", "Makna Forest page", "Frontier Village page", "Eryth Sea page", "Alcamoth page", "High Entia Tomb page", "Valak Mountain page", "Sword Valley page", "Galahad Fortress page", "Fallen Arm page", "Mechonis Field page", "Central Factory page", "Agniratha page", "Bionis' Interior page", "Other page"],
+  "fc-02": ["Defeat Phlegmatic Jamir", "Defeat Highborn Alexandra", "Defeat Grotesque Deimis", "Defeat Booming Frederick during rain", "Defeat Buoyant Rostein", "Defeat Quondam Grimbellum", "Defeat Confluent Uzva", "Defeat Air Marshal Reisenbach", "Defeat Cyclonic Yughana", "Defeat Deputy Seagal", "Defeat Dismal Umya", "Defeat Caustic Naquatra", "Defeat Terpsichorean Cenoth", "Defeat Marquis Odesh", "Defeat Perceptive Quinops", "Defeat Citadel Tostiga", "Defeat Ravager Apelpisia"],
+  "fc-03": ["Defeat Custodian Barreldart Fogbeast", "Defeat Contemptuous Greymane Fogbeast"]
+};
+
+function routeSubcheckId(label, index) {
+  const slug = label.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 72);
+  return slug || `step-${index + 1}`;
+}
+for (const chapter of ROUTE) for (const item of chapter.items) {
+  const labels = ROUTE_SUBCHECK_LABELS[item.id];
+  if (labels) item.steps = labels.map((label, index) => ({ id: routeSubcheckId(label, index), label }));
+}

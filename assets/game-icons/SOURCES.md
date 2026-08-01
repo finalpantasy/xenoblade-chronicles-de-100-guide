@@ -26,3 +26,5 @@ Three enemy pages do not expose a page thumbnail, so the builder uses their exac
 | `superboss-abaasy.png` | [Avalanche Abaasy 1.png](https://xenoblade.fandom.com/wiki/File:Avalanche_Abaasy_1.png) |
 | `colony6-shop.png` | [Shop Colony 6 numbered.png](https://xenoblade.fandom.com/wiki/File:Shop_Colony_6_numbered.png) |
 | `affinity-mission.png` | [Affinity Mission icon.png](https://xenoblade.fandom.com/wiki/File:Affinity_Mission_icon.png) |
+| `quest-log-de.png` | [Quest.png](https://xenoblade.fandom.com/wiki/File:Quest.png) — authentic XCDE Quest Log capture, used as the higher-resolution source for the Completion Hub and Quest Lookup navigation crops |
+| `colony6-affinity.png` | [Colony 6 Area Affinity.png](https://xenoblade.fandom.com/wiki/File:Colony_6_Area_Affinity.png) |

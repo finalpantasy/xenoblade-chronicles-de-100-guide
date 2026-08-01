@@ -1,4 +1,4 @@
-const CACHE = "xcde-guide-v4-20260801b";
+const CACHE = "xcde-guide-v4-20260801e";
 const CORE = [
   "./", "./index.html", "./manifest.webmanifest",
   "./data/route-data.js", "./data/world-data.js", "./data/build-data.js", "./data/route-bindings-data.js",
