@@ -886,6 +886,27 @@ html:not([data-theme="xenoblade"]) .mobile-more{display:none}
 @media(max-width:1400px) and (min-width:1051px){html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:1050px){html:not([data-theme="xenoblade"]) .hrow{grid-template-columns:1fr}html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(3,minmax(0,1fr))}html:not([data-theme="xenoblade"]) .tabnote{display:block}}
 @media(max-width:640px){html:not([data-theme="xenoblade"]) h1 span{display:block;margin-top:2px;white-space:normal}html:not([data-theme="xenoblade"]) .header-console{display:grid;gap:10px}html:not([data-theme="xenoblade"]) .header-tools{grid-template-columns:1fr}html:not([data-theme="xenoblade"]) .theme-control{width:100%;margin:0;justify-content:space-between}html:not([data-theme="xenoblade"]) .theme-control select{min-width:0;width:min(190px,55vw)}html:not([data-theme="xenoblade"]) .tabs-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch}html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(2,minmax(0,1fr));padding:0!important}html:not([data-theme="xenoblade"]) .tabs button{min-height:52px!important;padding:7px 5px;font-size:13px!important;line-height:1.2}html:not([data-theme="xenoblade"]) .tabs button.secondary-tab{display:none!important}html:not([data-theme="xenoblade"]) .tabnote{display:none}html:not([data-theme="xenoblade"]) .mobile-more{display:flex}}
+/* Route-integrated discovery cues: light actions, anchored where the route reaches them. */
+.route-cue-bundle{margin:5px 14px 7px 32px;border-left:2px solid color-mix(in srgb,var(--accent) 52%,var(--line));background:color-mix(in srgb,var(--accent) 3%,transparent)}
+.route-cue-bundle.effort-short-detour{border-left-color:var(--amber)}.route-cue-bundle.effort-dedicated-sweep,.route-cue-bundle.effort-return-later{border-left-color:var(--purple)}
+.route-cue-head{display:flex;align-items:center;gap:8px;min-height:31px;padding:4px 10px;border-bottom:1px solid color-mix(in srgb,var(--line) 65%,transparent);color:var(--fg2);font-size:12.5px;line-height:1.3}
+.route-cue-collapsible>summary{cursor:pointer;list-style:none}.route-cue-collapsible>summary::-webkit-details-marker{display:none}.route-cue-collapsible:not([open])>summary{border-bottom:0}.route-cue-collapsible>summary:after{content:"";width:6px;height:6px;margin:0 3px 0 2px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}.route-cue-collapsible[open]>summary:after{transform:rotate(45deg)}
+.route-cue-head b{color:var(--fg);font-size:13px}.route-cue-head .route-cue-area{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.route-cue-head .gcount{margin-left:auto}
+.it.route-cue{display:grid;grid-template-columns:20px minmax(0,1fr);gap:9px;align-items:center;min-height:42px;padding:6px 11px 6px 10px;border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent);background:transparent;box-shadow:none}
+.it.route-cue:last-child{border-bottom:0}.it.route-cue:before{display:none}.it.route-cue input{width:17px;height:17px;margin:0}
+.route-cue-line{display:flex;align-items:center;gap:7px;min-width:0}.it.route-cue label{display:flex;align-items:baseline;gap:6px;min-width:0;color:var(--fg);font:600 14px/1.35 var(--display);cursor:pointer}
+.route-cue-kind{flex:0 0 auto;color:var(--accent);font:750 10.5px/1.2 "Segoe UI Variable Text","Segoe UI",sans-serif;letter-spacing:.055em;text-transform:uppercase}
+.route-cue-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.route-cue-note{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--fg3);font-size:12.5px;line-height:1.35}
+.route-cue-effort{flex:0 0 auto;margin-left:auto;color:var(--fg3);font-size:11.5px;white-space:nowrap}.route-cue-effort:before{content:"· ";color:var(--line)}
+.route-cue-bundle:not(.is-single) .route-cue-effort{display:none}
+.route-cue.is-secret .route-cue-kind{color:var(--purple)}.route-cue[data-deadline="true"]{background:var(--redbg)}
+.it.resource-cue{gap:11px;align-items:center;padding:9px 14px 10px}.it.resource-cue input{width:18px;height:18px;margin-top:1px}.it.resource-cue label{font-size:15px;line-height:1.4}.it.resource-cue .tag{font-size:10.5px;padding:2px 6px}.it.resource-cue .rec-level{padding:3px 7px;font-size:11px}.it.resource-cue .det{margin-top:5px;padding-top:5px;font-size:13px;line-height:1.45}.it.resource-cue .route-subchecks{margin-top:7px;padding:7px 9px}.it.resource-cue .route-subcheck{padding:6px 8px;font-size:13px}
+.route-catchup{margin:10px 14px 12px 32px;border:1px solid var(--line);background:var(--bg2)}.route-catchup>summary{padding:8px 11px;color:var(--fg2);font-size:13px;font-weight:700;cursor:pointer}.route-catchup[open]>summary{border-bottom:1px solid var(--line)}
+html[data-theme="xenoblade"] .route-cue-bundle{background:linear-gradient(90deg,rgba(7,43,67,.62),rgba(2,20,34,.18));border-left-color:#4bcceb}
+html[data-theme="xenoblade"] .route-cue-bundle.effort-short-detour{border-left-color:#d59a32}html[data-theme="xenoblade"] .route-cue-bundle.effort-dedicated-sweep,html[data-theme="xenoblade"] .route-cue-bundle.effort-return-later{border-left-color:#aa7ee8}
+html[data-theme="xenoblade"] .it.route-cue{gap:9px;padding:6px 11px 6px 10px;background:transparent;border-bottom-color:#19425a}html[data-theme="xenoblade"] .it.route-cue:hover{background:rgba(62,185,226,.08)}html[data-theme="xenoblade"] .it.route-cue input[type=checkbox]{width:18px;height:18px;margin:0}html[data-theme="xenoblade"] .it.route-cue label{color:#e6f2f8;font:600 14px/1.35 var(--display)}html[data-theme="xenoblade"] .route-cue-note{color:#86aabd}
+html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}html[data-theme="xenoblade"] .it.resource-cue input[type=checkbox]{width:19px;height:19px;margin-top:1px}html[data-theme="xenoblade"] .it.resource-cue label{font-size:16px;line-height:1.35}html[data-theme="xenoblade"] .it.resource-cue .det{font-size:13px;line-height:1.45}
+@media(max-width:640px){.route-cue-bundle,.route-catchup{margin-left:11px;margin-right:4px}.route-cue-line{align-items:flex-start;flex-wrap:wrap}.route-cue-note{order:3;width:100%;white-space:normal}.route-cue-effort{margin-left:0}.route-cue-head .route-cue-area{white-space:normal}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -1506,7 +1527,7 @@ const questEl = document.getElementById("quest-results");
 const atlasEl = document.getElementById("reference-atlas");
 const collectEl = document.getElementById("reference-collect");
 const affinityEl = document.getElementById("reference-affinity");
-let routeReady = false, completionReady = false, monsterReady = false, worldReady = false, buildReady = false, collectReady = false, atlasReady = false, frontierReady = false, affinityReady = false, bindingsReady = false;
+let routeReady = false, completionReady = false, monsterReady = false, worldReady = false, anchorsReady = false, buildReady = false, collectReady = false, atlasReady = false, frontierReady = false, affinityReady = false, bindingsReady = false;
 
 function uiIcon(name){
   return `<svg class="ui-icon" aria-hidden="true"><use href="#i-${name}"></use></svg>`;
@@ -1687,6 +1708,52 @@ function renderWorldTracker(ch, entries){
   const complete = entries.filter(entry => worldDone[entry.id]).length;
   return `<details class="world-block" data-world-ch="${ch.id}"><summary class="world-head">${gameIcon("landmark")}Location, landmark &amp; secret-area tracker <span class="gcount world-count">${complete}/${entries.length}</span></summary>${rows}</details>`;
 }
+function worldRouteAnchorMap(){
+  return Object.assign(Object.create(null),
+    typeof WORLD_ROUTE_ANCHORS_EARLY === "object" ? WORLD_ROUTE_ANCHORS_EARLY : null,
+    typeof WORLD_ROUTE_ANCHORS_MID === "object" ? WORLD_ROUTE_ANCHORS_MID : null,
+    typeof WORLD_ROUTE_ANCHORS_LATE === "object" ? WORLD_ROUTE_ANCHORS_LATE : null);
+}
+const WORLD_EFFORT_LABELS = Object.freeze({
+  "on-path":"As you pass", "short-detour":"Short detour", "dedicated-sweep":"Dedicated sweep", "return-later":"Return later"
+});
+function worldGroupsForChapter(ch, entries){
+  if (!entries.length) return [];
+  const anchors = worldRouteAnchorMap();
+  const valid = new Set(ch.items.filter(item => item.id).map(item => item.id));
+  const groups = new Map();
+  entries.forEach(entry => {
+    const source = anchors[entry.id] || {};
+    const anchorId = source.anchorId === "@start" || source.anchorId === "@end" || valid.has(source.anchorId) ? source.anchorId : "@end";
+    const placement = { anchorId, position:source.position === "before" ? "before" : "after", order:Number(source.order) || 999, effort:WORLD_EFFORT_LABELS[source.effort] ? source.effort : "return-later", bundle:source.bundle || `unplaced-${ch.id}`, note:source.note || entry.accessNotes || "Discover this point before leaving the area." };
+    const key = [placement.anchorId,placement.position,placement.bundle,placement.effort].join("|");
+    if (!groups.has(key)) groups.set(key,{...placement,entries:[]});
+    groups.get(key).entries.push({...entry,routePlacement:placement});
+  });
+  return [...groups.values()].map(group => ({...group,entries:group.entries.sort((a,b)=>a.routePlacement.order-b.routePlacement.order || a.name.localeCompare(b.name))}));
+}
+function renderWorldCue(entry){
+  const inputId = `track-${entry.id}`, checked = !!worldDone[entry.id], deadline = entry.lockoutDeadline || entry.areaDeadline;
+  const type = entry.type.replace(/-/g," "), effort = entry.routePlacement.effort;
+  const note = String(entry.routePlacement.note || "");
+  const genericNote = note.toLowerCase().startsWith(`discover ${String(entry.name || "").toLowerCase()} during `)
+    && /(?:pass|sweep)\.$/i.test(note);
+  return `<div class="it world-it route-cue effort-${esc(effort)}${entry.type === "secret-area" ? " is-secret" : ""}${checked ? " done" : ""}" data-f="world" data-id="${esc(entry.id)}" data-world-id="${esc(entry.id)}"${deadline ? ' data-deadline="true"' : ""}>
+    <input type="checkbox" id="${esc(inputId)}" data-world-id="${esc(entry.id)}"${checked ? " checked" : ""}>
+    <div class="route-cue-line"><label for="${esc(inputId)}"><span class="route-cue-kind">${esc(type)}</span><span class="route-cue-name">${esc(entry.name)}</span></label>${genericNote ? "" : `<span class="route-cue-note">${esc(note)}</span>`}<span class="route-cue-effort">${esc(WORLD_EFFORT_LABELS[effort])}</span>${deadline ? `<span class="deadline-badge">${gameIcon("timed")}Lockout</span>` : ""}</div></div>`;
+}
+function renderWorldGroup(group){
+  const rows = group.entries.map(renderWorldCue).join("");
+  const complete = group.entries.filter(entry => worldDone[entry.id]).length;
+  const areas = [...new Set(group.entries.map(entry => entry.area))].join(" / ");
+  if (group.anchorId === "@end") return `<details class="world-block route-catchup" data-world-group="${esc(group.bundle)}"><summary>${gameIcon("landmark")}Catch-up sweep · ${esc(areas)} <span class="gcount world-count">${complete}/${group.entries.length}</span></summary>${rows}</details>`;
+  const head = `<b>${esc(WORLD_EFFORT_LABELS[group.effort])}</b><span class="route-cue-area">${esc(areas)}</span><span class="gcount world-count">${complete}/${group.entries.length}</span>`;
+  if (group.entries.length > 6 && group.effort !== "on-path") return `<details class="route-cue-bundle route-cue-collapsible effort-${esc(group.effort)}" data-world-group="${esc(group.bundle)}"><summary class="route-cue-head">${head}</summary>${rows}</details>`;
+  return `<div class="route-cue-bundle effort-${esc(group.effort)}${group.entries.length === 1 ? " is-single" : ""}" data-world-group="${esc(group.bundle)}">${group.entries.length > 1 ? `<div class="route-cue-head">${head}</div>` : ""}${rows}</div>`;
+}
+function renderWorldAt(groups, anchorId, position="after"){
+  return groups.filter(group => group.anchorId === anchorId && group.position === position).map(renderWorldGroup).join("");
+}
 function buildName(id){
   if (!buildReady) return id;
   const all = [...BUILD_DATA.characters, ...BUILD_DATA.futureConnected.characters];
@@ -1725,16 +1792,19 @@ function renderRouteBuildUpdate(ch){
 function build(){
   routeEl.innerHTML = ROUTE.map(ch => {
     const worldEntries = worldEntriesForChapter(ch);
+    const worldGroups = worldGroupsForChapter(ch, worldEntries);
     const leaderTasks = ch.items.filter(item => !item.k && requiredLeader(item)).length;
     const deadlineTasks = ch.items.filter(item => !item.k && item.f === "d").length
       + worldEntries.filter(entry => entry.lockoutDeadline || entry.areaDeadline).length;
     const items = ch.items.map(it => {
+      const before = it.id ? renderWorldAt(worldGroups,it.id,"before") : "";
+      const after = it.id ? renderWorldAt(worldGroups,it.id,"after") : "";
       // Inline info panel (not tickable)
       if (it.k){
         const [icon, deflabel] = KINDS[it.k] || KINDS.info;
-        return `<div class="pan p-${it.k}" data-f="pan">
+        return `${before}<div class="pan p-${it.k}" data-f="pan">
           <div class="pant">${icon} ${routeTitle(it.t || deflabel)}</div>
-          <div class="pand">${it.d || ""}</div></div>`;
+          <div class="pand">${it.d || ""}</div></div>${after}`;
       }
       const [lbl, cls] = TAGS[it.f] || TAGS.x;
       const tag = lbl ? `<span class="tag t-${cls}">${lbl}</span>` : "";
@@ -1752,9 +1822,9 @@ function build(){
         return `<fieldset class="route-subchecks" data-subcheck-group="${esc(it.id)}"><legend>Sub-checkpoints · <span class="route-subcheck-count">${complete}/${it.steps.length}</span></legend><div class="route-subcheck-list">${it.steps.map(step => { const inputId=`sub-${it.id}-${step.id}`,checked=!!bucket[step.id]; return `<label class="route-subcheck${checked?" is-done":""}" for="${esc(inputId)}"><input type="checkbox" id="${esc(inputId)}" data-subcheck-parent="${esc(it.id)}" data-subcheck-id="${esc(step.id)}"${checked?" checked":""}><span>${esc(step.label)}</span></label>`; }).join("")}</div></fieldset>`;
       })() : "";
       const references = routeQuickLinks(it);
-      return `<div class="it ${it.f}${on}${leader ? " leader-needed" : ""}" data-f="${it.f}" data-id="${it.id}">
+      return `${before}<div class="it ${it.f}${it.f === "m" ? " resource-cue" : ""}${on}${leader ? " leader-needed" : ""}" data-f="${it.f}" data-id="${it.id}">
         <input type="checkbox" id="${it.id}"${done[it.id]?" checked":""}>
-        <div class="ibody"><div class="ihead"><label for="${it.id}">${tag}${routeTitle(it.t)}</label><div class="imeta">${meta}</div></div>${det}${subchecks}${references}</div></div>`;
+        <div class="ibody"><div class="ihead"><label for="${it.id}">${tag}${routeTitle(it.t)}</label><div class="imeta">${meta}</div></div>${det}${subchecks}${references}</div></div>${after}`;
     }).join("");
     return `<section class="ch" id="s-${ch.id}">
       <h2 class="chapter-heading"><button type="button" class="chh" aria-expanded="true" aria-controls="b-${ch.id}"><span class="caret">▼</span>
@@ -1763,7 +1833,7 @@ function build(){
       </button></h2>
       ${ch.note ? `<div class="chnote">${ch.note}</div>` : ""}
       ${leaderTasks || deadlineTasks ? `<div class="chapter-alert">${deadlineTasks ? gameIcon("timed") : uiIcon("warning")}${deadlineTasks ? `This chapter contains <b>${deadlineTasks} deadline/missable task${deadlineTasks === 1 ? "" : "s"}</b>` : ""}${deadlineTasks && leaderTasks ? " and " : ""}${leaderTasks ? `<b>${leaderTasks} party-leader gate${leaderTasks === 1 ? "" : "s"}</b>` : ""}. ${deadlineTasks ? "Clear every red or lockout-marked card before advancing." : "Set the named party leader before starting those quests."}</div>` : ""}
-      <div class="chb" id="b-${ch.id}">${renderRouteBuildUpdate(ch)}${renderWorldTracker(ch, worldEntries)}${items}</div></section>`;
+      <div class="chb" id="b-${ch.id}">${renderRouteBuildUpdate(ch)}${renderWorldAt(worldGroups,"@start")}${items}${renderWorldAt(worldGroups,"@end")}</div></section>`;
   }).join("");
   syncChapterJump();
   tally();
@@ -1780,8 +1850,11 @@ function tally(){
     const el = routeEl.querySelector(`[data-ch="${ch.id}"]`);
     if (el){ el.textContent = `${c}/${chapterTotal}`;
              el.classList.toggle("done", c === chapterTotal); }
-    const worldCount = routeEl.querySelector(`[data-world-ch="${ch.id}"] .world-count`);
-    if (worldCount) worldCount.textContent = `${world.filter(i => worldDone[i.id]).length}/${world.length}`;
+    routeEl.querySelectorAll(`#s-${ch.id} [data-world-group]`).forEach(group => {
+      const inputs = [...group.querySelectorAll("input[data-world-id]")];
+      const worldCount = group.querySelector(".world-count");
+      if (worldCount) worldCount.textContent = `${inputs.filter(input => input.checked).length}/${inputs.length}`;
+    });
   });
   const pc = tot ? Math.round(hit/tot*100) : 0;
   if (!document.getElementById("p-completion").classList.contains("on")) setProgress(hit, tot, "Route progress");
@@ -1974,8 +2047,10 @@ function filter(){
       p.classList.toggle("hide", !ok);
       if (ok) shown++;
     });
-    sec.querySelectorAll("details.world-block").forEach(details => {
-      if (mode === "world" || q) details.open = true;
+    sec.querySelectorAll("[data-world-group]").forEach(group => {
+      const hasVisibleCue = [...group.querySelectorAll(".world-it")].some(row => !row.classList.contains("hide"));
+      group.classList.toggle("hide", !hasVisibleCue);
+      if (group.matches("details") && (mode === "world" || q)) group.open = true;
     });
     sec.style.display = shown ? "" : "none";
     if (shown) visibleChapters++;
@@ -2655,7 +2730,7 @@ function loadData(file){
     document.head.appendChild(s);
   });
 }
-let completionLoad = null, monsterLoad = null, collectLoad = null, atlasLoad = null, frontierLoad = null, coordinateLoad = null, dossierLoad = null, affinityLoad = null, bindingsLoad = null;
+let completionLoad = null, monsterLoad = null, collectLoad = null, atlasLoad = null, frontierLoad = null, coordinateLoad = null, dossierLoad = null, affinityLoad = null, bindingsLoad = null, anchorsLoad = null;
 function ensurePanelData(name){
   if (name === "companion") {
     ensurePanelData("completion"); ensurePanelData("monsters");
@@ -2689,6 +2764,11 @@ function ensurePanelData(name){
   }
 }
 bindingsLoad = loadData("data/route-bindings-data.js").then(() => { bindingsReady = true; if (completionReady) renderCompletion(); if (worldReady) renderQuestLookup(); renderCompanion(); }).catch(() => { bindingsReady = false; });
+anchorsLoad = Promise.all([
+  loadData("data/world-route-anchors-early.js"),
+  loadData("data/world-route-anchors-mid.js"),
+  loadData("data/world-route-anchors-late.js")
+]).then(() => { anchorsReady = true; if (routeReady && worldReady) { build(); filter(); } }).catch(() => { anchorsReady = true; if (routeReady && worldReady) { build(); filter(); } });
 loadData("data/route-data.js").then(() => {
   routeReady = true; build(); filter(); renderCompanion();
 }).catch(() => {
@@ -2696,7 +2776,7 @@ loadData("data/route-data.js").then(() => {
       + 'Keep the <code>data</code> folder in the same place as this file.</p></div>';
 });
 loadData("data/world-data.js").then(() => {
-  worldReady = true; initQuestLookup(); if (routeReady) { build(); filter(); } renderCompanion();
+  worldReady = true; initQuestLookup(); if (routeReady && anchorsReady) { build(); filter(); } renderCompanion();
 }).catch(() => {
   questEl.innerHTML = '<div class="callout"><p><strong>Could not load <code>data/world-data.js</code>.</strong> Run <code>node build-world-data.js</code>.</p></div>';
 });

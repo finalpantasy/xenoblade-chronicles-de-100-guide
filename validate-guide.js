@@ -18,6 +18,10 @@ const route = loadConst("data/route-data.js", "ROUTE");
 const completion = loadConst("data/completion-data.js", "COMPLETION_DATA");
 const monsterpedia = loadConst("data/monsterpedia-data.js", "MONSTERPEDIA_DATA");
 const world = loadConst("data/world-data.js", "WORLD_DATA");
+const worldAnchors = Object.assign({},
+  loadConst("data/world-route-anchors-early.js", "WORLD_ROUTE_ANCHORS_EARLY"),
+  loadConst("data/world-route-anchors-mid.js", "WORLD_ROUTE_ANCHORS_MID"),
+  loadConst("data/world-route-anchors-late.js", "WORLD_ROUTE_ANCHORS_LATE"));
 const builds = loadConst("data/build-data.js", "BUILD_DATA");
 const collectopaedia = loadConst("data/collectopaedia-data.js", "COLLECTOPAEDIA_DATA");
 const atlas = loadConst("data/map-atlas-data.js", "MAP_ATLAS_DATA");
@@ -90,6 +94,20 @@ const worldEntries = world.areas.flatMap(area => area.entries);
 assert(world.areas.length === 21, `Expected 21 map areas, got ${world.areas.length}`);
 assert(worldEntries.length === 461, `Expected 461 map discoveries, got ${worldEntries.length}`);
 assert(worldEntries.filter(entry => entry.type === "secret-area").length === 19, "Expected all 19 base + Future Connected secret areas");
+const worldEntryIds = new Set(worldEntries.map(entry => entry.id));
+const worldAnchorIds = Object.keys(worldAnchors);
+assert(worldAnchorIds.length === worldEntries.length, `Expected ${worldEntries.length} route-anchored discoveries, got ${worldAnchorIds.length}`);
+assert(worldAnchorIds.every(id => worldEntryIds.has(id)), "World route anchors contain a non-discovery ID");
+assert(worldEntries.every(entry => worldAnchors[entry.id]), "A world discovery lacks an inline route anchor");
+const routeChapterByItem = new Map(route.flatMap(chapter => chapter.items.filter(item => item.id).map(item => [item.id,chapter.id])));
+const validEfforts = new Set(["on-path","short-detour","dedicated-sweep","return-later"]);
+for (const entry of worldEntries) {
+  const placement = worldAnchors[entry.id];
+  assert(placement.anchorId !== "@start", `${entry.name} is dumped at the start of its chapter instead of routed`);
+  assert(placement.anchorId === "@end" || routeChapterByItem.get(placement.anchorId) === entry.routeChapterId, `${entry.name} points to an anchor outside ${entry.routeChapterId}`);
+  assert(validEfforts.has(placement.effort), `${entry.name} has an invalid routing effort`);
+  assert(placement.bundle && placement.note && !/map discovery entry/i.test(placement.note), `${entry.name} lacks actionable routing metadata`);
+}
 const collectItems = collectopaedia.collections.flatMap(page => page.groups.flatMap(group => group.items));
 assert(collectopaedia.collections.length === 21 && collectItems.length === 300, "Collectopaedia tracker coverage changed");
 assert(new Set(collectItems.map(item => item.id)).size === collectItems.length, "Collectopaedia has duplicate item IDs");
