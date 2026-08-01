@@ -289,6 +289,8 @@ assert(html.includes('background-attachment:scroll'), "The themed mobile backgro
 assert(html.includes('id="p-companion"') && html.includes('id="advance-status"') && html.includes('id="inventory-list"'), "Play Mode companion controls are missing");
 assert(html.includes('class="route-subchecks"') && html.includes('data-subcheck-parent=') && html.includes('routeSteps: cleanNestedMap'), "Persistent nested route checkpoints are not wired into the guide");
 assert(html.includes('id="guide-search"') && html.includes('class="header-tools"') && html.includes('class="header-status"'), "Header search, theme, and progress regions are not structurally separated");
+assert(html.includes('class="header-console"') && html.includes('ROUTE PROGRESS'), "Extreme header console or progress label is missing");
+assert(html.includes('function renderBuildGoalComparison') && html.includes('Same ${reliable.length} normal Arts') && html.includes('class="build-delta"'), "Reliable-versus-fortress build comparison is missing");
 assert(fs.existsSync(path.join(root, "manifest.webmanifest")) && fs.existsSync(path.join(root, "sw.js")), "PWA manifest or service worker is missing");
 
 const inlineScripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);

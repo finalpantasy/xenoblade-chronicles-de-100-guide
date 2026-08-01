@@ -258,6 +258,9 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.querySelector('[data-p="combat"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.querySelectorAll("#build-character-tabs .build-character-tab").length === 11, "Build Lab roster did not render 11 character tabs");
   assert(document.querySelectorAll("#party-presets .preset-avatar[src^='assets/party-portraits/']").length > 0, "Party presets are missing their sourced character portraits");
+  assert(document.getElementById("build-goal-note").textContent.includes("Same 8 normal Arts"), "Shulk's fortress comparison does not explain why its Arts match Reliable meta");
+  document.querySelector('[data-build-character="reyn"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("build-goal-note").textContent.includes("Fortress adds Last Stand, Aura Burst"), "Reyn's fortress comparison does not expose its actual Art changes");
   document.querySelector('[data-build-character="melia"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   document.getElementById("build-control").value = "ai";
   document.getElementById("build-goal").value = "aggressive";
@@ -265,7 +268,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(/Melia · AI · Fastest-kill meta/.test(document.getElementById("build-result").textContent), "Build Lab selectors did not update the recommendation");
   document.getElementById("build-goal").value = "fortress";
   document.getElementById("build-goal").dispatchEvent(new Event("change", { bubbles: true }));
-  assert(document.getElementById("build-goal-note").textContent.includes("separate survival-first"), "Fortress mode does not explain how it differs from Reliable meta");
+  assert(document.getElementById("build-goal-note").textContent.includes("Survival-first"), "Fortress mode does not explain how it differs from Reliable meta");
   document.getElementById("build-show-all").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.querySelectorAll("#build-result .build-character-block").length === 11, "Build Lab Show all did not render every character sequentially");
   document.getElementById("build-show-all").dispatchEvent(new MouseEvent("click", { bubbles: true }));
