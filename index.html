@@ -19,7 +19,7 @@
   --fg:#142635; --fg2:#405868; --fg3:#526b7b;
   --nav:#0b2438; --nav2:#12344f; --navline:#2c6687;
   --accent:#007da9; --accent2:#00658d;
-  --focus:#00658d; --shell:1180px;
+  --focus:#00658d; --shell:min(1800px,calc(100vw - 32px));
   --display:"XC Guide Slab",Georgia,"Times New Roman",serif;
   --red:#b72d38; --redbg:#fff0f1; --redline:#df9da3;
   --amber:#8a6100; --amberbg:#fff7df;
@@ -94,6 +94,7 @@ h1 span{color:#a9bfd0;font-weight:500;font-size:14px}
 .game-icon{display:inline-block;width:1.35em;height:1.35em;object-fit:contain;vertical-align:-.34em;
   margin-right:.42em;flex:0 0 auto;image-rendering:auto;filter:drop-shadow(0 1px 1px rgba(0,0,0,.32))}
 .tabs .game-icon{width:23px;height:23px;vertical-align:-6px;margin-right:7px}
+.nav-game-icon{display:inline-block;flex:0 0 25px;width:25px;height:25px;margin-right:7px;vertical-align:-7px;border:1px solid rgba(159,221,245,.7);border-radius:50%;background-color:#dce7e8;background-image:url("assets/game-icons/quest-log-de.png");background-repeat:no-repeat;background-size:902px 530.5px;box-shadow:inset 0 0 0 2px rgba(3,20,33,.18),0 1px 4px rgba(0,0,0,.6)}.nav-quest-crown{background-position:-31px -80px}.nav-quest-alert{background-position:-66px -80px}.nav-area-icon{width:25px!important;height:25px!important;margin-right:7px!important;border:1px solid #d6b348;border-radius:50%;background:#eee4c9;box-shadow:0 1px 4px rgba(0,0,0,.6);filter:saturate(1.1) contrast(1.08)!important}
 .chip .game-icon{width:21px;height:21px;vertical-align:-5px;margin-right:6px}
 .pant .game-icon{width:25px;height:25px;vertical-align:-7px;margin-right:8px}
 .world-head .game-icon{width:18px;height:28px;vertical-align:-9px;margin-right:8px}
@@ -367,9 +368,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
 .build-controls{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 24px}
 .build-controls select{background:var(--bg2);border:1px solid var(--line);color:var(--fg);border-radius:8px;
   min-height:48px;padding:10px 12px;font:inherit;font-size:16px}
+.build-character-nav{display:flex;align-items:stretch;gap:10px;margin:18px 0 14px}.build-character-tabs{display:flex;flex:1;gap:7px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}.build-character-tab,.build-show-all{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:54px;padding:7px 12px;border:1px solid var(--line);border-radius:7px;background:var(--bg2);color:var(--fg2);font:inherit;font-size:14px;font-weight:720;cursor:pointer}.build-character-tab img{width:34px;height:40px;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:3px;background:var(--bg3)}.build-character-tab:hover,.build-character-tab.on,.build-show-all:hover,.build-show-all.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,var(--bg2));color:var(--fg)}.build-character-tab.on,.build-show-all.on{box-shadow:inset 0 -3px var(--accent)}.build-show-all{justify-content:center;min-width:116px}.build-mode-note{margin:-5px 0 18px;padding:12px 14px;border-left:4px solid var(--accent);background:var(--bg2);color:var(--fg2)}.build-result-stack{display:grid;gap:32px}.build-character-block{scroll-margin-top:76px}.build-character-heading{display:flex;align-items:center;gap:13px;margin:0;padding:13px 16px;border:1px solid var(--line);border-bottom:0;background:var(--bg3)}.build-character-heading img{width:48px;height:58px;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:4px}.build-character-heading h3{margin:0;color:var(--fg);font-size:23px}.build-character-heading p{margin:2px 0 0;font-size:14px}.build-character-block>.build-columns{margin:0}.build-character-block>.build-columns .build-section{border-radius:0}
 .build-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
 .build-section{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
 .build-section h3{margin:0 0 8px;color:var(--accent)}
+.route-subchecks{margin:14px 0 2px;padding:12px 14px 10px;border:1px solid var(--line);border-radius:6px;background:color-mix(in srgb,var(--accent) 4%,var(--bg2))}.route-subchecks legend{padding:0 7px;color:var(--fg2);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.route-subcheck-count{color:var(--accent)}.route-subcheck-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 18px}.route-subcheck{display:flex;align-items:flex-start;gap:11px;min-height:32px;padding:6px 7px;border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent);border-radius:3px;color:var(--fg2);font-size:15px;line-height:1.42}.route-subcheck:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--fg)}.route-subcheck input{flex:0 0 auto;width:18px!important;height:18px!important;margin:2px 0 0!important}.route-subcheck.is-done span{text-decoration:line-through;opacity:.66}
 .preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:14px 0 28px}
 .preset{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:15px 17px;cursor:pointer;
   text-align:left;color:var(--fg);font:inherit}
@@ -665,7 +668,7 @@ html[data-theme="xenoblade"] .tabs button.on .game-icon{filter:drop-shadow(0 2px
    restrained red danger states, and large readable route rows.
    ========================================================================== */
 html[data-theme="xenoblade"]{
-  --shell:min(1520px,calc(100vw - 32px));--notch:15px;--rail:3px;
+  --shell:min(1800px,calc(100vw - 32px));--notch:15px;--rail:3px;
   --hud-blue:#064a77;--hud-blue-2:#092d4b;--hud-deep:#020c17;--hud-line:#217dad;
   --hud-bright:#49d6ff;--hud-text:#f4f8ff;--hud-muted:#b0c7d8
 }
@@ -747,7 +750,7 @@ html[data-theme="xenoblade"] .build-lab{border-top:1px solid #3a81a7;border-bott
 html[data-theme="xenoblade"] .preset-avatar{border-color:#3a6985;background:#061a2b;filter:saturate(.9) contrast(1.08) brightness(.96)}html[data-theme="xenoblade"] .preset-avatar.is-leader{border-color:#edc858;box-shadow:0 0 10px rgba(237,200,88,.35)}
 html[data-theme="xenoblade"] .guide-feature,html[data-theme="xenoblade"] .guide-reference{border-color:#2d7199;background:linear-gradient(110deg,rgba(4,31,52,.96),rgba(2,19,33,.96))}html[data-theme="xenoblade"] .guide-feature img{border-color:#437b9b;box-shadow:0 0 18px rgba(38,171,220,.12)}html[data-theme="xenoblade"] .guide-reference>summary{color:#6ce5ff;font-family:var(--display)}
 @media(max-width:1050px){
-  html[data-theme="xenoblade"]{--shell:min(100% - 22px,1520px)}
+  html[data-theme="xenoblade"]{--shell:min(calc(100% - 22px),1800px)}
   html[data-theme="xenoblade"] h1{font-size:32px}
   html[data-theme="xenoblade"] h1 span{font-size:20px}
   html[data-theme="xenoblade"] .tabs{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}
@@ -854,10 +857,13 @@ html[data-theme="xenoblade"] .guide-feature,html[data-theme="xenoblade"] .guide-
 input[type=search]{border-width:2px;background:color-mix(in srgb,var(--accent) 11%,var(--bg2));box-shadow:inset 0 0 13px color-mix(in srgb,var(--accent) 8%,transparent)}input[type=search]::placeholder{color:var(--fg2);opacity:.92}
 .tabs .game-icon{width:24px;height:24px;object-fit:contain;background:radial-gradient(circle,rgba(78,205,246,.15),transparent 68%);filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 4px rgba(79,211,255,.24))}.tabs button.on .game-icon{filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 7px rgba(103,225,255,.7))}
 .companion-shell{display:grid;gap:18px}.companion-topbar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:15px;border:1px solid var(--line);background:var(--bg2)}.companion-topbar .filter-field{min-width:210px;flex:1}.companion-topbar select{display:block;width:100%;min-height:44px;margin-top:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.advance-status{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border:2px solid var(--green);background:var(--greenbg)}.advance-status.is-blocked{border-color:var(--redline);background:var(--redbg)}.advance-status strong{display:block;font-size:22px}.mission-current{padding:22px;border:2px solid var(--accent);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 13%,var(--bg2)),var(--bg2));box-shadow:0 10px 28px rgba(0,0,0,.14)}.mission-current h3{margin:0 0 8px;font-size:27px}.mission-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:8px 0 13px;color:var(--fg2);font-weight:700}.next-steps{display:grid;gap:9px}.step-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:start;padding:13px 15px;border:1px solid var(--line);background:var(--bg2)}.step-card .step-number{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--accent);color:var(--accent);font-weight:800}.step-card p{margin:0}.brief-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}.brief-card{padding:16px;border:1px solid var(--line);background:var(--bg2)}.brief-card h3{margin:0 0 8px}.brief-stat{font-size:27px;font-weight:780;color:var(--accent)}.inventory-list{display:grid;gap:8px}.inventory-row{display:grid;grid-template-columns:minmax(180px,1fr) 90px minmax(180px,1fr) auto;gap:10px;align-items:center;padding:11px 13px;border:1px solid var(--line);background:var(--bg2)}.inventory-row input[type=number]{width:82px;min-height:40px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:5px 8px}.inventory-need{color:var(--fg2);font-size:14px}.encounter-console{padding:16px;border:1px solid var(--redline);background:var(--redbg)}.encounter-console select{width:min(560px,100%);min-height:44px;margin:6px 0 12px;border:1px solid var(--redline);background:var(--bg2);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.quest-readiness{margin:10px 0;padding:10px 12px;border-left:4px solid var(--green);background:var(--greenbg)}.quest-readiness.is-blocked{border-color:var(--red);background:var(--redbg)}.binding-note{display:inline-flex;align-items:center;gap:5px;color:var(--fg3);font-size:12px}.offline-note{padding:10px 13px;border:1px solid var(--line);background:var(--bg2);color:var(--fg2);font-size:14px}
-html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(360px,1fr) minmax(480px,640px);grid-template-areas:"brand title status" "brand title tools";min-height:124px}html[data-theme="xenoblade"] .brand-logo{grid-area:brand;width:142px;height:86px;box-sizing:border-box;padding:7px;background:linear-gradient(135deg,rgba(236,249,255,.96),rgba(157,206,226,.82));border:1px solid #56d5fa;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);filter:brightness(1.18) contrast(1.08) drop-shadow(0 3px 5px rgba(0,0,0,.8)) drop-shadow(0 0 10px rgba(79,208,255,.22))}html[data-theme="xenoblade"] h1{grid-area:title}html[data-theme="xenoblade"] .header-status{grid-area:status;align-self:end;display:grid;grid-template-columns:1fr auto;gap:13px;width:100%;min-width:0}html[data-theme="xenoblade"] .header-status .pct{grid-column:2;grid-row:1;min-width:128px;padding:0;font-size:22px}html[data-theme="xenoblade"] .header-status .bar{grid-column:1;grid-row:1;width:100%;min-width:0;align-self:center}html[data-theme="xenoblade"] .header-tools{grid-area:tools;align-self:start;display:grid;grid-template-columns:minmax(250px,1fr) auto;gap:14px;width:100%;min-width:0;margin:0}html[data-theme="xenoblade"] .theme-control{position:static;right:auto;top:auto;z-index:auto;font-size:0}html[data-theme="xenoblade"] .theme-control select{min-width:190px;max-width:210px;min-height:42px;font-size:12px}html[data-theme="xenoblade"] .global-search{grid-template-columns:auto minmax(0,1fr) auto;width:100%;min-width:0}html[data-theme="xenoblade"] .global-search .search-label{display:none}html[data-theme="xenoblade"] .global-search input,html[data-theme="xenoblade"] input[type=search]{background:rgba(19,76,108,.82)!important;border-color:#62dafb!important;color:#fff;box-shadow:inset 0 0 16px rgba(86,216,255,.12),0 0 9px rgba(46,195,242,.12)}html[data-theme="xenoblade"] input[type=search]::placeholder{color:#d8edf7;opacity:.9}html[data-theme="xenoblade"] select{color-scheme:dark}html[data-theme="xenoblade"] select option{background:#08253a;color:#f4fbff}html[data-theme="xenoblade"] .tabs{display:flex;overflow-x:auto;overflow-y:hidden}html[data-theme="xenoblade"] .tabs button{flex:0 0 auto;min-width:146px;padding:10px 12px;font-size:16px!important;overflow:visible;white-space:nowrap}html[data-theme="xenoblade"] .tabs button .game-icon{width:20px;height:20px;margin-right:5px;vertical-align:-5px}html[data-theme="xenoblade"] .companion-topbar,html[data-theme="xenoblade"] .mission-current,html[data-theme="xenoblade"] .step-card,html[data-theme="xenoblade"] .brief-card,html[data-theme="xenoblade"] .inventory-row,html[data-theme="xenoblade"] .offline-note{border-color:#2c7198;background:linear-gradient(110deg,rgba(5,34,56,.96),rgba(2,18,31,.96));border-radius:0}html[data-theme="xenoblade"] .mission-current{border-color:#53d9ff;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}html[data-theme="xenoblade"] .companion-topbar select,html[data-theme="xenoblade"] .encounter-console select{background:#0d3f5e;border-color:#56d5fa;color:#fff}html[data-theme="xenoblade"] .advance-status{border-radius:0}
-@media(max-width:1500px) and (min-width:1281px){html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(440px,1fr) minmax(420px,520px)}html[data-theme="xenoblade"] h1{font-size:34px}html[data-theme="xenoblade"] h1 span{font-size:22px}}
+html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(420px,1fr) minmax(600px,700px);grid-template-areas:"brand title status" "brand title tools";min-height:124px;max-width:var(--shell)}html[data-theme="xenoblade"] .brand-logo{grid-area:brand;width:142px;height:86px;box-sizing:border-box;padding:7px;background:linear-gradient(135deg,rgba(236,249,255,.96),rgba(157,206,226,.82));border:1px solid #56d5fa;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);filter:brightness(1.18) contrast(1.08) drop-shadow(0 3px 5px rgba(0,0,0,.8)) drop-shadow(0 0 10px rgba(79,208,255,.22))}html[data-theme="xenoblade"] h1{grid-area:title}html[data-theme="xenoblade"] .header-status{grid-area:status;align-self:end;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;width:100%;min-width:0;padding:0 2px}html[data-theme="xenoblade"] .header-status .pct{grid-column:2;grid-row:1;min-width:145px;padding:0;font-size:22px}html[data-theme="xenoblade"] .header-status .bar{grid-column:1;grid-row:1;width:100%;min-width:0;height:12px;align-self:center;border-color:#43b8de;box-shadow:inset 0 0 7px rgba(0,0,0,.95),0 0 0 1px rgba(75,205,242,.09)}html[data-theme="xenoblade"] .header-tools{grid-area:tools;align-self:start;display:grid;grid-template-columns:minmax(340px,1fr) 220px;gap:14px;width:100%;min-width:0;margin:0}html[data-theme="xenoblade"] .theme-control{position:static;right:auto;top:auto;z-index:auto;font-size:0}html[data-theme="xenoblade"] .theme-control select{width:100%;min-width:0;max-width:none;min-height:46px;padding-left:14px;font-size:12px}html[data-theme="xenoblade"] .global-search{grid-template-columns:auto minmax(0,1fr) auto;width:100%;min-width:0}html[data-theme="xenoblade"] .global-search .search-label{display:none}html[data-theme="xenoblade"] .global-search input,html[data-theme="xenoblade"] input[type=search]{min-height:46px;background:linear-gradient(180deg,rgba(27,91,128,.95),rgba(14,63,92,.95))!important;border-color:#62dafb!important;color:#fff;box-shadow:inset 0 0 18px rgba(86,216,255,.12),0 0 0 1px rgba(46,195,242,.15)}html[data-theme="xenoblade"] input[type=search]::placeholder{color:#e3f3fa;opacity:.94}html[data-theme="xenoblade"] select{color-scheme:dark}html[data-theme="xenoblade"] select option{background:#08253a;color:#f4fbff}html[data-theme="xenoblade"] .tabs{display:flex;max-width:var(--shell);overflow-x:auto;overflow-y:hidden}html[data-theme="xenoblade"] .tabs button{flex:0 0 auto;min-width:146px;padding:10px 12px;font-size:16px!important;overflow:visible;white-space:nowrap}html[data-theme="xenoblade"] .tabs button .game-icon{width:20px;height:20px;margin-right:5px;vertical-align:-5px}html[data-theme="xenoblade"] .tabs button .nav-area-icon{width:25px!important;height:25px!important;margin-right:7px!important;vertical-align:-7px}html[data-theme="xenoblade"] .companion-topbar,html[data-theme="xenoblade"] .mission-current,html[data-theme="xenoblade"] .step-card,html[data-theme="xenoblade"] .brief-card,html[data-theme="xenoblade"] .inventory-row,html[data-theme="xenoblade"] .offline-note{border-color:#2c7198;background:linear-gradient(110deg,rgba(5,34,56,.96),rgba(2,18,31,.96));border-radius:0}html[data-theme="xenoblade"] .mission-current{border-color:#53d9ff;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}html[data-theme="xenoblade"] .companion-topbar select,html[data-theme="xenoblade"] .encounter-console select{background:#0d3f5e;border-color:#56d5fa;color:#fff}html[data-theme="xenoblade"] .advance-status{border-radius:0}
+html[data-theme="xenoblade"] .build-character-nav{gap:0;border:1px solid #2d7199;background:#031827}html[data-theme="xenoblade"] .build-character-tabs{gap:0;padding:0}html[data-theme="xenoblade"] .build-character-tab,html[data-theme="xenoblade"] .build-show-all{min-height:62px;border:0;border-right:1px solid #285c7c;border-radius:0;background:linear-gradient(145deg,#092b48,#031523);color:#b9d4e4}html[data-theme="xenoblade"] .build-character-tab:hover,html[data-theme="xenoblade"] .build-character-tab.on,html[data-theme="xenoblade"] .build-show-all:hover,html[data-theme="xenoblade"] .build-show-all.on{background:linear-gradient(145deg,#0a527a,#07304d);color:#fff;box-shadow:inset 0 -3px #55dcff,inset 0 0 16px rgba(75,211,255,.14)}html[data-theme="xenoblade"] .build-character-tab img{border-color:#567b93;border-radius:0}html[data-theme="xenoblade"] .build-mode-note{border-color:#55dcff;background:linear-gradient(90deg,rgba(8,57,87,.78),rgba(3,24,40,.9))}html[data-theme="xenoblade"] .build-character-heading{border-color:#2d7199;background:linear-gradient(90deg,#0b3454,#08243c)}html[data-theme="xenoblade"] .build-character-heading img{border-color:#55dcff;border-radius:0}
+html[data-theme="xenoblade"] .route-subchecks{border-color:#2e739b;border-radius:0;background:linear-gradient(110deg,rgba(7,48,76,.82),rgba(2,21,36,.92));box-shadow:inset 3px 0 #54d8fb}html[data-theme="xenoblade"] .route-subchecks legend{color:#85e7ff}html[data-theme="xenoblade"] .route-subcheck{border-color:rgba(61,126,164,.42);color:#d1e2ed}html[data-theme="xenoblade"] .route-subcheck:hover{background:rgba(53,178,222,.12);color:#fff}
+@media(max-width:1500px) and (min-width:1281px){html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(440px,1fr) minmax(500px,620px)}html[data-theme="xenoblade"] h1{font-size:34px}html[data-theme="xenoblade"] h1 span{font-size:22px}}
 @media(max-width:1280px){html[data-theme="xenoblade"] .hrow{grid-template-columns:120px minmax(260px,1fr);grid-template-areas:"brand title" "status status" "tools tools"}html[data-theme="xenoblade"] .brand-logo{width:112px;height:70px}html[data-theme="xenoblade"] .header-status,html[data-theme="xenoblade"] .header-tools{width:100%}html[data-theme="xenoblade"] .tabs{display:flex;overflow-x:auto}html[data-theme="xenoblade"] .tabs button{flex:0 0 auto;min-width:146px}}
 @media(max-width:640px){html,body{overflow-x:hidden}.header-status{min-width:100%;order:3}.header-tools{align-items:stretch;flex-direction:column}.global-search{grid-template-columns:auto minmax(0,1fr) auto;min-width:100%}.search-label{display:none}.theme-control{justify-content:space-between}.inventory-row{grid-template-columns:1fr 82px}.inventory-need,.inventory-row .route-link{grid-column:1/-1}.step-card{grid-template-columns:auto minmax(0,1fr)}.step-card .route-link{grid-column:2}html[data-theme="xenoblade"] .hrow{grid-template-columns:70px minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;grid-template-areas:"brand title" "status status" "tools tools"!important}html[data-theme="xenoblade"] .header-tools{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}html[data-theme="xenoblade"] .theme-control{position:static!important;width:100%!important;font-size:11px!important}html[data-theme="xenoblade"] .theme-control select{width:100%!important;max-width:none!important}html[data-theme="xenoblade"] .header-status .pct{text-align:right!important}}
+@media(max-width:640px){.route-subcheck-list{grid-template-columns:1fr}.build-character-nav{display:block}.build-character-tabs{margin-bottom:8px}.build-show-all{width:100%}.build-columns{grid-template-columns:1fr}.build-character-heading{align-items:flex-start}.build-character-heading h3{font-size:20px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -904,12 +910,12 @@ html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(360px,1fr)
   <nav class="tabs" id="tabs" role="tablist" aria-label="Guide sections">
     <button id="tab-route" class="on" data-p="route" role="tab" aria-selected="true" aria-controls="p-route" tabindex="0"><img class="game-icon" src="assets/game-icons/landmark-xcde.png" width="28" height="44" alt="" aria-hidden="true">The Route</button>
     <button id="tab-companion" data-p="companion" role="tab" aria-selected="false" aria-controls="p-companion" tabindex="-1"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Play Mode</button>
-    <button id="tab-completion" data-p="completion" role="tab" aria-selected="false" aria-controls="p-completion" tabindex="-1"><img class="game-icon" src="assets/game-icons/quest-complete.png" width="46" height="42" alt="" aria-hidden="true">Completion Hub</button>
+    <button id="tab-completion" data-p="completion" role="tab" aria-selected="false" aria-controls="p-completion" tabindex="-1"><span class="nav-game-icon nav-quest-crown" aria-hidden="true"></span>Completion Hub</button>
     <button id="tab-monsters" data-p="monsters" role="tab" aria-selected="false" aria-controls="p-monsters" tabindex="-1"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Monsterpedia</button>
-    <button id="tab-quests" data-p="quests" role="tab" aria-selected="false" aria-controls="p-quests" tabindex="-1"><img class="game-icon" src="assets/game-icons/quest-alert.png" width="44" height="48" alt="" aria-hidden="true">Quest Lookup</button>
+    <button id="tab-quests" data-p="quests" role="tab" aria-selected="false" aria-controls="p-quests" tabindex="-1"><span class="nav-game-icon nav-quest-alert" aria-hidden="true"></span>Quest Lookup</button>
     <button id="tab-reference" data-p="reference" role="tab" aria-selected="false" aria-controls="p-reference" tabindex="-1"><img class="game-icon" src="assets/game-icons/landmark-xcde.png" width="28" height="44" alt="" aria-hidden="true">Atlas &amp; Planner</button>
     <button id="tab-combat" class="secondary-tab" data-p="combat" role="tab" aria-selected="false" aria-controls="p-combat" tabindex="-1"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Builds &amp; Presets</button>
-    <button id="tab-colony6" class="secondary-tab" data-p="colony6" role="tab" aria-selected="false" aria-controls="p-colony6" tabindex="-1"><img class="game-icon" src="assets/game-icons/quest-complete.png" width="46" height="42" alt="" aria-hidden="true">Colony 6</button>
+    <button id="tab-colony6" class="secondary-tab" data-p="colony6" role="tab" aria-selected="false" aria-controls="p-colony6" tabindex="-1"><img class="game-icon nav-area-icon" src="assets/game-icons/colony6-affinity.png" width="84" height="84" alt="" aria-hidden="true">Colony 6</button>
     <button id="tab-branches" class="secondary-tab" data-p="branches" role="tab" aria-selected="false" aria-controls="p-branches" tabindex="-1"><img class="game-icon" src="assets/game-icons/affinity-mission.png" width="24" height="24" alt="" aria-hidden="true">Branches</button>
     <button id="tab-bosses" class="secondary-tab" data-p="bosses" role="tab" aria-selected="false" aria-controls="p-bosses" tabindex="-1"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Superbosses</button>
     <button id="tab-weather" class="secondary-tab" data-p="weather" role="tab" aria-selected="false" aria-controls="p-weather" tabindex="-1"><img class="game-icon" src="assets/game-icons/timed-quest.png" width="18" height="21" alt="" aria-hidden="true">Weather</button>
@@ -1056,13 +1062,14 @@ html[data-theme="xenoblade"] .hrow{grid-template-columns:150px minmax(360px,1fr)
 <div class="panel" id="p-combat" role="tabpanel" aria-labelledby="tab-combat" hidden>
   <div class="build-lab">
     <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/back-slash-xcde.png" width="100" height="100" alt="" aria-hidden="true">Build Lab</h2>
-    <p>Choose a character, control mode and goal. Reliable meta prioritises consistency; fastest-kill meta accepts more execution and survival risk.</p>
+    <p>Choose a character tab, control mode and goal. Use Show all to turn the Build Lab into one continuous, scrollable reference.</p>
+    <div class="build-character-nav"><div id="build-character-tabs" class="build-character-tabs" role="tablist" aria-label="Build character"></div><button type="button" id="build-show-all" class="build-show-all" aria-pressed="false">Show all</button></div>
     <div class="build-controls">
-      <label class="filter-field">Character<select id="build-character"></select></label>
       <label class="filter-field">Control<select id="build-control"><option value="player">Player controlled</option><option value="ai">AI controlled</option></select></label>
       <label class="filter-field">Goal<select id="build-goal"><option value="fortress">Never-lose / fortress</option><option value="safe">Reliable meta</option><option value="aggressive">Fastest-kill meta</option></select></label>
     </div>
-    <div id="build-result" class="build-columns"></div>
+    <div id="build-goal-note" class="build-mode-note" aria-live="polite"></div>
+    <div id="build-result" class="build-result-stack"></div>
     <h2>Party Presets</h2>
     <div id="party-presets" class="preset-grid"></div>
     <div id="preset-detail"></div>
@@ -1413,14 +1420,20 @@ function cleanQtyMap(value){
   Object.entries(value).forEach(([key, quantity]) => { const number = Math.max(0, Math.floor(Number(quantity) || 0)); if (number) out[String(key)] = number; });
   return out;
 }
+function cleanNestedMap(value){
+  const out = Object.create(null);
+  if (!value || typeof value !== "object" || Array.isArray(value)) return out;
+  Object.entries(value).forEach(([parent, children]) => { const clean = cleanMap(children); if (Object.keys(clean).length) out[String(parent)] = clean; });
+  return out;
+}
 function emptyState(){
   return { version: 4, route: Object.create(null), completion: Object.create(null),
-    skipped: Object.create(null), world: Object.create(null), hunts: Object.create(null), monsterLog: Object.create(null), drops: Object.create(null), collectopaedia: Object.create(null), inventory: Object.create(null), preferences: { playView:"guided", spoilerLevel:"full" }, updatedAt: null };
+    routeSteps: Object.create(null), skipped: Object.create(null), world: Object.create(null), hunts: Object.create(null), monsterLog: Object.create(null), drops: Object.create(null), collectopaedia: Object.create(null), inventory: Object.create(null), preferences: { playView:"guided", spoilerLevel:"full" }, updatedAt: null };
 }
 function normalizeState(value){
   const src = value && typeof value === "object" ? value : {};
   return { version: 4, route: cleanMap(src.route), completion: cleanMap(src.completion),
-    skipped: cleanMap(src.skipped), world: cleanMap(src.world), hunts: cleanMap(src.hunts), monsterLog: cleanMap(src.monsterLog), drops: cleanMap(src.drops), collectopaedia: cleanMap(src.collectopaedia), inventory: cleanQtyMap(src.inventory), preferences: { playView:["guided","compact","deadlines"].includes(src.preferences?.playView)?src.preferences.playView:"guided", spoilerLevel:["full","gameplay","minimal"].includes(src.preferences?.spoilerLevel)?src.preferences.spoilerLevel:"full" }, updatedAt: src.updatedAt || null };
+    routeSteps: cleanNestedMap(src.routeSteps), skipped: cleanMap(src.skipped), world: cleanMap(src.world), hunts: cleanMap(src.hunts), monsterLog: cleanMap(src.monsterLog), drops: cleanMap(src.drops), collectopaedia: cleanMap(src.collectopaedia), inventory: cleanQtyMap(src.inventory), preferences: { playView:["guided","compact","deadlines"].includes(src.preferences?.playView)?src.preferences.playView:"guided", spoilerLevel:["full","gameplay","minimal"].includes(src.preferences?.spoilerLevel)?src.preferences.spoilerLevel:"full" }, updatedAt: src.updatedAt || null };
 }
 
 let state = emptyState();
@@ -1439,6 +1452,7 @@ try {
   }
 } catch(e){ state = emptyState(); }
 let done = state.route;
+let routeStepsDone = state.routeSteps;
 let completionDone = state.completion;
 let completionSkipped = state.skipped;
 let worldDone = state.world;
@@ -1449,7 +1463,7 @@ let collectopaediaLog = state.collectopaedia;
 let inventoryLog = state.inventory;
 
 function syncStateRefs(){
-  done = state.route; completionDone = state.completion; completionSkipped = state.skipped; worldDone = state.world; monsterHunts = state.hunts; monsterLog = state.monsterLog; dropLog = state.drops; collectopaediaLog = state.collectopaedia; inventoryLog = state.inventory;
+  done = state.route; routeStepsDone = state.routeSteps; completionDone = state.completion; completionSkipped = state.skipped; worldDone = state.world; monsterHunts = state.hunts; monsterLog = state.monsterLog; dropLog = state.drops; collectopaediaLog = state.collectopaedia; inventoryLog = state.inventory;
 }
 function save(){
   state.updatedAt = new Date().toISOString();
@@ -1709,10 +1723,14 @@ function build(){
       // NOTE: detail must sit OUTSIDE the <label>, otherwise clicking anywhere in the
       // walkthrough text toggles the checkbox and you cannot read or select it.
       const det = it.d ? `<div class="det">${it.d}</div>` : "";
+      const subchecks = (it.steps || []).length ? (() => {
+        const bucket = routeStepsDone[it.id] || Object.create(null), complete = it.steps.filter(step => bucket[step.id]).length;
+        return `<fieldset class="route-subchecks" data-subcheck-group="${esc(it.id)}"><legend>Sub-checkpoints · <span class="route-subcheck-count">${complete}/${it.steps.length}</span></legend><div class="route-subcheck-list">${it.steps.map(step => { const inputId=`sub-${it.id}-${step.id}`,checked=!!bucket[step.id]; return `<label class="route-subcheck${checked?" is-done":""}" for="${esc(inputId)}"><input type="checkbox" id="${esc(inputId)}" data-subcheck-parent="${esc(it.id)}" data-subcheck-id="${esc(step.id)}"${checked?" checked":""}><span>${esc(step.label)}</span></label>`; }).join("")}</div></fieldset>`;
+      })() : "";
       const references = routeQuickLinks(it);
       return `<div class="it ${it.f}${on}${leader ? " leader-needed" : ""}" data-f="${it.f}" data-id="${it.id}">
         <input type="checkbox" id="${it.id}"${done[it.id]?" checked":""}>
-        <div class="ibody"><div class="ihead"><label for="${it.id}">${tag}${routeTitle(it.t)}</label><div class="imeta">${meta}</div></div>${det}${references}</div></div>`;
+        <div class="ibody"><div class="ihead"><label for="${it.id}">${tag}${routeTitle(it.t)}</label><div class="imeta">${meta}</div></div>${det}${subchecks}${references}</div></div>`;
     }).join("");
     return `<section class="ch" id="s-${ch.id}">
       <h2 class="chapter-heading"><button type="button" class="chh" aria-expanded="true" aria-controls="b-${ch.id}"><span class="caret">▼</span>
@@ -1824,6 +1842,17 @@ function dashboard(){
 routeEl.addEventListener("change", e => {
   if (e.target.type !== "checkbox") return;
   const row = e.target.closest(".it");
+  const subcheckParent = e.target.dataset.subcheckParent;
+  if (subcheckParent) {
+    const subcheckId = e.target.dataset.subcheckId;
+    const bucket = routeStepsDone[subcheckParent] || (routeStepsDone[subcheckParent] = Object.create(null));
+    if (e.target.checked) bucket[subcheckId] = true; else delete bucket[subcheckId];
+    if (!Object.keys(bucket).length) delete routeStepsDone[subcheckParent];
+    e.target.closest(".route-subcheck")?.classList.toggle("is-done", e.target.checked);
+    const item = ROUTE.flatMap(ch => ch.items).find(candidate => candidate.id === subcheckParent), complete = (item?.steps || []).filter(step => bucket[step.id]).length;
+    const count = row.querySelector(".route-subcheck-count"); if (count) count.textContent = `${complete}/${item?.steps?.length || 0}`;
+    save(); return;
+  }
   const worldId = e.target.dataset.worldId;
   const bucket = worldId ? worldDone : done;
   const key = worldId || e.target.id;
@@ -1867,9 +1896,8 @@ routeEl.addEventListener("click", e => {
   const openBuild = e.target.closest("button.open-build");
   if (openBuild) {
     activatePanel("combat");
-    const select = document.getElementById("build-character");
-    if (select && [...select.options].some(option => option.value === openBuild.dataset.character)) {
-      select.value = openBuild.dataset.character; renderBuild();
+    if (allBuildCharacters().some(character => character.id === openBuild.dataset.character)) {
+      selectedBuildCharacter = openBuild.dataset.character; showAllBuilds = false; renderBuild();
     }
   }
 });
@@ -2448,7 +2476,7 @@ function guideSearch(){
   if(affinityReady) AFFINITY_DATA.residents.forEach(resident=>push("Affinity resident",resident.name,`${resident.areas.join(" ")} ${resident.locations.map(location=>`${location.location} ${location.time}`).join(" ")}`,()=>{activatePanel("reference");setReferenceView("affinity");setTimeout(()=>{const input=document.getElementById("affinity-q");if(input){input.value=resident.name;input.dispatchEvent(new Event("input"));}},0);}));
   if(worldReady) WORLD_DATA.areas.forEach(area=>area.entries.forEach(entry=>push("Location",entry.name,`${area.name} ${entry.type} ${entry.accessNotes||""}`,()=>{ activatePanel("reference"); setReferenceView("atlas"); atlasArea=area.id; renderAtlas(); })));
   if(frontierReady) FRONTIER_MAP_DATA.maps.forEach(map=>map.points.forEach(point=>push(point.type==="CollectionPoint"?"Map collection pin":point.type==="EnemySpawnPoint"?"Map enemy spawn":"Map landmark",point.name,`${map.name} ${map.region} ${frontierPointText(point)}`,()=>{activatePanel("reference");setReferenceView("atlas");atlasArea=map.id;renderAtlas();setTimeout(()=>{const input=document.getElementById("atlas-q");if(input){input.value=frontierPointText(point).split(" · ")[0];input.dispatchEvent(new Event("input"));}},0);})));
-  if(buildReady) { allBuildCharacters().forEach(character=>push("Build",character.name,`${character.role} ${(character.levelPriority||[]).join(" ")} ${(character.gear?.gems||character.gems||[]).join(" ")}`,()=>{ activatePanel("combat"); document.getElementById("build-character").value=character.id; renderBuild(); })); BUILD_DATA.partyPresets.forEach(preset=>push("Party preset",preset.activity,`${preset.phase} ${preset.party.map(buildName).join(" ")}`,()=>{ activatePanel("combat"); selectedPreset=preset.id; renderPresets(); })); }
+  if(buildReady) { allBuildCharacters().forEach(character=>push("Build",character.name,`${character.role} ${(character.levelPriority||[]).join(" ")} ${(character.gear?.gems||character.gems||[]).join(" ")}`,()=>{ activatePanel("combat"); selectedBuildCharacter=character.id; showAllBuilds=false; renderBuild(); })); BUILD_DATA.partyPresets.forEach(preset=>push("Party preset",preset.activity,`${preset.phase} ${preset.party.map(buildName).join(" ")}`,()=>{ activatePanel("combat"); selectedPreset=preset.id; renderPresets(); })); }
   [["Colony 6", "Materials, reconstruction, residents, Housing, Commerce, Nature and Special requirements", "colony6"], ["Branches", "Mutually exclusive quest outcomes and Affinity Chart choices", "branches"], ["Superbosses", "Final Marcus Ancient Daedala Despotic Arsene Blizzard Belgazas Avalanche Abaasy", "bosses"], ["Weather", "time weather spawns and weather-gated materials", "weather"]].forEach(([name,detail,panel])=>push("Guide section",name,detail,()=>activatePanel(panel)));
   if(collectReady) COLLECTOPAEDIA_DATA.collections.forEach(page=>page.groups.forEach(group=>group.items.forEach(item=>push("Collectopaedia",item.name,`${page.area} ${group.type}`,()=>{ activatePanel("reference"); setReferenceView("collect"); }))));
   count.textContent=`${hits.length}${hits.length===30?"+":""} matches`;
@@ -2469,35 +2497,41 @@ const PARTY_PORTRAITS = Object.freeze({
   fiora:"assets/party-portraits/fiora.png", kino:"assets/party-portraits/kino.png", nene:"assets/party-portraits/nene.png"
 });
 function partyPortrait(id){ return PARTY_PORTRAITS[id.replace(/^fc-/, "")] || "assets/game-icons/back-slash-xcde.png"; }
+let selectedBuildCharacter = "shulk", showAllBuilds = false;
+function renderBuildCharacterTabs(){
+  const characters=allBuildCharacters(),tabs=document.getElementById("build-character-tabs"),showAll=document.getElementById("build-show-all");
+  tabs.innerHTML=characters.map(character=>`<button type="button" class="build-character-tab${!showAllBuilds&&selectedBuildCharacter===character.id?" on":""}" role="tab" aria-selected="${!showAllBuilds&&selectedBuildCharacter===character.id}" data-build-character="${esc(character.id)}"><img src="${partyPortrait(character.id)}" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>${esc(character.name)}${character.id.startsWith("fc-")||["kino","nene"].includes(character.id)?" · FC":""}</span></button>`).join("");
+  showAll.classList.toggle("on",showAllBuilds);showAll.setAttribute("aria-pressed",String(showAllBuilds));showAll.textContent=showAllBuilds?"Single character":"Show all";
+}
 function initBuilds(){
   buildReady = true;
-  const select = document.getElementById("build-character");
-  select.innerHTML = allBuildCharacters().map(character => `<option value="${esc(character.id)}">${esc(character.name)}${character.id.startsWith("fc-") || ["kino","nene"].includes(character.id) ? " · FC" : ""}</option>`).join("");
+  if(!allBuildCharacters().some(character=>character.id===selectedBuildCharacter)) selectedBuildCharacter=allBuildCharacters()[0]?.id||"shulk";
+  renderBuildCharacterTabs();
   document.getElementById("build-source").innerHTML = `${esc(BUILD_DATA.sourcePolicy)} Sources: ${BUILD_DATA.sources.map(source => `<a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join(" · ")}.`;
   renderPresets(); renderBuild();
   if (routeReady) { build(); filter(); }
 }
+function renderCharacterBuild(character,control,goal){
+  const fortress=BUILD_DATA.fortressProfiles?.[character.id],base=control==="player"?character.controlled:character.ai,profile=goal==="fortress"?fortress:null;
+  const arts=profile?.[control==="player"?"controlled":"ai"]||base?.[goal==="aggressive"?"aggressive":"metaSafe"]||[];
+  const goalLabel=goal==="fortress"?"Never-lose / fortress":goal==="safe"?"Reliable meta":"Fastest-kill meta",skills=character.skills||{},gear=character.gear||{},gems=profile?.gems||gear.gems||character.gems||[],priority=profile?.levelPriority||character.levelPriority||[];
+  const list=values=>`<ul class="priority-list">${(values||[]).map(value=>`<li>${esc(value)}</li>`).join("")}</ul>`;
+  return `<article class="build-character-block" id="build-${esc(character.id)}"><header class="build-character-heading"><img src="${partyPortrait(character.id)}" alt="" aria-hidden="true" loading="lazy" decoding="async"><div><h3>${esc(character.name)} · ${control==="player"?"Player":"AI"} · ${goalLabel}</h3><p>${esc(character.role)} · ${esc(character.availability||BUILD_DATA.futureConnected.availability)}</p></div></header><div class="build-columns">
+    <section class="build-section"><h3>Role &amp; game plan</h3>${goal==="fortress"?`<div class="callout g"><p><b>Fortress difference:</b> ${esc(profile?.strategy||"Survival, recovery and encounter counters take priority over kill speed.")}</p></div>`:""}<p>${esc(character.controlGuide||"")}</p>${list(character.facts)}</section>
+    <section class="build-section"><h3>Arts to slot</h3>${list(arts)}${character.talentArts?.length?`<p><b>Talent / Monado Arts:</b> ${character.talentArts.map(esc).join(" · ")}</p>`:""}<p><b>Level with AP in this order:</b></p>${list(priority)}</section>
+    <section class="build-section"><h3>Skills &amp; Skill Links</h3>${skills.branchPriority?`<p><b>Branch priority</b></p>${list(skills.branchPriority)}`:'<p>Future Connected has no Skill Link system.</p>'}${skills.linksIn?`<p><b>Link into this character</b></p>${list(skills.linksIn)}`:""}${skills.linksOut?`<p><b>Useful links they provide</b></p>${list(skills.linksOut)}`:""}</section>
+    <section class="build-section"><h3>Gear, gems &amp; AI behavior</h3>${gear.weapon?`<p><b>Weapon:</b> ${esc(gear.weapon)}</p>`:""}${gear.armour?`<p><b>Armour:</b> ${esc(gear.armour)}</p>`:""}<p><b>Gem priority</b></p>${list(gems)}<p><b>AI caveat:</b> ${esc(character.aiCaveat||"No special caveat documented.")}</p></section>
+  </div></article>`;
+}
 function renderBuild(){
   if (!buildReady) return;
-  const character = allBuildCharacters().find(item => item.id === document.getElementById("build-character").value) || allBuildCharacters()[0];
   const control = document.getElementById("build-control").value;
   const goal = document.getElementById("build-goal").value;
-  const arts = (control === "player" ? character.controlled : character.ai)?.[goal === "aggressive" ? "aggressive" : "metaSafe"] || [];
-  const goalLabel = goal === "fortress" ? "Never-lose / fortress" : goal === "safe" ? "Reliable" : "Aggressive";
-  const skills = character.skills || {};
-  const gear = character.gear || {};
-  const gems = gear.gems || character.gems || [];
-  const list = values => `<ul class="priority-list">${(values || []).map(value => `<li>${esc(value)}</li>`).join("")}</ul>`;
-  document.getElementById("build-result").innerHTML = `
-    <section class="build-section"><h3>${esc(character.name)} · ${control === "player" ? "Player" : "AI"} · ${goalLabel}</h3>
-      <p><b>Role:</b> ${esc(character.role)}</p><p><b>Availability:</b> ${esc(character.availability || BUILD_DATA.futureConnected.availability)}</p>
-      ${goal === "fortress" ? `<div class="callout g"><p><b>Fortress rule:</b> preserve recovery, accuracy and the encounter's exact defensive counter before adding damage. This is deliberately slower than the fastest-kill preset.</p></div>` : ""}<p>${esc(character.controlGuide || "")}</p>${list(character.facts)}</section>
-    <section class="build-section"><h3>Arts to slot</h3>${list(arts)}${character.talentArts?.length ? `<p><b>Talent / Monado Arts:</b> ${character.talentArts.map(esc).join(" · ")}</p>` : ""}
-      <p><b>Level with AP in this order:</b></p>${list(character.levelPriority)}</section>
-    <section class="build-section"><h3>Skills &amp; Skill Links</h3>${skills.branchPriority ? `<p><b>Branch priority</b></p>${list(skills.branchPriority)}` : '<p>Future Connected has no Skill Link system.</p>'}
-      ${skills.linksIn ? `<p><b>Link into this character</b></p>${list(skills.linksIn)}` : ""}${skills.linksOut ? `<p><b>Useful links they provide</b></p>${list(skills.linksOut)}` : ""}</section>
-    <section class="build-section"><h3>Gear, gems &amp; AI behavior</h3>${gear.weapon ? `<p><b>Weapon:</b> ${esc(gear.weapon)}</p>` : ""}${gear.armour ? `<p><b>Armour:</b> ${esc(gear.armour)}</p>` : ""}
-      <p><b>Gem priority</b></p>${list(gems)}<p><b>AI caveat:</b> ${esc(character.aiCaveat || "No special caveat documented.")}</p></section>`;
+  const notes={fortress:"Fortress is a separate survival-first build: defensive Arts, recovery, AP and gems replace damage wherever the character's kit allows. It is intentionally slower than Reliable meta.",safe:"Reliable meta keeps the strongest consistent damage and utility package while avoiding fragile speed-run assumptions. It is safe, but it does not spend every slot and gem on maximum survival.",aggressive:"Fastest-kill meta accepts tighter execution, weaker recovery and encounter-specific risk to shorten fights."};
+  document.getElementById("build-goal-note").innerHTML=`<b>${goal==="fortress"?"Never-lose / fortress":goal==="safe"?"Reliable meta":"Fastest-kill meta"}:</b> ${notes[goal]}`;
+  const characters=showAllBuilds?allBuildCharacters():[allBuildCharacters().find(item=>item.id===selectedBuildCharacter)||allBuildCharacters()[0]];
+  document.getElementById("build-result").innerHTML=characters.map(character=>renderCharacterBuild(character,control,goal)).join("");
+  renderBuildCharacterTabs();
 }
 let selectedPreset = "";
 function renderPresets(){
@@ -2507,11 +2541,16 @@ function renderPresets(){
   const preset = BUILD_DATA.partyPresets.find(item => item.id === selectedPreset);
   document.getElementById("preset-detail").innerHTML = preset ? `<div class="callout g"><p><strong>${esc(preset.phase)} · ${esc(preset.variant)}</strong></p><p>${esc(preset.why)}</p><p><b>Party:</b> ${preset.party.map(buildName).map(esc).join(" / ")} · <b>Leader:</b> ${esc(buildName(preset.leader))}</p></div>` : "";
 }
-["build-character","build-control","build-goal"].forEach(id => document.getElementById(id).addEventListener("change", renderBuild));
+["build-control","build-goal"].forEach(id => document.getElementById(id).addEventListener("change", renderBuild));
+document.getElementById("build-character-tabs").addEventListener("click", event => {
+  const button = event.target.closest("button[data-build-character]"); if (!button) return;
+  selectedBuildCharacter = button.dataset.buildCharacter; showAllBuilds = false; renderBuild();
+});
+document.getElementById("build-show-all").addEventListener("click", () => { showAllBuilds = !showAllBuilds; renderBuild(); });
 document.getElementById("party-presets").addEventListener("click", event => {
   const button = event.target.closest("button[data-preset]"); if (!button) return;
   selectedPreset = button.dataset.preset; const preset = BUILD_DATA.partyPresets.find(item => item.id === selectedPreset);
-  if (preset && [...document.getElementById("build-character").options].some(option => option.value === preset.leader)) document.getElementById("build-character").value = preset.leader;
+  if (preset && allBuildCharacters().some(character => character.id === preset.leader)) { selectedBuildCharacter = preset.leader; showAllBuilds = false; }
   renderPresets(); renderBuild();
 });
 

@@ -36,6 +36,14 @@ assert(routeItems.length === 417, `Expected 417 route tasks, got ${routeItems.le
 assert(panels.length === 119, `Expected 119 guidance panels, got ${panels.length}`);
 assert(new Set(routeItems.map(item => item.id)).size === routeItems.length, "Duplicate route IDs");
 assert(routeItems.every(item => item.id), "A tickable route item has no persistent ID");
+const groupedRouteItems = routeItems.filter(item => item.steps?.length);
+const routeSubcheckCount = groupedRouteItems.reduce((sum, item) => sum + item.steps.length, 0);
+assert(groupedRouteItems.length >= 40 && routeSubcheckCount >= 250, `Route granularity sweep is incomplete: ${groupedRouteItems.length} grouped cards / ${routeSubcheckCount} sub-checkpoints`);
+for (const item of groupedRouteItems) {
+  assert(new Set(item.steps.map(step => step.id)).size === item.steps.length, `${item.id} contains duplicate sub-checkpoint IDs`);
+  assert(item.steps.every(step => step.id && step.label), `${item.id} contains an incomplete sub-checkpoint`);
+}
+assert(routeItems.find(item => item.id === "c1-miss-brave-protectors")?.steps?.length === 9, "The Brave Protectors must expose all nine Defence Force registrations");
 
 const expected = { quests: 480, achievements: 200, monsters: 157, hearts: 63, "grand-prix": 70 };
 const completionItems = [];
@@ -159,6 +167,7 @@ for (const id of ["main-never-lose-ch4", "main-never-lose-ch5-6", "main-never-lo
 assert(builds.routeUpdates.length === 9, `Expected 9 route build updates, got ${builds.routeUpdates.length}`);
 const buildCharacters = [...builds.characters, ...builds.futureConnected.characters];
 assert(new Set(buildCharacters.map(character => character.id)).size === buildCharacters.length, "Duplicate build character IDs");
+assert(Object.keys(builds.fortressProfiles || {}).length === buildCharacters.length, "Every build character must have a dedicated fortress profile");
 for (const character of buildCharacters) {
   for (const control of ["controlled", "ai"]) for (const goal of ["metaSafe", "aggressive"]) {
     assert(character[control]?.[goal]?.length === 8, `${character.id} ${control}.${goal} must contain exactly 8 normal Arts`);
@@ -185,6 +194,12 @@ for (const character of buildCharacters) {
   const allowed = legalFor(character.id);
   for (const art of [character.controlled.metaSafe, character.controlled.aggressive, character.ai.metaSafe, character.ai.aggressive].flat()) {
     assert(allowed.has(art), `${character.id} contains an illegal normal Art: ${art}`);
+  }
+  const fortress = builds.fortressProfiles[character.id];
+  assert(fortress && fortress.levelPriority?.length && fortress.gems?.length && fortress.strategy, `${character.id} fortress profile is incomplete`);
+  for (const control of ["controlled", "ai"]) {
+    assert(fortress[control]?.length === 8 && new Set(fortress[control]).size === 8, `${character.id} fortress ${control} must contain 8 unique Arts`);
+    for (const art of fortress[control]) assert(allowed.has(art), `${character.id} fortress contains an illegal normal Art: ${art}`);
   }
 }
 for (const update of builds.routeUpdates) for (const [id, arts] of Object.entries(update.artsByMember)) {
@@ -228,6 +243,7 @@ assert(html.includes('const text = plainText(item.t || "")'), "Leader badges mus
 assert(!html.includes("There are 13 of these"), "Static hidden-tree count is stale");
 assert(html.includes('--bg:#f2f6f8') && html.includes('--nav:#0b2438'), "Reading-first Xenoblade color tokens are missing");
 assert(html.includes('id="theme-select"') && html.includes('Readable Light') && html.includes('Simple Dark') && html.includes('Xenoblade Extreme'), "Appearance selector is missing one or more themes");
+assert(html.includes('id="build-character-tabs"') && html.includes('id="build-show-all"') && !html.includes('id="build-character"'), "Build Lab character tabs or Show all mode are missing");
 assert(html.includes('html[data-theme="dark"]') && html.includes('html[data-theme="xenoblade"]'), "Dark and Xenoblade theme tokens are missing");
 assert(html.includes('XENOBLADE EXTREME V2') && html.includes('class="route-legend"'), "Extreme V2 route HUD or warning legend is missing");
 assert(html.includes('id="tab-route"') && html.includes('id="tab-branches"') && html.includes('assets/game-icons/affinity-mission.png') && html.includes('id="tab-colony6"') && html.includes('assets/game-icons/colony6-shop.png') && html.includes('id="tab-weather"') && html.includes('assets/game-icons/timed-quest.png'), "Themed navigation is missing sourced game UI assets");
@@ -248,6 +264,10 @@ for (const icon of gameIcons) {
   assert(fs.existsSync(path.join(root, "assets", "game-icons", icon)), `Game icon asset is missing: ${icon}`);
   assert(html.includes(`assets/game-icons/${icon}`), `Game icon is not wired into the guide: ${icon}`);
 }
+for (const icon of ["quest-log-de.png", "colony6-affinity.png"]) {
+  assert(fs.existsSync(path.join(root, "assets", "game-icons", icon)), `Authentic navigation asset is missing: ${icon}`);
+  assert(html.includes(`assets/game-icons/${icon}`), `Authentic navigation asset is not wired into the guide: ${icon}`);
+}
 assert(html.includes('class="game-icon"') && html.includes('alt="" aria-hidden="true"'), "Decorative game icons must preserve their adjacent text labels and stay out of the accessibility tree");
 assert(fs.existsSync(path.join(root, "assets", "fonts", "RobotoSlab-Variable.ttf")), "Self-hosted Xenoblade display font is missing");
 assert(html.includes('font-family:"XC Guide Slab"') && html.includes('font-family:var(--display)'), "Self-hosted display typography is not wired into the themed hierarchy");
@@ -267,6 +287,7 @@ assert(html.includes('function ensurePanelData(name)') && html.includes('complet
 assert(!html.includes('max-width:1440px'), "Appearance mode must not change the guide container width");
 assert(html.includes('background-attachment:scroll'), "The themed mobile background still uses fixed attachment");
 assert(html.includes('id="p-companion"') && html.includes('id="advance-status"') && html.includes('id="inventory-list"'), "Play Mode companion controls are missing");
+assert(html.includes('class="route-subchecks"') && html.includes('data-subcheck-parent=') && html.includes('routeSteps: cleanNestedMap'), "Persistent nested route checkpoints are not wired into the guide");
 assert(html.includes('id="guide-search"') && html.includes('class="header-tools"') && html.includes('class="header-status"'), "Header search, theme, and progress regions are not structurally separated");
 assert(fs.existsSync(path.join(root, "manifest.webmanifest")) && fs.existsSync(path.join(root, "sw.js")), "PWA manifest or service worker is missing");
 

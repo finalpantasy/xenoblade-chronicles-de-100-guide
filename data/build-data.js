@@ -21,6 +21,85 @@ const BUILD_DATA = {
     aiRule: "AI cannot be relied upon for vision reactions, positional routing, precise elemental storage, or chain sequencing.",
     gemRule: "Use the highest rank currently accessible; late-game lists assume Rank V/VI where available. Accuracy/Night Vision replaces damage when level gap makes attacks miss."
   },
+  fortressProfiles: {
+    shulk: {
+      controlled: ["Back Slash", "Slit Edge", "Air Slash", "Stream Edge", "Shaker Edge", "Shadow Eye", "Light Heal", "Battle Soul"],
+      ai: ["Back Slash", "Slit Edge", "Air Slash", "Stream Edge", "Shaker Edge", "Shadow Eye", "Light Heal", "Battle Soul"],
+      levelPriority: ["Monado Armour", "Monado Shield to the current Talent Art requirement", "Monado Speed", "Light Heal", "Air Slash", "Back Slash"],
+      gems: ["Agility Up", "HP Up", "Debuff Resist", "Night Vision when under-levelled", "Spike Defence when the dossier requires it"],
+      strategy: "Shulk owns only eight normal Arts, so the palette cannot change. Fortress play instead banks the Talent Gauge, treats Battle Soul as optional, and funds Armour/Shield/Speed before damage."
+    },
+    reyn: {
+      controlled: ["Wild Down", "Bone Upper", "Engage", "Guard Shift", "Last Stand", "Aura Burst", "Hammer Beat", "Sword Drive"],
+      ai: ["Wild Down", "Bone Upper", "Engage", "Guard Shift", "Last Stand", "Aura Burst", "Hammer Beat", "Sword Drive"],
+      levelPriority: ["Wild Down", "Guard Shift", "Last Stand", "Engage", "Aura Burst", "Bone Upper"],
+      gems: ["HP Up", "Physical Def Up", "Agility Up", "Aggro Up", "Debuff Resist"],
+      strategy: "Drops Magnum Charge and broad damage coverage for Last Stand, Aura Burst and guarded aggro control. It is slower, but far more forgiving when Reyn is the anchor."
+    },
+    sharla: {
+      controlled: ["Heal Bullet", "Heal Round", "Heal Blast", "Shield Bullet", "Cure Bullet", "Cure Round", "Metal Blast", "Tranquilizer"],
+      ai: ["Heal Bullet", "Heal Round", "Heal Blast", "Shield Bullet", "Cure Bullet", "Cure Round", "Metal Blast", "Tranquilizer"],
+      levelPriority: ["Heal Bullet", "Heal Round", "Heal Blast", "Cure Round", "Shield Bullet", "Cure Bullet"],
+      gems: ["Ether Up", "HP Up", "Aggro Down", "Debuff Resist", "Heat Sink"],
+      strategy: "Removes the damage-race emphasis and carries all three practical heals plus both cures. Manage heat conservatively so recovery is available when the next enemy Art lands."
+    },
+    dunban: {
+      controlled: ["Gale Slash", "Worldly Slash", "Steel Strike", "Tempest Kick", "Serene Heart", "Spirit Breath", "Blinding Blossom", "Jaws of Death"],
+      ai: ["Gale Slash", "Worldly Slash", "Steel Strike", "Tempest Kick", "Serene Heart", "Spirit Breath", "Blinding Blossom", "Jaws of Death"],
+      levelPriority: ["Serene Heart", "Gale Slash", "Worldly Slash", "Spirit Breath", "Steel Strike", "Tempest Kick"],
+      gems: ["Agility Up", "HP Up", "Haste", "Debuff Resist", "Spike Defence when required", "Night Vision when under-levelled"],
+      strategy: "Trades Heat Haze and Thunder pressure for Spirit Breath and Blinding Blossom, keeping the evasion aura, debuff recovery and aggro tools online before damage."
+    },
+    melia: {
+      controlled: ["Summon Bolt", "Summon Aqua", "Summon Earth", "Summon Copy", "Reflection", "Healing Gift", "Spear Break", "Starlight Kick"],
+      ai: ["Summon Bolt", "Summon Aqua", "Summon Earth", "Summon Flare", "Reflection", "Healing Gift", "Spear Break", "Starlight Kick"],
+      levelPriority: ["Summon Aqua", "Summon Earth", "Reflection", "Healing Gift", "Summon Bolt", "Summon Copy"],
+      gems: ["HP Up", "Ether Up", "Agility Up", "Debuff Resist", "Aggro Down"],
+      strategy: "Banks Aqua/Earth for sustain and defence, keeps Reflection as an emergency answer and delays aggressive discharge cycles. AI remains a compromise because it will not preserve the intended stack."
+    },
+    riki: {
+      controlled: ["You Can Do It", "Happy Happy", "Bedtime", "Roly-Poly", "Hero Time", "Play Dead", "Lurgy", "Burninate"],
+      ai: ["You Can Do It", "Happy Happy", "Bedtime", "Roly-Poly", "Hero Time", "Play Dead", "Lurgy", "Burninate"],
+      levelPriority: ["You Can Do It", "Happy Happy", "Bedtime", "Hero Time", "Roly-Poly", "Lurgy"],
+      gems: ["HP Up", "Ether Up", "Agility Up", "Debuff Resist", "Spike Defence when required"],
+      strategy: "Keeps the frontal-line heal, party-gauge support, sleep, topple and an aggro escape together. It gives up Freezinate damage for Play Dead and a wider recovery margin."
+    },
+    fiora: {
+      controlled: ["Double Wind", "Cross Impact", "Final Cross", "Speed Shift", "Power Drain", "Healing Energy", "Zero Gravity", "Guard Shift"],
+      ai: ["Double Wind", "Cross Impact", "Final Cross", "Speed Shift", "Power Drain", "Healing Energy", "Zero Gravity", "Guard Shift"],
+      levelPriority: ["Healing Energy", "Power Drain", "Zero Gravity", "Speed Shift", "Double Wind", "Cross Impact"],
+      gems: ["Agility Up", "HP Up", "Haste", "Debuff Resist", "Spike Defence when required"],
+      strategy: "Replaces Double Blade with Guard Shift and moves Healing Energy/Power Drain ahead of burst. The result sacrifices some speed for a real emergency defensive cycle."
+    },
+    "fc-shulk": {
+      controlled: ["Back Slash", "Slit Edge", "Air Slash", "Stream Edge", "Light Heal", "Shadow Eye", "Battle Soul", "Shaker Edge"],
+      ai: ["Back Slash", "Slit Edge", "Air Slash", "Stream Edge", "Light Heal", "Shadow Eye", "Shaker Edge", "Battle Soul"],
+      levelPriority: ["Light Heal", "Air Slash", "Shaker Edge", "Slit Edge", "Back Slash"],
+      gems: ["HP Up", "Agility Up", "Debuff Resist", "Haste"],
+      strategy: "Future Connected gives Shulk the same eight normal Arts but removes main-game Vision/Monado safety. Fortress play therefore preserves Light Heal and avoids spending HP through Battle Soul unless Kino is stable."
+    },
+    "fc-melia": {
+      controlled: ["Summon Bolt", "Summon Aqua", "Summon Earth", "Summon Copy", "Reflection", "Healing Gift", "Spear Break", "Starlight Kick"],
+      ai: ["Summon Bolt", "Summon Aqua", "Summon Earth", "Summon Flare", "Reflection", "Healing Gift", "Spear Break", "Starlight Kick"],
+      levelPriority: ["Summon Aqua", "Summon Earth", "Reflection", "Healing Gift", "Summon Bolt", "Summon Copy"],
+      gems: ["HP Up", "Ether Up", "Agility Up", "Debuff Resist"],
+      strategy: "Keeps Aqua/Earth and Reflection in the active plan while Kino and Nene stabilize the field. Manual control is still strongly preferred."
+    },
+    kino: {
+      controlled: ["Healy Bullet", "Healy Round", "Shield Bullet", "Cure Round", "Thunder Bullet", "Head Shaker", "Tranquilliser", "Drive Boost"],
+      ai: ["Healy Bullet", "Healy Round", "Shield Bullet", "Cure Round", "Thunder Bullet", "Head Shaker", "Tranquilliser", "Drive Boost"],
+      levelPriority: ["Healy Bullet", "Healy Round", "Shield Bullet", "Cure Round", "Drive Boost"],
+      gems: ["HP Up", "Ether Up", "Aggro Down", "Debuff Resist"],
+      strategy: "Kino's reliable palette is already his fortress palette. The distinction is AP and gem allocation: recovery, shielding and survival are funded before Thunder Bullet damage."
+    },
+    nene: {
+      controlled: ["Mild Down", "Bone Upper", "Engage", "Guard Sift", "Hammer Beat", "Feather Swing", "Sword Drive", "Magnum Starch"],
+      ai: ["Mild Down", "Bone Upper", "Engage", "Guard Sift", "Hammer Beat", "Feather Swing", "Sword Drive", "Magnum Starch"],
+      levelPriority: ["Mild Down", "Guard Sift", "Engage", "Bone Upper", "Hammer Beat", "Sword Drive"],
+      gems: ["HP Up", "Physical Def Up", "Agility Up", "Aggro Up", "Debuff Resist"],
+      strategy: "Nene's available tank palette changes little, but fortress priorities put Guard Sift, Engage, HP and accuracy ahead of Sword Drive damage."
+    }
+  },
   characters: [
     { id: "shulk", name: "Shulk", campaign: "main", availability: "Ch1 onward", role: "physical attacker / vision-response support", sourceIds: ["gg-characters", "game8-arts"],
       facts: ["Monado Arts consume his Talent Gauge; Shield must meet the shown enemy Talent Art level.", "Enchant lets most party physical attacks damage Mechon normally; returned Fiora can damage Mechon without it.", "Shulk has exactly eight normal Arts, so safe and aggressive loadouts slot the same palette; the difference is Monado timing, gem choice and how much risk you take with Battle Soul."],

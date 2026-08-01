@@ -112,6 +112,15 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   let saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(saved.route["c0-01"] && saved.version === 4, "migrated state was not persisted under v4");
 
+  const braveParent = document.getElementById("c1-miss-brave-protectors");
+  const braveStep = document.querySelector('[data-subcheck-parent="c1-miss-brave-protectors"]');
+  assert(braveStep && document.querySelectorAll('[data-subcheck-parent="c1-miss-brave-protectors"]').length === 9, "The Brave Protectors did not render nine sub-checkpoints");
+  braveStep.checked = true;
+  braveStep.dispatchEvent(new Event("change", { bubbles: true }));
+  saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
+  assert(saved.routeSteps["c1-miss-brave-protectors"][braveStep.dataset.subcheckId] && !braveParent.checked, "Sub-checkpoint progress did not persist independently from its parent card");
+  assert(braveStep.closest(".route-subchecks").textContent.includes("1/9"), "Sub-checkpoint completion count did not update");
+
   const worldCheck = document.querySelector("#route input[data-world-id]");
   worldCheck.checked = true;
   worldCheck.dispatchEvent(new Event("change", { bubbles: true }));
@@ -247,13 +256,20 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(document.querySelectorAll("#quest-results .result-card").length > 0, "quest branch filter returned nothing");
 
   document.querySelector('[data-p="combat"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
-  assert(document.querySelectorAll("#build-character option").length === 11, "Build Lab roster did not render 11 characters");
+  assert(document.querySelectorAll("#build-character-tabs .build-character-tab").length === 11, "Build Lab roster did not render 11 character tabs");
   assert(document.querySelectorAll("#party-presets .preset-avatar[src^='assets/party-portraits/']").length > 0, "Party presets are missing their sourced character portraits");
-  document.getElementById("build-character").value = "melia";
+  document.querySelector('[data-build-character="melia"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   document.getElementById("build-control").value = "ai";
   document.getElementById("build-goal").value = "aggressive";
   document.getElementById("build-goal").dispatchEvent(new Event("change", { bubbles: true }));
-  assert(/Melia · AI · Aggressive/.test(document.getElementById("build-result").textContent), "Build Lab selectors did not update the recommendation");
+  assert(/Melia · AI · Fastest-kill meta/.test(document.getElementById("build-result").textContent), "Build Lab selectors did not update the recommendation");
+  document.getElementById("build-goal").value = "fortress";
+  document.getElementById("build-goal").dispatchEvent(new Event("change", { bubbles: true }));
+  assert(document.getElementById("build-goal-note").textContent.includes("separate survival-first"), "Fortress mode does not explain how it differs from Reliable meta");
+  document.getElementById("build-show-all").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.querySelectorAll("#build-result .build-character-block").length === 11, "Build Lab Show all did not render every character sequentially");
+  document.getElementById("build-show-all").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.querySelectorAll("#build-result .build-character-block").length === 1, "Build Lab did not return to single-character mode");
   document.querySelector("#party-presets .preset").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.getElementById("preset-detail").textContent.includes("Party:"), "party preset did not open");
 
@@ -285,18 +301,18 @@ async function makeDom({ legacy = null, previous = null } = {}) {
 
   document.getElementById("reset").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
-  assert(Object.keys(saved.route).length === 0 && Object.keys(saved.completion).length === 0 && Object.keys(saved.world).length === 0 && Object.keys(saved.hunts).length === 0 && Object.keys(saved.monsterLog).length === 0 && Object.keys(saved.collectopaedia).length === 0 && Object.keys(saved.drops).length === 0, "reset did not clear route, completion, world, and Monsterpedia ledgers");
+  assert(Object.keys(saved.route).length === 0 && Object.keys(saved.routeSteps).length === 0 && Object.keys(saved.completion).length === 0 && Object.keys(saved.world).length === 0 && Object.keys(saved.hunts).length === 0 && Object.keys(saved.monsterLog).length === 0 && Object.keys(saved.collectopaedia).length === 0 && Object.keys(saved.drops).length === 0, "reset did not clear route, sub-checkpoint, completion, world, and Monsterpedia ledgers");
   assert(localStorage.getItem("xc1de-guide-state-v4-last-backup"), "reset did not create an automatic backup");
   document.getElementById("restore").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
-  assert(saved.route["c0-01"] && saved.completion[achievement.dataset.cid] && saved.world[worldCheck.dataset.worldId], "automatic backup did not restore every ledger");
+  assert(saved.route["c0-01"] && saved.routeSteps["c1-miss-brave-protectors"][braveStep.dataset.subcheckId] && saved.completion[achievement.dataset.cid] && saved.world[worldCheck.dataset.worldId], "automatic backup did not restore every ledger");
 
   await new Promise(resolve => setTimeout(resolve, 20));
   assert(errors.length === 0, `runtime errors: ${errors.join(" | ")}`);
   dom.window.close();
   const previousDom = await makeDom({ previous: { version: 2, route: { "c1-01": true }, completion: {}, skipped: {} } });
   const previousSaved = JSON.parse(previousDom.window.localStorage.getItem("xc1de-guide-state-v4"));
-  assert(previousSaved.route["c1-01"] && previousSaved.version === 4 && previousSaved.world, "v2 structured state did not migrate to v4");
+  assert(previousSaved.route["c1-01"] && previousSaved.version === 4 && previousSaved.world && previousSaved.routeSteps, "v2 structured state did not migrate to v4");
   previousDom.window.close();
   console.log("OK: v1/v2 migration, route/world render, searches, Monsterpedia ledger and hunt filters, builds, presets, reset and restore interactions.");
 })().catch(error => { console.error(error.stack || error); process.exit(1); });

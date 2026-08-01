@@ -123,6 +123,16 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 1. 🔴 🔴 Earn **The Brave Protectors** before inviting Nic to Colony 6
    Register all nine Colony 9 Defence Force members on the Affinity Chart: **Andreas, Dorothy, Kantz, Emmy Leater, Miller, Minnie, Monica, Nic and Raoul**. Talk to named NPCs twice and at their active time until the link registers. Inviting Nic to Colony 6 before this is complete can make the achievement unobtainable on this file.
+   **Sub-checkpoints:**
+   - [ ] Register Andreas
+   - [ ] Register Dorothy
+   - [ ] Register Kantz
+   - [ ] Register Emmy Leater
+   - [ ] Register Miller
+   - [ ] Register Minnie
+   - [ ] Register Monica
+   - [ ] Register Nic
+   - [ ] Register Raoul
 
 2. 📜 **The Key to a Long Life** — Dionysis
    - **Pick up:** Dionysis, Residential District (near Tranquil Square).
@@ -270,6 +280,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 22. ⛏️ ⛏️ **Rainbow Zirconia** x3 and **Rabbit Diode** x3
    Both are Colony 9 collection-point items, needed much later for **Colony 6 Housing 5** and **Special 5**. Rainbow Zirconia also appears in Colony 6 itself, so neither is at risk.
    Just register them in the Collectopaedia as you pass and **do not sell them**.
+   **Sub-checkpoints:**
+   - [ ] Bank 3× Rainbow Zirconia
+   - [ ] Bank 3× Rabbit Diode
 
 23. ⚪ Touch every landmark in Colony 9 and Tephra Cave
    Free EXP each, and they unlock Skip Travel points you will use constantly for the collectable farm loop later.
@@ -577,10 +590,33 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Do:** kill **4x Ferocious Volff** menacing the bathing woman, then talk to her.
    - **Pays:** 1,200 G · 300 EXP · Diver Top · Diver Bottoms (empty gem slot) · +50 Rep.
 
-6. 🔴 🔴 The rest of the Refugee Camp board — **19 more quests**
+6. 🔴 🔴 Clear the rest of the **Refugee Camp timed quest board**
    - **Named, from the camp:** Being a Good Grandfather (Satata) · A Thoughtful Idea (Matryona) · A Dash of Colour (Ewan) · The Greedy Monster (Satata) · **Earnest's Fibs → Earnest's Mischief → Earnest's Solitude** (Earnest, a three-part chain worth 2,950 G and a Grand Boots).
    - **Generic, auto-complete:** Monster Quest 2 · Monster Quest 3 Parts 1-2 · Challenge 1 Parts 1-2 · Challenge 2 Parts 1-2 · Material Quest 1-4 · Collection Quest 1-2 · Search Quest 1-2.
    - **All of it dies at the relocation.** The generic ones auto-complete in the field, so take every one before you go monster hunting and they will tick off as you go.
+   **Sub-checkpoints:**
+   - [ ] Being a Good Grandfather
+   - [ ] A Thoughtful Idea
+   - [ ] A Dash of Colour
+   - [ ] The Greedy Monster
+   - [ ] Earnest's Fibs
+   - [ ] Earnest's Mischief
+   - [ ] Earnest's Solitude
+   - [ ] Monster Quest 2
+   - [ ] Monster Quest 3 — Part 1
+   - [ ] Monster Quest 3 — Part 2
+   - [ ] Challenge 1 — Part 1
+   - [ ] Challenge 1 — Part 2
+   - [ ] Challenge 2 — Part 1
+   - [ ] Challenge 2 — Part 2
+   - [ ] Material Quest 1
+   - [ ] Material Quest 2
+   - [ ] Material Quest 3
+   - [ ] Material Quest 4
+   - [ ] Collection Quest 1
+   - [ ] Collection Quest 2
+   - [ ] Search Quest 1
+   - [ ] Search Quest 2
 
 > **ℹ️ Note — The four Challenge parts are Unique Monster fights again**
 >
@@ -716,6 +752,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 3. 🔴 🔴 Before Xord — ⛏️ **Ready Coil** ×2 (Commerce 2) and **Black Beetle** ×2 (Nature 5)
    Both from Ether Mine collection points. Run the Skip Travel loop off the nearest landmark until you have all four.
+   **Sub-checkpoints:**
+   - [ ] Bank 2× Ready Coil
+   - [ ] Bank 2× Black Beetle
 
 4. 🔴 🔴 Before Xord — fill the **Ether Mine** Collectopaedia page
 
@@ -1231,6 +1270,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 40. ⛏️ ⛏️ **Empress Beetle** ×3 — Nature 2. Frontier Village collection
 
 41. ⚪ Fill the **Makna Forest** and **Frontier Village** Collectopaedia pages
+   **Sub-checkpoints:**
+   - [ ] Complete Makna Forest Collectopaedia
+   - [ ] Complete Frontier Village Collectopaedia
 
 > **⛏️ Grind stop — ⛏️ Push Central Bionis affinity to 3.5★ before you leave**
 >
@@ -1358,6 +1400,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 16. 🔴 🔴 **A Necessary Upgrade** — Naroth · needs **1.25★** + Tomb story point
    - **Do:** **5x Green Diode** in the High Entia Tomb + **3x Astas Remote Unit** from **Hover Astas** there.
    - **Pays:** 6,500 G · 1,800 EXP · +150 Rep · Shell Gauntlets.
+   **Sub-checkpoints:**
+   - [ ] Collect 5× Green Diode
+   - [ ] Collect 3× Astas Remote Unit
 
 17. 🔴 🔴 **Talia's Research** — Talia · needs **2★** · **take this over Investigating Satorl**
    - **Do:** kill **Dogmatic Gogol** (quest-exclusive) at the **Place of Judgement, Satorl Marsh**.
@@ -1367,6 +1412,11 @@ A pair cannot reach high affinity before they have been in the party together a 
 18. 🔴 🔴 **Starlight Gazer** — Elior · needs **2.5★** + Tomb story point
    - **Do:** talk to **Kaleka** → **1x Attachment Part** from the **Second Treasury** in the High Entia Tomb → Kaleka → Elior.
    - **Pays:** 6,900 G · 2,700 EXP · +200 Rep · Amethyst Leggings.
+   **Sub-checkpoints:**
+   - [ ] Speak to Kaleka
+   - [ ] Collect the Attachment Part in the Second Treasury
+   - [ ] Return to Kaleka
+   - [ ] Return to Elior
 
 > **ℹ️ Note — ALCAMOTH PHASE 4 — after the Whitewing Palace scene. This is the gold.**
 >
@@ -1464,6 +1514,11 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 39. 👾 Free-roaming Eryth Sea UMs: **Turbulent Belmo** (36, **clear days**), **Subterranean Zomar** (40), **Cumulus Danaemos** (41), and **Calm Anzabi** (38, High Entia Tomb Second Treasury)
    No quests needed for these four. The Lv87-93 Eryth Sea block is post-game.
+   **Sub-checkpoints:**
+   - [ ] Defeat Turbulent Belmo
+   - [ ] Defeat Subterranean Zomar
+   - [ ] Defeat Cumulus Danaemos
+   - [ ] Defeat Calm Anzabi
 
 40. 💜 💜 **Reyn & Riki** — Sleeping Dragon Isle, day, Green
 
@@ -1493,6 +1548,10 @@ A pair cannot reach high affinity before they have been in the party together a 
 52. ⛏️ ⛏️ **Blue Ladybird** ×2 — Commerce 3. High Entia Tomb collection — get it during the Tomb sweep
 
 53. ⚪ Fill the **Eryth Sea**, **Alcamoth** and **High Entia Tomb** Collectopaedia pages
+   **Sub-checkpoints:**
+   - [ ] Complete Eryth Sea Collectopaedia
+   - [ ] Complete Alcamoth Collectopaedia
+   - [ ] Complete High Entia Tomb Collectopaedia
 
 ---
 
@@ -1537,6 +1596,21 @@ A pair cannot reach high affinity before they have been in the party together a 
 3. 🟡 🟡 Clear both Alcamoth courses with **all seven characters before Chapter 15**
    - **The risk:** Alcamoth dies at Mechonis Core in Ch15. The Grand Prix is accessed from a menu and Alcamoth stays physically walkable from the Eryth Sea Centre Gate afterwards, so these courses **probably** survive — but no source confirms it.
    - **The call:** 14 of the 70 total clears are here. Doing them now costs about an hour and removes the question entirely. Being wrong costs 14 clears and the permanent Ether Jet bonus that needs all 70.
+   **Sub-checkpoints:**
+   - [ ] Alcamoth Orbital — Shulk
+   - [ ] Alcamoth Orbital — Reyn
+   - [ ] Alcamoth Orbital — Fiora
+   - [ ] Alcamoth Orbital — Dunban
+   - [ ] Alcamoth Orbital — Sharla
+   - [ ] Alcamoth Orbital — Riki
+   - [ ] Alcamoth Orbital — Melia
+   - [ ] Alcamoth at Dawn — Shulk
+   - [ ] Alcamoth at Dawn — Reyn
+   - [ ] Alcamoth at Dawn — Fiora
+   - [ ] Alcamoth at Dawn — Dunban
+   - [ ] Alcamoth at Dawn — Sharla
+   - [ ] Alcamoth at Dawn — Riki
+   - [ ] Alcamoth at Dawn — Melia
 
 ---
 
@@ -1609,9 +1683,17 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Correction:** Barbaric Sitri is **not** quest-exclusive — it is a normal field UM at ~30% spawn, any time or weather. Only Vassago needs the quest.
 
 9. 👾 Free-roaming Valak UMs: **Glorious Buer** (45), **Moonlight Paimon** (46, Lava Cave), **Vague Barbas** (46)
+   **Sub-checkpoints:**
+   - [ ] Defeat Glorious Buer
+   - [ ] Defeat Moonlight Paimon
+   - [ ] Defeat Vague Barbas
 
 10. 👾 Night-only Valak UMs: **Agile Barbatos** (47), **Hidden Gamigin** (49), **North Star Gusion** (50)
    Gusion is west of Url Crevasse and needs **night AND a blizzard** — the second-fussiest spawn in the game after Proper Bandaz.
+   **Sub-checkpoints:**
+   - [ ] Defeat Agile Barbatos at night
+   - [ ] Defeat Hidden Gamigin at night
+   - [ ] Defeat North Star Gusion during a night blizzard
 
 11. ⚪ **Final Marcus** (Lv100 superboss) is at Three Sage Summit at night. Note the spot, walk away
    You will come back for it first in the post-game superboss run, because it is the only one beatable without Night Vision gems.
@@ -1845,6 +1927,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 11. 🔴 🔴 Fill the **Sword Valley** and **Galahad Fortress** Collectopaedia pages
    Sword Valley's completion chain includes **Cosmic Nibbler** and **Arkose Pike**. Neither area ever returns.
+   **Sub-checkpoints:**
+   - [ ] Complete Sword Valley Collectopaedia
+   - [ ] Complete Galahad Fortress Collectopaedia
 
 > **ℹ️ Note — Galahad Fortress's four quests are story-only**
 >
@@ -1941,6 +2026,12 @@ A pair cannot reach high affinity before they have been in the party together a 
    Largest single quantity on the entire bill of materials. Buying some is reasonable.
 
 14. ⛏️ ⛏️ Fallen Arm collection: **Warning Lamp** ×3, **Sour Turnip** ×3, **Oil Oyster** ×3, **White Plum** ×3, **Rainbow Slug** ×2
+   **Sub-checkpoints:**
+   - [ ] Bank 3× Warning Lamp
+   - [ ] Bank 3× Sour Turnip
+   - [ ] Bank 3× Oil Oyster
+   - [ ] Bank 3× White Plum
+   - [ ] Bank 2× Rainbow Slug
 
 > **🌦️ Weather / time — One night circuit, one thunderstorm — plan both**
 >
@@ -2098,16 +2189,35 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **1:** 4x New Part S (small Mechon) + 5x Fairy Tale Diode (collectables) — 51,000 G
    - **2:** 3x New Part L (large Mechon) + 6x Grape Spring (collectables) — 53,500 G
    - Collect these while sweeping for Lewisia Silver and Blue Light Amp — same collection points.
+   **Sub-checkpoints:**
+   - [ ] Bank 4× New Part S
+   - [ ] Bank 5× Fairy Tale Diode
+   - [ ] Bank 3× New Part L
+   - [ ] Bank 6× Grape Spring
 
 7. 🔴 🔴 **Telethia Investigation 1 & 2** — Strategic Intel Terminal · the only EXP here
    - **1:** examine four **Phoenix Telethia** corpses — **Helas Pillar**, **Dios Pillar**, **Effigy of Meyneth**, **Calcos Pillar**. 27,000 G · 25,000 EXP.
    - **2:** examine four three-headed **Gigas Telethia** corpses — **Residential District 1**, **Helas Pillar**, **Telethia Bridge**, **Judicial District**. 22,500 G · 30,000 EXP.
    - No combat in either. Pure walking, 55,000 EXP.
+   **Sub-checkpoints:**
+   - [ ] Examine Phoenix corpse — Helas Pillar
+   - [ ] Examine Phoenix corpse — Dios Pillar
+   - [ ] Examine Phoenix corpse — Effigy of Meyneth
+   - [ ] Examine Phoenix corpse — Calcos Pillar
+   - [ ] Examine Gigas corpse — Residential District 1
+   - [ ] Examine Gigas corpse — Helas Pillar
+   - [ ] Examine Gigas corpse — Telethia Bridge
+   - [ ] Examine Gigas corpse — Judicial District
 
 8. 🔴 🔴 After all 14 terminal quests, claim the **Cloister Key** and find the secret area
    Interact with the final Central Tower terminal after completing all fourteen optional Agniratha quests. Use the key on the locked 3F door to discover the **Seventh Sage Cloister** before the Meyneth Shrine cutoff.
 
 9. 🔴 🔴 Free-roaming Agniratha UMs: **Experienced Tristan** (64), **Destructive Bors** (64), **Soothed Aglovale** (65), **Sentimental Flamral** (66)
+   **Sub-checkpoints:**
+   - [ ] Defeat Experienced Tristan
+   - [ ] Defeat Destructive Bors
+   - [ ] Defeat Soothed Aglovale
+   - [ ] Defeat Sentimental Flamral
 
 10. 🔴 🔴 ⛏️ **Lewisia Silver** ×2 — Nature 5. Agniratha collection · backup: trade Berryjammy in Colony 6
 
@@ -2137,12 +2247,22 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 19. 🔴 🔴 Free-roaming Mechonis Field UMs: **Amorous Arca** (57), **Destroyer Salvacion** (59), **Commander Oracion** (61)
    Oracion is in the **Spent Fuel Tank** and requires a jump to reach.
+   **Sub-checkpoints:**
+   - [ ] Defeat Amorous Arca
+   - [ ] Defeat Destroyer Salvacion
+   - [ ] Defeat Commander Oracion
 
 20. 🔴 🔴 ⛏️ **Mossy Panel** ×2 (Commerce 4) and **Azure Hollyhock** ×2 (Special 4) — Mechonis Field collection
    Backups exist — Nopo'rikh in Colony 6 for the Panel, Scarlen in Satorl Marsh post-Mechonis Core for the Hollyhock — but grab them here.
+   **Sub-checkpoints:**
+   - [ ] Bank 2× Mossy Panel
+   - [ ] Bank 2× Azure Hollyhock
 
 21. 🔴 🔴 Fill the **Mechonis Field** and **Agniratha** Collectopaedia pages
    Mechonis Field's chain includes **Taurus Greaves** and **Taurus Helm**. Neither area returns.
+   **Sub-checkpoints:**
+   - [ ] Complete Mechonis Field Collectopaedia
+   - [ ] Complete Agniratha Collectopaedia
 
 > **ℹ️ Note — Central Factory — surprise quests trigger by walking, not by talking**
 >
@@ -2165,9 +2285,20 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 25. 👾 Central Factory UMs: **Mild Florence** (58), **Faithful Lancelot** (59), **Synchronised Gaheris** (61), **Balanced Palamedes** (62), **Sinful Lamorak** (63), **Temporal Gawain** (65), **Magestic Mordred** (70)
    Gawain only appears after you open the hangar door. All of these get a second window in Chapter 16.
+   **Sub-checkpoints:**
+   - [ ] Defeat Mild Florence
+   - [ ] Defeat Faithful Lancelot
+   - [ ] Defeat Synchronised Gaheris
+   - [ ] Defeat Balanced Palamedes
+   - [ ] Defeat Sinful Lamorak
+   - [ ] Defeat Temporal Gawain
+   - [ ] Defeat Magestic Mordred
 
 26. ⛏️ ⛏️ **Angel Engine X** ×2 (Special 5) and **Black Styrene** ×2 (Housing 5) — Central Factory collection
    Black Styrene is also in Colony 6, so it is safe. Angel Engine X backup is a trade with Shilx in Colony 6.
+   **Sub-checkpoints:**
+   - [ ] Bank 2× Angel Engine X
+   - [ ] Bank 2× Black Styrene
 
 27. ⚪ Fill the **Central Factory** Collectopaedia page (**Machina Driver III**)
    Second window in Chapter 16 if you run out of time here.
@@ -2197,12 +2328,49 @@ A pair cannot reach high affinity before they have been in the party together a 
 > **What survives:** the Alcamoth **area** (on foot from the Eryth Sea Centre Gate), its six Heart-to-Hearts, and Fallen Arm entirely.
 
 1. 🔴 **Every Alcamoth quest.** Dangerous Ambition, Find the Kingpin, Adviser Hunt, Evidence Collection, Destroying the City Trade, The Deciphering Machine, A Necessary Upgrade, Talia's Research, Bring Back My Son!, Teaching Materials, Brave Actions, Protect the Capital!, How Do They Feel?, How Do I Feel?, Together Forever, A Friend in Need, Preparing for Adventure 1-3, Adventurers in Peril, Building Bridges, Believing Again, Starlight Seeker, Starlight Gazer, Back Pain, Looking for Gold Bugs, Losing the Taste for Alcohol, Looking for a Lost Son, Looking for a Lost Daughter, Going Out to Play, Getting a Member's Card.
+   **Sub-checkpoints:**
+   - [ ] Dangerous Ambition
+   - [ ] Find the Kingpin
+   - [ ] Adviser Hunt
+   - [ ] Evidence Collection
+   - [ ] Destroying the City Trade
+   - [ ] The Deciphering Machine
+   - [ ] A Necessary Upgrade
+   - [ ] Talia's Research
+   - [ ] Bring Back My Son!
+   - [ ] Teaching Materials
+   - [ ] Brave Actions
+   - [ ] Protect the Capital!
+   - [ ] How Do They Feel?
+   - [ ] How Do I Feel?
+   - [ ] Together Forever
+   - [ ] A Friend in Need
+   - [ ] Preparing for Adventure 1
+   - [ ] Preparing for Adventure 2
+   - [ ] Preparing for Adventure 3
+   - [ ] Adventurers in Peril
+   - [ ] Building Bridges
+   - [ ] Believing Again
+   - [ ] Starlight Seeker
+   - [ ] Starlight Gazer
+   - [ ] Back Pain
+   - [ ] Looking for Gold Bugs
+   - [ ] Losing the Taste for Alcohol
+   - [ ] Looking for a Lost Son
+   - [ ] Looking for a Lost Daughter
+   - [ ] Going Out to Play
+   - [ ] Getting a Member's Card
 
 2. 🔴 The ~48 Alcamoth Monster / Challenge / Material / Collection / Search quests from citizens and guards.
 
 3. 🔴 **Preparing for Adventure 3** spawns **Lakebed Orthlus** (40) back at Agora Shore, Colony 9. Quest-exclusive UM, dies with the quest.
 
 4. 🔴 **Zel Argentis vs En Argentis.** Speak to **both** and invite **Don** first, then take one. Both +4 Pop, functionally identical.
+   **Sub-checkpoints:**
+   - [ ] Speak to Zel Argentis
+   - [ ] Speak to En Argentis
+   - [ ] Invite Don first
+   - [ ] Invite either Zel or En Argentis
 
 5. 🔴 Confirm the **Alcamoth Grand Prix courses** are cleared with all seven characters.
 
@@ -2240,6 +2408,9 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 3. ⛏️ ⛏️ Second window: **Angel Engine X** ×2 (Special 5) and **Black Styrene** ×2 (Housing 5)
    Backups if you still miss them: trade **Shilx** in Colony 6 for Angel Engine X; Black Styrene is also a Colony 6 collectable.
+   **Sub-checkpoints:**
+   - [ ] Bank 2× Angel Engine X
+   - [ ] Bank 2× Black Styrene
 
 4. 🏁 🏁 **Colony 9 Grand Prix pair** — Rural Road and Colony 9 Wild Ride · **feet** slot
    - Unlocks after the reunion at Hidden Machina Village. **The last of the five track pairs.**
@@ -2303,6 +2474,9 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Do:** kill **Reckless Zanden** (Lv98, 280,500 HP) and **Firework Geldesia** (Lv98, 414,500 HP), both in the **Arachno Queen's Nest, Tephra Cave**. Both are **quest-exclusive** — they exist only while this quest is active.
    - **Pays:** 63,500 G · **158,000 EXP** · +200 Rep · **Eternity Knives** · Speed V Frame · Speed V Booster · **Fiora Skill Tree — Innocence**.
    - Geldesia alone grants 106,931 EXP and 1,089 AP on the kill. Both are weak to Topple.
+   **Sub-checkpoints:**
+   - [ ] Defeat Reckless Zanden
+   - [ ] Defeat Firework Geldesia
 
 4. 📜 **Supplies for Satorl** — Elior, Refugee Camp · **18:00-6:00**
    - **Do:** give the emergency rations to **Scarlen in Satorl Marsh**: Oath Sanctuary before Imperial Ceremony Offerings, or Sororal Statues from 18:00-3:00 afterwards.
@@ -2328,6 +2502,12 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **The Mini Reactor:** from an **Experimental M86** near **Digit 2 Plain**.
    - **Leader handoff:** Dunban must lead to accept `Stunted Growth`; switch to Shulk before returning the completed device to Orkatix.
    - **Then Stunted Growth** → 44,000 G · 51,500 EXP · +700 Rep · **Dunban Skill Tree — Enthusiasm** · Haste IV · Agility Up V.
+   **Sub-checkpoints:**
+   - [ ] Collect Transmission Bypass
+   - [ ] Collect Exhaust Pump
+   - [ ] Collect Mini Reactor
+   - [ ] Accept Stunted Growth with Dunban leading
+   - [ ] Turn in Stunted Growth with Shulk leading
 
 7. 📜 **Final Challenge of the Sage** — Nopon Sage, Divine Sanctuary · **12:00-15:00** · **⚠️ RIKI MUST LEAD** · **Riki's Heroism tree**
    - **Requires** the Sage chain: `Honouring the Nopon Sage` → `Legend of the Sage` → `Challenge of the Sage`, all begun back in Ch7-8 via `Strange Noises from Below`, plus 3.5★ Central Bionis.
@@ -2358,6 +2538,12 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **4 → Monado Dogma:** Demonic Everflame (Dragon) · Mammut Horn · Tirkin Elder Medal
    - **5 → Monado Saga:** Yellow Slobos Rock (Valak) · Tokilos King Egg · Diamond Brog Eye
    - **Watch out:** several of these overlap the Colony 6 bill of materials. Farm doubles so you are not choosing between a Monado and reconstruction.
+   **Sub-checkpoints:**
+   - [ ] Complete Replica Monado 1 — Monado Rudra
+   - [ ] Complete Replica Monado 2 — Monado Agni
+   - [ ] Complete Replica Monado 3 — Monado Abyss
+   - [ ] Complete Replica Monado 4 — Monado Dogma
+   - [ ] Complete Replica Monado 5 — Monado Saga
 
 12. 📜 **Melancholy Tyrea** — surprise quest in **Colony 6** → **Empress Staff**
    - **Correction:** this triggers in **Colony 6**, not Watchpoint Junction.
@@ -2374,6 +2560,11 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Sub-quest `The Giants' Treasures`** comes with it: collect **Truth of the Giants**, **Daring of the Giants** and **Heart of the Giants**. The **Heart** comes from `Mystery of Makna Ruins 4` in Ch10 — another reason that chain mattered.
    - **Then:** unseal the door at **Three Sage Summit**.
    - **Pays:** 88,000 G · **175,000 EXP** · +700 Rep · Damage Heal VI · Arts Stealth VI. Largest EXP payout in the game.
+   **Sub-checkpoints:**
+   - [ ] Collect Truth of the Giants
+   - [ ] Collect Daring of the Giants
+   - [ ] Collect Heart of the Giants
+   - [ ] Unseal the door at Three Sage Summit
 
 15. 📜 **The Giants' Treasure** (Satorl Marsh, Kacha) → spawns **Eternal Palsadia** (91)
    The Ch6 Bokoko/Kacha chain quest. Completing it makes Eternal Palsadia appear at the top of **Exile Fortress**. If you did it back in Chapter 6, it is waiting for you now.
@@ -2396,22 +2587,66 @@ A pair cannot reach high affinity before they have been in the party together a 
 19. 📜 Remaining Colony 9 and Colony 6 late quests
    - **Colony 9:** The Elite Captain's Anguish (22,000 G / 35,000 EXP) · Getting to Know Minnie · Getting to Know Dorothy.
    - **Colony 6:** Lifespan of a Machine (Neonik, 38,000 G) · A Poet's Concerns (Yura, 38,500 G) · Delivering the Undeliverable and Finding the Unfindable (Shilx) · A Dauntless Trader (Werner) · **Nopon Determination** (Mefimefi, only if you took her over Perrine) · Defend Colony 6 - Ancient and Demon.
+   **Sub-checkpoints:**
+   - [ ] The Elite Captain's Anguish
+   - [ ] Getting to Know Minnie
+   - [ ] Getting to Know Dorothy
+   - [ ] Lifespan of a Machine
+   - [ ] A Poet's Concerns
+   - [ ] Delivering the Undeliverable
+   - [ ] Finding the Unfindable
+   - [ ] A Dauntless Trader
+   - [ ] Nopon Determination (only on Mefimefi route)
+   - [ ] Defend Colony 6 — Ancient
+   - [ ] Defend Colony 6 — Demon
 
 20. 📜 **Satorl Marsh's late quest block** — eight quests that only exist now
    Challenge · For a Friend · A Merciful End · A Release from Duty · **The Imperial Ceremony** · Imperial Ceremony Offerings · The Ancient Ceremony · Ancient Ceremony Offerings.
    The Imperial Ceremony gives the **High Entia Emblem**, which unlocks the sealed section of the High Entia Tomb and the Unique Monster **Furious Jozan** (96).
+   **Sub-checkpoints:**
+   - [ ] Challenge
+   - [ ] For a Friend
+   - [ ] A Merciful End
+   - [ ] A Release from Duty
+   - [ ] The Imperial Ceremony
+   - [ ] Imperial Ceremony Offerings
+   - [ ] The Ancient Ceremony
+   - [ ] Ancient Ceremony Offerings
 
 21. ⛏️ ⛏️ **Black Liver Bean** ×2 — Nature 5. Bionis' Interior collection, rare, **no trade backup**
 
 22. ⛏️ ⛏️ **Flexible Selua Cell** ×3 and **Steel Selua Cell** ×3 — Special 4. Largo Selua and Wool Selua, Bionis' Interior
+   **Sub-checkpoints:**
+   - [ ] Bank 3× Flexible Selua Cell
+   - [ ] Bank 3× Steel Selua Cell
 
 23. ⛏️ ⛏️ **Inferno Element** ×2 and **Bolt Element** ×2 — Special 5. Cratere and Solare Nebula, **Prison Island**
+   **Sub-checkpoints:**
+   - [ ] Bank 2× Inferno Element
+   - [ ] Bank 2× Bolt Element
 
 24. 👾 Bionis' Interior UMs (8) — second visit only
    Active Impulso (72), Mystical Klesida (72), Victorious Gross (73), Clandestine Apety (74), Vivid Anstan (75), Officer Robusto (75), Ghostly Mahatos (76), Dark King Barbarus (77, flying outside the Second Lung).
+   **Sub-checkpoints:**
+   - [ ] Defeat Active Impulso
+   - [ ] Defeat Mystical Klesida
+   - [ ] Defeat Victorious Gross
+   - [ ] Defeat Clandestine Apety
+   - [ ] Defeat Vivid Anstan
+   - [ ] Defeat Officer Robusto
+   - [ ] Defeat Ghostly Mahatos
+   - [ ] Defeat Dark King Barbarus
 
 25. 👾 Prison Island UMs (7) — second visit only
    Ageless Moabit (75), Serene Imlaly (76), Inferno Heinrich (76, back room of the Kitchen), Cold Ageshu (77), Abnormal Clone Barg (77, First Sanctum), Majestic Clone Barg (77, Second Sanctum), Masterful Gigapur (77, Travalga Bridge).
+   **Sub-checkpoints:**
+   - [ ] Defeat Ageless Moabit
+   - [ ] Defeat Serene Imlaly
+   - [ ] Defeat Inferno Heinrich
+   - [ ] Defeat Cold Ageshu
+   - [ ] Defeat Abnormal Clone Barg
+   - [ ] Defeat Majestic Clone Barg
+   - [ ] Defeat Masterful Gigapur
 
 26. 👾 UM: **Fiendish Auburn** (78) — Gravina Bridge · **kill 3 Babel Deinos and 3 Babeli Bargs first**
 
@@ -2493,6 +2728,22 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Arts:** maxed Monado Shield and Monado Armour. Optimise for agility.
 
 6. 💜 The remaining 15 Pink Heart-to-Hearts, now reachable with Love Sources. Reyn & Dunban (Tranquil Square, night), Reyn & Fiora (Kneecap Hill), Dunban & Sharla (Rho Oasis), Shulk & Dunban (Colony 6 Main Entrance east), Shulk & Sharla (Colony 6 building top NW), Reyn & Sharla (Central Terminal), Sharla & Riki (Crown Tree), Dunban & Riki (Riki's House), Fiora & Riki (Syrath Lighthouse top), Reyn & Melia (Sky Terrace), Shulk & Melia (Hall of Trials), Shulk & Riki (Distant Fingertip), Fiora & Dunban (Junks 2F), Fiora & Melia (Digit 1), Dunban & Melia (Black Wreckage).
+   **Sub-checkpoints:**
+   - [ ] Reyn & Dunban — Tranquil Square at night
+   - [ ] Reyn & Fiora — Kneecap Hill
+   - [ ] Dunban & Sharla — Rho Oasis
+   - [ ] Shulk & Dunban — Colony 6 Main Entrance east
+   - [ ] Shulk & Sharla — Colony 6 building top northwest
+   - [ ] Reyn & Sharla — Central Terminal
+   - [ ] Sharla & Riki — Crown Tree
+   - [ ] Dunban & Riki — Riki's House
+   - [ ] Fiora & Riki — Syrath Lighthouse top
+   - [ ] Reyn & Melia — Sky Terrace
+   - [ ] Shulk & Melia — Hall of Trials
+   - [ ] Shulk & Riki — Distant Fingertip
+   - [ ] Fiora & Dunban — Junks 2F
+   - [ ] Fiora & Melia — Digit 1
+   - [ ] Dunban & Melia — Black Wreckage
 
 7. 👾 High-level UM sweep: Tephra Lv92-98 block (10, four quest-exclusive), Colony 9 Lv37-73, Bionis' Leg Lv75-90, Satorl Lv83-91, Makna Lv96-99, Eryth Sea Lv87-93, Valak Lv97-98.
 
@@ -2513,6 +2764,11 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 9. ⚪ ⛏️ **Colony 6 to 100%** — all four categories at Level 5
    Rewards **Titan Plate** for all four, plus a per-category item at each Level 5 (Oriental Glass for Housing, Titan Arms for Commerce).
+   **Sub-checkpoints:**
+   - [ ] Housing Level 5
+   - [ ] Commerce Level 5
+   - [ ] Nature Level 5
+   - [ ] Special Level 5
 
 > **ℹ️ Note — The last three goals have a strict dependency order**
 >
@@ -2526,11 +2782,38 @@ A pair cannot reach high affinity before they have been in the party together a 
 
 10. ⚪ **Affinity Chart to 5★ in every area**
    Use Love Sources from superboss Veritas Glyphs to accelerate party affinity. For NPC affinity, keep talking to named NPCs twice at different times of day — that never stops being the engine.
+   **Sub-checkpoints:**
+   - [ ] Colony 9 Area Affinity — 5★
+   - [ ] Colony 6 Area Affinity — 5★
+   - [ ] Central Bionis Area Affinity — 5★
+   - [ ] Upper Bionis Area Affinity — 5★
+   - [ ] Hidden Machina Village Area Affinity — 5★
 
 11. ⚪ **Collectopaedia to 100%** — 19 area pages plus the **Other** page
    - The 19 area pages are ordinary collection-point work — use the Skip Travel refill loop.
    - The **Other** page is 7 items available **only through NPC trading**, gated behind 3★ and 5★ Area Affinity. This is why it comes last.
    - Each completed area page gives a unique piece of gear — Carbon Driver for Colony 9, White Cluster for Bionis' Leg, and so on.
+   **Sub-checkpoints:**
+   - [ ] Colony 9 page
+   - [ ] Tephra Cave page
+   - [ ] Bionis' Leg page
+   - [ ] Colony 6 page
+   - [ ] Ether Mine page
+   - [ ] Satorl Marsh page
+   - [ ] Makna Forest page
+   - [ ] Frontier Village page
+   - [ ] Eryth Sea page
+   - [ ] Alcamoth page
+   - [ ] High Entia Tomb page
+   - [ ] Valak Mountain page
+   - [ ] Sword Valley page
+   - [ ] Galahad Fortress page
+   - [ ] Fallen Arm page
+   - [ ] Mechonis Field page
+   - [ ] Central Factory page
+   - [ ] Agniratha page
+   - [ ] Bionis' Interior page
+   - [ ] Other page
 
 12. ⚪ **Skill Links complete** — Affinity Coins from all 157 Unique Monsters
    Coins also come from levelling, and they are **refundable** — unlink a skill and you get them back. So there is no wrong allocation, only a current one.
@@ -2574,11 +2857,32 @@ A pair cannot reach high affinity before they have been in the party together a 
 2. 👾 👾 **20 Unique Monsters** on Bionis' Shoulder (Lv63-80)
    - Phlegmatic Jamir (63) · Highborn Alexandra (64) · Grotesque Deimis (65) · Booming Frederick (66, **rain only**) · Buoyant Rostein (68) · Quondam Grimbellum (69) · Confluent Uzva (69) · Air Marshal Reisenbach (69) · Cyclonic Yughana (70) · Deputy Seagal (72) · Dismal Umya (73) · Caustic Naquatra (73) · Terpsichorean Cenoth (73) · Marquis Odesh (74) · Perceptive Quinops (74) · Citadel Tostiga (74) · Ravager Apelpisia (77)
    - **Because Art Coins re-drop**, the strongest of these are worth farming repeatedly rather than killing once and moving on.
+   **Sub-checkpoints:**
+   - [ ] Defeat Phlegmatic Jamir
+   - [ ] Defeat Highborn Alexandra
+   - [ ] Defeat Grotesque Deimis
+   - [ ] Defeat Booming Frederick during rain
+   - [ ] Defeat Buoyant Rostein
+   - [ ] Defeat Quondam Grimbellum
+   - [ ] Defeat Confluent Uzva
+   - [ ] Defeat Air Marshal Reisenbach
+   - [ ] Defeat Cyclonic Yughana
+   - [ ] Defeat Deputy Seagal
+   - [ ] Defeat Dismal Umya
+   - [ ] Defeat Caustic Naquatra
+   - [ ] Defeat Terpsichorean Cenoth
+   - [ ] Defeat Marquis Odesh
+   - [ ] Defeat Perceptive Quinops
+   - [ ] Defeat Citadel Tostiga
+   - [ ] Defeat Ravager Apelpisia
 
 3. 👾 👾 The two **Fogbeast** Unique Monsters — gated behind a story fight
    - **Prerequisite:** the **Ponio Fogbeasts fight at Soltnar Seal Island**. Neither exists before it.
    - **Custodian Barreldart Fogbeast** (71) — Gamaro Hollow.
    - **Contemptuous Greymane Fogbeast** (78) — Agni's Skygarden Ruins.
+   **Sub-checkpoints:**
+   - [ ] Defeat Custodian Barreldart Fogbeast
+   - [ ] Defeat Contemptuous Greymane Fogbeast
 
 4. 👾 👾 **Prosecutor Davrum** (80) — Nerthis Necropolis · **quest-exclusive**
    The highest-level Unique Monster in the epilogue and the only one locked behind a quest. Take the quest first or it will not be there.

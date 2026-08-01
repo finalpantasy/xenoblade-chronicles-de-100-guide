@@ -130,6 +130,10 @@ for (const ch of ROUTE) {
     n++;
     out.push(`${n}. ${FLAG[it.f] || "⚪"} ${md(it.t).trim()}`);
     if (it.d) md(it.d).split("\n").filter(l => l.trim()).forEach(l => out.push(l.replace(/^\s*/, "   ")));
+    if (it.steps?.length) {
+      out.push("   **Sub-checkpoints:**");
+      it.steps.forEach(step => out.push(`   - [ ] ${step.label}`));
+    }
     out.push("");
   }
 }
