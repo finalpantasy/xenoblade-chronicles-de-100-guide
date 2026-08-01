@@ -19,6 +19,7 @@ const OUT = path.join(__dirname, "data", "monsterpedia-data.js");
 const IMAGE_DIR = path.join(__dirname, "assets", "monster-images");
 const REFRESH_DROPS = process.argv.includes("--refresh-drops");
 const REFRESH_IMAGES = process.argv.includes("--refresh-images");
+const BUILD_STAMP = "source-snapshot";
 // Three roster pages do not publish a page-image thumbnail even though the wiki
 // hosts an exact enemy file. Keep these explicit so the offline guide never swaps
 // in invented art or a misleading species representative.
@@ -180,7 +181,7 @@ async function main() {
   const roster = (await get(SOURCE.roster)).parse?.wikitext?.["*"]; if (!roster) throw new Error("Roster page did not contain wikitext");
   const base = parseRows(section(roster, "== {{XC|-}} =="), "base");
   const fc = parseRows(section(roster, "== {{XCFC|sub}} =="), "future-connected");
-  const data = { version: 1, generated: new Date().toISOString().slice(0, 10), source: { label: "Xenoblade Wiki: List of Enemies in Xenoblade Chronicles", url: PAGE(ROSTER_PAGE), apiUrl: SOURCE.roster, accessed: new Date().toISOString() }, ratePolicy: "Rates appear only when the cited enemy page explicitly exposes a numeric chest-template rate. Absence means unverified, not zero.", entries: [...base, ...fc] };
+  const data = { version: 1, generated: BUILD_STAMP, source: { label: "Xenoblade Wiki: List of Enemies in Xenoblade Chronicles", url: PAGE(ROSTER_PAGE), apiUrl: SOURCE.roster, accessed: BUILD_STAMP }, ratePolicy: "Rates appear only when the cited enemy page explicitly exposes a numeric chest-template rate. Absence means unverified, not zero.", entries: [...base, ...fc] };
   validate(data);
   if (REFRESH_DROPS) {
     console.log(`Refreshing explicit chest drops for ${data.entries.length} entries...`);

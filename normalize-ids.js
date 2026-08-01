@@ -10,6 +10,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const BUILD_STAMP = "source-snapshot";
 
 const root = __dirname;
 const routeFile = path.join(root, "data", "route-data.js");
@@ -40,7 +41,7 @@ if (duplicates.length || malformed.length) {
 if (process.argv.includes("--write-manifest")) {
   const manifest = {
     warning: "Route IDs are persistent progress keys. Never rename or reuse an existing ID.",
-    updated: new Date().toISOString().slice(0, 10),
+    updated: BUILD_STAMP,
     ids
   };
   fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + "\n", "utf8");

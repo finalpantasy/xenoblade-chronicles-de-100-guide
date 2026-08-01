@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const BUILD_STAMP = "source-snapshot";
 
 function load(file, name) {
   const context = {};
@@ -93,7 +94,7 @@ if (bindings.length !== completionCount) throw new Error(`Expected ${completionC
 
 const handling = Object.fromEntries([...new Set(bindings.map(binding => binding.handling))].sort().map(key => [key, bindings.filter(binding => binding.handling === key).length]));
 const data = {
-  version: 1, generated: new Date().toISOString().slice(0, 10),
+  version: 1, generated: BUILD_STAMP,
   policy: "Every Completion Hub item has one explicit safe route handling point. Exact means named on-card; batch/post/fc means resolved through the linked ledger sweep, not silently assumed complete.",
   counts: { total: bindings.length, exact: handling.exact || 0, batch: handling.batch || 0, post: handling.post || 0, fc: handling.fc || 0 },
   bindings

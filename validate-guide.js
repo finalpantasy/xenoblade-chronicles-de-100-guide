@@ -119,7 +119,10 @@ assert(frontier.counts.collectionPoints === 1759 && frontier.counts.enemySpawnPo
 assert(frontier.maps.every(map => map.tiles.length === 4 && map.tiles.every(tile => fs.existsSync(path.join(root, tile.local)))), "An interactive map is missing locally cached tiles");
 assert(frontier.maps.flatMap(map => map.points).every(point => point.coordinates.length === 2 && point.coordinates.every(Number.isFinite)), "An interactive map pin lacks exact GeoJSON coordinates");
 assert(world.quests.length === 480, `Expected 480 dependency-lookup quests, got ${world.quests.length}`);
-assert(affinity.counts.residents === 177 && affinity.quests.length === 480 && affinity.choices.length === 16, "Affinity planner coverage changed");
+// The structured affinity pass now includes both directions of each mutually
+// exclusive quest edge. Keep this as an explicit contract so a refreshed
+// source cannot silently drop a branch.
+assert(affinity.counts.residents === 177 && affinity.quests.length === 480 && affinity.choices.length === 22, "Affinity planner coverage changed");
 assert(affinity.quests.every(quest => world.quests.some(worldQuest => worldQuest.id === quest.id)), "Affinity planner contains an unresolved quest ID");
 const routeReferenceText = item => String(`${item.t || ""} ${item.d || ""}`)
   .replace(/<[^>]+>/g, " ").replace(/&[^;]+;/g, " ").toLocaleLowerCase();
@@ -293,6 +296,8 @@ assert(html.includes('font:18px/1.72'), "Base guide typography has regressed bel
 assert(/\.it label\{[^}]*font-size:17px/.test(html), "Route task text has regressed below 17px");
 assert(/\.det\{[^}]*font-size:15\.5px/.test(html), "Route detail text has regressed below 15.5px");
 assert(/\.det\{[^}]*max-width:74ch/.test(html) && /\.det \.step\{[^}]*display:block/.test(html), "Route detail measure or step formatting regressed");
+assert(/\.det \.step:before\{[^}]*top:50%;[^}]*translateY\(-50%\)/.test(html), "Themed quest-step bullets are not vertically centered");
+assert(/\.guidance-toggle\{[^}]*margin-left:4px/.test(html) && html.includes('.pan[open] .guidance-toggle:before{content:"Hide "}'), "Guidance Details labels are not consistently inline");
 assert(/\.tag\{[^}]*font-size:12\.5px/.test(html) && /\.world-head\{[^}]*font-size:16px/.test(html), "Dense metadata or world-tracker text has regressed below the legibility target");
 assert(html.includes('grid-template-columns:repeat(3,minmax(180px,1fr))'), "Lookup filters lost their readable three-column layout");
 assert(html.includes('--fg3:#526b7b') && html.includes('--focus:#00658d'), "Light-theme contrast tokens regressed");
@@ -306,6 +311,9 @@ assert(!html.includes('max-width:1440px'), "Appearance mode must not change the 
 assert(html.includes('background-attachment:scroll'), "The themed mobile background still uses fixed attachment");
 assert(html.includes('id="p-companion"') && html.includes('id="advance-status"') && html.includes('id="inventory-list"'), "Play Mode companion controls are missing");
 assert(html.includes('class="route-subchecks"') && html.includes('data-subcheck-parent=') && html.includes('routeSteps: cleanNestedMap'), "Persistent nested route checkpoints are not wired into the guide");
+assert(/\.it label\.route-subcheck\{[^}]*display:flex[^}]*column-gap:16px/.test(html) && /\.route-subcheck input\{[^}]*margin:0 0 0 3px/.test(html), "Nested route checkboxes lost their label spacing");
+assert(!/<details(?![^>]*\bopen\b)/.test(html), "Every disclosure must start expanded");
+assert(html.includes('function routeAwareEncounterAdvice') && html.includes('Party replaced with the roster actually available'), "Encounter recommendations are not constrained to the route-era roster");
 assert(html.includes('id="guide-search"') && html.includes('class="header-tools"') && html.includes('class="header-status"'), "Header search, theme, and progress regions are not structurally separated");
 assert(html.includes('class="header-console"') && html.includes('ROUTE PROGRESS'), "Extreme header console or progress label is missing");
 assert(html.includes('function renderBuildGoalComparison') && html.includes('Same ${reliable.length} normal Arts') && html.includes('class="build-delta"'), "Reliable-versus-fortress build comparison is missing");

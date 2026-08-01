@@ -185,7 +185,8 @@ section.ch.closed .chb{display:none}
 .it:last-child{border-bottom:0}
 .it:hover{background:var(--bg3)}
 .it.hide{display:none}
-.it input{margin:4px 0 0;width:20px;height:20px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+/* 24px is the minimum comfortable hit target; the Xenoblade theme already used 25. */
+.it input{margin:3px 0 0;width:24px;height:24px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
 .ibody{flex:1;min-width:0}
 .ihead{display:flex;align-items:flex-start;gap:16px;justify-content:space-between}
 .it label{display:block;cursor:pointer;font-size:17px;line-height:1.6;min-width:0;font-weight:520}
@@ -219,6 +220,13 @@ section.ch.closed .chb{display:none}
 .pan.hide{display:none}
 .pant{font-weight:780;font-size:15.5px;line-height:1.5;letter-spacing:.2px;margin-bottom:10px}
 .pand{max-width:75ch;font-size:16px;color:var(--fg2);line-height:1.72}
+.pan>summary{display:flex;align-items:center;gap:6px;min-height:28px;cursor:pointer;list-style:none}
+.pan>summary::-webkit-details-marker{display:none}
+.pan>summary:after{content:"";width:7px;height:7px;margin-left:auto;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .16s ease}
+.pan[open]>summary:after{transform:rotate(225deg) translate(-2px,-2px)}
+.pan:not([open]) .pant{margin-bottom:0}
+.guidance-toggle{flex:0 0 auto;margin-left:4px;color:var(--fg3);font:650 11px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.pan[open] .guidance-toggle:before{content:"Hide "}
 .pand b{color:var(--fg)}
 .pand ul{margin:6px 0;padding-left:18px}
 .pand li{margin:7px 0}
@@ -372,7 +380,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
 .build-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
 .build-section{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
 .build-section h3{margin:0 0 8px;color:var(--accent)}
-.route-subchecks{margin:14px 0 2px;padding:12px 14px 10px;border:1px solid var(--line);border-radius:6px;background:color-mix(in srgb,var(--accent) 4%,var(--bg2))}.route-subchecks legend{padding:0 7px;color:var(--fg2);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.route-subcheck-count{color:var(--accent)}.route-subcheck-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 18px}.route-subcheck{display:flex;align-items:flex-start;gap:11px;min-height:32px;padding:6px 7px;border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent);border-radius:3px;color:var(--fg2);font-size:15px;line-height:1.42}.route-subcheck:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--fg)}.route-subcheck input{flex:0 0 auto;width:18px!important;height:18px!important;margin:2px 0 0!important}.route-subcheck.is-done span{text-decoration:line-through;opacity:.66}
+.route-subchecks{margin:14px 0 2px;padding:12px 14px 10px;border:1px solid var(--line);border-radius:6px;background:color-mix(in srgb,var(--accent) 4%,var(--bg2))}.route-subchecks legend{padding:0 7px;color:var(--fg2);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.route-subcheck-count{color:var(--accent)}.route-subcheck-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 18px}.it label.route-subcheck{display:flex;align-items:center;column-gap:16px;min-height:32px;padding:6px 7px;border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent);border-radius:3px;color:var(--fg2);font-size:15px;line-height:1.42}.route-subcheck:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--fg)}.route-subcheck input{flex:0 0 18px;width:18px!important;height:18px!important;margin:0 0 0 3px!important}.route-subcheck span{display:block;min-width:0;padding-left:1px}.route-subcheck.is-done span{text-decoration:line-through;opacity:.66}
 .preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:14px 0 28px}
 .preset{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:15px 17px;cursor:pointer;
   text-align:left;color:var(--fg);font:inherit}
@@ -597,7 +605,7 @@ html[data-theme="xenoblade"] .pant{letter-spacing:.4px;text-transform:uppercase;
 
 /* Step lines inside a walkthrough get a tick so a six-line quest is scannable. */
 html[data-theme="xenoblade"] .det .step{position:relative;padding-left:16px;text-indent:0}
-html[data-theme="xenoblade"] .det .step:before{content:"";position:absolute;left:2px;top:.72em;
+html[data-theme="xenoblade"] .det .step:before{content:"";position:absolute;left:2px;top:50%;transform:translateY(-50%);
   width:6px;height:1.5px;background:#3f9dc4}
 
 /* Pull glow OFF the ambient furniture so the things above can be seen.
@@ -865,6 +873,18 @@ html[data-theme="xenoblade"] .route-subchecks{border-color:#2e739b;border-radius
 @media(max-width:1280px) and (min-width:641px){html[data-theme="xenoblade"] .hrow{grid-template-columns:120px minmax(260px,1fr)!important;grid-template-rows:70px minmax(128px,auto)!important;grid-template-areas:"brand title" "console console"!important;min-height:225px!important}html[data-theme="xenoblade"] .brand-logo{width:112px;height:70px}html[data-theme="xenoblade"] .header-console{width:100%}html[data-theme="xenoblade"] .tabs{display:flex;overflow-x:auto}html[data-theme="xenoblade"] .tabs button{flex:0 0 auto;min-width:146px}}
 @media(max-width:640px){html,body{overflow-x:hidden}.header-console{min-width:100%;order:3}.header-status{min-width:100%}.header-tools{align-items:stretch;flex-direction:column}.global-search{min-width:100%}.search-label{display:none}.theme-control{justify-content:space-between}.inventory-row{grid-template-columns:1fr 82px}.inventory-need,.inventory-row .route-link{grid-column:1/-1}.step-card{grid-template-columns:auto minmax(0,1fr)}.step-card .route-link{grid-column:2}html[data-theme="xenoblade"] .hrow{grid-template-columns:70px minmax(0,1fr)!important;grid-template-rows:auto auto!important;grid-template-areas:"brand title" "console console"!important}html[data-theme="xenoblade"] .header-console{padding:9px!important}html[data-theme="xenoblade"] .header-tools{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}html[data-theme="xenoblade"] .theme-control{position:static!important;width:100%!important;font-size:11px!important}html[data-theme="xenoblade"] .theme-control select{width:100%!important;max-width:none!important}html[data-theme="xenoblade"] .header-status .pct{text-align:right!important}}
 @media(max-width:640px){.route-subcheck-list,.build-compare{grid-template-columns:1fr}.build-character-nav{display:block}.build-character-tabs{margin-bottom:8px}.build-show-all{width:100%}.build-columns{grid-template-columns:1fr}.build-character-heading{align-items:flex-start}.build-character-heading h3{font-size:20px}}
+/* Responsive and input-target hardening.  These rules deliberately sit last so
+   the menu-screen theme cannot reintroduce horizontal rails at smaller widths. */
+html[data-theme="xenoblade"] .tabs{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));max-width:none!important;overflow:visible!important;padding:0 18px!important}
+html[data-theme="xenoblade"] .tabs button{display:flex!important;align-items:center;justify-content:center;min-width:0!important;white-space:normal!important;text-align:center}
+html[data-theme="xenoblade"] .tabs button.secondary-tab{display:flex!important}
+html[data-theme="xenoblade"] .mobile-more{display:none!important}
+.route-subcheck{min-height:44px;padding:9px 10px;cursor:pointer}.route-subcheck input{flex-basis:24px;width:24px!important;height:24px!important;margin:0 0 0 3px!important}
+.it.route-cue{grid-template-columns:24px minmax(0,1fr);min-height:48px}.it.route-cue input,.it.resource-cue input{width:24px!important;height:24px!important}
+.collect-item{min-height:42px;padding:4px 0;cursor:pointer}.collect-item input,.atlas-checks input{width:24px!important;height:24px!important;margin:0;flex:0 0 auto}
+.atlas-checks label{min-height:44px;padding:4px;cursor:pointer}
+@media(max-width:1280px){html[data-theme="xenoblade"] .hrow{grid-template-columns:120px minmax(0,1fr)!important;grid-template-rows:72px auto!important;grid-template-areas:"brand title" "console console"!important;min-height:0!important}html[data-theme="xenoblade"] .tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important;padding:0!important}html[data-theme="xenoblade"] .tabs button{font-size:15px!important;min-height:56px!important}}
+@media(max-width:640px){html[data-theme="xenoblade"] .hrow{grid-template-columns:68px minmax(0,1fr)!important;grid-template-rows:auto auto!important;grid-template-areas:"brand title" "console console"!important;padding:10px 12px!important}html[data-theme="xenoblade"] .brand-logo{width:60px!important;height:54px!important;padding:4px!important;align-self:start}html[data-theme="xenoblade"] h1{font-size:clamp(20px,6.2vw,25px)!important;line-height:1.04!important;letter-spacing:-.55px!important;white-space:normal!important;overflow-wrap:anywhere;max-width:100%}html[data-theme="xenoblade"] h1 span{font-size:15px!important;line-height:1.2!important}html[data-theme="xenoblade"] .tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important}html[data-theme="xenoblade"] .tabs button{min-height:52px!important;padding:7px 5px!important;font-size:13px!important;line-height:1.15!important}html[data-theme="xenoblade"] .tabs button .game-icon{width:18px!important;height:18px!important;margin-right:4px!important;vertical-align:-4px!important}}
 /* Readable themes use wrapped header/navigation rows instead of horizontal rails. */
 html:not([data-theme="xenoblade"]) .hrow{display:grid;grid-template-columns:minmax(330px,.7fr) minmax(620px,1.3fr);align-items:center;gap:16px 28px}
 html:not([data-theme="xenoblade"]) .header-console{display:grid;grid-template-rows:auto auto;gap:9px;min-width:0;width:100%}
@@ -908,6 +928,85 @@ html[data-theme="xenoblade"] .it.route-cue{gap:9px;padding:6px 11px 6px 10px;bac
 html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}html[data-theme="xenoblade"] .it.resource-cue input[type=checkbox]{width:19px;height:19px;margin-top:1px}html[data-theme="xenoblade"] .it.resource-cue label{font-size:16px;line-height:1.35}html[data-theme="xenoblade"] .it.resource-cue .det{font-size:13px;line-height:1.45}
 @media(max-width:640px){.route-cue-bundle,.route-catchup{margin-left:11px;margin-right:4px}.route-cue-line{align-items:flex-start;flex-wrap:wrap}.route-cue-note{order:3;width:100%;white-space:normal}.route-cue-effort{margin-left:0}.route-cue-head .route-cue-area{white-space:normal}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* ===== Area Affinity gate ladder ===========================================
+   Status is carried by a left rail plus a text label in the title attribute,
+   never by hue alone.
+   ========================================================================= */
+.gate-card{grid-column:1/-1}
+.gate-area{margin:0 0 10px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}
+.gate-area>summary{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;cursor:pointer;min-height:32px}
+.gate-area>summary::-webkit-details-marker{display:none}
+.gate-counts{font-size:13px}
+.gate-open{color:var(--amber);font-weight:600}
+.gate-clear{color:var(--green);font-weight:600}
+.gate-cleared{flex-basis:100%;font-size:12px}
+.gate-tier{margin-top:10px;padding-left:11px;border-left:3px solid var(--line)}
+.gate-tier-head{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin-bottom:5px}
+.gate-tier-head b{font:700 15px/1 var(--display,inherit);color:var(--accent)}
+.gate-tier-head .muted{font-size:12px}
+.gate-q{border-left:4px solid var(--line)}
+.gate-q.is-done{border-left-color:var(--green);background:var(--greenbg);color:var(--green)}
+.gate-q.is-open{border-left-color:var(--amber);background:var(--amberbg);color:var(--amber);font-weight:600}
+.gate-q.is-swept{opacity:.72}
+/* The Xenoblade theme repaints every .route-link, which would flatten the three
+   states back to one colour. Restore them in its own palette. */
+html[data-theme="xenoblade"] .gate-q.is-done{border-left-color:#5fe0a0;background:#062a1e;color:#9df2c6}
+html[data-theme="xenoblade"] .gate-q.is-open{border-left-color:#ffbe4d;background:#2c1f06;color:#ffd98a}
+html[data-theme="xenoblade"] .gate-tier{border-left-color:#1d4c68}
+html[data-theme="xenoblade"] .gate-area{border-color:#1d4c68;background:linear-gradient(90deg,rgba(3,21,35,.82),rgba(3,26,43,.68))}
+html[data-theme="xenoblade"] .gate-open{color:#ffbe4d}
+html[data-theme="xenoblade"] .gate-clear{color:#5fe0a0}
+.gate-flash{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media(prefers-reduced-motion:no-preference){.gate-flash{animation:gate-flash 1.6s ease-out}}
+@keyframes gate-flash{0%,45%{background:color-mix(in srgb,var(--accent) 24%,transparent)}100%{background:transparent}}
+@media(max-width:640px){.gate-tier{padding-left:8px}}
+
+/* ===== Visions =============================================================
+   Drama is reserved for exactly one moment: standing on a point of no return
+   with things still unticked. Desaturate the world, flash the ether scan, and
+   name the loss. Everything here is inert until that happens.
+   ========================================================================= */
+.vision{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:24px;
+  background:rgba(2,8,15,.86);backdrop-filter:blur(3px) saturate(.25);-webkit-backdrop-filter:blur(3px) saturate(.25)}
+.vision[hidden]{display:none}
+.vision-card{position:relative;max-width:560px;width:100%;padding:30px 32px 26px;
+  color:#f2f8fc;background:linear-gradient(160deg,#0a2740,#04121f 62%);
+  border:1px solid #35cdf8;box-shadow:0 0 0 1px rgba(53,205,248,.25),0 22px 60px rgba(0,0,0,.7),inset 0 0 40px rgba(53,205,248,.07);
+  clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px)}
+.vision-kicker{margin:0 0 6px;font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:#63d8ff}
+.vision-card h2{margin:0 0 16px;font-size:24px;line-height:1.25;color:#fff;text-wrap:balance}
+.vision-card p{margin:0 0 14px;color:#cfe2ef;font-size:16px;line-height:1.6}
+.vision-losses{margin:0 0 16px;padding:14px 18px;list-style:none;
+  border-left:3px solid #ff6675;background:rgba(70,14,24,.5)}
+.vision-losses li{margin:5px 0;font-size:16px;color:#ffdfe2}
+.vision-losses b{color:#ff8b96;font-size:19px;font-variant-numeric:tabular-nums}
+.vision-note{font-size:14px!important;color:#8fb6cc!important;font-style:italic}
+.vision-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.vision-actions button{min-height:46px;padding:11px 20px;font:inherit;font-size:15px;font-weight:650;
+  cursor:pointer;border-radius:3px;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.vision-primary{border:1px solid #6fdcff;background:linear-gradient(180deg,#0d76a5,#063653);color:#fff}
+.vision-primary:hover{background:linear-gradient(180deg,#1090c6,#08476b)}
+.vision-ghost{border:1px solid #4a6b80;background:transparent;color:#bcd2e0}
+.vision-ghost:hover{border-color:#8fb6cc;color:#fff}
+.vision-actions button:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+html.vision-active{overflow:hidden}
+@media(prefers-reduced-motion:no-preference){
+  .vision{animation:vision-in .28s ease-out}
+  .vision-card{animation:vision-rise .34s cubic-bezier(.16,1,.3,1)}
+  .vision-card:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,transparent,#8ce8ff 30%,#fff 50%,#8ce8ff 70%,transparent);
+    box-shadow:0 0 18px rgba(53,205,248,.9);animation:vision-scan .9s cubic-bezier(.16,1,.3,1) both}
+}
+@keyframes vision-in{from{opacity:0}to{opacity:1}}
+@keyframes vision-rise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes vision-scan{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(320px);opacity:0}}
+@media(max-width:640px){
+  .vision{padding:14px}
+  .vision-card{padding:24px 20px 20px}
+  .vision-card h2{font-size:20px}
+  .vision-actions button{width:100%}
+}
 </style>
 </head>
 <body>
@@ -937,7 +1036,7 @@ html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}htm
 
 <header>
   <div class="hrow">
-    <img class="brand-logo" src="assets/xbcde-logo.png" alt="" aria-hidden="true">
+    <img class="brand-logo" src="assets/xbcde-logo.png" width="142" height="86" alt="" aria-hidden="true">
     <h1>Xenoblade Chronicles DE <span>· Switch 2 · 100% Route</span></h1>
     <div class="header-console">
       <div class="header-status"><div class="bar" id="progress" role="progressbar" aria-label="Route progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="pbar" style="width:0"></i></div><div class="pct" id="ptxt" aria-live="polite">0 / 0</div></div>
@@ -976,6 +1075,9 @@ html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}htm
 
 <button class="dash ok" id="dash" type="button" title="Show only unticked deadline items"></button>
 
+<!-- Vision overlay. Populated only when a point of no return is imminent. -->
+<div id="vision" class="vision" hidden></div>
+
 <main id="main" tabindex="-1">
 
 <!-- ROUTE -->
@@ -995,7 +1097,8 @@ html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}htm
     <button class="ghost safe" id="import">Import progress</button>
     <button class="ghost safe" id="restore">Restore last reset</button>
     <button class="ghost" id="reset">Reset all progress</button>
-    <input class="sr-only" type="file" id="import-file" accept="application/json,.json">
+    <label class="sr-only" for="import-file">Choose an XCDE guide progress JSON file to import</label>
+    <input class="sr-only" type="file" id="import-file" accept="application/json,.json" aria-describedby="save-status">
     <div class="save-status" id="save-status" aria-live="polite"></div>
   </div>
   <div class="route-legend" aria-label="Route warning legend">
@@ -1276,9 +1379,9 @@ html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}htm
     <div class="card"><h4>No trade at all</h4><div class="big">1</div><p class="muted">Piranhax Fishmeal ×5</p></div>
   </div>
 
-  <details class="guide-reference">
+  <details class="guide-reference" open>
     <summary>Open the Colony 6 shop and reconstruction map</summary>
-    <img src="assets/game-icons/colony6-shop.png" alt="Numbered Colony 6 shop and reconstruction map">
+    <img src="assets/game-icons/colony6-shop.png" width="960" height="540" loading="lazy" decoding="async" alt="Numbered Colony 6 shop and reconstruction map">
     <p>Reference image from the Xenoblade Wiki. Use it to orient yourself once residents and shops begin moving in; the material and build order below is the route authority.</p>
   </details>
 
@@ -1348,7 +1451,7 @@ html[data-theme="xenoblade"] .it.resource-cue{gap:11px;padding:9px 14px 10px}htm
   <h2>The 5 superbosses</h2>
   <div class="guide-feature">
     <div><p>All are Unique Monsters at Level 100+. Four of the five require clearing Mechonis Core first.</p><p class="muted">Abaasy is the final check: the route below puts the Night Vision and defensive preparation in place before you deliberately seek its blizzard-night spawn.</p></div>
-    <figure><img src="assets/game-icons/superboss-abaasy.png" alt="Avalanche Abaasy in Valak Mountain"><figcaption>In-game Avalanche Abaasy reference image · Xenoblade Wiki</figcaption></figure>
+    <figure><img src="assets/game-icons/superboss-abaasy.png" width="960" height="540" loading="lazy" decoding="async" alt="Avalanche Abaasy in Valak Mountain"><figcaption>In-game Avalanche Abaasy reference image · Xenoblade Wiki</figcaption></figure>
   </div>
   <div class="scroll"><table>
     <tr><th>#</th><th>Name</th><th>Lv</th><th>Location</th><th>Condition</th><th>Key trait</th></tr>
@@ -1512,7 +1615,16 @@ function syncStateRefs(){
 }
 function save(){
   state.updatedAt = new Date().toISOString();
-  try { localStorage.setItem(LS, JSON.stringify(state)); return true; }
+  try {
+    localStorage.setItem(LS, JSON.stringify(state));
+    // Superseded schema versions are read once to migrate, then dropped. They are only
+    // removed after the v4 write succeeds, so a failed save never destroys the old copy.
+    if (migrated) {
+      [PREVIOUS_LS, OLD_PREVIOUS_LS, LEGACY_LS].forEach(key => { try { localStorage.removeItem(key); } catch(e){} });
+      migrated = false;
+    }
+    return true;
+  }
   catch(e){ setSaveStatus("Progress could not be saved in this browser.", true); return false; }
 }
 if (migrated) save();
@@ -1573,6 +1685,10 @@ function chapterTarget(ch){
     || String(ch.level).match(/(\d{1,3})\s*[-–]\s*(\d{1,3})/);
   if (range) return Number(range[2]);
   const one = String(ch.level).match(/\d{1,3}/); return one ? Number(one[0]) : null;
+}
+function chapterLevelLabel(ch){
+  const explicit = String(ch.level ?? "").trim();
+  return explicit && /\d/.test(explicit) ? explicit : String(chapterTarget(ch) ?? 1);
 }
 function recommendedLevel(ch, item){
   if (item.lv != null) return item.lv;
@@ -1636,6 +1752,30 @@ function routeItemReference(name, filter){
     if (item) return { chapterId: chapter.id, itemId: item.id };
   }
   return null;
+}
+const ROUTE_PARTY_PHASES = [
+  { chapters:["ch1","ch2"], party:"Shulk / Reyn / Fiora · control Shulk", members:["Shulk","Reyn","Fiora"], preset:"main-ch1-2-story", plan:"Control Shulk for vision responses; let Reyn hold aggro while Fiora adds side and back damage. Use Break → Topple when the target permits it." },
+  { chapters:["ch3"], party:"Shulk / Reyn · control Shulk", members:["Shulk","Reyn"], preset:"", plan:"This is the temporary two-person roster. Control Shulk, let Reyn tank, stay near the target level, and use Break → Topple instead of planning around a third character." },
+  { chapters:["ch4"], party:"Shulk / Reyn / Sharla · control Shulk", members:["Shulk","Reyn","Sharla"], preset:"main-ch3-5-story", plan:"Control Shulk for vision responses, let Reyn tank, and use Sharla to stabilize the first three-person story roster." },
+  { chapters:["ch5","ch6"], party:"Shulk / Dunban / Sharla · control Shulk", members:["Shulk","Reyn","Sharla","Dunban"], preset:"main-ch5-6-transition-safe", plan:"Control Shulk, let Dunban evade-tank, and keep Sharla for reliable sustain during the pre-Riki route." },
+  { chapters:["ch7","ch8","ch9","ch10","ch11"], party:"Shulk / Dunban / Riki · control Shulk", members:["Shulk","Reyn","Sharla","Dunban","Melia","Riki"], preset:"main-ch7-11-core", plan:"Use the route's reliable Shulk / Dunban / Riki core; control Shulk for visions and commit to Break → Topple only when resistance allows it." },
+  { chapters:["ch12","ch13","ch14","ch15","ch16","ch17","post"], party:"Shulk / Dunban / Riki · control Shulk", members:["Shulk","Reyn","Sharla","Dunban","Melia","Riki","Fiora"], preset:"main-um-safe", plan:"Use the route's reliable Shulk / Dunban / Riki core; control Shulk for visions and tune gems to the documented arts, spike, and level gap." },
+  { chapters:["fc"], party:"Shulk / Kino / Nene · control Shulk", members:["Shulk","Melia","Kino","Nene"], preset:"fc-opening-safe", plan:"Use the Future Connected roster: control Shulk, let Nene tank, and keep Kino on healing and support." }
+];
+function routePartyPhase(routeReference){
+  if (!routeReference) return null;
+  return ROUTE_PARTY_PHASES.find(phase => phase.chapters.includes(routeReference.chapterId)) || null;
+}
+function routeAwareEncounterAdvice(baseAdvice, routeReference){
+  const phase = routePartyPhase(routeReference);
+  if (!phase) return baseAdvice;
+  const namedParty = String(baseAdvice.party || "").split("·")[0].split("/").map(name => name.trim()).filter(Boolean);
+  const basePartyIsAvailable = namedParty.length > 0 && namedParty.every(name => phase.members.includes(name));
+  if (basePartyIsAvailable) return {...baseAdvice, basis:`${baseAdvice.basis || "Guide strategy."} Party legality checked against ${routeReference.chapterId.toUpperCase()} route availability.`};
+  const removedMeliaPlan = namedParty.includes("Melia");
+  const gems = (baseAdvice.gems || []).filter(gem => !removedMeliaPlan || !/Melia/i.test(gem));
+  const mechanicsNote = removedMeliaPlan ? " The source data favors Ether damage here, but this route point does not yet provide that late-game Melia setup." : "";
+  return {...baseAdvice, party:phase.party, preset:phase.preset, gems, route:`${phase.plan}${mechanicsNote}`, basis:`${baseAdvice.basis || "Guide strategy."} Party replaced with the roster actually available at ${routeReference.chapterId.toUpperCase()}.`};
 }
 function routeBinding(targetId){
   return bindingsReady ? ROUTE_BINDINGS_DATA.bindings.find(binding => binding.targetId === targetId) || null : null;
@@ -1706,7 +1846,7 @@ function renderWorldTracker(ch, entries){
         <div class="det">${esc(entry.accessNotes || "Map discovery entry.")}${deadline ? `<br><b>Deadline:</b> ${esc(deadline)}` : ""}</div></div></div>`;
   }).join("");
   const complete = entries.filter(entry => worldDone[entry.id]).length;
-  return `<details class="world-block" data-world-ch="${ch.id}"><summary class="world-head">${gameIcon("landmark")}Location, landmark &amp; secret-area tracker <span class="gcount world-count">${complete}/${entries.length}</span></summary>${rows}</details>`;
+  return `<details class="world-block" data-world-ch="${ch.id}" open><summary class="world-head">${gameIcon("landmark")}Location, landmark &amp; secret-area tracker <span class="gcount world-count">${complete}/${entries.length}</span></summary>${rows}</details>`;
 }
 function worldRouteAnchorMap(){
   return Object.assign(Object.create(null),
@@ -1746,9 +1886,9 @@ function renderWorldGroup(group){
   const rows = group.entries.map(renderWorldCue).join("");
   const complete = group.entries.filter(entry => worldDone[entry.id]).length;
   const areas = [...new Set(group.entries.map(entry => entry.area))].join(" / ");
-  if (group.anchorId === "@end") return `<details class="world-block route-catchup" data-world-group="${esc(group.bundle)}"><summary>${gameIcon("landmark")}Catch-up sweep · ${esc(areas)} <span class="gcount world-count">${complete}/${group.entries.length}</span></summary>${rows}</details>`;
+  if (group.anchorId === "@end") return `<details class="world-block route-catchup" data-world-group="${esc(group.bundle)}" open><summary>${gameIcon("landmark")}Catch-up sweep · ${esc(areas)} <span class="gcount world-count">${complete}/${group.entries.length}</span></summary>${rows}</details>`;
   const head = `<b>${esc(WORLD_EFFORT_LABELS[group.effort])}</b><span class="route-cue-area">${esc(areas)}</span><span class="gcount world-count">${complete}/${group.entries.length}</span>`;
-  if (group.entries.length > 6 && group.effort !== "on-path") return `<details class="route-cue-bundle route-cue-collapsible effort-${esc(group.effort)}" data-world-group="${esc(group.bundle)}"><summary class="route-cue-head">${head}</summary>${rows}</details>`;
+  if (group.entries.length > 6 && group.effort !== "on-path") return `<details class="route-cue-bundle route-cue-collapsible effort-${esc(group.effort)}" data-world-group="${esc(group.bundle)}" open><summary class="route-cue-head">${head}</summary>${rows}</details>`;
   return `<div class="route-cue-bundle effort-${esc(group.effort)}${group.entries.length === 1 ? " is-single" : ""}" data-world-group="${esc(group.bundle)}">${group.entries.length > 1 ? `<div class="route-cue-head">${head}</div>` : ""}${rows}</div>`;
 }
 function renderWorldAt(groups, anchorId, position="after"){
@@ -1769,7 +1909,7 @@ function renderRouteBuildUpdate(ch){
   const ap = (update.immediateAP || []).map(item => `<li>${esc(item)}</li>`).join("");
   const gear = (update.gear || []).map(item => `<li>${esc(item)}</li>`).join("");
   const warnings = (update.aiWarnings || []).map(item => `<li>${esc(item)}</li>`).join("");
-  return `<div class="pan p-build route-build" data-f="pan"><div class="pant">${gameIcon("build")}BUILD UPDATE · ${esc(update.phase)}</div>
+  return `<details class="pan p-build route-build" data-f="pan" open><summary class="pant">${gameIcon("build")}BUILD UPDATE · ${esc(update.phase)} <span class="guidance-toggle">Details</span></summary>
     <div class="pand">
       <div class="route-build-lead"><b>Reliable party:</b> ${esc(party)}<br><b>Control:</b> ${esc(buildName(update.leader))}</div>
       <div class="route-build-options"><span><b>Reliable option</b><br>${esc(update.safeAlternative)}</span><span><b>Aggressive option</b><br>${esc(update.aggressiveAlternative)}</span></div>
@@ -1786,7 +1926,7 @@ function renderRouteBuildUpdate(ch){
           <ul class="route-build-list">${warnings}</ul></div>
       </div>
       <button type="button" class="ghost safe open-build route-build-action" data-character="${esc(update.leader)}">Open the full Build Lab</button>
-    </div></div>`;
+    </div></details>`;
 }
 
 function build(){
@@ -1802,9 +1942,9 @@ function build(){
       // Inline info panel (not tickable)
       if (it.k){
         const [icon, deflabel] = KINDS[it.k] || KINDS.info;
-        return `${before}<div class="pan p-${it.k}" data-f="pan">
-          <div class="pant">${icon} ${routeTitle(it.t || deflabel)}</div>
-          <div class="pand">${it.d || ""}</div></div>${after}`;
+        return `${before}<details class="pan p-${it.k}" data-f="pan" open>
+          <summary class="pant">${icon} ${routeTitle(it.t || deflabel)} <span class="guidance-toggle">Details</span></summary>
+          <div class="pand">${it.d || ""}</div></details>${after}`;
       }
       const [lbl, cls] = TAGS[it.f] || TAGS.x;
       const tag = lbl ? `<span class="tag t-${cls}">${lbl}</span>` : "";
@@ -1829,7 +1969,7 @@ function build(){
     return `<section class="ch" id="s-${ch.id}">
       <h2 class="chapter-heading"><button type="button" class="chh" aria-expanded="true" aria-controls="b-${ch.id}"><span class="caret">▼</span>
         <span class="cht">${ch.title}</span><span class="chs">${ch.subtitle}</span>
-        <span class="chl"><span class="lvl">Lv ${ch.level}</span><span class="cnt" data-ch="${ch.id}"></span></span>
+        <span class="chl"><span class="lvl">Lv ${chapterLevelLabel(ch)}</span><span class="cnt" data-ch="${ch.id}"></span></span>
       </button></h2>
       ${ch.note ? `<div class="chnote">${ch.note}</div>` : ""}
       ${leaderTasks || deadlineTasks ? `<div class="chapter-alert">${deadlineTasks ? gameIcon("timed") : uiIcon("warning")}${deadlineTasks ? `This chapter contains <b>${deadlineTasks} deadline/missable task${deadlineTasks === 1 ? "" : "s"}</b>` : ""}${deadlineTasks && leaderTasks ? " and " : ""}${leaderTasks ? `<b>${leaderTasks} party-leader gate${leaderTasks === 1 ? "" : "s"}</b>` : ""}. ${deadlineTasks ? "Clear every red or lockout-marked card before advancing." : "Set the named party leader before starting those quests."}</div>` : ""}
@@ -1859,6 +1999,9 @@ function tally(){
   const pc = tot ? Math.round(hit/tot*100) : 0;
   if (!document.getElementById("p-completion").classList.contains("on")) setProgress(hit, tot, "Route progress");
   dashboard();
+  // Keep the gate ladder honest about what is ticked without re-rendering the whole planner.
+  const gates = document.getElementById("affinity-gates");
+  if (gates && affinityReady) gates.innerHTML = renderGateLadder(document.getElementById("affinity-area")?.value || "");
 }
 
 function setProgress(hit, total, label){
@@ -1934,6 +2077,125 @@ function dashboard(){
       : "") +
     `<span class="hint">click to filter</span>`;
   el.setAttribute("aria-label", el.textContent.trim());
+  maybeVision(curIdx, lockIdx, lock);
+}
+
+/* ===========================================================================
+   VISIONS — the guide's one dramatic moment, and it is earned.
+   The game's core mechanic is seeing a disaster before it happens and getting
+   one chance to prevent it. The dashboard already computes exactly that, so
+   crossing a point of no return with unticked deadline items shows a Vision
+   naming precisely what is about to be lost.
+   Fires once per lock. Never blocks; always dismissible.
+   ========================================================================= */
+const VISION_SEEN = "xc1de-visions-acknowledged";
+let visionShownThisSession = Object.create(null);
+let visionLastFocus = null;
+
+function visionAcknowledged(){
+  try { return JSON.parse(localStorage.getItem(VISION_SEEN) || "{}"); } catch(e){ return {}; }
+}
+function acknowledgeVision(lockId){
+  const seen = visionAcknowledged(); seen[lockId] = true;
+  try { localStorage.setItem(VISION_SEEN, JSON.stringify(seen)); } catch(e){}
+}
+
+// What you actually lose if you cross this lock now. Counted, not hand-waved.
+function visionManifest(curIdx, lockIdx){
+  const scope = ROUTE.slice(curIdx, lockIdx + 1);
+  const open = [];
+  scope.forEach(ch => {
+    ch.items.filter(i => !i.k && i.f === "d" && !done[i.id]).forEach(i => open.push({ ch, item: i }));
+    worldEntriesForChapter(ch)
+      .filter(i => (i.lockoutDeadline || i.areaDeadline) && !worldDone[i.id])
+      .forEach(i => open.push({ ch, item: i, world: true }));
+  });
+  let gold = 0;
+  const tally = { monsters: 0, quests: 0, materials: 0, hearts: 0, other: 0 };
+  open.forEach(({ item }) => {
+    const text = `${item.t || item.label || ""} ${item.d || ""}`;
+    // Sum only explicit gold rewards, e.g. "28,000 G" — never guess.
+    (text.match(/\b(\d{1,3}(?:,\d{3})+|\d{4,})\s*G\b/g) || []).forEach(m => {
+      gold += Number(m.replace(/[^\d]/g, "")) || 0;
+    });
+    if (item.f === "u" || /unique monster|\bUM:/i.test(text)) tally.monsters++;
+    else if (item.f === "m") tally.materials++;
+    else if (item.f === "h") tally.hearts++;
+    else if (item.f === "q" || /quest/i.test(text)) tally.quests++;
+    else tally.other++;
+  });
+  return { open, gold, tally, count: open.length };
+}
+
+function maybeVision(curIdx, lockIdx, lock){
+  if (!lock || lockIdx < 0) return;
+  const lockId = lock.id;
+  if (visionShownThisSession[lockId] || visionAcknowledged()[lockId]) return;
+  // Only warn once the current chapter is actually finished — that is the moment
+  // you are about to push the story, not while you are still mid-chapter.
+  const cur = ROUTE[curIdx];
+  const chapterClear = cur.items.filter(i => !i.k).every(i => done[i.id])
+    && worldEntriesForChapter(cur).every(i => worldDone[i.id]);
+  if (!chapterClear) return;
+  const manifest = visionManifest(curIdx, lockIdx);
+  if (!manifest.count) return;
+  visionShownThisSession[lockId] = true;
+  showVision(lock, manifest);
+}
+
+function showVision(lock, manifest){
+  const host = document.getElementById("vision");
+  if (!host) return;
+  const t = manifest.tally;
+  const line = (n, singular, plural) => n ? `<li><b>${n}</b> ${n === 1 ? singular : plural}</li>` : "";
+  host.innerHTML =
+    `<div class="vision-card" role="alertdialog" aria-modal="true" aria-labelledby="vision-title" aria-describedby="vision-body">
+       <p class="vision-kicker">A vision</p>
+       <h2 id="vision-title">${esc(lock.lock)}</h2>
+       <div id="vision-body">
+         <p>Crossing this point with <b>${manifest.count}</b> deadline item${manifest.count === 1 ? "" : "s"} unticked. You would permanently lose:</p>
+         <ul class="vision-losses">
+           ${line(t.monsters, "Unique Monster", "Unique Monsters")}
+           ${line(t.quests, "quest", "quests")}
+           ${line(t.materials, "Colony 6 material", "Colony 6 materials")}
+           ${line(t.hearts, "Heart-to-Heart", "Heart-to-Hearts")}
+           ${line(t.other, "other tracked item", "other tracked items")}
+           ${manifest.gold ? `<li><b>${manifest.gold.toLocaleString("en-GB")} G</b> in quest rewards</li>` : ""}
+         </ul>
+         <p class="vision-note">The future can be changed. Nothing is lost until you advance the story.</p>
+       </div>
+       <div class="vision-actions">
+         <button type="button" class="vision-primary" id="vision-show">Show me what is left</button>
+         <button type="button" class="vision-ghost" id="vision-dismiss">I accept this loss</button>
+       </div>
+     </div>`;
+  visionLastFocus = document.activeElement;
+  host.hidden = false;
+  document.documentElement.classList.add("vision-active");
+  const close = (acknowledge) => {
+    if (acknowledge) acknowledgeVision(lock.id);
+    host.hidden = true;
+    host.innerHTML = "";
+    document.documentElement.classList.remove("vision-active");
+    document.removeEventListener("keydown", onKey);
+    if (visionLastFocus && document.contains(visionLastFocus)) visionLastFocus.focus();
+  };
+  const onKey = e => {
+    if (e.key === "Escape") { e.preventDefault(); close(false); return; }
+    if (e.key !== "Tab") return;
+    const f = [...host.querySelectorAll("button")];
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+  document.addEventListener("keydown", onKey);
+  host.querySelector("#vision-show").addEventListener("click", () => {
+    close(false);
+    document.getElementById("dash")?.click();
+  });
+  host.querySelector("#vision-dismiss").addEventListener("click", () => close(true));
+  host.querySelector("#vision-show").focus();
 }
 
 routeEl.addEventListener("change", e => {
@@ -2183,7 +2445,7 @@ function renderCompletion(){
         <div class="route-card-actions">${bindingsReady && routeBinding(item.id) ? `<button type="button" class="route-link" data-open-route="${esc(routeBinding(item.id).routeItemId)}">Route · ${esc(routeBinding(item.id).handling)}</button>` : ''}${item.branch ? `<button type="button" class="skip${skipped ? ' on' : ''}" data-cid="${esc(item.id)}" aria-pressed="${skipped}">Not my branch</button>` : ''}</div>
       </div>`;
     }).join("");
-    return `<details class="cgroup"${q || groupIndex === 0 ? ' open' : ''}>
+    return `<details class="cgroup" open>
       <summary>${esc(group.title)}<span class="gcount">${groupDone}/${group.items.length} resolved</span></summary>${rows}</details>`;
   }).join("");
   completionEl.innerHTML = groups || '<div class="callout a"><p>No matching unresolved items.</p></div>';
@@ -2239,7 +2501,7 @@ function monsterFamily(entry){
 }
 function monsterPortrait(entry){
   const source = entry.image?.local || "assets/game-icons/enemy-sight.png";
-  return `<img class="monster-portrait${entry.image?.local ? "" : " is-fallback"}" src="${esc(source)}" alt="" loading="lazy" decoding="async">`;
+  return `<img class="monster-portrait${entry.image?.local ? "" : " is-fallback"}" src="${esc(source)}" width="72" height="88" alt="" loading="lazy" decoding="async">`;
 }
 function initMonsterpedia(){
   monsterReady = true;
@@ -2301,14 +2563,15 @@ function monsterSourceUrl(entry){
 }
 function renderCombatDossier(entry, routeReference){
   const record=window.COMBAT_DOSSIER_DATA?.records?.[entry.id], curated=window.COMBAT_DOSSIER_DATA?.encounters?.[entry.name];
-  if(!record) return `<details class="combat-dossier"><summary>Combat dossier · source record unavailable</summary><p>Mechanical dossier data has not been refreshed for this encounter.</p></details>`;
-  const advice=curated||record.guidePrep;
+  if(!record) return `<details class="combat-dossier" open><summary>Combat dossier · source record unavailable</summary><p>Mechanical dossier data has not been refreshed for this encounter.</p></details>`;
+  const advice=routeAwareEncounterAdvice(curated||record.guidePrep, routeReference);
   const variant=record.variants?.[0]||{}, stats=variant.stats||{}, arts=variant.arts||[], spike=variant.spike, resistances=variant.resistances||{};
   const statBits=[["HP",stats.hp],["Attack",stats.attack],["Ether",stats.ether],["Agility",stats.agility],["Physical resist",stats.physicalResistance],["Ether resist",stats.etherResistance]].filter(([,value])=>value).map(([label,value])=>`<li><b>${esc(label)}:</b> ${esc(value)}</li>`).join("");
   const artRows=arts.map(art=>`<li><b>${esc(art.name)}</b> · ${esc(art.type||"Unknown type")}${art.range?` · ${esc(art.range)}`:""}${art.effect&&art.effect!=="-"?` · ${esc(art.effect)}`:""}${art.knockback&&art.knockback!=="-"?` · knockback ${esc(art.knockback)}`:""}</li>`).join("");
   const resistanceRows=Object.entries(resistances).filter(([,value])=>value&&value!=="0%").map(([label,value])=>`<li><b>${esc(label.replace(/([A-Z])/g," $1"))}:</b> ${esc(value)}</li>`).join("");
   const spikePanel=spike?`<section class="dossier-panel"><h4>⚠ Spike documented</h4><p><b>${esc(spike.type||"Spike")}</b>${spike.range?` · ${esc(spike.range)}`:""}<br>${esc(spike.damage||"Effect not stated")}</p></section>`:`<section class="dossier-panel"><h4>Spike</h4><p>No spike template is documented by this source. This means <em>undocumented</em>, not game-data proof of none.</p></section>`;
-  return `<details class="combat-dossier"><summary>Combat dossier · source-backed mechanics + ${curated?"curated":"mechanics-derived"} guide prep</summary><p><b>Target:</b> Lv ${esc(entry.level)} · ${esc(entry.area||entry.areaName)}${entry.conditions?` · ${esc(entry.conditions)}`:""}</p><div class="dossier-grid"><section class="dossier-panel"><h4>Battle stats</h4><ul class="dossier-list">${statBits||"<li>Not documented</li>"}</ul></section>${spikePanel}<section class="dossier-panel"><h4>Notable resistances</h4><ul class="dossier-list">${resistanceRows||"<li>No non-zero resistance listed.</li>"}</ul></section></div><section class="dossier-panel"><h4>Enemy arts to watch</h4><ul class="dossier-list">${artRows||"<li>No arts documented.</li>"}</ul></section><section class="dossier-panel"><h4>${curated?"Curated guide strategy":"Mechanics-derived guide prep"}</h4>${advice.party?`<p><b>Party:</b> ${esc(advice.party)}</p>`:""}<p><b>Gems:</b> ${advice.gems.map(esc).join(" · ")}</p><p><b>Watch:</b> ${advice.watch.map(esc).join(" · ")}</p><p><b>Plan:</b> ${esc(advice.route)}</p><button type="button" class="route-link" data-open-preset="${esc(advice.preset)}">${gameIcon("build")}Open recommended preset</button>${advice.basis?`<p class="dossier-source">${esc(advice.basis)}</p>`:""}</section>${routeReference?`<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route prep</button>`:""}<p class="dossier-source">Mechanical data: <a href="${esc(record.source.url)}" target="_blank" rel="noopener">${esc(record.source.label)}</a> · ${esc(record.source.confidence)}. Strategy text is separately labeled guide advice.</p></details>`;
+  const presetButton=advice.preset?`<button type="button" class="route-link" data-open-preset="${esc(advice.preset)}">${gameIcon("build")}Open recommended preset</button>`:"";
+  return `<details class="combat-dossier" open><summary>Combat dossier · source-backed mechanics + ${curated?"curated":"mechanics-derived"} guide prep</summary><p><b>Target:</b> Lv ${esc(entry.level)} · ${esc(entry.area||entry.areaName)}${entry.conditions?` · ${esc(entry.conditions)}`:""}</p><div class="dossier-grid"><section class="dossier-panel"><h4>Battle stats</h4><ul class="dossier-list">${statBits||"<li>Not documented</li>"}</ul></section>${spikePanel}<section class="dossier-panel"><h4>Notable resistances</h4><ul class="dossier-list">${resistanceRows||"<li>No non-zero resistance listed.</li>"}</ul></section></div><section class="dossier-panel"><h4>Enemy arts to watch</h4><ul class="dossier-list">${artRows||"<li>No arts documented.</li>"}</ul></section><section class="dossier-panel"><h4>${curated?"Curated guide strategy":"Mechanics-derived guide prep"}</h4>${advice.party?`<p><b>Party:</b> ${esc(advice.party)}</p>`:""}<p><b>Gems:</b> ${advice.gems.map(esc).join(" · ")}</p><p><b>Watch:</b> ${advice.watch.map(esc).join(" · ")}</p><p><b>Plan:</b> ${esc(advice.route)}</p>${presetButton}${advice.basis?`<p class="dossier-source">${esc(advice.basis)}</p>`:""}</section>${routeReference?`<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route prep</button>`:""}<p class="dossier-source">Mechanical data: <a href="${esc(record.source.url)}" target="_blank" rel="noopener">${esc(record.source.label)}</a> · ${esc(record.source.confidence)}. Strategy text is separately labeled guide advice.</p></details>`;
 }
 
 // Focused second-screen companion.
@@ -2333,7 +2596,7 @@ function renderAreaBriefing(current){
   const boundQuests = bindingsReady && completionReady ? ROUTE_BINDINGS_DATA.bindings.filter(binding => binding.targetType === "quest" && binding.routeChapterId === chapter.id).map(binding => COMPLETION_DATA.categories[0].groups.flatMap(group => group.items).find(item => item.id === binding.targetId)).filter(Boolean) : [];
   const questOpen = boundQuests.filter(item => !isResolved(item)).length;
   const buildUpdate = buildReady ? BUILD_DATA.routeUpdates.find(update => update.routeChapterId === chapter.id) : null;
-  el.innerHTML = `<article class="brief-card"><h3>${esc(chapter.title)}</h3><div class="brief-stat">Lv ${esc(chapterTarget(chapter) ?? "—")}</div><p>Guide target · ${routeOpen.length} route cards remain.</p></article><article class="brief-card"><h3>Advance blockers</h3><div class="brief-stat">${deadlineOpen}</div><p>deadline cards · ${leaderOpen} leader-gated cards remain in this chapter.</p></article><article class="brief-card"><h3>World sweep</h3><div class="brief-stat">${worldOpen}</div><p>of ${worldEntries.length} mapped discoveries remain at this route phase.</p></article><article class="brief-card"><h3>Quest ledger</h3><div class="brief-stat">${completionReady && bindingsReady ? questOpen : "…"}</div><p>${completionReady && bindingsReady ? `of ${boundQuests.length} bound quest outcomes unresolved.` : "Open Completion Hub once to load ledger status."}</p></article>${buildUpdate ? `<article class="brief-card"><h3>Party check</h3><p><b>${esc(buildUpdate.party.map(buildName).join(" / "))}</b></p><p>Control ${esc(buildName(buildUpdate.leader))}. ${esc(buildUpdate.safeAlternative)}</p><button type="button" class="route-link" data-companion-panel="combat">Open builds</button></article>` : ""}`;
+  el.innerHTML = `<article class="brief-card"><h3>${esc(chapter.title)}</h3><div class="brief-stat">Lv ${esc(chapterLevelLabel(chapter))}</div><p>Guide target · ${routeOpen.length} route cards remain.</p></article><article class="brief-card"><h3>Advance blockers</h3><div class="brief-stat">${deadlineOpen}</div><p>deadline cards · ${leaderOpen} leader-gated cards remain in this chapter.</p></article><article class="brief-card"><h3>World sweep</h3><div class="brief-stat">${worldOpen}</div><p>of ${worldEntries.length} mapped discoveries remain at this route phase.</p></article><article class="brief-card"><h3>Quest ledger</h3><div class="brief-stat">${completionReady && bindingsReady ? questOpen : "…"}</div><p>${completionReady && bindingsReady ? `of ${boundQuests.length} bound quest outcomes unresolved.` : "Open Completion Hub once to load ledger status."}</p></article>${buildUpdate ? `<article class="brief-card"><h3>Party check</h3><p><b>${esc(buildUpdate.party.map(buildName).join(" / "))}</b></p><p>Control ${esc(buildName(buildUpdate.leader))}. ${esc(buildUpdate.safeAlternative)}</p><button type="button" class="route-link" data-companion-panel="combat">Open builds</button></article>` : ""}`;
 }
 function routeMaterialNeed(record){
   const title = plainText(record.item.t || "");
@@ -2360,7 +2623,7 @@ function renderEncounterMode(){
   const entry=MONSTERPEDIA_DATA.entries.find(candidate=>candidate.id===select.value);
   if(!entry){detail.innerHTML='<p class="muted">Choose a boss or Unique Monster to open its pre-fight checklist.</p>';return;}
   const routeReference=routeItemReference(entry.name,item=>item.f==="u");
-  detail.innerHTML=renderCombatDossier(entry,routeReference).replace('<details class="combat-dossier">','<details class="combat-dossier" open>');
+  detail.innerHTML=renderCombatDossier(entry,routeReference);
 }
 function renderCompanion(){
   const current=currentPlayable(), currentEl=document.getElementById("play-current"), nextEl=document.getElementById("play-next"), statusEl=document.getElementById("advance-status");
@@ -2370,9 +2633,9 @@ function renderCompanion(){
   const chapter=current.chapter,item=current.item,leader=requiredLeader(item),level=recommendedLevel(chapter,item),chapterDeadline=chapter.items.filter(candidate=>candidate.id&&candidate.f==="d"&&!done[candidate.id]);
   const blocked=chapterDeadline.length>0;statusEl.className=`advance-status${blocked?" is-blocked":""}`;statusEl.innerHTML=`<div><strong>${blocked?"Do not advance the story yet":"Current window is clear of deadline cards"}</strong><span>${blocked?`${chapterDeadline.length} deadline item${chapterDeadline.length===1?"":"s"} remain in ${esc(chapter.title)}.`:"Follow the next objective before crossing a new story boundary."}</span></div>${blocked?`<button type="button" class="route-link" data-companion-deadlines="true">Show blockers</button>`:""}`;
   const minimal=state.preferences.spoilerLevel==="minimal"&&!playReveal&&item.f!=="d"&&!leader, gameplay=state.preferences.spoilerLevel==="gameplay";
-  currentEl.innerHTML=`<div class="mission-meta"><span>${esc(chapter.title)}</span><span>Recommended Lv ${esc(level??"—")}</span>${leader?`<span class="leader-badge">Required leader · ${esc(leader)}</span>`:""}${item.f==="d"?'<span class="deadline-badge">Missable / lockout</span>':""}</div><h3>${minimal?"Next objective hidden":routeTitle(item.t)}</h3>${minimal?'<p>Reveal only when you are ready for the next objective.</p><button type="button" class="route-link" data-reveal-play="true">Reveal this step</button>':gameplay?'<p class="muted">Detailed narrative/context is hidden in Gameplay mode. Open the route card for the complete explanation.</p>':item.d?`<div>${item.d}</div>`:""}<div class="route-card-actions"><button type="button" class="ghost safe" data-complete-play="${esc(item.id)}">Mark complete</button><button type="button" class="route-link" data-open-route="${esc(item.id)}">Open full route card</button></div>`;
+  currentEl.innerHTML=`<div class="mission-meta"><span>${esc(chapter.title)}</span><span>Recommended Lv ${esc(level??chapterLevelLabel(chapter))}</span>${leader?`<span class="leader-badge">Required leader · ${esc(leader)}</span>`:""}${item.f==="d"?'<span class="deadline-badge">Missable / lockout</span>':""}</div><h3>${minimal?"Next objective hidden":routeTitle(item.t)}</h3>${minimal?'<p>Reveal only when you are ready for the next objective.</p><button type="button" class="route-link" data-reveal-play="true">Reveal this step</button>':gameplay?'<p class="muted">Detailed narrative/context is hidden in Gameplay mode. Open the route card for the complete explanation.</p>':item.d?`<div>${item.d}</div>`:""}<div class="route-card-actions"><button type="button" class="ghost safe" data-complete-play="${esc(item.id)}">Mark complete</button><button type="button" class="route-link" data-open-route="${esc(item.id)}">Open full route card</button></div>`;
   const open=playableRouteCards().filter(record=>!done[record.item.id]&&record.item.id!==item.id);const list=state.preferences.playView==="deadlines"?open.filter(record=>record.item.f==="d").slice(0,10):open.slice(0,state.preferences.playView==="compact"?10:4);
-  nextEl.innerHTML=list.map((record,index)=>`<article class="step-card"><span class="step-number">${index+1}</span><p><b>${state.preferences.spoilerLevel==="minimal"&&record.item.f!=="d"?"Upcoming route objective":routeTitle(record.item.t)}</b><br><span class="muted">${esc(record.chapter.title)} · Lv ${esc(recommendedLevel(record.chapter,record.item)??"—")}</span></p><button type="button" class="route-link" data-open-route="${esc(record.item.id)}">Open</button></article>`).join("")||'<p class="muted">No additional matching steps.</p>';
+  nextEl.innerHTML=list.map((record,index)=>`<article class="step-card"><span class="step-number">${index+1}</span><p><b>${state.preferences.spoilerLevel==="minimal"&&record.item.f!=="d"?"Upcoming route objective":routeTitle(record.item.t)}</b><br><span class="muted">${esc(record.chapter.title)} · Lv ${esc(recommendedLevel(record.chapter,record.item)??chapterLevelLabel(record.chapter))}</span></p><button type="button" class="route-link" data-open-route="${esc(record.item.id)}">Open</button></article>`).join("")||'<p class="muted">No additional matching steps.</p>';
   document.getElementById("play-open-route").dataset.openRoute=item.id;renderAreaBriefing(current);renderInventoryPlanner();initEncounterMode();
 }
 document.getElementById("play-view").addEventListener("change",event=>{state.preferences.playView=event.target.value;playReveal=false;save();renderCompanion();});
@@ -2423,7 +2686,7 @@ function renderMonsterpedia(reset = false){
       <div class="monster-card-main"><h3><span>${esc(entry.name)}</span><span class="rec-level">Lv ${esc(entry.level)}</span></h3>
         <div class="result-meta">${esc(entry.species || "Enemy")} · ${esc(entry.area || entry.areaName || "Unknown area")}</div>
         <div class="result-tags">${tags}</div><p><b>Appears:</b> ${esc(entry.conditions || "Anytime")}</p>
-        <details><summary>${drops.length} confirmed drop${drops.length === 1 ? "" : "s"} · ${drops.filter((_,index)=>dropLog[`${entry.id}:${index}`]).length}/${drops.length} logged</summary>${drops.length ? `<ul class="drop-list">${dropRows}</ul>` : '<p class="muted">No verified drop table in the source.</p>'}</details>
+        <details open><summary>${drops.length} confirmed drop${drops.length === 1 ? "" : "s"} · ${drops.filter((_,index)=>dropLog[`${entry.id}:${index}`]).length}/${drops.length} logged</summary>${drops.length ? `<ul class="drop-list">${dropRows}</ul>` : '<p class="muted">No verified drop table in the source.</p>'}</details>
         ${(entry.unique || entry.boss) ? renderCombatDossier(entry,routeReference) : ""}
         <div class="monster-card-actions"><button type="button" class="hunt-toggle monster-log-toggle" data-monster-log="${esc(entry.id)}" aria-pressed="${monsterLog[entry.id] ? "true" : "false"}">${monsterLog[entry.id] ? "Logged" : "Mark as logged"}</button><button type="button" class="hunt-toggle" data-hunt="${esc(entry.id)}" aria-pressed="${monsterHunts[entry.id] ? "true" : "false"}">${monsterHunts[entry.id] ? "Pinned to hunt list" : "Pin to hunt list"}</button>${routeReference ? `<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route card</button>` : ""}</div>
         <p class="muted"><a href="${esc(monsterSourceUrl(entry))}" target="_blank" rel="noopener">Enemy-page source</a>${entry.image?.local ? "" : " · Source page has no portrait; showing the official in-game enemy icon."}</p></div></article>`;
@@ -2519,13 +2782,15 @@ let atlasArea = "";
 function mercatorPoint(coordinates){const lng=coordinates[0],lat=Math.max(-85.0511,Math.min(85.0511,coordinates[1])),sin=Math.sin(lat*Math.PI/180);return{x:(lng+180)/360*100,y:(.5-Math.log((1+sin)/(1-sin))/(4*Math.PI))*100};}
 function nearestRoute(points){if(points.length<2)return points;const remaining=points.map(point=>({...point,screen:mercatorPoint(point.coordinates)})).sort((a,b)=>a.screen.x-b.screen.x),route=[remaining.shift()];while(remaining.length){const from=route.at(-1).screen;let best=0,distance=Infinity;remaining.forEach((point,index)=>{const d=(point.screen.x-from.x)**2+(point.screen.y-from.y)**2;if(d<distance){distance=d;best=index;}});route.push(remaining.splice(best,1)[0]);}return route;}
 function frontierPointText(point){if(point.type==="CollectionPoint")return point.items.map(item=>`${item.name}${item.rate!==null?` ${item.rate}%`:""}`).join(" · ");if(point.type==="EnemySpawnPoint")return point.spawns.map(spawn=>`${spawn.name}${spawn.level!==null?` Lv${spawn.level}`:""}${spawn.rate!==null?` ${spawn.rate}%`:""}`).join(" · ");return point.name;}
+function frontierPointKind(point){return point.type==="CollectionPoint"?"Collection pin":point.type==="EnemySpawnPoint"?"Enemy spawn":"Landmark";}
+function frontierPointLabel(point,map){const number=Math.max(1,map.points.indexOf(point)+1);return `${frontierPointKind(point)} ${number} · ${point.name||"Unnamed marker"}`;}
 function renderAtlas(){
   if(frontierReady){
     const maps=FRONTIER_MAP_DATA.maps;atlasArea=maps.some(map=>map.id===atlasArea)?atlasArea:(maps.find(map=>map.id==="colony-9-map")?.id||maps[0]?.id);const map=maps.find(item=>item.id===atlasArea);if(!map)return;
-    atlasEl.innerHTML=`<div class="lookup-status"><div class="lookup-count">${FRONTIER_MAP_DATA.counts.maps} maps · ${FRONTIER_MAP_DATA.counts.collectionPoints.toLocaleString()} collection pins · ${FRONTIER_MAP_DATA.counts.enemySpawnPoints.toLocaleString()} enemy-spawn pins · ${FRONTIER_MAP_DATA.counts.landmarks.toLocaleString()} landmarks</div><a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">Interactive source</a></div><div class="atlas-controls"><label class="filter-field">Map<select id="atlas-area">${maps.map(item=>`<option value="${esc(item.id)}"${item.id===map.id?" selected":""}>${esc(item.name)} · ${esc(item.region)}</option>`).join("")}</select></label><label class="filter-field">Find collectible, monster or landmark<input id="atlas-q" type="search" placeholder="Ice Cabbage, Rotbart, secret area…"></label><div class="atlas-checks"><label><input type="checkbox" data-atlas-type="CollectionPoint" checked>Collectibles</label><label><input type="checkbox" data-atlas-type="Landmark" checked>Landmarks</label><label><input type="checkbox" data-atlas-type="EnemySpawnPoint">Enemies</label></div>${map.lockoutDeadline?`<span class="deadline-badge">${gameIcon("timed")}Missable zone · ${esc(map.lockoutDeadline)}</span>`:""}</div><div class="frontier-layout"><div class="frontier-map-stage${map.lockoutDeadline?" is-lockout":""}" aria-label="Interactive ${esc(map.name)} map"><div class="frontier-tiles">${map.tiles.sort((a,b)=>a.y-b.y||a.x-b.x).map(tile=>`<img src="${esc(tile.local)}" alt="">`).join("")}</div><svg class="frontier-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg><div id="frontier-pins"></div></div><aside class="frontier-side"><div id="frontier-detail" class="frontier-detail"><h3>${esc(map.name)}</h3><p>${esc(map.region)} · choose a pin for exact contents.</p>${map.lockoutDeadline?`<p class="deadline-badge">Clear this map before ${esc(map.lockoutDeadline)}</p>`:""}</div><div id="frontier-results" class="frontier-results"></div></aside></div><p class="source-note">Exact GeoJSON pin geometry and collection/enemy relationships come from <a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">${esc(FRONTIER_MAP_DATA.source.label)}</a>; locally cached tiles are the same map layer. ${esc(FRONTIER_MAP_DATA.license.label)}. A line shown for a collectible search is a suggested nearest-neighbour sweep, not a claimed optimal route.</p>`;
+    atlasEl.innerHTML=`<div class="lookup-status"><div class="lookup-count">${FRONTIER_MAP_DATA.counts.maps} maps · ${FRONTIER_MAP_DATA.counts.collectionPoints.toLocaleString()} collection pins · ${FRONTIER_MAP_DATA.counts.enemySpawnPoints.toLocaleString()} enemy-spawn pins · ${FRONTIER_MAP_DATA.counts.landmarks.toLocaleString()} landmarks</div><a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">Interactive source</a></div><div class="atlas-controls"><label class="filter-field">Map<select id="atlas-area">${maps.map(item=>`<option value="${esc(item.id)}"${item.id===map.id?" selected":""}>${esc(item.name)} · ${esc(item.region)}</option>`).join("")}</select></label><label class="filter-field">Find collectible, monster or landmark<input id="atlas-q" type="search" placeholder="Ice Cabbage, Rotbart, secret area…"></label><div class="atlas-checks"><label><input type="checkbox" data-atlas-type="CollectionPoint" checked>Collectibles</label><label><input type="checkbox" data-atlas-type="Landmark" checked>Landmarks</label><label><input type="checkbox" data-atlas-type="EnemySpawnPoint">Enemies</label></div>${map.lockoutDeadline?`<span class="deadline-badge">${gameIcon("timed")}Missable zone · ${esc(map.lockoutDeadline)}</span>`:""}</div><div class="frontier-layout"><div class="frontier-map-stage${map.lockoutDeadline?" is-lockout":""}" aria-label="Interactive ${esc(map.name)} map"><div class="frontier-tiles">${map.tiles.sort((a,b)=>a.y-b.y||a.x-b.x).map(tile=>`<img src="${esc(tile.local)}" width="512" height="512" alt="" decoding="async">`).join("")}</div><svg class="frontier-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg><div id="frontier-pins"></div></div><aside class="frontier-side"><div id="frontier-detail" class="frontier-detail"><h3>${esc(map.name)}</h3><p>${esc(map.region)} · choose a pin for exact contents.</p>${map.lockoutDeadline?`<p class="deadline-badge">Clear this map before ${esc(map.lockoutDeadline)}</p>`:""}</div><div id="frontier-results" class="frontier-results"></div></aside></div><p class="source-note">Exact GeoJSON pin geometry and collection/enemy relationships come from <a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">${esc(FRONTIER_MAP_DATA.source.label)}</a>; locally cached tiles are the same map layer. ${esc(FRONTIER_MAP_DATA.license.label)}. A line shown for a collectible search is a suggested nearest-neighbour sweep, not a claimed optimal route.</p>`;
     const q=document.getElementById("atlas-q"),typeInputs=[...atlasEl.querySelectorAll("[data-atlas-type]")],pins=document.getElementById("frontier-pins"),results=document.getElementById("frontier-results"),detail=document.getElementById("frontier-detail"),routeSvg=atlasEl.querySelector(".frontier-route");
-    const showPoint=point=>{detail.innerHTML=`<h3>${esc(point.type.replace(/([A-Z])/g," $1").trim())}</h3><p><b>${esc(point.name)}</b></p>${point.type==="CollectionPoint"?`<ul class="dossier-list">${point.items.map(item=>`<li>${esc(item.name)}${item.rate!==null?` · <b>${esc(item.rate)}%</b>`:""}</li>`).join("")}</ul>`:point.type==="EnemySpawnPoint"?`<ul class="dossier-list">${point.spawns.map(spawn=>`<li>${esc(spawn.name)}${spawn.level!==null?` · Lv ${esc(spawn.level)}`:""}${spawn.rate!==null?` · ${esc(spawn.rate)}%`:""}${spawn.quest?" · quest":""}${spawn.missable?" · missable":""}</li>`).join("")}</ul>`:""}<p class="muted">GeoJSON: ${point.coordinates.map(value=>Number(value).toFixed(5)).join(", ")} · <a href="${esc(point.source)}" target="_blank" rel="noopener">source record</a></p>`;};
-    const draw=()=>{const query=q.value.trim().toLowerCase(),enabled=new Set(typeInputs.filter(input=>input.checked).map(input=>input.dataset.atlasType));const found=map.points.filter(point=>(query||enabled.has(point.type))&&(!query||`${point.name} ${frontierPointText(point)}`.toLowerCase().includes(query)));pins.innerHTML=found.map((point,index)=>{const screen=mercatorPoint(point.coordinates);return`<button type="button" class="frontier-pin ${esc(point.type)}" style="left:${screen.x}%;top:${screen.y}%" data-frontier-point="${index}" title="${esc(frontierPointText(point))}"><span class="sr-only">${esc(frontierPointText(point))}</span></button>`;}).join("");results.innerHTML=found.slice(0,180).map((point,index)=>`<button type="button" data-frontier-point="${index}"><b>${esc(point.type==="CollectionPoint"?"Collection":point.type==="EnemySpawnPoint"?"Enemy spawn":"Landmark")}</b> · ${esc(frontierPointText(point)).slice(0,180)}</button>`).join("")||'<p class="frontier-detail muted">No pins match.</p>';const route=query?nearestRoute(found.filter(point=>point.type==="CollectionPoint")):[];routeSvg.innerHTML=route.length>1?`<polyline points="${route.map(point=>`${point.screen.x},${point.screen.y}`).join(" ")}"></polyline>`:"";atlasEl._frontierFound=found;};
+    const showPoint=point=>{detail.innerHTML=`<h3>${esc(frontierPointLabel(point,map))}</h3><p><b>${esc(map.name)} · ${esc(map.region)}</b><br><span class="muted">Marker ID: ${esc(point.id||"not supplied")}</span></p>${point.type==="CollectionPoint"?`<ul class="dossier-list">${point.items.map(item=>`<li>${esc(item.name)}${item.rate!==null?` · <b>${esc(item.rate)}%</b>`:""}</li>`).join("")}</ul>`:point.type==="EnemySpawnPoint"?`<ul class="dossier-list">${point.spawns.map(spawn=>`<li>${esc(spawn.name)}${spawn.level!==null?` · Lv ${esc(spawn.level)}`:""}${spawn.rate!==null?` · ${esc(spawn.rate)}%`:""}${spawn.quest?" · quest":""}${spawn.missable?" · missable":""}</li>`).join("")}</ul>`:""}<p class="muted">GeoJSON: ${point.coordinates.map(value=>Number(value).toFixed(5)).join(", ")} · <a href="${esc(point.source)}" target="_blank" rel="noopener">source record</a></p>`;};
+    const draw=()=>{const query=q.value.trim().toLowerCase(),enabled=new Set(typeInputs.filter(input=>input.checked).map(input=>input.dataset.atlasType));const found=map.points.filter(point=>(query||enabled.has(point.type))&&(!query||`${point.name} ${point.id||""} ${frontierPointText(point)}`.toLowerCase().includes(query)));pins.innerHTML=found.map((point,index)=>{const screen=mercatorPoint(point.coordinates),label=frontierPointLabel(point,map);return`<button type="button" class="frontier-pin ${esc(point.type)}" style="left:${screen.x}%;top:${screen.y}%" data-frontier-point="${index}" title="${esc(`${label} · ${map.name} · ${map.region}`)}" aria-label="${esc(`${label}, ${map.name}, ${map.region}. ${frontierPointText(point)}`)}"><span class="sr-only">${esc(`${label} · ${map.name} · ${map.region}`)}</span></button>`;}).join("");results.innerHTML=found.slice(0,180).map((point,index)=>`<button type="button" data-frontier-point="${index}" aria-label="Open ${esc(frontierPointLabel(point,map))}"><b>${esc(frontierPointLabel(point,map))}</b><br><span class="muted">${esc(map.name)} · ${esc(map.region)} · marker ${esc(point.id||"not supplied")}</span><br>${esc(frontierPointText(point)).slice(0,180)}</button>`).join("")||'<p class="frontier-detail muted">No pins match.</p>';const route=query?nearestRoute(found.filter(point=>point.type==="CollectionPoint")):[];routeSvg.innerHTML=route.length>1?`<polyline points="${route.map(point=>`${point.screen.x},${point.screen.y}`).join(" ")}"></polyline>`:"";atlasEl._frontierFound=found;};
     document.getElementById("atlas-area").addEventListener("change",event=>{atlasArea=event.target.value;renderAtlas();});q.addEventListener("input",draw);typeInputs.forEach(input=>input.addEventListener("change",draw));atlasEl.onclick=event=>{const button=event.target.closest("[data-frontier-point]");const point=atlasEl._frontierFound?.[Number(button?.dataset.frontierPoint)];if(point)showPoint(point);};draw();return;
   }
   if (!atlasReady) { atlasEl.innerHTML = '<div class="callout"><p>Loading interactive map atlas…</p></div>'; return; }
@@ -2535,7 +2800,7 @@ function renderAtlas(){
   if (!area) { atlasEl.innerHTML = '<div class="callout a"><p>No verified local map file is available.</p></div>'; return; }
   const coordinates = new Map((window.MAP_COORDINATE_DATA?.coordinates || []).map(point => [point.id, point]));
   const entries = area.entries.map(entry => { const point=coordinates.get(entry.id); return `<div class="atlas-entry"><span class="tag world-kind">${esc(entry.type.replace(/-/g," "))}</span><b>${esc(entry.name)}</b>${entry.lockoutDeadline ? `<span class="deadline-badge">${gameIcon("timed")}Lockout</span>` : ""}<div class="muted">${esc(entry.accessNotes || "Map discovery entry.")}${point ? ` · exact game coord: X ${point.x}, Y ${point.y}, Z ${point.z}` : ""}</div></div>`; }).join("");
-  atlasEl.innerHTML = `<div class="atlas-controls"><label class="filter-field">Area<select id="atlas-area">${usable.map(item=>`<option value="${esc(item.id)}"${item.id===area.id?" selected":""}>${esc(item.name)}</option>`).join("")}</select></label><a class="route-link" href="${esc(area.map.sourceFile)}" target="_blank" rel="noopener">Open wiki map source</a>${area.lockoutDeadline ? `<span class="deadline-badge">${gameIcon("timed")}Finish before ${esc(area.lockoutDeadline)}</span>` : ""}</div><div class="atlas-map"><figure><img src="${esc(area.map.local)}" alt="${esc(area.name)} in-game map"><figcaption>Actual in-game map image, locally cached from the cited wiki file. Browse the verified discovery index beside it.</figcaption></figure><div class="atlas-list" aria-label="${esc(area.name)} landmarks and locations">${entries}</div></div>`;
+  atlasEl.innerHTML = `<div class="atlas-controls"><label class="filter-field">Area<select id="atlas-area">${usable.map(item=>`<option value="${esc(item.id)}"${item.id===area.id?" selected":""}>${esc(item.name)}</option>`).join("")}</select></label><a class="route-link" href="${esc(area.map.sourceFile)}" target="_blank" rel="noopener">Open wiki map source</a>${area.lockoutDeadline ? `<span class="deadline-badge">${gameIcon("timed")}Finish before ${esc(area.lockoutDeadline)}</span>` : ""}</div><div class="atlas-map"><figure><img src="${esc(area.map.local)}" width="1024" height="1024" loading="lazy" decoding="async" alt="${esc(area.name)} in-game map"><figcaption>Actual in-game map image, locally cached from the cited wiki file. Browse the verified discovery index beside it.</figcaption></figure><div class="atlas-list" aria-label="${esc(area.name)} landmarks and locations">${entries}</div></div>`;
   document.getElementById("atlas-area").addEventListener("change", event => { atlasArea = event.target.value; renderAtlas(); });
 }
 function toggleCollectopaedia(id){ if (collectopaediaLog[id]) delete collectopaediaLog[id]; else collectopaediaLog[id]=true; save(); renderCollectopaedia(); }
@@ -2544,18 +2809,107 @@ function renderCollectopaedia(){
   const total = COLLECTOPAEDIA_DATA.counts.items, logged = Object.keys(collectopaediaLog).length;
   collectEl.innerHTML = `<div class="lookup-status"><div class="lookup-count">${logged} / ${total} items logged across ${COLLECTOPAEDIA_DATA.counts.pages} pages</div><a href="${esc(COLLECTOPAEDIA_DATA.source.url)}" target="_blank" rel="noopener">Source pages</a></div><div class="collect-grid">${COLLECTOPAEDIA_DATA.collections.map(page => { const pageItems=page.groups.flatMap(group=>group.items); const pageDone=pageItems.filter(item=>collectopaediaLog[item.id]).length; return `<section class="collect-page"><h3>${esc(page.area)} <span class="rec-level">${pageDone}/${pageItems.length}</span></h3><p class="muted">Page reward: ${esc(page.completionReward)}</p>${page.groups.map(group=>`<div class="collect-row"><b>${esc(group.type)}</b><small>Row reward: ${esc(group.reward)}</small>${group.items.map(item=>`<label class="collect-item"><input type="checkbox" data-collect-id="${esc(item.id)}"${collectopaediaLog[item.id]?" checked":""}> <span>${esc(item.name)}</span></label>`).join("")}</div>`).join("")}<p class="muted"><a href="${esc(page.source)}" target="_blank" rel="noopener">Collection source</a></p></section>`; }).join("")}</div>`;
 }
+// ---- Area Affinity gate ladder -------------------------------------------------
+// Every star value here is the literal requirement text of the quest that carries it.
+// Nothing predicts your current area affinity: the game exposes no number and the
+// data set carries no reputation values, so this ladder reports what each gate opens
+// and which of those quests you have actually ticked. It never guesses a total.
+const STAR_FRACTION = { "¼": .25, "½": .5, "¾": .75 };
+function starValue(star){
+  const whole = parseInt(star, 10) || 0;
+  const fraction = STAR_FRACTION[String(star).slice(-1)] || 0;
+  return whole + fraction;
+}
+// Route items are matched by quest name appearing in the item's title or detail.
+// A quest with no individual route item is covered by an area sweep task, not missing —
+// it is reported as "swept" rather than being silently counted as outstanding.
+function routeTitleIndex(){
+  if (!routeReady) return [];
+  const flatten = html => String(html || "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").toLowerCase();
+  return ROUTE.flatMap(ch => ch.items.filter(i => !i.k).map(i => ({
+    id: i.id, chapter: ch.id, text: `${flatten(i.t)} ${flatten(i.d)}`
+  })));
+}
+function gateLadder(){
+  const index = routeTitleIndex();
+  const areas = new Map();
+  for (const quest of AFFINITY_DATA.quests){
+    if (!quest.star) continue;
+    const match = index.find(entry => entry.text.includes(quest.name.toLowerCase()));
+    const row = {
+      quest,
+      routeId: match?.id || null,
+      chapter: match?.chapter || null,
+      state: !match ? "swept" : done[match.id] ? "done" : "open"
+    };
+    if (!areas.has(quest.area)) areas.set(quest.area, new Map());
+    const tiers = areas.get(quest.area);
+    if (!tiers.has(quest.star)) tiers.set(quest.star, []);
+    tiers.get(quest.star).push(row);
+  }
+  return [...areas.entries()].map(([area, tiers]) => {
+    const ladder = [...tiers.entries()]
+      .sort((a, b) => starValue(a[0]) - starValue(b[0]))
+      .map(([star, rows]) => ({
+        star,
+        rows: rows.sort((a, b) => a.quest.name.localeCompare(b.quest.name)),
+        done: rows.filter(r => r.state === "done").length,
+        open: rows.filter(r => r.state === "open").length,
+        swept: rows.filter(r => r.state === "swept").length
+      }));
+    // The deepest tier whose routed quests are all ticked. Tiers that are entirely
+    // area-sweep quests cannot confirm anything, so they stop the run rather than extend it.
+    let cleared = null;
+    for (const tier of ladder){
+      if (tier.open === 0 && tier.done > 0) cleared = tier.star; else break;
+    }
+    return {
+      area, ladder, cleared,
+      total: ladder.reduce((n, t) => n + t.rows.length, 0),
+      open: ladder.reduce((n, t) => n + t.open, 0)
+    };
+  }).sort((a, b) => b.open - a.open || a.area.localeCompare(b.area));
+}
+function renderGateLadder(areaFilter){
+  const GATE_LABEL = { done: "ticked", open: "still open", swept: "area sweep" };
+  return gateLadder()
+    .filter(entry => !areaFilter || entry.area === areaFilter)
+    .map(entry => `<details class="gate-area" open>
+      <summary><b>${esc(entry.area)}</b>
+        <span class="gate-counts">${entry.total} gated quest${entry.total === 1 ? "" : "s"}${entry.open ? ` · <span class="gate-open">${entry.open} still open</span>` : " · <span class=\"gate-clear\">none outstanding</span>"}</span>
+        <span class="muted gate-cleared">${entry.cleared ? `route confirms every gated quest up to ☆${esc(entry.cleared)}` : "no gate tier fully ticked yet"}</span>
+      </summary>
+      ${entry.ladder.map(tier => `<div class="gate-tier">
+        <div class="gate-tier-head"><b>☆${esc(tier.star)}</b>
+          <span class="muted">${tier.rows.length} quest${tier.rows.length === 1 ? "" : "s"} open at this gate · ${tier.done} ticked${tier.open ? ` · ${tier.open} waiting on you` : ""}${tier.swept ? ` · ${tier.swept} covered by an area sweep` : ""}</span></div>
+        <div class="route-card-actions">${tier.rows.map(row => `<button type="button" class="route-link gate-q is-${row.state}"${row.routeId ? ` data-gate-route="${esc(row.routeId)}" data-gate-chapter="${esc(row.chapter)}"` : ` data-open-affinity-quest="${esc(row.quest.id)}"`} title="${esc(GATE_LABEL[row.state])}${row.quest.timed ? " · timed quest" : ""}">${esc(row.quest.name)}${row.quest.timed ? " ⏱" : ""}</button>`).join(" ")}</div>
+      </div>`).join("")}
+    </details>`).join("");
+}
+function jumpToRouteItem(itemId, chapterId){
+  jumpToRouteChapter(chapterId);
+  const row = document.querySelector(`.it[data-id="${CSS.escape(itemId)}"]`);
+  if (!row) return;
+  row.scrollIntoView({ behavior: "smooth", block: "center" });
+  row.classList.add("gate-flash");
+  setTimeout(() => row.classList.remove("gate-flash"), 1600);
+}
 function renderAffinityPlanner(){
   if (!worldReady || !affinityReady) { affinityEl.innerHTML = '<div class="callout"><p>Loading resident, quest and affinity requirements…</p></div>'; return; }
-  const stars = new Map();
-  for (const quest of AFFINITY_DATA.quests) if(quest.star){const key=`${quest.area} · ☆${quest.star}`;if(!stars.has(key))stars.set(key,[]);stars.get(key).push(quest);}
-  const starRows=[...stars.entries()].sort((a,b)=>a[0].localeCompare(b[0])).map(([key,quests])=>`<details class="collect-row"><summary><b>${esc(key)}</b> · ${quests.length} quest${quests.length===1?"":"s"}</summary>${quests.slice(0,12).map(quest=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(quest.id)}">${esc(quest.name)}${quest.timed?" · timed":""}</button>`).join(" ")}${quests.length>12?`<p class="muted">+${quests.length-12} more; search this area in Quest Lookup.</p>`:""}</details>`).join("");
+  const starRows = renderGateLadder("");
   const branchRows=AFFINITY_DATA.choices.sort((a,b)=>a.quest.localeCompare(b.quest)).map(choice=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(choice.questId)}">${esc(choice.quest)} · ${choice.alternatives.map(esc).join(" / ")}</button>`).join(" ");
   const areas=[...new Set(AFFINITY_DATA.residents.flatMap(resident=>resident.areas))].sort();
-  affinityEl.innerHTML = `<div class="lookup-status"><div class="lookup-count">${AFFINITY_DATA.counts.residents} resident / quest contacts · ${AFFINITY_DATA.counts.quests} quest unlock records · ${AFFINITY_DATA.counts.choices} exclusive edges</div><a href="${esc(AFFINITY_DATA.sources[1].url)}" target="_blank" rel="noopener">Chronological Affinity Link guide</a></div><div class="atlas-controls"><label class="filter-field">Search residents, quests or locations<input id="affinity-q" type="search" placeholder="Dionysis, 18:00, Stunted Growth…"></label><label class="filter-field">Area<select id="affinity-area"><option value="">All areas</option>${areas.map(area=>`<option>${esc(area)}</option>`).join("")}</select></label></div><div class="planner-grid"><section class="planner-card"><h3>Exact Area Affinity gates</h3><p class="muted">Each group comes from the raw requirement of its quest. Open a quest to inspect its resident, time, prerequisite and route link.</p>${starRows}</section><section class="planner-card"><h3>Mutually exclusive outcomes</h3><p>Resolve these through the route recommendation before turning in either side. Choices can change NPC links, resident availability or follow-ups.</p><div class="route-card-actions">${branchRows}</div></section><section class="planner-card"><h3>How to use the chart</h3><ul><li>Register named residents, then revisit after quest batches at their listed hours.</li><li>Use the chronological source for talk-only relationship links; the structured cards below never invent an edge from prose.</li><li>Area stars, required residents, leader gates and mutually exclusive quest edges are searchable here and in global search.</li></ul></section></div><div id="affinity-residents" class="collect-grid"></div><p class="source-note">${esc(AFFINITY_DATA.policy)} Sources: ${AFFINITY_DATA.sources.map(source=>`<a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join(" · ")}.</p>`;
+  affinityEl.innerHTML = `<div class="lookup-status"><div class="lookup-count">${AFFINITY_DATA.counts.residents} resident / quest contacts · ${AFFINITY_DATA.counts.quests} quest unlock records · ${AFFINITY_DATA.counts.choices} exclusive edges</div><a href="${esc(AFFINITY_DATA.sources[1].url)}" target="_blank" rel="noopener">Chronological Affinity Link guide</a></div><div class="atlas-controls"><label class="filter-field">Search residents, quests or locations<input id="affinity-q" type="search" placeholder="Dionysis, 18:00, Stunted Growth…"></label><label class="filter-field">Area<select id="affinity-area"><option value="">All areas</option>${areas.map(area=>`<option>${esc(area)}</option>`).join("")}</select></label></div><div class="planner-grid"><section class="planner-card gate-card"><h3>Area Affinity gate ladder</h3><p class="muted">Every star value is the literal requirement text of that quest. The game shows no affinity number and this data set holds none, so nothing here predicts your current standing — it reports what each gate opens and which of those quests your route has ticked. Green is ticked, amber is still on you, grey is covered by an area-sweep task rather than its own route line. ⏱ marks a timed quest. The Area filter narrows this ladder too.</p><div id="affinity-gates">${starRows}</div></section><section class="planner-card"><h3>Mutually exclusive outcomes</h3><p>Resolve these through the route recommendation before turning in either side. Choices can change NPC links, resident availability or follow-ups.</p><div class="route-card-actions">${branchRows}</div></section><section class="planner-card"><h3>How to use the chart</h3><ul><li>Register named residents, then revisit after quest batches at their listed hours.</li><li>Use the chronological source for talk-only relationship links; the structured cards below never invent an edge from prose.</li><li>Area stars, required residents, leader gates and mutually exclusive quest edges are searchable here and in global search.</li></ul></section></div><div id="affinity-residents" class="collect-grid"></div><p class="source-note">${esc(AFFINITY_DATA.policy)} Sources: ${AFFINITY_DATA.sources.map(source=>`<a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join(" · ")}.</p>`;
   const questById=new Map(AFFINITY_DATA.quests.map(quest=>[quest.id,quest]));
-  const renderResidents=()=>{const query=document.getElementById("affinity-q").value.trim().toLowerCase(),area=document.getElementById("affinity-area").value;const found=AFFINITY_DATA.residents.filter(resident=>{if(area&&!resident.areas.includes(area))return false;const questNames=[...resident.questIds,...resident.requiredByQuestIds].map(id=>questById.get(id)?.name||"").join(" ");return !query||[resident.name,resident.areas.join(" "),resident.locations.map(location=>`${location.location} ${location.time}`).join(" "),questNames].join(" ").toLowerCase().includes(query);});document.getElementById("affinity-residents").innerHTML=found.map(resident=>`<article class="collect-page"><h3>${esc(resident.name)}</h3><p class="muted">${esc(resident.areas.join(" · "))}</p>${resident.locations.length?`<ul class="dossier-list">${resident.locations.map(location=>`<li>${esc(location.location||"Location varies")}${location.time?` · <b>${esc(location.time)}</b>`:""}</li>`).join("")}</ul>`:"<p class=\"muted\">No quest-giver location in the ledger; use the linked Affinity guide.</p>"}${resident.questIds.length?`<details><summary>Offers ${resident.questIds.length} quest${resident.questIds.length===1?"":"s"}</summary><div class="route-card-actions">${resident.questIds.map(id=>questById.get(id)).filter(Boolean).map(quest=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(quest.id)}">${esc(quest.name)}${quest.star?` · ☆${esc(quest.star)}`:""}${quest.leader?` · ${esc(quest.leader)} leads`:""}</button>`).join(" ")}</div></details>`:""}${resident.requiredByQuestIds.length?`<details><summary>Required to unlock ${resident.requiredByQuestIds.length}</summary><div class="route-card-actions">${resident.requiredByQuestIds.map(id=>questById.get(id)).filter(Boolean).map(quest=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(quest.id)}">${esc(quest.name)}</button>`).join(" ")}</div></details>`:""}</article>`).join("")||'<div class="callout a"><p>No residents match.</p></div>';};
-  document.getElementById("affinity-q").addEventListener("input",renderResidents);document.getElementById("affinity-area").addEventListener("change",renderResidents);renderResidents();
-  affinityEl.onclick=event=>{const button=event.target.closest("[data-open-affinity-quest]");if(button)openQuest(button.dataset.openAffinityQuest);};
+  const renderResidents=()=>{const query=document.getElementById("affinity-q").value.trim().toLowerCase(),area=document.getElementById("affinity-area").value;const found=AFFINITY_DATA.residents.filter(resident=>{if(area&&!resident.areas.includes(area))return false;const questNames=[...resident.questIds,...resident.requiredByQuestIds].map(id=>questById.get(id)?.name||"").join(" ");return !query||[resident.name,resident.areas.join(" "),resident.locations.map(location=>`${location.location} ${location.time}`).join(" "),questNames].join(" ").toLowerCase().includes(query);});document.getElementById("affinity-residents").innerHTML=found.map(resident=>`<article class="collect-page"><h3>${esc(resident.name)}</h3><p class="muted">${esc(resident.areas.join(" · "))}</p>${resident.locations.length?`<ul class="dossier-list">${resident.locations.map(location=>`<li>${esc(location.location||"Location varies")}${location.time?` · <b>${esc(location.time)}</b>`:""}</li>`).join("")}</ul>`:"<p class=\"muted\">No quest-giver location in the ledger; use the linked Affinity guide.</p>"}${resident.questIds.length?`<details open><summary>Offers ${resident.questIds.length} quest${resident.questIds.length===1?"":"s"}</summary><div class="route-card-actions">${resident.questIds.map(id=>questById.get(id)).filter(Boolean).map(quest=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(quest.id)}">${esc(quest.name)}${quest.star?` · ☆${esc(quest.star)}`:""}${quest.leader?` · ${esc(quest.leader)} leads`:""}</button>`).join(" ")}</div></details>`:""}${resident.requiredByQuestIds.length?`<details open><summary>Required to unlock ${resident.requiredByQuestIds.length}</summary><div class="route-card-actions">${resident.requiredByQuestIds.map(id=>questById.get(id)).filter(Boolean).map(quest=>`<button type="button" class="route-link" data-open-affinity-quest="${esc(quest.id)}">${esc(quest.name)}</button>`).join(" ")}</div></details>`:""}</article>`).join("")||'<div class="callout a"><p>No residents match.</p></div>';};
+  const areaSelect = document.getElementById("affinity-area");
+  const syncGates = () => { document.getElementById("affinity-gates").innerHTML = renderGateLadder(areaSelect.value); };
+  document.getElementById("affinity-q").addEventListener("input",renderResidents);
+  areaSelect.addEventListener("change",()=>{renderResidents();syncGates();});renderResidents();
+  affinityEl.onclick=event=>{
+    const gate=event.target.closest("[data-gate-route]");
+    if(gate){jumpToRouteItem(gate.dataset.gateRoute,gate.dataset.gateChapter);return;}
+    const button=event.target.closest("[data-open-affinity-quest]");if(button)openQuest(button.dataset.openAffinityQuest);};
 }
 function setReferenceView(view){
   ["atlas","collect","affinity"].forEach(name => { const el=document.getElementById(`reference-${name}`); if(el) el.hidden=name!==view; });
@@ -2599,8 +2953,9 @@ function partyPortrait(id){ return PARTY_PORTRAITS[id.replace(/^fc-/, "")] || "a
 let selectedBuildCharacter = "shulk", showAllBuilds = false;
 function renderBuildCharacterTabs(){
   const characters=allBuildCharacters(),tabs=document.getElementById("build-character-tabs"),showAll=document.getElementById("build-show-all");
-  tabs.innerHTML=characters.map(character=>`<button type="button" class="build-character-tab${!showAllBuilds&&selectedBuildCharacter===character.id?" on":""}" role="tab" aria-selected="${!showAllBuilds&&selectedBuildCharacter===character.id}" data-build-character="${esc(character.id)}"><img src="${partyPortrait(character.id)}" alt="" aria-hidden="true" loading="lazy" decoding="async"><span>${esc(character.name)}${character.id.startsWith("fc-")||["kino","nene"].includes(character.id)?" · FC":""}</span></button>`).join("");
-  showAll.classList.toggle("on",showAllBuilds);showAll.setAttribute("aria-pressed",String(showAllBuilds));showAll.textContent=showAllBuilds?"Single character":"Show all";
+  tabs.innerHTML=characters.map(character=>{const selected=!showAllBuilds&&selectedBuildCharacter===character.id;return `<button type="button" id="build-tab-${esc(character.id)}" class="build-character-tab${selected?" on":""}" role="tab" aria-selected="${selected}" aria-controls="build-${esc(character.id)}" tabindex="${selected?"0":"-1"}" data-build-character="${esc(character.id)}"><img src="${partyPortrait(character.id)}" width="34" height="40" alt="" aria-hidden="true" decoding="async"><span>${esc(character.name)}${character.id.startsWith("fc-")||["kino","nene"].includes(character.id)?" · FC":""}</span></button>`;}).join("");
+  tabs.setAttribute("aria-activedescendant",showAllBuilds?"":`build-tab-${selectedBuildCharacter}`);
+  showAll.classList.toggle("on",showAllBuilds);showAll.setAttribute("aria-pressed",String(showAllBuilds));showAll.setAttribute("aria-controls","build-result");showAll.textContent=showAllBuilds?"Single character":"Show all";
 }
 function initBuilds(){
   buildReady = true;
@@ -2615,7 +2970,8 @@ function renderCharacterBuild(character,control,goal){
   const arts=profile?.[control==="player"?"controlled":"ai"]||base?.[goal==="aggressive"?"aggressive":"metaSafe"]||[];
   const goalLabel=goal==="fortress"?"Never-lose / fortress":goal==="safe"?"Reliable meta":"Fastest-kill meta",skills=character.skills||{},gear=character.gear||{},gems=profile?.gems||gear.gems||character.gems||[],priority=profile?.levelPriority||character.levelPriority||[];
   const list=values=>`<ul class="priority-list">${(values||[]).map(value=>`<li>${esc(value)}</li>`).join("")}</ul>`;
-  return `<article class="build-character-block" id="build-${esc(character.id)}"><header class="build-character-heading"><img src="${partyPortrait(character.id)}" alt="" aria-hidden="true" loading="lazy" decoding="async"><div><h3>${esc(character.name)} · ${control==="player"?"Player":"AI"} · ${goalLabel}</h3><p>${esc(character.role)} · ${esc(character.availability||BUILD_DATA.futureConnected.availability)}</p></div></header><div class="build-columns">
+  const landmark=showAllBuilds?`role="region" aria-label="${esc(character.name)} build"`:`role="tabpanel" aria-labelledby="build-tab-${esc(character.id)}"`;
+  return `<article class="build-character-block" id="build-${esc(character.id)}" ${landmark}><header class="build-character-heading"><img src="${partyPortrait(character.id)}" width="48" height="58" alt="" aria-hidden="true" decoding="async"><div><h3>${esc(character.name)} · ${control==="player"?"Player":"AI"} · ${goalLabel}</h3><p>${esc(character.role)} · ${esc(character.availability||BUILD_DATA.futureConnected.availability)}</p></div></header><div class="build-columns">
     <section class="build-section"><h3>Role &amp; game plan</h3>${goal==="fortress"?`<div class="callout g"><p><b>Fortress difference:</b> ${esc(profile?.strategy||"Survival, recovery and encounter counters take priority over kill speed.")}</p></div>`:""}<p>${esc(character.controlGuide||"")}</p>${list(character.facts)}</section>
     <section class="build-section"><h3>Arts to slot</h3>${list(arts)}${character.talentArts?.length?`<p><b>Talent / Monado Arts:</b> ${character.talentArts.map(esc).join(" · ")}</p>`:""}<p><b>Level with AP in this order:</b></p>${list(priority)}</section>
     <section class="build-section"><h3>Skills &amp; Skill Links</h3>${skills.branchPriority?`<p><b>Branch priority</b></p>${list(skills.branchPriority)}`:'<p>Future Connected has no Skill Link system.</p>'}${skills.linksIn?`<p><b>Link into this character</b></p>${list(skills.linksIn)}`:""}${skills.linksOut?`<p><b>Useful links they provide</b></p>${list(skills.linksOut)}`:""}</section>
@@ -2645,7 +3001,7 @@ let selectedPreset = "";
 function renderPresets(){
   if (!buildReady) return;
   document.getElementById("party-presets").innerHTML = BUILD_DATA.partyPresets.map(preset =>
-    `<button type="button" class="preset${selectedPreset === preset.id ? " on" : ""}" data-preset="${esc(preset.id)}"><b>${esc(preset.phase)} · ${esc(preset.activity)}</b><div class="preset-party" aria-hidden="true">${preset.party.map(member => `<img class="preset-avatar${member === preset.leader ? " is-leader" : ""}" src="${partyPortrait(member)}" alt="" loading="lazy" decoding="async">`).join("")}</div><span>${preset.party.map(buildName).map(esc).join(" / ")} · control ${esc(buildName(preset.leader))}</span></button>`).join("");
+    `<button type="button" class="preset${selectedPreset === preset.id ? " on" : ""}" data-preset="${esc(preset.id)}"><b>${esc(preset.phase)} · ${esc(preset.activity)}</b><div class="preset-party" aria-hidden="true">${preset.party.map(member => `<img class="preset-avatar${member === preset.leader ? " is-leader" : ""}" src="${partyPortrait(member)}" width="38" height="48" alt="" loading="lazy" decoding="async">`).join("")}</div><span>${preset.party.map(buildName).map(esc).join(" / ")} · control ${esc(buildName(preset.leader))}</span></button>`).join("");
   const preset = BUILD_DATA.partyPresets.find(item => item.id === selectedPreset);
   document.getElementById("preset-detail").innerHTML = preset ? `<div class="callout g"><p><strong>${esc(preset.phase)} · ${esc(preset.variant)}</strong></p><p>${esc(preset.why)}</p><p><b>Party:</b> ${preset.party.map(buildName).map(esc).join(" / ")} · <b>Leader:</b> ${esc(buildName(preset.leader))}</p></div>` : "";
 }
@@ -2653,6 +3009,16 @@ function renderPresets(){
 document.getElementById("build-character-tabs").addEventListener("click", event => {
   const button = event.target.closest("button[data-build-character]"); if (!button) return;
   selectedBuildCharacter = button.dataset.buildCharacter; showAllBuilds = false; renderBuild();
+});
+document.getElementById("build-character-tabs").addEventListener("keydown", event => {
+  const tabs=[...event.currentTarget.querySelectorAll("[role=tab]")],current=event.target.closest("[role=tab]"); if(!current||!tabs.length)return;
+  const currentIndex=tabs.indexOf(current); let nextIndex=null;
+  if(event.key==="ArrowRight"||event.key==="ArrowDown")nextIndex=(currentIndex+1)%tabs.length;
+  if(event.key==="ArrowLeft"||event.key==="ArrowUp")nextIndex=(currentIndex-1+tabs.length)%tabs.length;
+  if(event.key==="Home")nextIndex=0;if(event.key==="End")nextIndex=tabs.length-1;
+  if(nextIndex===null)return; event.preventDefault();
+  selectedBuildCharacter=tabs[nextIndex].dataset.buildCharacter;showAllBuilds=false;renderBuild();
+  document.getElementById(`build-tab-${selectedBuildCharacter}`)?.focus();
 });
 document.getElementById("build-show-all").addEventListener("click", () => { showAllBuilds = !showAllBuilds; renderBuild(); });
 document.getElementById("party-presets").addEventListener("click", event => {

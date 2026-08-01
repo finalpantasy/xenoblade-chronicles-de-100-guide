@@ -1,0 +1,12 @@
+# Dev dependencies. npm install cannot run in this Google Drive folder (EBADF),
+# so jsdom is installed elsewhere and reached via NODE_PATH. See README.
+node_modules/
+npm-debug.log*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
