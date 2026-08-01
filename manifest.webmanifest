@@ -1,0 +1,13 @@
+{
+  "name": "Xenoblade Chronicles DE 100% Guide",
+  "short_name": "XCDE Guide",
+  "description": "A source-backed, offline-capable 100% route and field companion for Xenoblade Chronicles: Definitive Edition.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#020b16",
+  "theme_color": "#08233a",
+  "icons": [
+    { "src": "assets/xbcde-logo.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+  ]
+}
