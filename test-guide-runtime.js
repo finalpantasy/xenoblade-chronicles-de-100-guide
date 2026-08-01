@@ -7,7 +7,7 @@ const jsdomPath = process.argv[2] || "jsdom";
 const { JSDOM, VirtualConsole } = require(jsdomPath);
 
 const root = __dirname;
-const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "build-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js"];
+const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "world-route-anchors-early.js", "world-route-anchors-mid.js", "world-route-anchors-late.js", "build-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js"];
 const injectedData = dataFiles.map(file => `<script>${fs.readFileSync(path.join(root, "data", file), "utf8")}</script>`).join("");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8").replace("</head>", `${injectedData}</head>`);
 const errors = [];
@@ -41,7 +41,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
       const appendChild = window.Node.prototype.appendChild;
       window.Node.prototype.appendChild = function(node) {
         const result = appendChild.call(this, node);
-        if (node.tagName === "SCRIPT" && /\/data\/(route|completion|monsterpedia|world|build|route-bindings)-data\.js/.test(node.src)) {
+        if (node.tagName === "SCRIPT" && /\/data\/(?:world-route-anchors-(?:early|mid|late)|(route|completion|monsterpedia|world|build|route-bindings)-data)\.js/.test(node.src)) {
           window.setTimeout(() => node.onload?.(), 0);
         }
         return result;
@@ -52,6 +52,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   });
   await waitFor(() => dom.window.document.querySelectorAll("#route section.ch").length === 20, "route render");
   await waitFor(() => dom.window.document.querySelectorAll("#route .world-it").length === 461, "world tracker render");
+  assert(dom.window.document.querySelectorAll("#route .route-cue-bundle").length > 50, "world discoveries were not distributed into anchored route bundles");
+  assert(!dom.window.document.querySelector("#route .world-it .rec-level"), "minor discovery cues still repeat thick recommended-level metadata");
   await waitFor(() => dom.window.document.querySelectorAll("#quest-results .result-card").length === 80, "quest lookup render");
   await waitFor(() => dom.window.document.querySelectorAll("#party-presets .preset").length === 17, "party presets render");
   return dom;
@@ -92,7 +94,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(document.querySelectorAll("#route .it").length === 878, "route did not render 417 route tasks plus 461 map discoveries");
   assert(!document.getElementById("p-route").hidden && document.getElementById("p-completion").hidden, "inactive tab panels are not semantically hidden");
   assert(document.querySelectorAll("#route .chh[aria-expanded]").length === 20, "chapter buttons lack expanded state");
-  assert(document.querySelectorAll("#route .rec-level").length === 878, "not every checkbox card has a recommended level");
+  assert(document.querySelectorAll("#route .it:not(.world-it) .rec-level").length === 417, "not every major route card has a recommended level");
+  assert(document.querySelectorAll("#route .world-it .rec-level").length === 0, "minor discovery cues still repeat recommended-level badges");
   assert(document.querySelectorAll("#route .leader-badge").length === 24, "the 23 later party-leader steps plus the Chapter 0 setup are not all badged");
   assert([...document.querySelectorAll("#route .leader-badge")].some(badge => badge.textContent.includes("DUNBAN → SHULK")), "Stunted Growth does not show its two-leader handoff");
   assert(document.querySelectorAll("#route .deadline-badge").length > 100, "missable/lockout badges are not visible throughout the route");

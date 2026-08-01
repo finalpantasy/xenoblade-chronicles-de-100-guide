@@ -1,7 +1,8 @@
-const CACHE = "xcde-guide-v4-20260801g";
+const CACHE = "xcde-guide-v4-20260801h";
 const CORE = [
   "./", "./index.html", "./manifest.webmanifest",
   "./data/route-data.js", "./data/world-data.js", "./data/build-data.js", "./data/route-bindings-data.js",
+  "./data/world-route-anchors-early.js", "./data/world-route-anchors-mid.js", "./data/world-route-anchors-late.js",
   "./assets/xbcde-logo.png", "./assets/xenoblade-ether-backdrop.png"
 ];
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())));
