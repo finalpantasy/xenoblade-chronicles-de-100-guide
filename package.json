@@ -1,0 +1,14 @@
+{
+  "name": "xenoblade-chronicles-de-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first Xenoblade Chronicles: Definitive Edition 100% route guide",
+  "scripts": {
+    "validate": "node validate-guide.js",
+    "test": "node test-guide-runtime.js",
+    "qa": "npm run validate && npm test"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

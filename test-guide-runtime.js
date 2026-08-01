@@ -81,6 +81,12 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.querySelector('[data-p="companion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   await waitFor(() => document.querySelector("#inventory-list input[data-inventory-id]"), "Play Mode inventory planner render");
   assert(document.getElementById("p-companion").classList.contains("on") && document.getElementById("play-current").textContent.includes("Confirm Shulk"), "Play Mode did not open on the next incomplete route card");
+  const verdant = dom.window.MONSTERPEDIA_DATA.entries.find(entry => entry.name === "Verdant Bluchal");
+  await waitFor(() => document.querySelector(`#encounter-select option[value="${verdant.id}"]`), "Play Mode encounter dossiers");
+  document.getElementById("encounter-select").value = verdant.id;
+  document.getElementById("encounter-select").dispatchEvent(new Event("change", { bubbles: true }));
+  assert(document.getElementById("encounter-detail").textContent.includes("Shulk / Reyn / Fiora · control Shulk"), "Play Mode recommends a party that is unavailable for Verdant Bluchal");
+  assert(!document.getElementById("encounter-detail").textContent.includes("Shulk / Dunban / Riki"), "Play Mode leaked the late-game Unique Monster party into Chapter 1");
   document.querySelector("#play-current [data-complete-play]").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   let companionSaved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(companionSaved.route["c0-02"], "Play Mode did not persist the current route checkpoint");
@@ -100,6 +106,9 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert([...document.querySelectorAll("#route .leader-badge")].some(badge => badge.textContent.includes("DUNBAN → SHULK")), "Stunted Growth does not show its two-leader handoff");
   assert(document.querySelectorAll("#route .deadline-badge").length > 100, "missable/lockout badges are not visible throughout the route");
   assert(document.querySelectorAll("#route .route-build").length === 9, "route build updates did not render at all nine progression milestones");
+  assert(document.querySelectorAll("#route details.pan").length >= 100, "long route guidance is not collapsed into readable details");
+  assert([...document.querySelectorAll("#route details")].every(detail => detail.open), "the route does not start with every disclosure expanded");
+  assert(!document.querySelector("#s-ch0 .chapter-heading").textContent.includes("Lv —"), "Chapter 0 still exposes a placeholder level");
   assert(document.querySelectorAll("#route .chapter-heading").length === 20, "route chapters are not exposed as semantic headings");
   assert(document.querySelector("#route .route-build-grid"), "route build updates are not split into readable sections");
   assert(!document.querySelector("#route .route-build").textContent.includes("Slot nowShulk"), "route build text still collapses Slot now and Shulk together");
@@ -221,6 +230,23 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.getElementById("monster-condition").dispatchEvent(new Event("change", { bubbles: true }));
   assert(document.querySelectorAll("#monster-results .result-card").length > 0 && [...document.querySelectorAll("#monster-results .result-card")].every(card => /Unique Monster/i.test(card.textContent)), "Monsterpedia unique filter leaked normal enemies");
   assert([...document.querySelectorAll("#monster-results .monster-card")].every(card => card.querySelector(".combat-dossier")?.textContent.includes("source-backed mechanics")), "A Unique Monster card lacks its source-backed combat dossier");
+  const routeLinkedEncounters = dom.window.MONSTERPEDIA_DATA.entries.filter(entry => entry.unique && dom.window.COMBAT_DOSSIER_DATA.records[entry.id]).map(entry => ({ entry, reference:dom.window.routeItemReference(entry.name, item => item.f === "u") })).filter(record => record.reference);
+  assert(routeLinkedEncounters.length >= 80, "too few route-linked Unique Monster dossiers were available for the party-legality audit");
+  for (const { entry, reference } of routeLinkedEncounters) {
+    const record = dom.window.COMBAT_DOSSIER_DATA.records[entry.id];
+    const baseAdvice = dom.window.COMBAT_DOSSIER_DATA.encounters?.[entry.name] || record?.guidePrep;
+    const advice = dom.window.routeAwareEncounterAdvice(baseAdvice, reference);
+    const phase = dom.window.routePartyPhase(reference);
+    const members = advice.party.split("·")[0].split("/").map(name => name.trim());
+    assert(members.every(name => phase.members.includes(name)), `${entry.name} recommends an unavailable party member in ${reference.chapterId}`);
+  }
+  monsterSearch.value = "Verdant Bluchal";
+  monsterSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  const verdantCard = document.querySelector("#monster-results .monster-card");
+  assert(verdantCard?.textContent.includes("Shulk / Reyn / Fiora · control Shulk"), "Monsterpedia does not show the legal Chapter 1 party for Verdant Bluchal");
+  assert(verdantCard?.querySelector('.combat-dossier[open]') && verdantCard.querySelector('details[open]'), "Monsterpedia disclosures do not start expanded");
+  monsterSearch.value = "";
+  monsterSearch.dispatchEvent(new Event("input", { bubbles: true }));
 
   document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   const monsterRouteLink = document.querySelector("#route button[data-open-monster]");
@@ -260,6 +286,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
 
   document.querySelector('[data-p="combat"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.querySelectorAll("#build-character-tabs .build-character-tab").length === 11, "Build Lab roster did not render 11 character tabs");
+  assert([...document.querySelectorAll("#build-character-tabs [role=tab]")].every(tab => tab.id && tab.getAttribute("aria-controls") && tab.getAttribute("tabindex")), "Build character tabs lack complete keyboard/ARIA relationships");
+  assert(document.querySelector("label[for=import-file]")?.textContent.includes("progress JSON"), "Import file control lacks a visible-to-assistive label");
   assert(document.querySelectorAll("#party-presets .preset-avatar[src^='assets/party-portraits/']").length > 0, "Party presets are missing their sourced character portraits");
   assert(document.getElementById("build-goal-note").textContent.includes("Same 8 normal Arts"), "Shulk's fortress comparison does not explain why its Arts match Reliable meta");
   document.querySelector('[data-build-character="reyn"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
@@ -283,6 +311,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   await waitFor(() => document.querySelector("#reference-atlas img"), "offline map atlas render");
   assert(document.querySelectorAll("#reference-atlas .frontier-tiles img").length === 4, "interactive atlas did not render its four local map tiles");
   assert(document.querySelectorAll("#reference-atlas .frontier-pin").length > 0, "interactive atlas did not render exact source pins");
+  assert([...document.querySelectorAll("#reference-atlas .frontier-pin")].every(pin => /Collection pin|Enemy spawn|Landmark/.test(pin.getAttribute("aria-label") || "")), "interactive atlas pins lack unique accessible labels");
   document.getElementById("atlas-q").value = "Strong Dandelion";
   document.getElementById("atlas-q").dispatchEvent(new Event("input", { bubbles: true }));
   assert(document.querySelectorAll("#reference-atlas .frontier-pin.CollectionPoint").length > 0 && document.querySelector("#reference-atlas .frontier-route polyline"), "collectible map search did not render pins and a suggested route");

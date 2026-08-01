@@ -1,6 +1,6 @@
 {
   "warning": "Route IDs are persistent progress keys. Never rename or reuse an existing ID.",
-  "updated": "2026-08-01",
+  "updated": "source-snapshot",
   "ids": [
     "c0-01",
     "c0-02",

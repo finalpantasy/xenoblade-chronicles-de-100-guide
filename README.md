@@ -44,15 +44,29 @@ node build-route-md.js
 node validate-guide.js
 ```
 
-The JSDOM interaction suite can also be run by passing an installed `jsdom` module path:
+`node validate-guide.js` is dependency-free and is the check to run first. The three JSDOM suites
+need `jsdom`:
 
 ```powershell
 node test-guide-runtime.js C:\path\to\node_modules\jsdom
+node test-visions.js C:\path\to\node_modules\jsdom
+node test-gate-ladder.js C:\path\to\node_modules\jsdom
 ```
+
+**`npm install` does not work when this folder lives on a synced Google Drive letter.** The Drive
+filesystem does not support the file handles npm needs and the install dies with `EBADF`, leaving a
+partial `node_modules` that looks installed but is not. Install the dev dependency somewhere on a
+local disk and pass its path as the first argument, as above, or point `NODE_PATH` at it:
+
+```powershell
+$env:NODE_PATH = "C:\path\to\node_modules"; npm run qa
+```
+
+If a partial `node_modules` already exists here, delete it — it will shadow a working install.
+`npm install` and `npm run qa` behave normally on any non-Drive checkout.
 
 ## Rights and attribution
 
 This is a non-commercial, unofficial fan project. Xenoblade Chronicles, its names, game artwork, icons, maps, screenshots, and logos are property of Nintendo and MONOLITHSOFT. Those materials are not covered by the repository’s code license.
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) and [assets/game-icons/SOURCES.md](assets/game-icons/SOURCES.md) for dataset, wiki, map, image, and guide sources.
-

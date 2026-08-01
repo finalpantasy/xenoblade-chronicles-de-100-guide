@@ -11,6 +11,7 @@ const crypto = require("crypto");
 const SHEET_ID = "1glad9ZiT9Ze42KWdVH-OvNh5KAGJIBv4zlJydWdi6dc";
 const SOURCE_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?usp=sharing`;
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=`;
+const BUILD_STAMP = "source-snapshot";
 
 const QUEST_SHEETS = [
   "Colony 9", "Tephra Cave", "Bionis' Leg", "Colony 6", "Satorl Marsh",
@@ -191,7 +192,7 @@ async function main() {
 
   const data = {
     version: 1,
-    generated: new Date().toISOString().slice(0, 10),
+    generated: BUILD_STAMP,
     source: { label: "XCDE 100% Completionist Checklist", url: SOURCE_URL },
     categories: [
       { id: "quests", title: "Base-game quests", description: "Every quest outcome in the source ledger. Resolve mutually exclusive alternatives with Not my branch.", groups: questGroups },
