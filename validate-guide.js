@@ -291,6 +291,7 @@ assert(html.includes('class="route-subchecks"') && html.includes('data-subcheck-
 assert(html.includes('id="guide-search"') && html.includes('class="header-tools"') && html.includes('class="header-status"'), "Header search, theme, and progress regions are not structurally separated");
 assert(html.includes('class="header-console"') && html.includes('ROUTE PROGRESS'), "Extreme header console or progress label is missing");
 assert(html.includes('function renderBuildGoalComparison') && html.includes('Same ${reliable.length} normal Arts') && html.includes('class="build-delta"'), "Reliable-versus-fortress build comparison is missing");
+assert(html.includes('html:not([data-theme="xenoblade"]) .tabs{display:grid') && html.includes('overflow:visible') && html.includes('grid-template-columns:repeat(3,minmax(0,1fr))'), "Light and dark navigation no longer guarantee wrapped, non-scrolling rows");
 assert(fs.existsSync(path.join(root, "manifest.webmanifest")) && fs.existsSync(path.join(root, "sw.js")), "PWA manifest or service worker is missing");
 
 const inlineScripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);

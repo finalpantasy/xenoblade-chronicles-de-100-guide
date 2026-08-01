@@ -865,6 +865,27 @@ html[data-theme="xenoblade"] .route-subchecks{border-color:#2e739b;border-radius
 @media(max-width:1280px) and (min-width:641px){html[data-theme="xenoblade"] .hrow{grid-template-columns:120px minmax(260px,1fr)!important;grid-template-rows:70px minmax(128px,auto)!important;grid-template-areas:"brand title" "console console"!important;min-height:225px!important}html[data-theme="xenoblade"] .brand-logo{width:112px;height:70px}html[data-theme="xenoblade"] .header-console{width:100%}html[data-theme="xenoblade"] .tabs{display:flex;overflow-x:auto}html[data-theme="xenoblade"] .tabs button{flex:0 0 auto;min-width:146px}}
 @media(max-width:640px){html,body{overflow-x:hidden}.header-console{min-width:100%;order:3}.header-status{min-width:100%}.header-tools{align-items:stretch;flex-direction:column}.global-search{min-width:100%}.search-label{display:none}.theme-control{justify-content:space-between}.inventory-row{grid-template-columns:1fr 82px}.inventory-need,.inventory-row .route-link{grid-column:1/-1}.step-card{grid-template-columns:auto minmax(0,1fr)}.step-card .route-link{grid-column:2}html[data-theme="xenoblade"] .hrow{grid-template-columns:70px minmax(0,1fr)!important;grid-template-rows:auto auto!important;grid-template-areas:"brand title" "console console"!important}html[data-theme="xenoblade"] .header-console{padding:9px!important}html[data-theme="xenoblade"] .header-tools{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}html[data-theme="xenoblade"] .theme-control{position:static!important;width:100%!important;font-size:11px!important}html[data-theme="xenoblade"] .theme-control select{width:100%!important;max-width:none!important}html[data-theme="xenoblade"] .header-status .pct{text-align:right!important}}
 @media(max-width:640px){.route-subcheck-list,.build-compare{grid-template-columns:1fr}.build-character-nav{display:block}.build-character-tabs{margin-bottom:8px}.build-show-all{width:100%}.build-columns{grid-template-columns:1fr}.build-character-heading{align-items:flex-start}.build-character-heading h3{font-size:20px}}
+/* Readable themes use wrapped header/navigation rows instead of horizontal rails. */
+html:not([data-theme="xenoblade"]) .hrow{display:grid;grid-template-columns:minmax(330px,.7fr) minmax(620px,1.3fr);align-items:center;gap:16px 28px}
+html:not([data-theme="xenoblade"]) .header-console{display:grid;grid-template-rows:auto auto;gap:9px;min-width:0;width:100%}
+html:not([data-theme="xenoblade"]) .header-status{width:100%;min-width:0}
+html:not([data-theme="xenoblade"]) .header-tools{display:grid;grid-template-columns:minmax(360px,1fr) auto;gap:14px;width:100%;min-width:0;margin:0}
+html:not([data-theme="xenoblade"]) .global-search{width:100%;min-width:0;margin:0}
+html:not([data-theme="xenoblade"]) .global-search input{padding-right:14px!important}
+html:not([data-theme="xenoblade"]) .global-search input::placeholder{color:#b8cfde;opacity:1}
+html:not([data-theme="xenoblade"]) .global-search-count{position:static;display:block;max-width:none;margin-top:3px;overflow:visible;transform:none;text-align:right}
+html:not([data-theme="xenoblade"]) .global-search-count:empty{display:none}
+html:not([data-theme="xenoblade"]) .theme-control select{min-width:178px;max-width:none}
+html:not([data-theme="xenoblade"]) .tabs-shell{display:block}
+html:not([data-theme="xenoblade"]) .tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;overflow:visible;padding:0 20px;scrollbar-width:none}
+html:not([data-theme="xenoblade"]) .tabs::-webkit-scrollbar{display:none}
+html:not([data-theme="xenoblade"]) .tabs button{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;white-space:normal;text-align:center}
+html:not([data-theme="xenoblade"]) .tabnote{grid-column:1/-1;margin:0;padding:6px 12px 8px;text-align:center;white-space:normal}
+html:not([data-theme="xenoblade"]) .tabs-shell:after{display:none}
+html:not([data-theme="xenoblade"]) .mobile-more{display:none}
+@media(max-width:1400px) and (min-width:1051px){html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:1050px){html:not([data-theme="xenoblade"]) .hrow{grid-template-columns:1fr}html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(3,minmax(0,1fr))}html:not([data-theme="xenoblade"]) .tabnote{display:block}}
+@media(max-width:640px){html:not([data-theme="xenoblade"]) h1 span{display:block;margin-top:2px;white-space:normal}html:not([data-theme="xenoblade"]) .header-console{display:grid;gap:10px}html:not([data-theme="xenoblade"]) .header-tools{grid-template-columns:1fr}html:not([data-theme="xenoblade"]) .theme-control{width:100%;margin:0;justify-content:space-between}html:not([data-theme="xenoblade"]) .theme-control select{min-width:0;width:min(190px,55vw)}html:not([data-theme="xenoblade"]) .tabs-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch}html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(2,minmax(0,1fr));padding:0!important}html:not([data-theme="xenoblade"]) .tabs button{min-height:52px!important;padding:7px 5px;font-size:13px!important;line-height:1.2}html:not([data-theme="xenoblade"]) .tabs button.secondary-tab{display:none!important}html:not([data-theme="xenoblade"]) .tabnote{display:none}html:not([data-theme="xenoblade"]) .mobile-more{display:flex}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 </head>
