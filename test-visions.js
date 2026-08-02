@@ -57,19 +57,28 @@ const waitFor = async (test, message, timeout = 8000) => {
   // ROUTE is a top-level `const`, so it lives in the script scope, not on window.
   const route = window.eval("ROUTE");
 
-  // Complete chapter 0 entirely, leaving deadline items open further ahead.
+  // Completing Chapter 0's two setup cards must not announce Xord five chapters
+  // early, including when startup calls dashboard again with that saved state.
   const ch0 = route[0];
   ch0.items.filter(i => !i.k).forEach(i => {
     const cb = doc.getElementById(i.id);
     if (cb && !cb.checked) { cb.checked = true; cb.dispatchEvent(new window.Event("change", { bubbles: true })); }
   });
-  doc.querySelectorAll("#s-ch0 .world-it input[type=checkbox]").forEach(cb => {
-    if (!cb.checked) { cb.checked = true; cb.dispatchEvent(new window.Event("change", { bubbles: true })); }
-  });
-  await new Promise(r => setTimeout(r, 400));
+  await new Promise(r => setTimeout(r, 100));
+  check("no Vision after Chapter 0's two setup cards", host.hidden);
+  window.dashboard();
+  await new Promise(r => setTimeout(r, 100));
+  check("no Vision when Chapter 0 progress is restored", host.hidden);
 
+  // Beginning the actual lock chapter is the earliest useful warning moment.
+  const firstLock = route.find(c => c.lock);
+  const lockProgress = firstLock.items.find(i => !i.k && i.f !== "d") || firstLock.items.find(i => !i.k);
+  const lockCheckbox = doc.getElementById(lockProgress.id);
+  lockCheckbox.checked = true;
+  lockCheckbox.dispatchEvent(new window.Event("change", { bubbles: true }));
+  await new Promise(r => setTimeout(r, 100));
   const fired = !host.hidden;
-  check("fires when a chapter completes with deadlines ahead", fired);
+  check("fires after the actual lock chapter begins with deadlines ahead", fired);
 
   if (fired) {
     const text = host.textContent;
@@ -94,6 +103,11 @@ const waitFor = async (test, message, timeout = 8000) => {
     window.dashboard();
     await new Promise(r => setTimeout(r, 80));
     check("does not nag twice in one session", host.hidden);
+
+    window.localStorage.setItem("xc1de-visions-acknowledged", JSON.stringify({ [lockId]: true }));
+    doc.getElementById("reset").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+    check("reset clears acknowledged Visions for a new playthrough", !window.localStorage.getItem("xc1de-visions-acknowledged"));
+    check("reset clears the in-session Vision suppression map", !window.eval(`visionShownThisSession[${JSON.stringify(lockId)}]`));
   }
 
   console.log(failures ? `\nFAILED: ${failures}` : "\nOK: Visions fire accurately, are accessible, dismissible and non-nagging.");

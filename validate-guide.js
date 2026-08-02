@@ -23,6 +23,7 @@ const worldAnchors = Object.assign({},
   loadConst("data/world-route-anchors-mid.js", "WORLD_ROUTE_ANCHORS_MID"),
   loadConst("data/world-route-anchors-late.js", "WORLD_ROUTE_ANCHORS_LATE"));
 const builds = loadConst("data/build-data.js", "BUILD_DATA");
+const workshop = loadConst("data/workshop-data.js", "WORKSHOP_DATA");
 const collectopaedia = loadConst("data/collectopaedia-data.js", "COLLECTOPAEDIA_DATA");
 const atlas = loadConst("data/map-atlas-data.js", "MAP_ATLAS_DATA");
 const coordinates = loadConst("data/map-coordinates-data.js", "MAP_COORDINATE_DATA");
@@ -31,7 +32,15 @@ const affinity = loadConst("data/affinity-data.js", "AFFINITY_DATA");
 const frontier = loadConst("data/frontier-map-data.js", "FRONTIER_MAP_DATA");
 const bindings = loadConst("data/route-bindings-data.js", "ROUTE_BINDINGS_DATA");
 const html = read("index.html");
+assert(html.includes("[hidden]{display:none!important}.hide{display:none!important}"), "Global hidden and filtered-state CSS guards are missing");
+assert(html.includes('html[data-theme="xenoblade"] .tabs,html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}'), "Mobile five-hub navigation does not use its readable 3+2 stack");
+assert(html.includes("workshopPhaseIdForEncounter(entry,routeReference)"), "Encounter tools do not use level-aware Workshop phases");
 const heartsResearch = read("research/03-heart-to-hearts.md");
+
+const htmlIds = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]));
+for (const [, attribute, targets] of html.matchAll(/\s(aria-labelledby|aria-describedby|aria-controls)="([^"]+)"/g)) {
+  for (const target of targets.trim().split(/\s+/)) assert(htmlIds.has(target), `${attribute} points to missing #${target}`);
+}
 
 const routeItems = route.flatMap(chapter => chapter.items.filter(item => !item.k));
 const panels = route.flatMap(chapter => chapter.items.filter(item => item.k));
@@ -253,7 +262,7 @@ assert(routeSource.includes("Seven hidden skill trees are available this chapter
 assert(!heartsResearch.includes("Fallen Arm / Machina Village is flagged as locking"), "Stale Fallen Arm lock warning");
 assert(!heartsResearch.includes("permanently locks when you begin the Colony 6 relocation"), "Stale Refugee Camp lock warning");
 
-for (const text of ["Play Mode", "Completion Hub", "Monsterpedia", "Quest Lookup", "Builds &amp; Presets", "Recommended Level:", "Required Leader:", "Location, landmark &amp; secret-area tracker", "Export progress", "Import progress", "Restore last reset", "xc1de-guide-state-v4", "Not my branch"]) {
+for (const text of ["Companion", "Completion Hub", "Monsterpedia", "Quest &amp; Dependency Lookup", "Build Lab", "Recommended Level:", "Required Leader:", "Location, landmark &amp; secret-area tracker", "Export progress", "Import progress", "Restore last reset", "xc1de-guide-state-v4", "Not my branch"]) {
   assert(html.includes(text), `index.html is missing ${text}`);
 }
 assert(html.includes('role="progressbar"'), "Progress bar lacks ARIA semantics");
@@ -267,7 +276,9 @@ assert(html.includes('id="theme-select"') && html.includes('Readable Light') && 
 assert(html.includes('id="build-character-tabs"') && html.includes('id="build-show-all"') && !html.includes('id="build-character"'), "Build Lab character tabs or Show all mode are missing");
 assert(html.includes('html[data-theme="dark"]') && html.includes('html[data-theme="xenoblade"]'), "Dark and Xenoblade theme tokens are missing");
 assert(html.includes('XENOBLADE EXTREME V2') && html.includes('class="route-legend"'), "Extreme V2 route HUD or warning legend is missing");
-assert(html.includes('id="tab-route"') && html.includes('id="tab-branches"') && html.includes('assets/game-icons/affinity-mission.png') && html.includes('id="tab-colony6"') && html.includes('assets/game-icons/colony6-shop.png') && html.includes('id="tab-weather"') && html.includes('assets/game-icons/timed-quest.png'), "Themed navigation is missing sourced game UI assets");
+assert(html.includes('id="tab-route"') && html.includes('id="tab-companion"') && html.includes('id="tab-completion"') && html.includes('id="tab-reference"') && html.includes('id="tab-workshop"'), "Five-hub navigation is incomplete");
+assert((html.match(/data-hub="/g)||[]).length === 5 && !html.includes('id="mobile-section"'), "Global navigation must stay at five hubs without a More menu");
+assert(html.includes('assets/game-icons/affinity-mission.png') && html.includes('assets/game-icons/colony6-shop.png') && html.includes('assets/game-icons/timed-quest.png'), "Sourced game UI assets are missing from hub content");
 assert(html.includes('monster-card') && html.includes('monster-crest') && html.includes('monster-portrait') && html.includes('id="monster-family"') && html.includes('function monsterFamily(entry)') && html.includes('function monsterPortrait(entry)'), "Extreme V2 Monsterpedia dossier, portrait, and family filter treatment is missing");
 assert(html.includes('id="monster-clear-hunts"') && html.includes('data-hunt="${esc(entry.id)}"') && html.includes('state.hunts') && html.includes('condition === "hunt"'), "Monsterpedia hunt-list persistence or filtering is missing");
 assert(html.includes('data-monster-log="${esc(entry.id)}"') && html.includes('state.monsterLog') && html.includes('condition === "unlogged"'), "Monsterpedia completion-ledger persistence or filtering is missing");
@@ -301,7 +312,7 @@ assert(/\.guidance-toggle\{[^}]*margin-left:4px/.test(html) && html.includes('.p
 assert(/\.tag\{[^}]*font-size:12\.5px/.test(html) && /\.world-head\{[^}]*font-size:16px/.test(html), "Dense metadata or world-tracker text has regressed below the legibility target");
 assert(html.includes('grid-template-columns:repeat(3,minmax(180px,1fr))'), "Lookup filters lost their readable three-column layout");
 assert(html.includes('--fg3:#526b7b') && html.includes('--focus:#00658d'), "Light-theme contrast tokens regressed");
-assert(html.includes('class="tabs-shell"') && html.includes('id="mobile-section"'), "Compact sticky navigation or mobile More control is missing");
+assert(html.includes('class="tabs-shell"') && html.includes('id="hub-section-select"') && html.includes('class="hub-rail"'), "Five-hub navigation or responsive section picker is missing");
 assert(html.includes('class="chapter-heading"') && html.includes('aria-labelledby="tab-route"'), "Route heading or tab-panel semantics are missing");
 assert(html.includes('aria-pressed="true">All') && html.includes('id="route-count"'), "Route filter state or result feedback is missing");
 assert(html.includes('class="route-build-grid"') && html.includes('<h3>Slot now</h3>'), "Route build updates are not structurally formatted");
@@ -309,7 +320,7 @@ assert(html.includes('function routeTitle(html)') && html.includes('${tag}${rout
 assert(html.includes('function ensurePanelData(name)') && html.includes('completionLoad = loadData(') && html.includes('monsterLoad = loadData('), "Heavy secondary datasets are not lazy loaded");
 assert(!html.includes('max-width:1440px'), "Appearance mode must not change the guide container width");
 assert(html.includes('background-attachment:scroll'), "The themed mobile background still uses fixed attachment");
-assert(html.includes('id="p-companion"') && html.includes('id="advance-status"') && html.includes('id="inventory-list"'), "Play Mode companion controls are missing");
+assert(html.includes('id="p-companion"') && html.includes('id="session-dashboard"') && html.includes('id="advance-status"') && html.includes('id="inventory-list"'), "Adventure Companion controls are missing");
 assert(html.includes('class="route-subchecks"') && html.includes('data-subcheck-parent=') && html.includes('routeSteps: cleanNestedMap'), "Persistent nested route checkpoints are not wired into the guide");
 assert(/\.it label\.route-subcheck\{[^}]*display:flex[^}]*column-gap:16px/.test(html) && /\.route-subcheck input\{[^}]*margin:0 0 0 3px/.test(html), "Nested route checkboxes lost their label spacing");
 assert(!/<details(?![^>]*\bopen\b)/.test(html), "Every disclosure must start expanded");
@@ -317,7 +328,21 @@ assert(html.includes('function routeAwareEncounterAdvice') && html.includes('Par
 assert(html.includes('id="guide-search"') && html.includes('class="header-tools"') && html.includes('class="header-status"'), "Header search, theme, and progress regions are not structurally separated");
 assert(html.includes('class="header-console"') && html.includes('ROUTE PROGRESS'), "Extreme header console or progress label is missing");
 assert(html.includes('function renderBuildGoalComparison') && html.includes('Same ${reliable.length} normal Arts') && html.includes('class="build-delta"'), "Reliable-versus-fortress build comparison is missing");
-assert(html.includes('html:not([data-theme="xenoblade"]) .tabs{display:grid') && html.includes('overflow:visible') && html.includes('grid-template-columns:repeat(3,minmax(0,1fr))'), "Light and dark navigation no longer guarantee wrapped, non-scrolling rows");
+assert(html.includes('grid-template-columns:repeat(5,minmax(0,1fr))!important') && html.includes('overflow:visible!important'), "Five-hub navigation no longer guarantees a non-scrolling layout");
+assert(workshop.gifts.length === 300 && new Set(workshop.gifts.map(gift => gift.name)).size === 300, "Gift Optimizer matrix is incomplete or duplicated");
+assert(workshop.gifts.every(gift => Object.keys(gift.affinity).length === 7), "A gift is missing a base-game recipient value");
+const giftAreas = ["Colony 9","Tephra Cave","Bionis' Leg","Colony 6","Ether Mine","Satorl Marsh","Makna Forest","Frontier Village","Eryth Sea","Alcamoth","High Entia Tomb","Valak Mountain","Sword Valley","Galahad Fortress","Fallen Arm","Mechonis Field","Central Factory","Agniratha","Bionis' Interior","Prison Island","Other"];
+assert(new Set(workshop.gifts.map(gift => gift.area)).size === giftAreas.length, "Gift Optimizer area extraction is incomplete");
+assert(workshop.gifts.every(gift => giftAreas.includes(gift.area)), "Gift Optimizer contains an unknown area");
+assert(workshop.gifts.filter(gift => gift.area === "Other").length < 20, "Gift Optimizer incorrectly assigned most or all gifts to Other");
+assert(workshop.gifts.every(gift => gift.area === "Other" || !gift.name.endsWith(gift.area)), "A gift name still contains its parsed area suffix");
+assert(["strong","medium","gentle"].every(flame => workshop.gemPairs[flame]?.length), "Gem Crafting pair guidance is incomplete");
+for (const id of ["p-chain","p-gems","p-gifts","p-party","hub-breadcrumb","hub-rail","hub-section-select"]) assert(html.includes(`id="${id}"`), `Workshop or hub UI is missing ${id}`);
+assert(html.includes('Object.values(HUBS).forEach(hub=>hub.sections.forEach') && html.includes('sectionSearchTerms'), "Global search does not derive entries from every hub subsection");
+assert(html.includes('data-party-members="shulk,dunban,riki"') && html.includes('data-chain-party="shulk,dunban,riki"') && html.includes('data-gem-target="Night Vision"'), "Endgame contextual links do not carry party, chain, and gem context");
+assert(html.includes('function partyContextAttributes') && html.includes('function primaryGemTargetForUpdate') && html.includes('data-gift-route='), "Route contextual links do not carry party, gem, or Heart-to-Heart context");
+assert(html.includes('Forced two-person phase') && html.includes('partySize=Math.min(3,phase.roster.length)'), "Party Lab does not handle the temporary two-person roster");
+assert(html.includes('data-chain-target=') && html.includes('data-search-monster-drop=') && html.includes('function monsterGuideSearchText'), "Monster, chain, or gem contextual lookup is missing");
 assert(fs.existsSync(path.join(root, "manifest.webmanifest")) && fs.existsSync(path.join(root, "sw.js")), "PWA manifest or service worker is missing");
 
 const inlineScripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);

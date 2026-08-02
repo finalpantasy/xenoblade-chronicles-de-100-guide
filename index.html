@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#0b2438">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/xbcde-logo.png" type="image/png">
 <title>Xenoblade Chronicles DE (Switch 2) — 100% Route</title>
 <style>
 @font-face{
@@ -72,6 +73,7 @@ p,.pand,.det{text-wrap:pretty}
 body{margin:0;background:var(--bg);color:var(--fg);
   font:18px/1.72 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
   text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}.hide{display:none!important}
 a{color:var(--accent)}
 header{position:relative;background:var(--nav);color:#f7fbfe;border-bottom:1px solid var(--navline);
   padding:15px 20px;box-shadow:0 5px 18px rgba(0,0,0,.22)}
@@ -225,7 +227,7 @@ section.ch.closed .chb{display:none}
 .pan>summary:after{content:"";width:7px;height:7px;margin-left:auto;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .16s ease}
 .pan[open]>summary:after{transform:rotate(225deg) translate(-2px,-2px)}
 .pan:not([open]) .pant{margin-bottom:0}
-.guidance-toggle{flex:0 0 auto;margin-left:4px;color:var(--fg3);font:650 11px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.guidance-toggle{flex:0 0 auto;margin-left:4px;color:var(--fg3);font:650 12.5px/1.2 var(--display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .pan[open] .guidance-toggle:before{content:"Hide "}
 .pand b{color:var(--fg)}
 .pand ul{margin:6px 0;padding-left:18px}
@@ -861,7 +863,7 @@ html[data-theme="xenoblade"] .guide-feature,html[data-theme="xenoblade"] .guide-
 @media(max-width:640px){html:not([data-theme="xenoblade"]) .hrow{display:flex!important;grid-template-columns:initial!important;grid-template-rows:initial!important;grid-template-areas:initial!important;min-height:initial!important;padding:12px 14px!important}html:not([data-theme="xenoblade"]) .theme-control{position:static!important;font-size:13px!important;letter-spacing:normal!important;text-transform:none!important}html:not([data-theme="xenoblade"]) .theme-control select{max-width:150px!important;font-size:inherit!important}html:not([data-theme="xenoblade"]) .tabs{padding-left:8px!important}html:not([data-theme="xenoblade"]) .tabs button{min-width:0!important}html:not([data-theme="xenoblade"]) .pct{font-size:14px!important}html:not([data-theme="xenoblade"]) .bar{height:9px!important}}
 /* Companion + release pass. */
 .header-console{display:flex;align-items:center;gap:12px;flex:1;min-width:520px}.header-status{display:flex;align-items:center;gap:12px;flex:1;min-width:260px}.header-status .bar{flex:1}.header-status .pct{flex:0 0 auto;min-width:130px}.header-tools{position:relative;display:flex;align-items:center;gap:12px;margin-left:auto}.search-label{font-size:12px;font-weight:750;letter-spacing:.03em;text-transform:uppercase;color:#d4e8f4}.global-search{position:relative;display:block;min-width:360px;margin:0}.global-search .ui-icon{position:absolute;z-index:1;left:14px;top:50%;width:19px;height:19px;color:#66dcff;transform:translateY(-50%);pointer-events:none}.global-search input{width:100%;max-width:none!important;padding-left:44px!important;padding-right:92px!important;border-width:2px!important;background:#143f5c!important;box-shadow:inset 0 0 16px rgba(89,213,255,.08),0 0 0 1px rgba(89,213,255,.08)}.global-search-count{position:absolute;right:13px;top:50%;max-width:76px;overflow:hidden;text-overflow:ellipsis;transform:translateY(-50%);font-size:11px}
-#guide-search-results{position:absolute;z-index:90;top:calc(100% + 8px);left:0;right:0;max-height:min(62vh,560px);overflow:auto;display:grid;gap:6px;padding:10px;border:2px solid var(--accent);background:var(--bg);box-shadow:0 18px 45px rgba(0,0,0,.48)}#guide-search-results .route-link{display:block;width:100%;text-align:left;padding:10px 12px;background:var(--bg2)}
+#guide-search-results{position:absolute;z-index:90;top:calc(100% + 62px);left:0;right:0;max-height:min(62vh,560px);overflow:auto;display:grid;gap:6px;padding:10px;border:2px solid var(--accent);background:var(--bg);box-shadow:0 18px 45px rgba(0,0,0,.48)}#guide-search-results .route-link{display:block;width:100%;text-align:left;padding:10px 12px;background:var(--bg2)}
 input[type=search]{border-width:2px;background:color-mix(in srgb,var(--accent) 11%,var(--bg2));box-shadow:inset 0 0 13px color-mix(in srgb,var(--accent) 8%,transparent)}input[type=search]::placeholder{color:var(--fg2);opacity:.92}
 .tabs .game-icon{width:24px;height:24px;object-fit:contain;background:radial-gradient(circle,rgba(78,205,246,.15),transparent 68%);filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 4px rgba(79,211,255,.24))}.tabs button.on .game-icon{filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 7px rgba(103,225,255,.7))}
 .companion-shell{display:grid;gap:18px}.companion-topbar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:15px;border:1px solid var(--line);background:var(--bg2)}.companion-topbar .filter-field{min-width:210px;flex:1}.companion-topbar select{display:block;width:100%;min-height:44px;margin-top:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.advance-status{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border:2px solid var(--green);background:var(--greenbg)}.advance-status.is-blocked{border-color:var(--redline);background:var(--redbg)}.advance-status strong{display:block;font-size:22px}.mission-current{padding:22px;border:2px solid var(--accent);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 13%,var(--bg2)),var(--bg2));box-shadow:0 10px 28px rgba(0,0,0,.14)}.mission-current h3{margin:0 0 8px;font-size:27px}.mission-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:8px 0 13px;color:var(--fg2);font-weight:700}.next-steps{display:grid;gap:9px}.step-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:start;padding:13px 15px;border:1px solid var(--line);background:var(--bg2)}.step-card .step-number{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--accent);color:var(--accent);font-weight:800}.step-card p{margin:0}.brief-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}.brief-card{padding:16px;border:1px solid var(--line);background:var(--bg2)}.brief-card h3{margin:0 0 8px}.brief-stat{font-size:27px;font-weight:780;color:var(--accent)}.inventory-list{display:grid;gap:8px}.inventory-row{display:grid;grid-template-columns:minmax(180px,1fr) 90px minmax(180px,1fr) auto;gap:10px;align-items:center;padding:11px 13px;border:1px solid var(--line);background:var(--bg2)}.inventory-row input[type=number]{width:82px;min-height:40px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:5px 8px}.inventory-need{color:var(--fg2);font-size:14px}.encounter-console{padding:16px;border:1px solid var(--redline);background:var(--redbg)}.encounter-console select{width:min(560px,100%);min-height:44px;margin:6px 0 12px;border:1px solid var(--redline);background:var(--bg2);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.quest-readiness{margin:10px 0;padding:10px 12px;border-left:4px solid var(--green);background:var(--greenbg)}.quest-readiness.is-blocked{border-color:var(--red);background:var(--redbg)}.binding-note{display:inline-flex;align-items:center;gap:5px;color:var(--fg3);font-size:12px}.offline-note{padding:10px 13px;border:1px solid var(--line);background:var(--bg2);color:var(--fg2);font-size:14px}
@@ -1007,6 +1009,24 @@ html.vision-active{overflow:hidden}
   .vision-card h2{font-size:20px}
   .vision-actions button{width:100%}
 }
+
+/* Five-hub information architecture. Detailed destinations live in the hub
+   rail instead of competing for permanent space in the global navigation. */
+.tabs,.tabs-shell{overflow:visible!important}.tabs{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;max-width:var(--shell)!important;padding:0 20px!important;scrollbar-width:none}.tabs button{display:flex!important;align-items:center;justify-content:center;min-width:0!important;white-space:normal!important;text-align:center}.mobile-more,.tabnote{display:none!important}
+#main.hub-active{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0 24px;align-items:start}
+.hub-breadcrumb{grid-column:1/-1;display:flex;align-items:center;gap:8px;min-height:42px;margin:-12px 0 18px;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--fg3);font-size:13px}.hub-breadcrumb b{color:var(--fg)}.hub-breadcrumb .crumb-sep{color:var(--accent)}
+.hub-rail{position:sticky;top:78px;display:grid;gap:7px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}
+.hub-rail strong{padding:4px 6px 8px;color:var(--fg3);font-size:11px;letter-spacing:.12em;text-transform:uppercase}.hub-rail button{display:flex;align-items:center;gap:9px;width:100%;min-height:44px;padding:9px 11px;border:1px solid transparent;border-radius:5px;background:transparent;color:var(--fg2);font:inherit;font-weight:650;text-align:left;cursor:pointer}.hub-rail button:hover{border-color:var(--line);background:var(--bg3);color:var(--fg)}.hub-rail button.on{border-color:var(--accent);background:var(--cyanbg);color:var(--accent)}.hub-rail .game-icon{width:22px;height:22px;object-fit:contain}
+.hub-section-picker{display:none;grid-column:1/-1;margin:0 0 16px}.hub-section-picker>span{display:block;margin-bottom:5px;color:var(--fg3);font-size:12px;font-weight:750;letter-spacing:.04em;text-transform:uppercase}.hub-section-picker select{width:100%;min-height:48px}
+#main.hub-active>.panel.on{grid-column:2;min-width:0;padding-top:0}
+.tool-launch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0}.tool-launch{min-height:118px;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg2);color:var(--fg);text-align:left;cursor:pointer}.tool-launch:hover{border-color:var(--accent);background:var(--cyanbg)}.tool-launch b{display:block;margin-bottom:5px;color:var(--accent);font-size:18px}.tool-launch span{color:var(--fg2);line-height:1.45}
+.session-builder{display:grid;grid-template-columns:repeat(2,minmax(180px,1fr)) auto;gap:12px;align-items:end;margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}.session-builder,.companion-shell>section{scroll-margin-top:70px}.session-builder button{min-height:46px}.session-dashboard{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:16px;margin:18px 0}.session-card{padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}.session-card h3{margin:0 0 10px}.session-card h4{margin:18px 0 8px;color:var(--accent)}.session-check{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:start;min-height:48px;padding:9px 0;border-bottom:1px solid var(--line)}.session-check:last-child{border-bottom:0}.session-check input{width:22px;height:22px;margin:1px 0}.session-check label{cursor:pointer;line-height:1.4}.session-check small{display:block;color:var(--fg3)}.session-estimate{color:var(--fg3);font-size:12px;white-space:nowrap}.session-summary{padding:12px;border-left:4px solid var(--green);background:var(--greenbg)}.recent-tools{display:flex;flex-wrap:wrap;gap:8px}.recent-tools button{min-height:42px}
+.workshop-grid{display:grid;grid-template-columns:minmax(260px,.7fr) minmax(0,1.3fr);gap:18px;align-items:start}.workshop-controls,.workshop-result{padding:17px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}.workshop-controls{display:grid;gap:12px}.workshop-controls .filter-field{min-width:0}.workshop-controls input,.workshop-controls select{width:100%}.workshop-result h3{margin-top:0}.workshop-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.workshop-score{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;align-items:center;margin:12px 0}.workshop-score b{font-size:13px}.score-bar{height:10px;border:1px solid var(--line);border-radius:99px;background:var(--bg);overflow:hidden}.score-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--green))}.chain-sequence{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.chain-art{min-width:150px;padding:10px 12px;border:2px solid var(--line);border-radius:6px;background:var(--bg)}.chain-art b,.chain-art span{display:block}.chain-art span{margin-top:3px;color:var(--fg3);font-size:12px}.chain-art.pink{border-color:#ff85be}.chain-art.green{border-color:#62d38b}.chain-art.yellow{border-color:#f4cf55}.chain-art.red{border-color:#ef6a63}.chain-art.purple{border-color:#a77ae8}.chain-art.blue{border-color:#6bb9ed}.chain-art.talent{border-color:#f2f4f7;box-shadow:inset 0 0 0 1px #596777}.gift-results{display:grid;gap:8px}.gift-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:10px 12px;border:1px solid var(--line);background:var(--bg)}.gift-row b{display:block}.gift-row small{color:var(--fg3)}.gift-value{align-self:center;color:var(--green);font-size:20px;font-weight:800}.source-links{margin-top:18px;color:var(--fg3);font-size:12px;line-height:1.5}
+html[data-theme="xenoblade"] .hub-rail,html[data-theme="xenoblade"] .session-card,html[data-theme="xenoblade"] .workshop-controls,html[data-theme="xenoblade"] .workshop-result,html[data-theme="xenoblade"] .tool-launch{border-color:#2d7199;border-radius:0;background:linear-gradient(135deg,rgba(5,34,56,.96),rgba(2,18,31,.96))}html[data-theme="xenoblade"] .hub-rail button.on{background:linear-gradient(180deg,#096a9b,#06466d);color:#fff}
+@media(max-width:900px){#main.hub-active{display:grid;grid-template-columns:1fr}.hub-breadcrumb{margin-top:-8px}.hub-rail{display:none}.hub-section-picker{display:block}#main.hub-active>.panel.on{grid-column:1}.session-dashboard,.workshop-grid{grid-template-columns:1fr}}
+@media(max-width:640px){html,body{overflow-x:clip!important}.tabs{grid-template-columns:repeat(5,minmax(0,1fr))!important;padding:0!important}.tabs button{min-height:54px!important;padding:7px 2px!important;border-right:1px solid rgba(120,170,195,.24)!important;font-size:10.5px!important;line-height:1.1}.tabs button:last-child{border-right:0!important}.tabs button .game-icon,.tabs button .nav-game-icon{display:none!important}.session-builder{grid-template-columns:1fr}.session-check{grid-template-columns:24px minmax(0,1fr)}.session-estimate{grid-column:2}.workshop-controls,.workshop-result,.session-card{padding:13px}}
+@media(max-width:1280px) and (min-width:641px){html[data-theme="xenoblade"] .tabs{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media(max-width:640px){html[data-theme="xenoblade"] .tabs,html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}.tabs button:nth-child(-n+3){grid-column:span 2}.tabs button:nth-child(n+4){grid-column:span 3}.tabs button{min-height:52px!important;font-size:13px!important}.global-search .ui-icon{top:25px!important}#guide-search-results{top:calc(100% + 140px)}.pan>summary{min-height:44px}.chip,.ghost,.theme-control select{min-height:44px}}
 </style>
 </head>
 <body>
@@ -1052,25 +1072,12 @@ html.vision-active{overflow:hidden}
 
 <div class="tabs-shell">
   <nav class="tabs" id="tabs" role="tablist" aria-label="Guide sections">
-    <button id="tab-route" class="on" data-p="route" role="tab" aria-selected="true" aria-controls="p-route" tabindex="0"><img class="game-icon" src="assets/game-icons/landmark-xcde.png" width="28" height="44" alt="" aria-hidden="true">The Route</button>
-    <button id="tab-companion" data-p="companion" role="tab" aria-selected="false" aria-controls="p-companion" tabindex="-1"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Play Mode</button>
-    <button id="tab-completion" data-p="completion" role="tab" aria-selected="false" aria-controls="p-completion" tabindex="-1"><span class="nav-game-icon nav-quest-crown" aria-hidden="true"></span>Completion Hub</button>
-    <button id="tab-monsters" data-p="monsters" role="tab" aria-selected="false" aria-controls="p-monsters" tabindex="-1"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Monsterpedia</button>
-    <button id="tab-quests" data-p="quests" role="tab" aria-selected="false" aria-controls="p-quests" tabindex="-1"><span class="nav-game-icon nav-quest-alert" aria-hidden="true"></span>Quest Lookup</button>
-    <button id="tab-reference" data-p="reference" role="tab" aria-selected="false" aria-controls="p-reference" tabindex="-1"><img class="game-icon" src="assets/game-icons/landmark-xcde.png" width="28" height="44" alt="" aria-hidden="true">Atlas &amp; Planner</button>
-    <button id="tab-combat" class="secondary-tab" data-p="combat" role="tab" aria-selected="false" aria-controls="p-combat" tabindex="-1"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Builds &amp; Presets</button>
-    <button id="tab-colony6" class="secondary-tab" data-p="colony6" role="tab" aria-selected="false" aria-controls="p-colony6" tabindex="-1"><img class="game-icon nav-area-icon" src="assets/game-icons/colony6-affinity.png" width="84" height="84" alt="" aria-hidden="true">Colony 6</button>
-    <button id="tab-branches" class="secondary-tab" data-p="branches" role="tab" aria-selected="false" aria-controls="p-branches" tabindex="-1"><img class="game-icon" src="assets/game-icons/affinity-mission.png" width="24" height="24" alt="" aria-hidden="true">Branches</button>
-    <button id="tab-bosses" class="secondary-tab" data-p="bosses" role="tab" aria-selected="false" aria-controls="p-bosses" tabindex="-1"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Superbosses</button>
-    <button id="tab-weather" class="secondary-tab" data-p="weather" role="tab" aria-selected="false" aria-controls="p-weather" tabindex="-1"><img class="game-icon" src="assets/game-icons/timed-quest.png" width="18" height="21" alt="" aria-hidden="true">Weather</button>
-    <span class="tabnote">Route = safe play order · Completion Hub = literal ledger</span>
+    <button id="tab-route" class="on" data-hub="route" data-p="route" role="tab" aria-selected="true" aria-controls="p-route" tabindex="0"><img class="game-icon" src="assets/game-icons/landmark-xcde.png" width="28" height="44" alt="" aria-hidden="true">The Route</button>
+    <button id="tab-companion" data-hub="companion" data-p="companion" role="tab" aria-selected="false" aria-controls="p-companion" tabindex="-1"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Companion</button>
+    <button id="tab-completion" data-hub="completion" data-p="completion" role="tab" aria-selected="false" aria-controls="p-completion" tabindex="-1"><span class="nav-game-icon nav-quest-crown" aria-hidden="true"></span>Completion</button>
+    <button id="tab-reference" data-hub="reference" data-p="monsters" role="tab" aria-selected="false" aria-controls="p-monsters" tabindex="-1"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Reference</button>
+    <button id="tab-workshop" data-hub="workshop" data-p="combat" role="tab" aria-selected="false" aria-controls="p-combat" tabindex="-1"><img class="game-icon" src="assets/game-icons/back-slash-xcde.png" width="100" height="100" alt="" aria-hidden="true">Workshop</button>
   </nav>
-  <label class="mobile-more"><span class="sr-only">More guide sections</span>
-    <select id="mobile-section" aria-label="More guide sections">
-      <option value="">More…</option><option value="reference">Atlas &amp; Planner</option><option value="combat">Builds</option><option value="colony6">Colony 6</option>
-      <option value="branches">Branches</option><option value="bosses">Superbosses</option><option value="weather">Weather</option>
-    </select>
-  </label>
 </div>
 
 <button class="dash ok" id="dash" type="button" title="Show only unticked deadline items"></button>
@@ -1079,6 +1086,10 @@ html.vision-active{overflow:hidden}
 <div id="vision" class="vision" hidden></div>
 
 <main id="main" tabindex="-1">
+
+<nav id="hub-breadcrumb" class="hub-breadcrumb" aria-label="Breadcrumb" hidden></nav>
+<nav id="hub-rail" class="hub-rail" aria-label="Hub sections" hidden></nav>
+<label id="hub-section-picker" class="hub-section-picker" hidden><span id="hub-section-label">Section:</span><select id="hub-section-select" aria-label="Hub section"></select></label>
 
 <!-- ROUTE -->
 <div class="panel on" id="p-route" role="tabpanel" aria-labelledby="tab-route">
@@ -1118,8 +1129,15 @@ html.vision-active{overflow:hidden}
 <!-- FIELD COMPANION -->
 <div class="panel" id="p-companion" role="tabpanel" aria-labelledby="tab-companion" hidden>
   <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Field Companion</h2>
-  <p>A focused second-screen view: the next safe objective, what blocks advancement, nearby cleanup, inventory needs and a battle-ready encounter panel.</p>
+  <p>Turn your manual guide progress into a focused play session: a realistic checklist, the things to finish before leaving, the right current party, and world conditions worth setting now.</p>
   <div class="companion-shell">
+    <div class="session-builder" id="companion-session" aria-label="Adventure session builder">
+      <label class="filter-field">Session length<select id="session-length"><option value="30">30 minutes</option><option value="60">60 minutes</option><option value="90">90 minutes</option><option value="120">120 minutes</option></select></label>
+      <label class="filter-field">Focus<select id="session-focus"><option value="story">Story progress</option><option value="completion">Completion sweep</option><option value="combat">Combat upgrades</option><option value="affinity">Affinity</option><option value="custom">Balanced / custom</option></select></label>
+      <button type="button" class="ghost safe" id="session-build">Build my session</button>
+    </div>
+    <div id="session-dashboard" class="session-dashboard" aria-live="polite"></div>
+    <section class="session-card"><h3>Recently used tools</h3><div id="recent-tools" class="recent-tools"><span class="muted">Workshop shortcuts appear here as you use them.</span></div></section>
     <div class="companion-topbar">
       <label class="filter-field">Play view<select id="play-view"><option value="guided">Guided · current + next 4</option><option value="compact">Compact · next 10</option><option value="deadlines">Deadline focus</option></select></label>
       <label class="filter-field">Spoiler detail<select id="spoiler-level"><option value="full">Full guide text</option><option value="gameplay">Gameplay details only</option><option value="minimal">Minimal first-playthrough</option></select></label>
@@ -1127,10 +1145,10 @@ html.vision-active{overflow:hidden}
     </div>
     <div id="advance-status" class="advance-status"></div>
     <section id="play-current" class="mission-current" aria-live="polite"></section>
-    <section><h2>Coming next</h2><div id="play-next" class="next-steps"></div></section>
-    <section><h2>Area briefing</h2><div id="area-briefing" class="brief-grid"></div></section>
-    <section><h2>Upcoming inventory</h2><p>Quantities are manual and private to this browser. The planner extracts material cards from the route; it never reads game save data.</p><div id="inventory-list" class="inventory-list"></div></section>
-    <section class="encounter-console"><h2>Encounter mode</h2><label class="filter-field">Boss or Unique Monster<select id="encounter-select"><option value="">Loading dossiers…</option></select></label><div id="encounter-detail"></div></section>
+    <section id="companion-next"><h2>Coming next</h2><div id="play-next" class="next-steps"></div></section>
+    <section id="companion-area"><h2>Area briefing</h2><div id="area-briefing" class="brief-grid"></div></section>
+    <section id="companion-inventory"><h2>Upcoming inventory</h2><p>Quantities are manual and private to this browser. The planner extracts material cards from the route; it never reads game save data.</p><button type="button" class="route-link" data-open-tool="gems">Open Gem Crafting Assistant</button><div id="inventory-list" class="inventory-list"></div></section>
+    <section id="companion-encounter" class="encounter-console"><h2>Encounter mode</h2><label class="filter-field">Boss or Unique Monster<select id="encounter-select"><option value="">Loading dossiers…</option></select></label><div id="encounter-detail"></div></section>
     <p class="offline-note"><b>Your checklist is private per browser profile.</b> GitHub Pages serves identical guide files to everyone, while progress remains in local browser storage. Export a JSON backup before clearing site data or moving devices.</p>
   </div>
 </div>
@@ -1155,7 +1173,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- MONSTERPEDIA -->
-<div class="panel" id="p-monsters" role="tabpanel" aria-labelledby="tab-monsters" hidden>
+<div class="panel" id="p-monsters" role="tabpanel" aria-labelledby="tab-reference" hidden>
   <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/enemy-sight.png" width="24" height="20" alt="" aria-hidden="true">Monsterpedia</h2>
   <p>Every base-game and Future Connected enemy, with its level, habitat, appearance conditions and confirmed drops. Search checks monster names, areas and drops together.</p>
   <div class="lookup-toolbar">
@@ -1178,7 +1196,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- QUEST DEPENDENCIES -->
-<div class="panel" id="p-quests" role="tabpanel" aria-labelledby="tab-quests" hidden>
+<div class="panel" id="p-quests" role="tabpanel" aria-labelledby="tab-reference" hidden>
   <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/quest-alert.png" width="44" height="48" alt="" aria-hidden="true">Quest &amp; Dependency Lookup</h2>
   <p>Find a quest, see where and when it starts, what unlocks it, what follows it and which branch it excludes.</p>
   <div class="lookup-toolbar">
@@ -1207,7 +1225,13 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- COMBAT -->
-<div class="panel" id="p-combat" role="tabpanel" aria-labelledby="tab-combat" hidden>
+<div class="panel" id="p-combat" role="tabpanel" aria-labelledby="tab-workshop" hidden>
+  <div class="tool-launch-grid" aria-label="Workshop tools">
+    <button type="button" class="tool-launch" data-open-tool="chain"><b>Chain Planner</b><span>Build a color-safe burst, Break → Topple → Daze route, or Ether chain for the party you can actually field.</span></button>
+    <button type="button" class="tool-launch" data-open-tool="gems"><b>Gem Crafting Assistant</b><span>Choose cylinder prep, Heat, or Mega Heat and get a phase-legal Shooter / Engineer plan.</span></button>
+    <button type="button" class="tool-launch" data-open-tool="gifts"><b>Gift Optimizer</b><span>Search all 300 collectables, protect route materials, and maximize party affinity.</span></button>
+    <button type="button" class="tool-launch" data-open-tool="party"><b>Party Chemistry Lab</b><span>Test a legal trio for coverage, control demands, reactions, recovery, and AI reliability.</span></button>
+  </div>
   <div class="build-lab">
     <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/back-slash-xcde.png" width="100" height="100" alt="" aria-hidden="true">Build Lab</h2>
     <p>Choose a character tab, control mode and goal. Use Show all to turn the Build Lab into one continuous, scrollable reference.</p>
@@ -1371,7 +1395,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- COLONY 6 -->
-<div class="panel" id="p-colony6" role="tabpanel" aria-labelledby="tab-colony6" hidden>
+<div class="panel" id="p-colony6" role="tabpanel" aria-labelledby="tab-completion" hidden>
   <div class="grid">
     <div class="card"><h4>Total gold</h4><div class="big">1,995,000</div><p class="muted">The real wall. Materials are not.</p></div>
     <div class="card"><h4>Categories</h4><div class="big">4 × 5</div><p class="muted">Housing, Commerce, Nature, Special</p></div>
@@ -1427,7 +1451,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- BRANCHES -->
-<div class="panel" id="p-branches" role="tabpanel" aria-labelledby="tab-branches" hidden>
+<div class="panel" id="p-branches" role="tabpanel" aria-labelledby="tab-completion" hidden>
   <h2>All 10 mutually exclusive quest pairs</h2>
   <div class="callout a"><p><strong>Decision principle.</strong> This run banks EXP and targets a full Affinity Chart and Collectopaedia. So <b>affinity and reputation beat EXP</b>, and <b>gold beats EXP</b> (Colony 6 costs ~2,000,000 G). Where a source says one option gives "better EXP/gold as a later quest" and the other gives "more affinity," affinity wins.</p></div>
   <div class="scroll"><table>
@@ -1447,7 +1471,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- SUPERBOSSES -->
-<div class="panel" id="p-bosses" role="tabpanel" aria-labelledby="tab-bosses" hidden>
+<div class="panel" id="p-bosses" role="tabpanel" aria-labelledby="tab-completion" hidden>
   <h2>The 5 superbosses</h2>
   <div class="guide-feature">
     <div><p>All are Unique Monsters at Level 100+. Four of the five require clearing Mechonis Core first.</p><p class="muted">Abaasy is the final check: the route below puts the Night Vision and defensive preparation in place before you deliberately seek its blizzard-night spawn.</p></div>
@@ -1462,6 +1486,7 @@ html.vision-active{overflow:hidden}
     <tr><td>5</td><td><b>Avalanche Abaasy</b></td><td>120</td><td>Valak, Three Sage Summit</td><td>Night + blizzard, post-MC</td><td>Highest level in the game. Instant-death counter spike. Needs maxed Night Vision and Rank VI Topple Plus</td></tr>
   </table></div>
   <div class="callout a"><p><strong>Kill order matters.</strong> Marcus first because he is beatable without Night Vision. Then Daedala <em>second</em> and farm it, because its Rank V Night Vision cylinders are what make Belgazas and Abaasy hittable at all.</p></div>
+  <div class="workshop-actions"><button type="button" class="route-link" data-open-tool="party" data-party-phase="post" data-party-members="shulk,dunban,riki" data-party-leader="shulk">Load the superboss party</button><button type="button" class="route-link" data-open-tool="chain" data-chain-phase="post" data-chain-party="shulk,dunban,riki" data-chain-leader="shulk">Plan this party's chain</button><button type="button" class="route-link" data-open-tool="gems" data-gem-phase="post" data-gem-target="Night Vision">Craft Night Vision</button></div>
 
   <h3>Loadout</h3>
   <div class="scroll"><table>
@@ -1480,7 +1505,7 @@ html.vision-active{overflow:hidden}
 </div>
 
 <!-- WEATHER -->
-<div class="panel" id="p-weather" role="tabpanel" aria-labelledby="tab-weather" hidden>
+<div class="panel" id="p-weather" role="tabpanel" aria-labelledby="tab-reference" hidden>
   <h2>Weather and time dependent spawns</h2>
   <p>Set these up deliberately rather than hoping. Expert Mode lets you idle to shift time.</p>
   <div class="scroll"><table>
@@ -1518,12 +1543,81 @@ html.vision-active{overflow:hidden}
   <p class="muted">All 63 Heart-to-Hearts with locations, affinity tiers and correct answers are in <code>research/03-heart-to-hearts.md</code>.</p>
 </div>
 
+<!-- WORKSHOP: CHAIN PLANNER -->
+<div class="panel" id="p-chain" role="tabpanel" aria-labelledby="tab-workshop" hidden>
+  <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/back-slash-xcde.png" width="100" height="100" alt="" aria-hidden="true">Chain Planner</h2>
+  <p>Plan around the party you can field now. Same-color Arts raise the multiplier; Talent Arts preserve it and let the next Art establish a new color. A reaction chain may deliberately trade multiplier for Break → Topple → Daze control.</p>
+  <div class="workshop-grid">
+    <form id="chain-controls" class="workshop-controls">
+      <label class="filter-field">Story phase<select id="chain-phase"></select></label>
+      <label class="filter-field">Party preset<select id="chain-preset"></select></label>
+      <label class="filter-field">Goal<select id="chain-goal"><option value="reaction">Break → Topple → Daze</option><option value="physical">Physical burst</option><option value="ether">Ether / damage-over-time</option><option value="recovery">Emergency recovery</option></select></label>
+      <label class="filter-field">Optional target<select id="chain-target"><option value="">No specific target</option></select></label>
+    </form>
+    <section id="chain-result" class="workshop-result" aria-live="polite"></section>
+  </div>
+  <p class="source-links" id="chain-source"></p>
+</div>
+
+<!-- WORKSHOP: GEM CRAFTING -->
+<div class="panel" id="p-gems" role="tabpanel" aria-labelledby="tab-workshop" hidden>
+  <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Gem Crafting Assistant</h2>
+  <p>Use a two-pass plan: first isolate a quality into near-99% cylinders, then combine matching cylinders with a Strong Flame pair. The assistant never pretends the random furnace outcome is guaranteed.</p>
+  <div class="workshop-grid">
+    <form id="gem-controls" class="workshop-controls">
+      <label class="filter-field">Story phase<select id="gem-phase"></select></label>
+      <label class="filter-field">Target gem<select id="gem-target"></select></label>
+      <label class="filter-field">Crafting goal<select id="gem-goal"><option value="cylinder">Prepare focused cylinders</option><option value="gem">Make a normal gem (100%+)</option><option value="heat">Reach Heat (200%+)</option><option value="mega">Reach Mega Heat (300%+)</option><option value="multi">Raise several qualities together</option></select></label>
+      <label class="filter-field">Starting target quality (combined)<input id="gem-quality" type="number" min="0" max="299" value="160" inputmode="numeric"></label>
+      <label class="filter-field">Qualities in the mix<select id="gem-qualities"><option value="1">1 focused quality</option><option value="2">2 qualities</option><option value="3">3+ qualities</option></select></label>
+    </form>
+    <section id="gem-result" class="workshop-result" aria-live="polite"></section>
+  </div>
+  <p class="source-links" id="gem-source"></p>
+</div>
+
+<!-- WORKSHOP: GIFTS -->
+<div class="panel" id="p-gifts" role="tabpanel" aria-labelledby="tab-workshop" hidden>
+  <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/affinity-mission.png" width="24" height="24" alt="" aria-hidden="true">Gift Optimizer</h2>
+  <p>Pick a giver and recipient, then filter to areas you have reached. The affinity value belongs to the recipient; the giver matters because affinity rises between that pair.</p>
+  <div class="workshop-grid">
+    <form id="gift-controls" class="workshop-controls">
+      <label class="filter-field">Giver<select id="gift-giver"></select></label>
+      <label class="filter-field">Recipient<select id="gift-recipient"></select></label>
+      <label class="filter-field">Available through area<select id="gift-area"><option value="">Any area</option></select></label>
+      <label class="filter-field">Category<select id="gift-category"><option value="">Any category</option></select></label>
+      <label><input id="gift-protect" type="checkbox" checked> Hide items still named by an unfinished route card</label>
+      <label class="filter-field">Search your inventory<input id="gift-q" type="search" placeholder="Energy Aubergine, flower…"></label>
+    </form>
+    <section id="gift-result" class="workshop-result" aria-live="polite"></section>
+  </div>
+  <p class="source-links" id="gift-source"></p>
+</div>
+
+<!-- WORKSHOP: PARTY CHEMISTRY -->
+<div class="panel" id="p-party" role="tabpanel" aria-labelledby="tab-workshop" hidden>
+  <h2 class="icon-heading"><img class="game-icon" src="assets/game-icons/skills.png" width="100" height="100" alt="" aria-hidden="true">Party Chemistry Lab</h2>
+  <p>Test a trio against the jobs XC1 actually asks a party to cover. Availability is enforced by phase, and AI-sensitive characters are scored differently depending on whom you control.</p>
+  <div class="workshop-grid">
+    <form id="party-controls" class="workshop-controls">
+      <label class="filter-field">Story phase<select id="party-phase"></select></label>
+      <label class="filter-field">Leader / player control<select id="party-leader"></select></label>
+      <label class="filter-field">Party member 2<select id="party-two"></select></label>
+      <label class="filter-field">Party member 3<select id="party-three"></select></label>
+      <label class="filter-field">Priority<select id="party-goal"><option value="balanced">Balanced exploration</option><option value="safe">Maximum safety</option><option value="burst">Fast kills</option><option value="topple">Topple control</option><option value="ether">Ether damage</option></select></label>
+    </form>
+    <section id="party-result" class="workshop-result" aria-live="polite"></section>
+  </div>
+  <p class="source-links" id="party-source"></p>
+</div>
+
 </main>
 
 <footer>
   Updated 2026-08-01 · Progress saves only in each visitor's browser profile and is never written to GitHub · Export/import provides a portable backup · Installable for offline use · Research and source notes: <code>research/</code>
 </footer>
 
+<script src="data/workshop-data.js"></script>
 <script>
 const LEGACY_LS = "xc1de-100-v1";
 const OLD_PREVIOUS_LS = "xc1de-guide-state-v2";
@@ -1574,14 +1668,17 @@ function cleanNestedMap(value){
   Object.entries(value).forEach(([parent, children]) => { const clean = cleanMap(children); if (Object.keys(clean).length) out[String(parent)] = clean; });
   return out;
 }
+function cleanStringArray(value, limit = 100){
+  return Array.isArray(value) ? value.filter(item => typeof item === "string").slice(0, limit) : [];
+}
 function emptyState(){
   return { version: 4, route: Object.create(null), completion: Object.create(null),
-    routeSteps: Object.create(null), skipped: Object.create(null), world: Object.create(null), hunts: Object.create(null), monsterLog: Object.create(null), drops: Object.create(null), collectopaedia: Object.create(null), inventory: Object.create(null), preferences: { playView:"guided", spoilerLevel:"full" }, updatedAt: null };
+    routeSteps: Object.create(null), skipped: Object.create(null), world: Object.create(null), hunts: Object.create(null), monsterLog: Object.create(null), drops: Object.create(null), collectopaedia: Object.create(null), inventory: Object.create(null), preferences: { playView:"guided", spoilerLevel:"full", sessionLength:60, sessionFocus:"story", sessionIds:[], sessionStartedAt:null, sessionStartDone:[], recentTools:[] }, updatedAt: null };
 }
 function normalizeState(value){
   const src = value && typeof value === "object" ? value : {};
   return { version: 4, route: cleanMap(src.route), completion: cleanMap(src.completion),
-    routeSteps: cleanNestedMap(src.routeSteps), skipped: cleanMap(src.skipped), world: cleanMap(src.world), hunts: cleanMap(src.hunts), monsterLog: cleanMap(src.monsterLog), drops: cleanMap(src.drops), collectopaedia: cleanMap(src.collectopaedia), inventory: cleanQtyMap(src.inventory), preferences: { playView:["guided","compact","deadlines"].includes(src.preferences?.playView)?src.preferences.playView:"guided", spoilerLevel:["full","gameplay","minimal"].includes(src.preferences?.spoilerLevel)?src.preferences.spoilerLevel:"full" }, updatedAt: src.updatedAt || null };
+    routeSteps: cleanNestedMap(src.routeSteps), skipped: cleanMap(src.skipped), world: cleanMap(src.world), hunts: cleanMap(src.hunts), monsterLog: cleanMap(src.monsterLog), drops: cleanMap(src.drops), collectopaedia: cleanMap(src.collectopaedia), inventory: cleanQtyMap(src.inventory), preferences: { playView:["guided","compact","deadlines"].includes(src.preferences?.playView)?src.preferences.playView:"guided", spoilerLevel:["full","gameplay","minimal"].includes(src.preferences?.spoilerLevel)?src.preferences.spoilerLevel:"full", sessionLength:[30,60,90,120].includes(Number(src.preferences?.sessionLength))?Number(src.preferences.sessionLength):60, sessionFocus:["story","completion","combat","affinity","custom"].includes(src.preferences?.sessionFocus)?src.preferences.sessionFocus:"story", sessionIds:cleanStringArray(src.preferences?.sessionIds,20), sessionStartedAt:typeof src.preferences?.sessionStartedAt==="string"?src.preferences.sessionStartedAt:null, sessionStartDone:cleanStringArray(src.preferences?.sessionStartDone,500), recentTools:cleanStringArray(src.preferences?.recentTools,4) }, updatedAt: src.updatedAt || null };
 }
 
 let state = emptyState();
@@ -1737,10 +1834,12 @@ function routeQuestReference(item){
 function routeQuickLinks(item){
   const monster = routeMonsterReference(item);
   const quest = routeQuestReference(item);
-  if (!monster && !quest) return "";
+  const heart = item.f === "h";
+  if (!monster && !quest && !heart) return "";
   return `<div class="route-card-actions" aria-label="Open guide reference">`
     + (monster ? `<button type="button" class="route-link" data-open-monster="${esc(monster.id)}">${gameIcon("enemy")}Open ${esc(monster.name)} in Monsterpedia</button>` : "")
     + (quest ? `<button type="button" class="route-link" data-open-quest="${esc(quest.id)}">${gameIcon("quest")}Open ${esc(quest.name)} in Quest Lookup</button>` : "")
+    + (heart ? `<button type="button" class="route-link" data-open-tool="gifts" data-gift-route="${esc(plainText(item.t||""))}">Open Gift Optimizer for this pair</button>` : "")
     + `</div>`;
 }
 function routeItemReference(name, filter){
@@ -1780,8 +1879,8 @@ function routeAwareEncounterAdvice(baseAdvice, routeReference){
 function routeBinding(targetId){
   return bindingsReady ? ROUTE_BINDINGS_DATA.bindings.find(binding => binding.targetId === targetId) || null : null;
 }
-function openRouteCard(routeId){
-  activatePanel("route");
+function openRouteCard(routeId, pushHistory = true){
+  activatePanel("route", true, pushHistory);
   document.querySelectorAll("#p-route .chip[data-f]").forEach(chip => {
     chip.classList.toggle("on", chip.dataset.f === "all");
     chip.setAttribute("aria-pressed", String(chip.dataset.f === "all"));
@@ -1796,9 +1895,10 @@ function openRouteCard(routeId){
   section?.querySelector(".chh")?.setAttribute("aria-expanded", "true");
   row.scrollIntoView({ behavior:"smooth", block:"center" });
   row.querySelector('input[type="checkbox"]')?.focus({ preventScroll:true });
+  if(pushHistory&&history?.replaceState) history.replaceState({destination:"route",routeItem:routeId,chapterId:section?.dataset?.chapter||section?.id||"",scrollY:window.scrollY},"",destinationHash("route"));
 }
-function jumpToRouteChapter(chapterId){
-  activatePanel("route");
+function jumpToRouteChapter(chapterId, pushHistory = true){
+  activatePanel("route", true, pushHistory);
   document.querySelectorAll("#p-route .chip[data-f]").forEach(chip => {
     chip.classList.toggle("on", chip.dataset.f === "all");
     chip.setAttribute("aria-pressed", String(chip.dataset.f === "all"));
@@ -1904,6 +2004,8 @@ function renderRouteBuildUpdate(ch){
   const update = BUILD_DATA.routeUpdates?.find(item => item.routeChapterId === ch.id);
   if (!update) return "";
   const party = update.party.map(buildName).join(" / ");
+  const partyContext = partyContextAttributes(update, ch.id);
+  const gemTarget = primaryGemTargetForUpdate(update);
   const arts = Object.entries(update.artsByMember || {}).map(([id,list]) =>
     `<div class="route-build-row"><strong>${esc(buildName(id))}:</strong> <span>${list.map(esc).join(" · ")}</span></div>`).join("");
   const ap = (update.immediateAP || []).map(item => `<li>${esc(item)}</li>`).join("");
@@ -1925,7 +2027,7 @@ function renderRouteBuildUpdate(ch){
         <div class="route-build-block"><h3>AI warnings</h3>
           <ul class="route-build-list">${warnings}</ul></div>
       </div>
-      <button type="button" class="ghost safe open-build route-build-action" data-character="${esc(update.leader)}">Open the full Build Lab</button>
+      <div class="workshop-actions route-build-action"><button type="button" class="ghost safe open-build" data-character="${esc(update.leader)}">Open the full Build Lab</button><button type="button" class="route-link" data-open-tool="party" ${partyContext}>Compare this party in Party Lab</button>${gemTarget?`<button type="button" class="route-link" data-open-tool="gems" data-gem-phase="${esc(workshopPhaseIdForChapter(ch.id))}" data-gem-target="${esc(gemTarget)}">Tune ${esc(gemTarget)}</button>`:""}</div>
     </div></details>`;
 }
 
@@ -2131,12 +2233,14 @@ function maybeVision(curIdx, lockIdx, lock){
   if (!lock || lockIdx < 0) return;
   const lockId = lock.id;
   if (visionShownThisSession[lockId] || visionAcknowledged()[lockId]) return;
-  // Only warn once the current chapter is actually finished — that is the moment
-  // you are about to push the story, not while you are still mid-chapter.
+  // A future lock is dashboard context, not an imminent disaster. Only open
+  // the modal after the player begins the chapter containing that lock. This
+  // keeps a completed two-item Chapter 0 setup from announcing Xord on reload.
+  if (lockIdx !== curIdx) return;
   const cur = ROUTE[curIdx];
-  const chapterClear = cur.items.filter(i => !i.k).every(i => done[i.id])
-    && worldEntriesForChapter(cur).every(i => worldDone[i.id]);
-  if (!chapterClear) return;
+  const chapterStarted = cur.items.filter(i => !i.k).some(i => done[i.id])
+    || worldEntriesForChapter(cur).some(i => worldDone[i.id]);
+  if (!chapterStarted) return;
   const manifest = visionManifest(curIdx, lockIdx);
   if (!manifest.count) return;
   visionShownThisSession[lockId] = true;
@@ -2336,23 +2440,67 @@ document.getElementById("expand").addEventListener("click", e => {
   e.target.setAttribute("aria-expanded", String(!collapsed));
 });
 
-function activatePanel(name, scroll = true){
+const HUBS = Object.freeze({
+  route:{label:"The Route",sections:[{id:"route",label:"Safe play order"}]},
+  companion:{label:"Companion",sections:[
+    {id:"companion",label:"Adventure session"},
+    {id:"companion-next",panel:"companion",label:"Next objective",anchor:"play-current"},
+    {id:"companion-area",panel:"companion",label:"Area briefing",anchor:"companion-area"},
+    {id:"companion-inventory",panel:"companion",label:"Inventory",anchor:"companion-inventory"},
+    {id:"companion-encounter",panel:"companion",label:"Encounter mode",anchor:"companion-encounter"}
+  ]},
+  completion:{label:"Completion",sections:[
+    {id:"completion",label:"Completion ledger"},{id:"colony6",label:"Colony 6"},{id:"branches",label:"Decisions"},{id:"bosses",label:"Endgame"}
+  ]},
+  reference:{label:"Reference",sections:[
+    {id:"monsters",label:"Monsterpedia"},{id:"quests",label:"Quests"},{id:"reference",label:"Atlas & planners"},{id:"weather",label:"Time & weather"}
+  ]},
+  workshop:{label:"Workshop",sections:[
+    {id:"combat",label:"Builds & presets"},{id:"chain",label:"Chain Planner"},{id:"gems",label:"Gem Crafting"},{id:"gifts",label:"Gift Optimizer"},{id:"party",label:"Party Chemistry"}
+  ]}
+});
+const HUB_BY_DESTINATION = Object.fromEntries(Object.entries(HUBS).flatMap(([hub,config])=>config.sections.map(section=>[section.id,{hub,...section,panel:section.panel||section.id}])));
+const HUB_SECTION_ICONS={completion:"assets/game-icons/quest-complete.png",colony6:"assets/game-icons/colony6-affinity.png",branches:"assets/game-icons/affinity-mission.png",bosses:"assets/game-icons/enemy-sight.png",monsters:"assets/game-icons/enemy-sight.png",quests:"assets/game-icons/quest-alert.png",reference:"assets/game-icons/landmark-xcde.png",weather:"assets/game-icons/timed-quest.png",combat:"assets/game-icons/skills.png",chain:"assets/game-icons/back-slash-xcde.png",gems:"assets/game-icons/skills.png",gifts:"assets/game-icons/affinity-mission.png",party:"assets/game-icons/skills.png"};
+let activeDestination = "route";
+function destinationHash(destination){ const record=HUB_BY_DESTINATION[destination]||HUB_BY_DESTINATION.route; return `#${record.hub}/${destination}`; }
+function rememberTool(destination){
+  if(!["chain","gems","gifts","party","combat"].includes(destination)) return;
+  state.preferences.recentTools=[destination,...state.preferences.recentTools.filter(id=>id!==destination)].slice(0,4); save(); renderRecentTools();
+}
+function renderHubChrome(destination){
+  const record=HUB_BY_DESTINATION[destination]||HUB_BY_DESTINATION.route,config=HUBS[record.hub],hasRail=record.hub!=="route";
+  const main=document.getElementById("main"),crumb=document.getElementById("hub-breadcrumb"),rail=document.getElementById("hub-rail"),picker=document.getElementById("hub-section-picker"),pickerLabel=document.getElementById("hub-section-label"),select=document.getElementById("hub-section-select");
+  main.classList.toggle("hub-active",hasRail);crumb.hidden=!hasRail;rail.hidden=!hasRail;picker.hidden=!hasRail;
+  if(!hasRail)return;
+  crumb.innerHTML=`<b>${esc(config.label)}</b><span class="crumb-sep" aria-hidden="true">›</span><span>${esc(record.label)}</span>`;
+  rail.innerHTML=`<strong>${esc(config.label)} sections</strong>${config.sections.map(section=>`<button type="button" class="${section.id===destination?"on":""}" data-hub-destination="${esc(section.id)}"${section.id===destination?' aria-current="page"':""}>${HUB_SECTION_ICONS[section.id]?`<img class="game-icon" src="${esc(HUB_SECTION_ICONS[section.id])}" alt="" aria-hidden="true">`:""}${esc(section.label)}</button>`).join("")}`;
+  pickerLabel.textContent=`${config.label}:`;
+  select.innerHTML=config.sections.map(section=>`<option value="${esc(section.id)}"${section.id===destination?" selected":""}>${esc(section.label)}</option>`).join("");
+}
+function activatePanel(name, scroll = true, pushHistory = true){
+  const record=HUB_BY_DESTINATION[name]||HUB_BY_DESTINATION.route,destination=HUB_BY_DESTINATION[name]?name:"route";
+  if(pushHistory&&history?.pushState){
+    const currentState=history.state?.destination===activeDestination?history.state:{};
+    history.replaceState({...currentState,destination:activeDestination,scrollY:window.scrollY},"",location.href);
+    history.pushState({destination,scrollY:0},"",destinationHash(destination));
+  }
+  activeDestination=destination;
   document.querySelectorAll("#tabs button").forEach(button => {
-    const on = button.dataset.p === name;
-    button.classList.toggle("on", on);
-    button.setAttribute("aria-selected", String(on));
-    button.tabIndex = on ? 0 : -1;
+    const on = button.dataset.hub === record.hub;
+    button.classList.toggle("on", on);button.setAttribute("aria-selected",String(on));button.tabIndex=on?0:-1;
+    const controlled=on?record.panel:(HUBS[button.dataset.hub]?.sections[0]?.panel||HUBS[button.dataset.hub]?.sections[0]?.id||button.dataset.p);
+    button.setAttribute("aria-controls",`p-${controlled}`);
   });
   document.querySelectorAll(".panel").forEach(panel => {
-    const on = panel.id === "p-" + name;
-    panel.classList.toggle("on", on); panel.hidden = !on;
+    const on=panel.id==="p-"+record.panel;panel.classList.toggle("on",on);panel.hidden=!on;
   });
-  const mobileSection = document.getElementById("mobile-section");
-  if (mobileSection) mobileSection.value = [...mobileSection.options].some(option => option.value === name) ? name : "";
-  document.getElementById("dash").style.display = name === "route" ? "" : "none";
-  ensurePanelData(name);
-  updateHeaderProgress();
-  if (scroll) window.scrollTo(0,0);
+  renderHubChrome(destination);
+  document.getElementById("dash").style.display = record.panel === "route" ? "" : "none";
+  ensurePanelData(record.panel);ensurePanelData(record.hub);
+  updateHeaderProgress();rememberTool(destination);
+  if(scroll){
+    if(record.anchor) document.getElementById(record.anchor)?.scrollIntoView({block:"start"}); else window.scrollTo(0,0);
+  }
 }
 function openMonster(id){
   if(!monsterReady) return;
@@ -2373,8 +2521,7 @@ document.getElementById("tabs").addEventListener("click", e => {
 });
 document.getElementById("tabs").addEventListener("keydown", e => {
   if (!["ArrowLeft","ArrowRight","Home","End"].includes(e.key)) return;
-  const compact = typeof matchMedia === "function" && matchMedia("(max-width: 640px)").matches;
-  const buttons = [...document.querySelectorAll("#tabs button")].filter(button => !compact || !button.classList.contains("secondary-tab"));
+  const buttons = [...document.querySelectorAll("#tabs button")];
   const at = buttons.indexOf(document.activeElement);
   if (at < 0) return;
   e.preventDefault();
@@ -2382,9 +2529,9 @@ document.getElementById("tabs").addEventListener("keydown", e => {
     : buttons[(at + (e.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length];
   next.focus(); activatePanel(next.dataset.p);
 });
-document.getElementById("mobile-section").addEventListener("change", e => {
-  if (e.target.value) activatePanel(e.target.value);
-});
+document.getElementById("hub-rail").addEventListener("click",event=>{const button=event.target.closest("[data-hub-destination]");if(button)activatePanel(button.dataset.hubDestination);});
+document.getElementById("hub-section-select").addEventListener("change",event=>activatePanel(event.target.value));
+window.addEventListener("popstate",event=>{const destination=event.state?.destination||location.hash.split("/").pop()||"route";activatePanel(destination,false,false);requestAnimationFrame(()=>{if(event.state?.routeItem)jumpToRouteItem(event.state.routeItem,event.state.chapterId,false);else window.scrollTo(0,Number(event.state?.scrollY)||0);});});
 
 // Completion Hub. All external spreadsheet text is escaped before insertion.
 const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({
@@ -2570,7 +2717,9 @@ function renderCombatDossier(entry, routeReference){
   const artRows=arts.map(art=>`<li><b>${esc(art.name)}</b> · ${esc(art.type||"Unknown type")}${art.range?` · ${esc(art.range)}`:""}${art.effect&&art.effect!=="-"?` · ${esc(art.effect)}`:""}${art.knockback&&art.knockback!=="-"?` · knockback ${esc(art.knockback)}`:""}</li>`).join("");
   const resistanceRows=Object.entries(resistances).filter(([,value])=>value&&value!=="0%").map(([label,value])=>`<li><b>${esc(label.replace(/([A-Z])/g," $1"))}:</b> ${esc(value)}</li>`).join("");
   const spikePanel=spike?`<section class="dossier-panel"><h4>⚠ Spike documented</h4><p><b>${esc(spike.type||"Spike")}</b>${spike.range?` · ${esc(spike.range)}`:""}<br>${esc(spike.damage||"Effect not stated")}</p></section>`:`<section class="dossier-panel"><h4>Spike</h4><p>No spike template is documented by this source. This means <em>undocumented</em>, not game-data proof of none.</p></section>`;
-  const presetButton=advice.preset?`<button type="button" class="route-link" data-open-preset="${esc(advice.preset)}">${gameIcon("build")}Open recommended preset</button>`:"";
+  const chainPhase=workshopPhaseIdForEncounter(entry,routeReference);
+  const chainContext=`data-chain-target="${esc(entry.id)}" data-chain-phase="${esc(chainPhase)}"${advice.preset?` data-chain-preset="${esc(advice.preset)}"`:""}`;
+  const presetButton=advice.preset?`<button type="button" class="route-link" data-open-preset="${esc(advice.preset)}">${gameIcon("build")}Open recommended preset</button><button type="button" class="route-link" data-open-tool="chain" ${chainContext}>Plan a chain for this target</button>`:`<button type="button" class="route-link" data-open-tool="chain" ${chainContext}>Plan a chain for this target</button>`;
   return `<details class="combat-dossier" open><summary>Combat dossier · source-backed mechanics + ${curated?"curated":"mechanics-derived"} guide prep</summary><p><b>Target:</b> Lv ${esc(entry.level)} · ${esc(entry.area||entry.areaName)}${entry.conditions?` · ${esc(entry.conditions)}`:""}</p><div class="dossier-grid"><section class="dossier-panel"><h4>Battle stats</h4><ul class="dossier-list">${statBits||"<li>Not documented</li>"}</ul></section>${spikePanel}<section class="dossier-panel"><h4>Notable resistances</h4><ul class="dossier-list">${resistanceRows||"<li>No non-zero resistance listed.</li>"}</ul></section></div><section class="dossier-panel"><h4>Enemy arts to watch</h4><ul class="dossier-list">${artRows||"<li>No arts documented.</li>"}</ul></section><section class="dossier-panel"><h4>${curated?"Curated guide strategy":"Mechanics-derived guide prep"}</h4>${advice.party?`<p><b>Party:</b> ${esc(advice.party)}</p>`:""}<p><b>Gems:</b> ${advice.gems.map(esc).join(" · ")}</p><p><b>Watch:</b> ${advice.watch.map(esc).join(" · ")}</p><p><b>Plan:</b> ${esc(advice.route)}</p>${presetButton}${advice.basis?`<p class="dossier-source">${esc(advice.basis)}</p>`:""}</section>${routeReference?`<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route prep</button>`:""}<p class="dossier-source">Mechanical data: <a href="${esc(record.source.url)}" target="_blank" rel="noopener">${esc(record.source.label)}</a> · ${esc(record.source.confidence)}. Strategy text is separately labeled guide advice.</p></details>`;
 }
 
@@ -2585,6 +2734,45 @@ function currentPlayable(){
   if (state.preferences.playView === "deadlines") return open.find(record => record.item.f === "d") || open[0] || null;
   return open[0] || null;
 }
+const TOOL_LABELS={combat:"Builds & presets",chain:"Chain Planner",gems:"Gem Crafting",gifts:"Gift Optimizer",party:"Party Chemistry"};
+function renderRecentTools(){
+  const el=document.getElementById("recent-tools");if(!el)return;
+  const tools=state.preferences.recentTools||[];
+  el.innerHTML=tools.length?tools.map(id=>`<button type="button" class="route-link" data-companion-panel="${esc(id)}">${esc(TOOL_LABELS[id]||id)}</button>`).join(""):'<span class="muted">Workshop shortcuts appear here as you use them.</span>';
+}
+function routeTaskMinutes(item){return item.f==="u"?18:item.f==="d"?14:item.f==="m"?8:item.f==="h"?10:12;}
+function sessionPriority(record,focus){
+  const item=record.item,text=plainText(`${item.t||""} ${item.d||""}`).toLowerCase();let score=0;
+  if(focus==="completion")score+=(item.f==="d"?10:item.f==="h"?8:item.f==="m"?7:item.f==="u"?6:2);
+  else if(focus==="combat")score+=(item.f==="u"?10:/build|art|skill|gem|gear|party|weapon/.test(text)?8:1);
+  else if(focus==="affinity")score+=(item.f==="h"?10:requiredLeader(item)?8:/affinity|register|heart-to-heart|gift/.test(text)?7:1);
+  else if(focus==="story")score+=item.f?2:8;
+  else score+=5;
+  if(item.f==="d")score+=6;return score;
+}
+function buildSession(){
+  if(!routeReady)return;
+  const minutes=Number(document.getElementById("session-length").value),focus=document.getElementById("session-focus").value;
+  const open=playableRouteCards().filter(record=>!done[record.item.id]),windowed=open.slice(0,30).map((record,index)=>({record,index,score:sessionPriority(record,focus)}));
+  const selected=[];let used=0;
+  [...windowed].sort((a,b)=>b.score-a.score||a.index-b.index).forEach(candidate=>{const cost=routeTaskMinutes(candidate.record.item);if(!selected.length||used+cost<=minutes){selected.push(candidate);used+=cost;}});
+  selected.sort((a,b)=>a.index-b.index);
+  state.preferences.sessionLength=minutes;state.preferences.sessionFocus=focus;state.preferences.sessionIds=selected.map(entry=>entry.record.item.id);state.preferences.sessionStartedAt=new Date().toISOString();state.preferences.sessionStartDone=Object.keys(done);save();renderSessionDashboard();
+}
+function renderSessionDashboard(){
+  const el=document.getElementById("session-dashboard");if(!el)return;
+  document.getElementById("session-length").value=String(state.preferences.sessionLength||60);document.getElementById("session-focus").value=state.preferences.sessionFocus||"story";
+  if(!routeReady){el.innerHTML='<section class="session-card"><p>Loading route progress…</p></section>';return;}
+  const records=new Map(playableRouteCards().map(record=>[record.item.id,record])),ids=(state.preferences.sessionIds||[]).filter(id=>records.has(id)),current=currentPlayable();
+  if(!ids.length){el.innerHTML='<section class="session-card"><h3>Build an adventure session</h3><p>Choose how long you have and what you want from the play session. The route order remains authoritative; focus only changes which nearby optional work fits.</p></section><aside class="session-card"><h3>What it uses</h3><p>Your checked route cards, current chapter, open deadlines, route materials and phase-legal party preset. No game save is read.</p></aside>';renderRecentTools();return;}
+  const entries=ids.map(id=>records.get(id)),completed=entries.filter(record=>done[record.item.id]).length,startDone=new Set(state.preferences.sessionStartDone||[]),newlyDone=entries.filter(record=>done[record.item.id]&&!startDone.has(record.item.id)).length,totalMinutes=entries.reduce((sum,record)=>sum+routeTaskMinutes(record.item),0);
+  const chapter=current?.chapter||entries[0]?.chapter,beforeLeaving=chapter?chapter.items.filter(item=>item.id&&!done[item.id]&&(item.f==="d"||requiredLeader(item))).slice(0,6):[];
+  const conditions=[...new Set(entries.flatMap(record=>{const text=plainText(`${record.item.t||""} ${record.item.d||""}`);return ["day","night","rain","thunderstorm","blizzard","fog","shooting stars"].filter(term=>new RegExp(`\\b${term}\\b`,`i`).test(text));}))];
+  const buildUpdate=buildReady&&chapter?BUILD_DATA.routeUpdates.find(update=>update.routeChapterId===chapter.id):null;
+  const gemTarget=buildUpdate?primaryGemTargetForUpdate(buildUpdate):"";
+  el.innerHTML=`<section class="session-card"><h3>${completed===entries.length?"Session clear":"Today's route"} · ${completed}/${entries.length}</h3><p class="muted">About ${totalMinutes} minutes · ${esc((state.preferences.sessionFocus||"story").replace(/^./,letter=>letter.toUpperCase()))} focus · route order preserved</p>${entries.map(record=>`<div class="session-check"><input type="checkbox" id="session-${esc(record.item.id)}" data-session-route="${esc(record.item.id)}"${done[record.item.id]?" checked":""}><label for="session-${esc(record.item.id)}"><b>${routeTitle(record.item.t)}</b><small>${esc(record.chapter.title)} · Recommended Lv ${esc(recommendedLevel(record.chapter,record.item)??chapterLevelLabel(record.chapter))}${record.item.f==="d"?" · Missable":""}</small></label><span class="session-estimate">~${routeTaskMinutes(record.item)} min</span></div>`).join("")}<div class="workshop-actions"><button type="button" class="ghost safe" data-session-rebuild="true">Rebuild</button><button type="button" class="route-link" data-session-end="true">Session summary</button></div>${newlyDone?`<p class="session-summary"><b>${newlyDone} objective${newlyDone===1?"":"s"} completed this session.</b> Keep going or end here—your exact checklist is saved.</p>`:""}</section><aside class="session-card"><h3>Before leaving</h3>${beforeLeaving.length?`<ul class="priority-list">${beforeLeaving.map(item=>`<li>${routeTitle(item.t)}</li>`).join("")}</ul>`:'<p class="green"><b>No deadline or leader-gated cards remain in this chapter.</b></p>'}<h4>Party check</h4>${buildUpdate?`<p><b>${esc(buildUpdate.party.map(buildName).join(" / "))}</b><br>Control ${esc(buildName(buildUpdate.leader))}.</p><div class="workshop-actions"><button type="button" class="route-link" data-open-tool="party" ${partyContextAttributes(buildUpdate,chapter.id)}>Test this party</button>${gemTarget?`<button type="button" class="route-link" data-open-tool="gems" data-gem-phase="${esc(workshopPhaseIdForChapter(chapter.id))}" data-gem-target="${esc(gemTarget)}">Tune ${esc(gemTarget)}</button>`:""}</div>`:buildReady?'<p class="muted">No party swap is scheduled here. Follow the current route card\'s party note.</p>':'<p class="muted">Party data is loading.</p>'}<h4>World conditions</h4><p>${conditions.length?conditions.map(term=>`<span class="tag">${esc(term)}</span>`).join(" "):'No time or weather setup appears in this session.'}</p></aside>`;
+  renderRecentTools();
+}
 function renderAreaBriefing(current){
   const el = document.getElementById("area-briefing"); if (!el) return;
   if (!current) { el.innerHTML = '<article class="brief-card"><h3>Route complete</h3><p>Use the Completion Hub for any unresolved ledger items.</p></article>'; return; }
@@ -2596,7 +2784,8 @@ function renderAreaBriefing(current){
   const boundQuests = bindingsReady && completionReady ? ROUTE_BINDINGS_DATA.bindings.filter(binding => binding.targetType === "quest" && binding.routeChapterId === chapter.id).map(binding => COMPLETION_DATA.categories[0].groups.flatMap(group => group.items).find(item => item.id === binding.targetId)).filter(Boolean) : [];
   const questOpen = boundQuests.filter(item => !isResolved(item)).length;
   const buildUpdate = buildReady ? BUILD_DATA.routeUpdates.find(update => update.routeChapterId === chapter.id) : null;
-  el.innerHTML = `<article class="brief-card"><h3>${esc(chapter.title)}</h3><div class="brief-stat">Lv ${esc(chapterLevelLabel(chapter))}</div><p>Guide target · ${routeOpen.length} route cards remain.</p></article><article class="brief-card"><h3>Advance blockers</h3><div class="brief-stat">${deadlineOpen}</div><p>deadline cards · ${leaderOpen} leader-gated cards remain in this chapter.</p></article><article class="brief-card"><h3>World sweep</h3><div class="brief-stat">${worldOpen}</div><p>of ${worldEntries.length} mapped discoveries remain at this route phase.</p></article><article class="brief-card"><h3>Quest ledger</h3><div class="brief-stat">${completionReady && bindingsReady ? questOpen : "…"}</div><p>${completionReady && bindingsReady ? `of ${boundQuests.length} bound quest outcomes unresolved.` : "Open Completion Hub once to load ledger status."}</p></article>${buildUpdate ? `<article class="brief-card"><h3>Party check</h3><p><b>${esc(buildUpdate.party.map(buildName).join(" / "))}</b></p><p>Control ${esc(buildName(buildUpdate.leader))}. ${esc(buildUpdate.safeAlternative)}</p><button type="button" class="route-link" data-companion-panel="combat">Open builds</button></article>` : ""}`;
+  const gemTarget=buildUpdate?primaryGemTargetForUpdate(buildUpdate):"";
+  el.innerHTML = `<article class="brief-card"><h3>${esc(chapter.title)}</h3><div class="brief-stat">Lv ${esc(chapterLevelLabel(chapter))}</div><p>Guide target · ${routeOpen.length} route cards remain.</p></article><article class="brief-card"><h3>Advance blockers</h3><div class="brief-stat">${deadlineOpen}</div><p>deadline cards · ${leaderOpen} leader-gated cards remain in this chapter.</p></article><article class="brief-card"><h3>World sweep</h3><div class="brief-stat">${worldOpen}</div><p>of ${worldEntries.length} mapped discoveries remain at this route phase.</p></article><article class="brief-card"><h3>Quest ledger</h3><div class="brief-stat">${completionReady && bindingsReady ? questOpen : "…"}</div><p>${completionReady && bindingsReady ? `of ${boundQuests.length} bound quest outcomes unresolved.` : "Open Completion Hub once to load ledger status."}</p></article>${buildUpdate ? `<article class="brief-card"><h3>Party check</h3><p><b>${esc(buildUpdate.party.map(buildName).join(" / "))}</b></p><p>Control ${esc(buildName(buildUpdate.leader))}. ${esc(buildUpdate.safeAlternative)}</p><div class="workshop-actions"><button type="button" class="route-link" data-companion-panel="combat">Open builds</button><button type="button" class="route-link" data-open-tool="party" ${partyContextAttributes(buildUpdate,chapter.id)}>Test chemistry</button>${gemTarget?`<button type="button" class="route-link" data-open-tool="gems" data-gem-phase="${esc(workshopPhaseIdForChapter(chapter.id))}" data-gem-target="${esc(gemTarget)}">Craft ${esc(gemTarget)}</button>`:""}</div></article>` : ""}`;
 }
 function routeMaterialNeed(record){
   const title = plainText(record.item.t || "");
@@ -2628,7 +2817,7 @@ function renderEncounterMode(){
 function renderCompanion(){
   const current=currentPlayable(), currentEl=document.getElementById("play-current"), nextEl=document.getElementById("play-next"), statusEl=document.getElementById("advance-status");
   if(!currentEl||!nextEl||!statusEl)return;
-  document.getElementById("play-view").value=state.preferences.playView; document.getElementById("spoiler-level").value=state.preferences.spoilerLevel;
+  document.getElementById("play-view").value=state.preferences.playView; document.getElementById("spoiler-level").value=state.preferences.spoilerLevel;renderSessionDashboard();
   if(!current){statusEl.className="advance-status";statusEl.innerHTML='<div><strong>Route checklist complete</strong><span>Finish any unresolved Completion Hub ledger items.</span></div>';currentEl.innerHTML='<h3>Every route card is checked</h3><button type="button" class="route-link" data-companion-panel="completion">Open Completion Hub</button>';nextEl.innerHTML="";renderAreaBriefing(null);renderInventoryPlanner();return;}
   const chapter=current.chapter,item=current.item,leader=requiredLeader(item),level=recommendedLevel(chapter,item),chapterDeadline=chapter.items.filter(candidate=>candidate.id&&candidate.f==="d"&&!done[candidate.id]);
   const blocked=chapterDeadline.length>0;statusEl.className=`advance-status${blocked?" is-blocked":""}`;statusEl.innerHTML=`<div><strong>${blocked?"Do not advance the story yet":"Current window is clear of deadline cards"}</strong><span>${blocked?`${chapterDeadline.length} deadline item${chapterDeadline.length===1?"":"s"} remain in ${esc(chapter.title)}.`:"Follow the next objective before crossing a new story boundary."}</span></div>${blocked?`<button type="button" class="route-link" data-companion-deadlines="true">Show blockers</button>`:""}`;
@@ -2640,6 +2829,9 @@ function renderCompanion(){
 }
 document.getElementById("play-view").addEventListener("change",event=>{state.preferences.playView=event.target.value;playReveal=false;save();renderCompanion();});
 document.getElementById("spoiler-level").addEventListener("change",event=>{state.preferences.spoilerLevel=event.target.value;playReveal=false;save();renderCompanion();});
+document.getElementById("session-build").addEventListener("click",buildSession);
+document.getElementById("session-dashboard").addEventListener("change",event=>{const input=event.target.closest("input[data-session-route]");if(!input)return;if(input.checked)done[input.dataset.sessionRoute]=true;else delete done[input.dataset.sessionRoute];save();build();filter();renderCompanion();});
+document.getElementById("session-dashboard").addEventListener("click",event=>{if(event.target.closest("[data-session-rebuild]")){buildSession();return;}if(event.target.closest("[data-session-end]")){state.preferences.sessionStartedAt=null;save();renderSessionDashboard();}});
 document.getElementById("encounter-select").addEventListener("change",renderEncounterMode);
 document.getElementById("inventory-list").addEventListener("change",event=>{const input=event.target.closest("input[data-inventory-id]");if(!input)return;const quantity=Math.max(0,Math.floor(Number(input.value)||0));if(quantity)inventoryLog[input.dataset.inventoryId]=quantity;else delete inventoryLog[input.dataset.inventoryId];save();renderInventoryPlanner();});
 document.getElementById("p-companion").addEventListener("click",event=>{
@@ -2650,6 +2842,19 @@ document.getElementById("p-companion").addEventListener("click",event=>{
   if(event.target.closest("button[data-companion-deadlines]")){activatePanel("route");document.querySelector('#p-route .chip[data-f="d"]')?.click();return;}
   const presetButton=event.target.closest("button[data-open-preset]");if(presetButton){activatePanel("combat");selectedPreset=presetButton.dataset.openPreset;renderPresets();return;}
 });
+function monsterGuideAdvice(entry,routeReference=entry.unique?routeItemReference(entry.name,item=>item.f==="u"):null){
+  const record=window.COMBAT_DOSSIER_DATA?.records?.[entry.id],base=window.COMBAT_DOSSIER_DATA?.encounters?.[entry.name]||record?.guidePrep;
+  return base?routeAwareEncounterAdvice(base,routeReference):null;
+}
+function monsterGuideSearchText(entry){
+  const advice=monsterGuideAdvice(entry);if(!advice)return "";
+  return [advice.party,advice.route,advice.basis,...(advice.gems||[]),...(advice.watch||[])].filter(Boolean).join(" ");
+}
+function recommendedGemForEntry(entry,routeReference){
+  const advice=monsterGuideAdvice(entry,routeReference);if(!advice||typeof WORKSHOP_DATA==="undefined")return "";
+  const text=(advice.gems||[]).join(" ").toLowerCase();
+  return WORKSHOP_DATA.gemTargets.find(target=>text.includes(target.toLowerCase()))||"";
+}
 function renderMonsterpedia(reset = false){
   if (!monsterReady) return;
   if (reset) monsterLimit = 80;
@@ -2669,7 +2874,8 @@ function renderMonsterpedia(reset = false){
     if (!monsterMatchesCondition(entry, condition)) return false;
     if (!query) return true;
     const drops = (entry.drops?.confirmed || []).map(drop => drop.item).join(" ");
-    return [entry.name, entry.species, entry.area, entry.conditions, entry.category, monsterFamily(entry).label, drops]
+    const guideContext=monsterGuideSearchText(entry);
+    return [entry.name, entry.species, entry.area, entry.conditions, entry.category, monsterFamily(entry).label, drops, guideContext]
       .filter(Boolean).join(" ").toLowerCase().includes(query);
   }).sort((a,b) => a.levelMin - b.levelMin || a.name.localeCompare(b.name));
   document.getElementById("monster-count").textContent = `${found.length} of ${MONSTERPEDIA_DATA.entries.length} monsters · showing ${Math.min(monsterLimit, found.length)}`;
@@ -2681,6 +2887,7 @@ function renderMonsterpedia(reset = false){
       entry.questOnly ? "Quest-only" : "", entry.timeSpecific ? "Time-specific" : "", entry.weatherSpecific ? "Weather-specific" : ""]
       .filter(Boolean).map(tag => `<span class="pill${tag === monsterType.label ? ` family-pill family-${monsterType.id}` : /quest|boss|unique/i.test(tag) ? " special" : ""}">${esc(tag)}</span>`).join("");
     const dropRows = drops.map((drop,index) => { const dropId = `${entry.id}:${index}`; return `<li><label><input class="drop-toggle" type="checkbox" data-drop-id="${esc(dropId)}"${dropLog[dropId] ? " checked" : ""} aria-label="Log ${esc(drop.item)} drop"><b>${esc(drop.item)}</b>${drop.chest ? ` · ${esc(drop.chest)} chest` : ""}${drop.rate ? ` · ${esc(drop.rate)}` : ""}</label></li>`; }).join("");
+    const gemTarget=recommendedGemForEntry(entry,routeReference),gemAction=gemTarget?`<button type="button" class="route-link" data-open-tool="gems" data-gem-phase="${esc(workshopPhaseIdForEncounter(entry,routeReference))}" data-gem-target="${esc(gemTarget)}">Craft ${esc(gemTarget)} for this fight</button>`:"";
     return `<article class="result-card monster-card family-${monsterType.id}${entry.unique ? " is-unique" : ""}${entry.boss ? " is-boss" : ""}${monsterLog[entry.id] ? " is-logged" : ""}" data-family="${monsterType.id}">
       <div class="monster-crest" aria-hidden="true">${entry.unique ? '<span class="monster-rank">&#9733;</span>' : ""}${monsterPortrait(entry)}</div>
       <div class="monster-card-main"><h3><span>${esc(entry.name)}</span><span class="rec-level">Lv ${esc(entry.level)}</span></h3>
@@ -2688,7 +2895,7 @@ function renderMonsterpedia(reset = false){
         <div class="result-tags">${tags}</div><p><b>Appears:</b> ${esc(entry.conditions || "Anytime")}</p>
         <details open><summary>${drops.length} confirmed drop${drops.length === 1 ? "" : "s"} · ${drops.filter((_,index)=>dropLog[`${entry.id}:${index}`]).length}/${drops.length} logged</summary>${drops.length ? `<ul class="drop-list">${dropRows}</ul>` : '<p class="muted">No verified drop table in the source.</p>'}</details>
         ${(entry.unique || entry.boss) ? renderCombatDossier(entry,routeReference) : ""}
-        <div class="monster-card-actions"><button type="button" class="hunt-toggle monster-log-toggle" data-monster-log="${esc(entry.id)}" aria-pressed="${monsterLog[entry.id] ? "true" : "false"}">${monsterLog[entry.id] ? "Logged" : "Mark as logged"}</button><button type="button" class="hunt-toggle" data-hunt="${esc(entry.id)}" aria-pressed="${monsterHunts[entry.id] ? "true" : "false"}">${monsterHunts[entry.id] ? "Pinned to hunt list" : "Pin to hunt list"}</button>${routeReference ? `<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route card</button>` : ""}</div>
+        <div class="monster-card-actions"><button type="button" class="hunt-toggle monster-log-toggle" data-monster-log="${esc(entry.id)}" aria-pressed="${monsterLog[entry.id] ? "true" : "false"}">${monsterLog[entry.id] ? "Logged" : "Mark as logged"}</button><button type="button" class="hunt-toggle" data-hunt="${esc(entry.id)}" aria-pressed="${monsterHunts[entry.id] ? "true" : "false"}">${monsterHunts[entry.id] ? "Pinned to hunt list" : "Pin to hunt list"}</button>${gemAction}${routeReference ? `<button type="button" class="route-link" data-open-route="${esc(routeReference.itemId)}">${gameIcon("landmark")}Open route card</button>` : ""}</div>
         <p class="muted"><a href="${esc(monsterSourceUrl(entry))}" target="_blank" rel="noopener">Enemy-page source</a>${entry.image?.local ? "" : " · Source page has no portrait; showing the official in-game enemy icon."}</p></div></article>`;
   }).join("") || '<div class="callout a"><p>No monsters match those filters.</p></div>';
   const more = document.getElementById("monster-more"); more.hidden = found.length <= monsterLimit;
@@ -2886,9 +3093,9 @@ function renderGateLadder(areaFilter){
       </div>`).join("")}
     </details>`).join("");
 }
-function jumpToRouteItem(itemId, chapterId){
-  jumpToRouteChapter(chapterId);
-  const row = document.querySelector(`.it[data-id="${CSS.escape(itemId)}"]`);
+function jumpToRouteItem(itemId, chapterId, pushHistory = true){
+  openRouteCard(itemId, pushHistory);
+  const row = [...document.querySelectorAll(".it[data-id]")].find(item => item.dataset.id === itemId);
   if (!row) return;
   row.scrollIntoView({ behavior: "smooth", block: "center" });
   row.classList.add("gate-flash");
@@ -2919,9 +3126,18 @@ function setReferenceView(view){
 document.querySelector(".reference-tabs").addEventListener("click", event=>{ const button=event.target.closest("button[data-reference-view]"); if(button) setReferenceView(button.dataset.referenceView); });
 collectEl.addEventListener("change", event=>{ const input=event.target.closest("input[data-collect-id]"); if(input) toggleCollectopaedia(input.dataset.collectId); });
 
-function guideSearch(){
+let globalSearchLoad=null;
+function ensureGlobalSearchData(){
+  if(globalSearchLoad)return;
+  ensurePanelData("completion");ensurePanelData("monsters");ensurePanelData("reference");
+  const pending=[completionLoad,monsterLoad,collectLoad,atlasLoad,frontierLoad,coordinateLoad,affinityLoad].filter(Boolean);
+  globalSearchLoad=Promise.allSettled(pending).then(()=>{globalSearchLoad=null;if(document.getElementById("guide-search").value.trim())guideSearch(false);});
+}
+function guideSearch(loadMissing=true){
   const input=document.getElementById("guide-search"), query=input.value.trim().toLowerCase(), count=document.getElementById("guide-search-count");
   if(!query){ count.textContent=""; document.getElementById("guide-search-results")?.remove(); return; }
+  const indexIncomplete=!completionReady||!monsterReady||!collectReady||!affinityReady||!frontierReady;
+  if(loadMissing&&indexIncomplete)ensureGlobalSearchData();
   const hits=[]; const push=(kind,name,detail,action)=>{ if(hits.length<30 && [name,detail].filter(Boolean).join(" ").toLowerCase().includes(query)) hits.push({kind,name,detail,action}); };
   if(routeReady) ROUTE.forEach(ch=>ch.items.filter(item=>!item.k).forEach(item=>push("Route",plainText(item.t),plainText(item.d),()=>openRouteCard(item.id))));
   if(monsterReady) MONSTERPEDIA_DATA.entries.forEach(entry=>push("Monsterpedia",entry.name,`${entry.area} ${(entry.drops?.confirmed||[]).map(drop=>drop.item).join(" ")}`,()=>openMonster(entry.id)));
@@ -2930,11 +3146,17 @@ function guideSearch(){
   if(worldReady) WORLD_DATA.areas.forEach(area=>area.entries.forEach(entry=>push("Location",entry.name,`${area.name} ${entry.type} ${entry.accessNotes||""}`,()=>{ activatePanel("reference"); setReferenceView("atlas"); atlasArea=area.id; renderAtlas(); })));
   if(frontierReady) FRONTIER_MAP_DATA.maps.forEach(map=>map.points.forEach(point=>push(point.type==="CollectionPoint"?"Map collection pin":point.type==="EnemySpawnPoint"?"Map enemy spawn":"Map landmark",point.name,`${map.name} ${map.region} ${frontierPointText(point)}`,()=>{activatePanel("reference");setReferenceView("atlas");atlasArea=map.id;renderAtlas();setTimeout(()=>{const input=document.getElementById("atlas-q");if(input){input.value=frontierPointText(point).split(" · ")[0];input.dispatchEvent(new Event("input"));}},0);})));
   if(buildReady) { allBuildCharacters().forEach(character=>push("Build",character.name,`${character.role} ${(character.levelPriority||[]).join(" ")} ${(character.gear?.gems||character.gems||[]).join(" ")}`,()=>{ activatePanel("combat"); selectedBuildCharacter=character.id; showAllBuilds=false; renderBuild(); })); BUILD_DATA.partyPresets.forEach(preset=>push("Party preset",preset.activity,`${preset.phase} ${preset.party.map(buildName).join(" ")}`,()=>{ activatePanel("combat"); selectedPreset=preset.id; renderPresets(); })); }
-  [["Colony 6", "Materials, reconstruction, residents, Housing, Commerce, Nature and Special requirements", "colony6"], ["Branches", "Mutually exclusive quest outcomes and Affinity Chart choices", "branches"], ["Superbosses", "Final Marcus Ancient Daedala Despotic Arsene Blizzard Belgazas Avalanche Abaasy", "bosses"], ["Weather", "time weather spawns and weather-gated materials", "weather"]].forEach(([name,detail,panel])=>push("Guide section",name,detail,()=>activatePanel(panel)));
+  if(completionReady)COMPLETION_DATA.categories.forEach(category=>category.groups.forEach(group=>group.items.forEach(item=>push("Completion",item.name,`${category.title} ${group.title} ${item.meta||""} ${item.details||""}`,()=>{activatePanel("completion");document.getElementById("ccat").value=category.id;document.getElementById("cq").value=item.name;completionUnresolved=false;document.getElementById("c-unresolved").classList.remove("on");document.getElementById("c-unresolved").setAttribute("aria-pressed","false");renderCompletion();}))));
+  const sectionSearchTerms={route:"100% safe play order walkthrough",companion:"Adventure Companion session length focus before leaving party check world conditions",completion:"Completion Hub ledger",colony6:"materials reconstruction residents housing commerce nature special requirements",branches:"Branches decisions mutually exclusive quest outcomes Affinity Chart choices",bosses:"Endgame superbosses Final Marcus Ancient Daedala Despotic Arsene Blizzard Belgazas Avalanche Abaasy",monsters:"Monsterpedia enemies drops dossiers",quests:"Quest Lookup dependency deadlines requirements",reference:"Atlas planners maps locations affinity collectopaedia",weather:"time weather spawns weather-gated materials",combat:"Builds presets Arts skills gear",chain:"Chain Planner chain attacks colors Break Topple Daze Talent Art multiplier",gems:"Gem Crafting Assistant cylinders Strong Medium Gentle Flame Heat Mega Heat",gifts:"Gift Optimizer party affinity presents collectables",party:"Party Chemistry Lab party composition AI control recovery topple ether"};
+  Object.values(HUBS).forEach(hub=>hub.sections.forEach(section=>push("Guide section",section.label,`${hub.label} ${sectionSearchTerms[section.id]||""}`,()=>activatePanel(section.id))));
+  if(typeof WORKSHOP_DATA!=="undefined")WORKSHOP_DATA.gifts.forEach(gift=>push("Gift",gift.name,`${gift.area} ${gift.category} ${Object.values(gift.affinity).join(" ")}`,()=>{activatePanel("gifts");document.getElementById("gift-q").value=gift.name;renderGiftOptimizer();}));
   if(collectReady) COLLECTOPAEDIA_DATA.collections.forEach(page=>page.groups.forEach(group=>group.items.forEach(item=>push("Collectopaedia",item.name,`${page.area} ${group.type}`,()=>{ activatePanel("reference"); setReferenceView("collect"); }))));
-  count.textContent=`${hits.length}${hits.length===30?"+":""} matches`;
-  let box=document.getElementById("guide-search-results"); if(!box){ box=document.createElement("div"); box.id="guide-search-results"; box.setAttribute("role","listbox"); document.querySelector(".header-tools").append(box); }
-  box.innerHTML=hits.map((hit,index)=>`<button type="button" class="route-link" data-guide-hit="${index}"><b>${esc(hit.kind)}:</b> ${esc(hit.name)}${hit.detail?` <span class="muted">· ${esc(hit.detail).slice(0,120)}</span>`:""}</button>`).join("") || '<p class="muted">No indexed guide matches.</p>';
+  const loading=indexIncomplete&&!!globalSearchLoad;
+  count.textContent=hits.length?`${hits.length}${hits.length===30?"+":""} matches${loading?" · indexing…":""}`:loading?"Indexing…":"No matches";
+  let box=document.getElementById("guide-search-results");
+  if(!hits.length){box?.remove();return;}
+  if(!box){ box=document.createElement("div"); box.id="guide-search-results"; box.setAttribute("role","listbox"); document.querySelector(".header-tools").append(box); }
+  box.innerHTML=hits.map((hit,index)=>`<button type="button" class="route-link" data-guide-hit="${index}"><b>${esc(hit.kind)}:</b> ${esc(hit.name)}${hit.detail?` <span class="muted">· ${esc(hit.detail).slice(0,120)}</span>`:""}</button>`).join("");
   box._hits=hits;
 }
 document.getElementById("guide-search").addEventListener("input",guideSearch);
@@ -2962,7 +3184,7 @@ function initBuilds(){
   if(!allBuildCharacters().some(character=>character.id===selectedBuildCharacter)) selectedBuildCharacter=allBuildCharacters()[0]?.id||"shulk";
   renderBuildCharacterTabs();
   document.getElementById("build-source").innerHTML = `${esc(BUILD_DATA.sourcePolicy)} Sources: ${BUILD_DATA.sources.map(source => `<a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join(" · ")}.`;
-  renderPresets(); renderBuild();
+  renderPresets(); renderBuild(); initWorkshop();
   if (routeReady) { build(); filter(); }
 }
 function renderCharacterBuild(character,control,goal){
@@ -2993,8 +3215,10 @@ function renderBuild(){
   const goal = document.getElementById("build-goal").value;
   const selected=allBuildCharacters().find(item=>item.id===selectedBuildCharacter)||allBuildCharacters()[0];
   document.getElementById("build-goal-note").innerHTML=renderBuildGoalComparison(showAllBuilds?null:selected,control,goal);
-  const characters=showAllBuilds?allBuildCharacters():[allBuildCharacters().find(item=>item.id===selectedBuildCharacter)||allBuildCharacters()[0]];
-  document.getElementById("build-result").innerHTML=characters.map(character=>renderCharacterBuild(character,control,goal)).join("");
+  const characters=allBuildCharacters(),selectedCharacter=characters.find(item=>item.id===selectedBuildCharacter)||characters[0];
+  document.getElementById("build-result").innerHTML=showAllBuilds
+    ? characters.map(character=>renderCharacterBuild(character,control,goal)).join("")
+    : characters.map(character=>character.id===selectedCharacter.id?renderCharacterBuild(character,control,goal):`<div id="build-${esc(character.id)}" role="tabpanel" aria-labelledby="build-tab-${esc(character.id)}" hidden></div>`).join("");
   renderBuildCharacterTabs();
 }
 let selectedPreset = "";
@@ -3027,6 +3251,116 @@ document.getElementById("party-presets").addEventListener("click", event => {
   if (preset && allBuildCharacters().some(character => character.id === preset.leader)) { selectedBuildCharacter = preset.leader; showAllBuilds = false; }
   renderPresets(); renderBuild();
 });
+
+// Workshop tools. The data file separates sourced mechanics from guide advice.
+const WORKSHOP_PHASES=[
+  {id:"ch1",label:"Chapters 1–2",rank:1,roster:["shulk","reyn","fiora"],party:["shulk","reyn","fiora"]},
+  {id:"ch3",label:"Chapter 3",rank:3,roster:["shulk","reyn"],party:["shulk","reyn"]},
+  {id:"ch4",label:"Chapter 4",rank:4,roster:["shulk","reyn","sharla"],party:["shulk","reyn","sharla"]},
+  {id:"ch5",label:"Chapters 5–6",rank:5,roster:["shulk","reyn","sharla","dunban"],party:["shulk","dunban","sharla"]},
+  {id:"ch7",label:"Chapter 7",rank:7,roster:["shulk","reyn","sharla","dunban","melia","riki"],party:["shulk","dunban","riki"]},
+  {id:"ch8",label:"Chapters 8–11",rank:8,roster:["shulk","reyn","sharla","dunban","melia","riki"],party:["shulk","dunban","riki"]},
+  {id:"ch12",label:"Chapters 12–16",rank:12,roster:["shulk","reyn","sharla","dunban","melia","riki","fiora"],party:["shulk","dunban","riki"]},
+  {id:"ch17",label:"Chapter 17 / open world",rank:17,roster:["shulk","reyn","sharla","dunban","melia","riki","fiora"],party:["shulk","dunban","riki"]},
+  {id:"post",label:"Postgame / superbosses",rank:99,roster:["shulk","reyn","sharla","dunban","melia","riki","fiora"],party:["shulk","dunban","riki"]},
+  {id:"fc",label:"Future Connected",rank:100,roster:["fc-shulk","fc-melia","kino","nene"],party:["fc-shulk","kino","nene"]}
+];
+function workshopPhaseIdForChapter(chapterId){
+  if(chapterId==="fc")return "fc";
+  if(chapterId==="post")return "post";
+  const chapterNumber=Number((String(chapterId||"").match(/\d+/)||[1])[0]);
+  return [...WORKSHOP_PHASES].reverse().find(phase=>phase.rank<=chapterNumber&&phase.rank<99)?.id||WORKSHOP_PHASES[0].id;
+}
+function workshopPhaseIdForEncounter(entry,routeReference){
+  if(entry?.game==="future-connected")return "fc";
+  const level=Number(String(entry?.level||"").match(/\d+/)?.[0]||0);
+  const levelPhase=level>=100?"post":level>=85?"ch17":level>=67?"ch12":level>=45?"ch8":level>=39?"ch7":level>=26?"ch5":level>=19?"ch4":level>=15?"ch3":"ch1";
+  const phaseIds=[levelPhase,routeReference?.chapterId?workshopPhaseIdForChapter(routeReference.chapterId):null,currentPlayable()?.chapter?.id?workshopPhaseIdForChapter(currentPlayable().chapter.id):null].filter(Boolean);
+  return phaseIds.map(id=>WORKSHOP_PHASES.find(phase=>phase.id===id)).filter(phase=>phase&&phase.id!=="fc").sort((a,b)=>b.rank-a.rank)[0]?.id||levelPhase;
+}
+function partyContextAttributes(update,chapterId){
+  return `data-party-phase="${esc(workshopPhaseIdForChapter(chapterId))}" data-party-members="${esc(update.party.join(","))}" data-party-leader="${esc(update.leader)}"`;
+}
+function primaryGemTargetForUpdate(update){
+  if(typeof WORKSHOP_DATA==="undefined")return "";
+  const gear=(update?.gear||[]).join(" ").toLowerCase();
+  return WORKSHOP_DATA.gemTargets.find(target=>gear.includes(target.toLowerCase()))||"";
+}
+function currentWorkshopPhase(){const current=currentPlayable();if(!current)return WORKSHOP_PHASES.find(phase=>phase.id==="post");if(current.chapter.id==="fc")return WORKSHOP_PHASES.at(-1);const number=Number((current.chapter.id.match(/\d+/)||[1])[0]);return [...WORKSHOP_PHASES].reverse().find(phase=>phase.rank<=number&&phase.rank<99)||WORKSHOP_PHASES[0];}
+function phaseOptions(){return WORKSHOP_PHASES.map(phase=>`<option value="${phase.id}">${esc(phase.label)}</option>`).join("");}
+function phaseById(id){return WORKSHOP_PHASES.find(phase=>phase.id===id)||currentWorkshopPhase();}
+function characterLabel(id){return allBuildCharacters().find(character=>character.id===id)?.name||buildName(id);}
+function workshopSources(ids){return WORKSHOP_DATA.sources.filter(source=>!ids||ids.includes(source.id)).map(source=>`<a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join(" · ");}
+function presetUnlock(preset){if(preset.id.startsWith("fc-"))return 100;if(/superboss|post|topple-lock/.test(preset.id))return 99;const match=preset.id.match(/ch(\d+)/);return match?Number(match[1]):1;}
+let chainContextParty=[];
+let chainContextLeader="";
+function populateChainPresets(){
+  if(!buildReady)return;const phase=phaseById(document.getElementById("chain-phase").value),select=document.getElementById("chain-preset"),previous=select.value;
+  const available=BUILD_DATA.partyPresets.filter(preset=>preset.party.every(member=>phase.roster.includes(member))&&((phase.id==="fc")===preset.id.startsWith("fc-"))&&presetUnlock(preset)<=phase.rank);
+  const contextual=chainContextParty.length>=2&&chainContextParty.every(member=>phase.roster.includes(member))?`<option value="__context">Current party · ${esc(chainContextParty.map(characterLabel).join(" / "))}</option>`:"";
+  select.innerHTML=contextual+available.map(preset=>`<option value="${esc(preset.id)}">${esc(preset.activity)} · ${esc(preset.party.map(characterLabel).join(" / "))}</option>`).join("");
+  if(contextual)select.value="__context";else if(available.some(preset=>preset.id===previous))select.value=previous;renderChainPlanner();
+}
+function chainArt(member,phase,predicate){return (WORKSHOP_DATA.chainArts[member]||[]).filter(art=>!art.unlock||art.unlock<=phase.rank).find(predicate);}
+function renderChainPlanner(){
+  if(!buildReady||typeof WORKSHOP_DATA==="undefined")return;const phase=phaseById(document.getElementById("chain-phase").value),presetValue=document.getElementById("chain-preset").value,preset=presetValue==="__context"?{id:"__context",party:[...chainContextParty],leader:chainContextLeader||chainContextParty[0],why:"Party carried here from the route, Companion, Endgame guide, or Party Lab."}:BUILD_DATA.partyPresets.find(item=>item.id===presetValue),goal=document.getElementById("chain-goal").value,result=document.getElementById("chain-result");
+  if(!preset){result.innerHTML='<p>No phase-legal preset matches yet.</p>';return;}const order=[preset.leader,...preset.party.filter(member=>member!==preset.leader)],sequence=[];let warning="";
+  if(goal==="reaction"){
+    const effects=["Break","Topple","Daze"];effects.forEach(effect=>{const match=order.map(member=>({member,art:chainArt(member,phase,art=>art.effect===effect)})).find(entry=>entry.art&&!sequence.some(chosen=>chosen.member===entry.member));if(match)sequence.push(match);});
+    if(sequence.length<3)warning="This trio cannot supply a complete Break → Topple → Daze sequence in one round. Use a Chain Link for a later Daze, or switch party.";
+  } else {
+    const color=goal==="physical"?"red":goal==="ether"?"purple":"blue";order.forEach(member=>{const art=chainArt(member,phase,item=>item.color===color)||chainArt(member,phase,item=>item.color==="talent");if(art)sequence.push({member,art});else warning=`${characterLabel(member)} has no phase-available ${color} Art for this plan; the chain will need a Talent bridge or a party change.`;});
+  }
+  const targetId=document.getElementById("chain-target").value,target=monsterReady?MONSTERPEDIA_DATA.entries.find(entry=>entry.id===targetId):null,dossier=target&&window.COMBAT_DOSSIER_DATA?.records?.[target.id],spike=dossier?.variants?.[0]?.spike;
+  const partyAttrs=`data-party-phase="${esc(phase.id)}" data-party-members="${esc(preset.party.join(","))}" data-party-leader="${esc(preset.leader)}"`;
+  result.innerHTML=`<h3>${esc(preset.party.map(characterLabel).join(" / "))}</h3><p>${esc(preset.why)}</p><div class="chain-sequence">${sequence.map((entry,index)=>`<div class="chain-art ${esc(entry.art.color)}"><b>${index+1}. ${esc(characterLabel(entry.member))} · ${esc(entry.art.name)}</b><span>${esc(entry.art.effect)} · ${esc(entry.art.note)}</span></div>`).join("")||'<p>No legal sequence found.</p>'}</div>${warning?`<div class="callout a"><p><b>Coverage warning:</b> ${esc(warning)}</p></div>`:""}${goal==="reaction"?'<p class="muted">Reaction colors change from pink to green to yellow, so this is control-first—not a same-color damage multiplier route.</p>':'<p class="muted">Repeat the displayed color on a Chain Link. A charged Talent Art can bridge to a different color without dropping the multiplier.</p>'}${target?`<div class="combat-dossier"><p><b>Target:</b> Lv ${esc(target.level)} ${esc(target.name)} · ${esc(target.area||target.areaName)}${spike?`</p><p><b>Spike warning:</b> ${esc(spike.type||"documented Spike")} · bring the dossier's mitigation before committing to a Topple plan.`:""}</p></div>`:""}<div class="workshop-actions"><button type="button" class="route-link" data-open-tool="party" ${partyAttrs}>Test this party in Party Lab</button>${preset.id==="__context"?'<button type="button" class="route-link" data-open-panel="combat">Open member builds</button>':`<button type="button" class="route-link" data-open-preset="${esc(preset.id)}">Open full builds</button>`}</div>`;
+}
+function populateChainTargets(){const select=document.getElementById("chain-target");if(!select||!monsterReady)return;const previous=select.value;select.innerHTML='<option value="">No specific target</option>'+MONSTERPEDIA_DATA.entries.filter(entry=>entry.unique||entry.type==="Boss").sort((a,b)=>(Number(a.level)||0)-(Number(b.level)||0)).map(entry=>`<option value="${esc(entry.id)}">Lv ${esc(entry.level)} · ${esc(entry.name)}</option>`).join("");if([...select.options].some(option=>option.value===previous))select.value=previous;}
+function renderGemAssistant(){
+  if(typeof WORKSHOP_DATA==="undefined")return;const phase=phaseById(document.getElementById("gem-phase").value),goal=document.getElementById("gem-goal").value,target=document.getElementById("gem-target").value,quality=Math.max(0,Math.min(299,Number(document.getElementById("gem-quality").value)||0)),qualities=Number(document.getElementById("gem-qualities").value),flame=goal==="cylinder"?"gentle":goal==="multi"||qualities>1?"medium":"strong",pairs=WORKSHOP_DATA.gemPairs[flame].filter(pair=>pair.unlock<=phase.rank&&phase.roster.includes(pair.shooter)&&phase.roster.includes(pair.engineer));
+  const pair=pairs.at(-1)||pairs[0],threshold=goal==="mega"?300:goal==="heat"?200:goal==="gem"||goal==="multi"?100:99,gap=Math.max(0,threshold-quality),status=goal==="cylinder"?"Keep the target below 100%; every other unwanted quality should also stay below 100% if you want cylinders instead of accidental gems.":quality>=threshold?`Your starting ${quality}% already meets the ${threshold}% threshold; use the recommended flame to improve consistency, but the furnace remains random.`:`You need at least ${gap} more percentage points during crafting to reach ${threshold}%.`;
+  document.getElementById("gem-result").innerHTML=`<h3>${esc(target)} · ${goal==="mega"?"Mega Heat":goal==="heat"?"Heat":goal==="cylinder"?"cylinder prep":"craft"}</h3><div class="callout ${goal==="cylinder"?"a":"g"}"><p><b>${esc(flame.replace(/^./,letter=>letter.toUpperCase()))} Flame plan.</b> ${esc(status)}</p></div>${pair?`<p><b>Shooter:</b> ${esc(characterLabel(pair.shooter))}<br><b>Engineer:</b> ${esc(characterLabel(pair.engineer))}</p><p>${esc(pair.why)}</p>`:'<p><b>No ideal pair is available in this phase.</b> Use the best-affinity legal pair and expect more variance, or wait for the recommended characters to join.</p>'}<ol><li>${goal==="cylinder"?"Combine low-quality sources and avoid crossing 100%.":"Start with matching-rank, single-quality cylinders; two near 99% cylinders are the clean late-game setup."}</li><li>${flame==="strong"?"Use one focused quality so Strong Flame cannot boost the wrong result.":flame==="medium"?"Use Medium Flame because every selected quality needs progress.":"Use Gentle Flame to fill the cylinder gauge while minimizing accidental quality growth."}</li><li>100% makes a gem; 200% Heat raises its rank; 300% Mega Heat yields two maximum-value gems one rank higher.</li></ol><div class="workshop-actions"><button type="button" class="route-link" data-open-panel="monsters" data-search-monster-drop="${esc(target)}">Find ${esc(target)} encounters and drops</button><button type="button" class="route-link" data-open-tool="party" data-party-phase="${esc(phase.id)}" data-party-members="${esc([pair?.shooter,pair?.engineer].filter(Boolean).join(","))}" data-party-leader="${esc(pair?.shooter||"")}">Check crafter availability</button></div>`;
+}
+const GIFT_AREA_ORDER=["Colony 9","Tephra Cave","Bionis' Leg","Colony 6","Ether Mine","Satorl Marsh","Makna Forest","Frontier Village","Eryth Sea","Alcamoth","High Entia Tomb","Valak Mountain","Sword Valley","Galahad Fortress","Fallen Arm","Mechonis Field","Central Factory","Agniratha","Bionis' Interior","Prison Island","Other"];
+function giftAreaIndex(area){const index=GIFT_AREA_ORDER.indexOf(area);return index>=0?index:GIFT_AREA_ORDER.length-1;}
+function protectedGiftNames(){if(!routeReady)return new Set();return new Set(playableRouteCards().filter(record=>record.item.f==="m"&&!done[record.item.id]).flatMap(record=>{const text=plainText(`${record.item.t||""} ${record.item.d||""}`).toLowerCase();return WORKSHOP_DATA.gifts.filter(gift=>text.includes(gift.name.toLowerCase())).map(gift=>gift.name.toLowerCase());}));}
+function renderGiftOptimizer(){
+  if(typeof WORKSHOP_DATA==="undefined")return;const giver=document.getElementById("gift-giver").value,recipient=document.getElementById("gift-recipient").value,area=document.getElementById("gift-area").value,category=document.getElementById("gift-category").value,query=document.getElementById("gift-q").value.trim().toLowerCase(),protect=document.getElementById("gift-protect").checked,protectedNames=protect?protectedGiftNames():new Set(),areaLimit=area?giftAreaIndex(area):Infinity;
+  const results=WORKSHOP_DATA.gifts.filter(gift=>(!area||giftAreaIndex(gift.area)<=areaLimit)&&(!category||gift.category===category)&&(!query||`${gift.name} ${gift.area} ${gift.category}`.toLowerCase().includes(query))&&!protectedNames.has(gift.name.toLowerCase())).sort((a,b)=>b.affinity[recipient]-a.affinity[recipient]||a.name.localeCompare(b.name)).slice(0,20);
+  document.getElementById("gift-result").innerHTML=`<h3>${esc(characterLabel(giver))} → ${esc(characterLabel(recipient))}</h3><p>${protect?`${protectedNames.size} unfinished route material${protectedNames.size===1?" is":"s are"} protected from recommendations.`:"Route materials are not protected."} Love Source is always +100, but the list below also finds realistic field collectables.</p><div class="gift-results">${results.map(gift=>`<div class="gift-row"><div><b>${esc(gift.name)}</b><small>${esc(gift.category)} · ${esc(gift.area)}</small></div><span class="gift-value">${gift.affinity[recipient]>0?"+":""}${esc(gift.affinity[recipient])}</span></div>`).join("")||'<p>No gifts match these filters.</p>'}</div><div class="workshop-actions"><button type="button" class="route-link" data-open-tool="party">Put this pair in a party</button></div>`;
+}
+function populatePartySelectors(){
+  if(!buildReady)return;const phase=phaseById(document.getElementById("party-phase").value),selects=["party-leader","party-two","party-three"].map(id=>document.getElementById(id)),previous=selects.map(select=>select.value),defaults=phase.party;
+  const partySize=Math.min(3,phase.roster.length);
+  selects.forEach((select,index)=>{const active=index<partySize;select.closest("label").hidden=!active;select.disabled=!active;select.innerHTML=active?phase.roster.map(id=>`<option value="${esc(id)}">${esc(characterLabel(id))}</option>`).join(""):'<option value="">No third member</option>';select.value=active?(phase.roster.includes(previous[index])?previous[index]:(defaults[index]||phase.roster[index]||phase.roster[0])):"";});renderPartyChemistry();
+}
+function renderPartyChemistry(){
+  if(!buildReady||typeof WORKSHOP_DATA==="undefined")return;const phase=phaseById(document.getElementById("party-phase").value),members=[document.getElementById("party-leader").value,document.getElementById("party-two").value,document.getElementById("party-three").value].filter(Boolean),goal=document.getElementById("party-goal").value,unique=[...new Set(members)],expectedSize=Math.min(3,phase.roster.length),tags=new Set(unique.flatMap(id=>WORKSHOP_DATA.chemistry[id]?.tags||[])),legal=unique.length===expectedSize&&unique.every(id=>phase.roster.includes(id));
+  const controlTotal=members.reduce((sum,id,index)=>sum+(WORKSHOP_DATA.chemistry[id]?.[index===0?"player":"ai"]||1),0),controlMaximum=Math.max(1,members.length*3);
+  const scores={"Front line":tags.has("tank")?20:5,"Recovery":tags.has("heal")?20:5,"Break / Topple":tags.has("break")&&tags.has("topple")?20:tags.has("topple")?10:3,"Damage mix":tags.has("physical")&&tags.has("ether")?20:12,"Control fit":Math.round(controlTotal/controlMaximum*20)};
+  let total=Object.values(scores).reduce((sum,value)=>sum+value,0);if(goal==="safe"&&!tags.has("heal"))total-=10;if(goal==="burst"&&!tags.has("burst"))total-=8;if(goal==="topple"&&!(tags.has("break")&&tags.has("topple")))total-=10;if(goal==="ether"&&!tags.has("ether"))total-=10;total=Math.max(0,Math.min(100,total));
+  const warnings=[];if(!legal)warnings.push(`Choose ${expectedSize} different character${expectedSize===1?"":"s"} from the selected phase.`);if(!tags.has("tank"))warnings.push("No clear aggro anchor; expect target swapping and positional instability.");if(!tags.has("heal"))warnings.push("No dependable party recovery; this is a speed or execution setup.");if(!(tags.has("break")&&tags.has("topple")))warnings.push("Break → Topple coverage is incomplete.");if(members[0]&&(WORKSHOP_DATA.chemistry[members[0]]?.player||0)<3)warnings.push(`${characterLabel(members[0])} gains less from manual control than another member of this party.`);members.slice(1).forEach(id=>{if((WORKSHOP_DATA.chemistry[id]?.ai||0)<2)warnings.push(`${characterLabel(id)} is AI-sensitive and may not execute the intended rotation.`);});
+  const matching=BUILD_DATA.partyPresets.find(preset=>preset.party.length===expectedSize&&preset.party.every(id=>unique.includes(id))&&preset.leader===members[0]);
+  const phaseNote=expectedSize<3?'<p class="muted"><b>Forced two-person phase:</b> the missing third slot is intentional and is not scored as an illegal party.</p>':"";
+  document.getElementById("party-result").innerHTML=`<h3>${legal?`${total}/100 chemistry`:"Invalid party"}</h3><p><b>${esc(members.map(characterLabel).join(" / "))}</b> · control ${esc(characterLabel(members[0]))}</p>${phaseNote}<div class="workshop-score">${Object.entries(scores).map(([label,value])=>`<b>${esc(label)}</b><span class="score-bar" aria-label="${esc(label)} ${value} of 20"><i style="width:${value*5}%"></i></span>`).join("")}</div>${warnings.length?`<div class="callout a"><p><b>Watch:</b></p><ul>${warnings.map(warning=>`<li>${esc(warning)}</li>`).join("")}</ul></div>`:'<div class="callout g"><p><b>Clean coverage:</b> this party has a tank, recovery, reaction control, damage variety and a sensible control assignment.</p></div>'}${matching?`<p><b>Matching guide preset:</b> ${esc(matching.phase)} · ${esc(matching.activity)}. ${esc(matching.why)}</p>`:""}<div class="workshop-actions">${legal?`<button type="button" class="route-link" data-open-tool="chain" data-chain-phase="${esc(phase.id)}" data-chain-party="${esc(members.join(","))}" data-chain-leader="${esc(members[0])}">Plan this party's chain</button>`:""}<button type="button" class="route-link" data-open-panel="combat">Open member builds</button></div>`;
+}
+function initWorkshop(){
+  if(typeof WORKSHOP_DATA==="undefined"||!buildReady)return;const phase=currentWorkshopPhase();["chain-phase","gem-phase","party-phase"].forEach(id=>{const select=document.getElementById(id);select.innerHTML=phaseOptions();select.value=phase.id;});
+  document.getElementById("gem-target").innerHTML=WORKSHOP_DATA.gemTargets.map(name=>`<option>${esc(name)}</option>`).join("");
+  const mainCharacters=BUILD_DATA.characters.map(character=>character.id);["gift-giver","gift-recipient"].forEach((id,index)=>{const select=document.getElementById(id);select.innerHTML=mainCharacters.map(character=>`<option value="${esc(character)}">${esc(characterLabel(character))}</option>`).join("");select.value=index?"reyn":"shulk";});
+  document.getElementById("gift-area").innerHTML='<option value="">Any area</option>'+GIFT_AREA_ORDER.map(area=>`<option>${esc(area)}</option>`).join("");document.getElementById("gift-category").innerHTML='<option value="">Any category</option>'+[...new Set(WORKSHOP_DATA.gifts.map(gift=>gift.category))].map(category=>`<option>${esc(category)}</option>`).join("");
+  document.getElementById("chain-source").innerHTML=`Mechanics: ${workshopSources(["gamefaqs-arts","wiki-chain"])}. Sequences are guide recommendations.`;document.getElementById("gem-source").innerHTML=`Mechanics and pairs: ${workshopSources(["wiki-crafting","game8-crafting"])}.`;document.getElementById("gift-source").innerHTML=`Complete ${WORKSHOP_DATA.gifts.length}-item matrix: ${workshopSources(["game8-gifts"])}.`;document.getElementById("party-source").innerHTML="Scores are transparent guide heuristics over the sourced build roster; they are not hidden game stats.";
+  populateChainPresets();populateChainTargets();renderGemAssistant();renderGiftOptimizer();populatePartySelectors();
+}
+["chain-goal","chain-preset","chain-target"].forEach(id=>document.getElementById(id).addEventListener("change",renderChainPlanner));document.getElementById("chain-phase").addEventListener("change",()=>{chainContextParty=[];chainContextLeader="";populateChainPresets();});
+["gem-phase","gem-target","gem-goal","gem-quality","gem-qualities"].forEach(id=>document.getElementById(id).addEventListener(id==="gem-quality"?"input":"change",renderGemAssistant));
+["gift-giver","gift-recipient","gift-area","gift-category","gift-protect","gift-q"].forEach(id=>document.getElementById(id).addEventListener(id==="gift-q"?"input":"change",renderGiftOptimizer));
+document.getElementById("party-phase").addEventListener("change",populatePartySelectors);["party-leader","party-two","party-three","party-goal"].forEach(id=>document.getElementById(id).addEventListener("change",renderPartyChemistry));
+document.addEventListener("click",event=>{const tool=event.target.closest("[data-open-tool]");if(tool){activatePanel(tool.dataset.openTool);
+  if(tool.dataset.chainPhase||tool.dataset.chainParty||tool.dataset.chainTarget||tool.dataset.chainPreset){if(tool.dataset.chainPhase&&[...document.getElementById("chain-phase").options].some(option=>option.value===tool.dataset.chainPhase))document.getElementById("chain-phase").value=tool.dataset.chainPhase;chainContextParty=(tool.dataset.chainParty||"").split(",").filter(Boolean);chainContextLeader=tool.dataset.chainLeader||chainContextParty[0]||"";populateChainPresets();if(tool.dataset.chainPreset&&[...document.getElementById("chain-preset").options].some(option=>option.value===tool.dataset.chainPreset))document.getElementById("chain-preset").value=tool.dataset.chainPreset;if(tool.dataset.chainTarget){populateChainTargets();document.getElementById("chain-target").value=tool.dataset.chainTarget;}renderChainPlanner();}
+  if(tool.dataset.gemPhase&&[...document.getElementById("gem-phase").options].some(option=>option.value===tool.dataset.gemPhase))document.getElementById("gem-phase").value=tool.dataset.gemPhase;if(tool.dataset.gemTarget&&[...document.getElementById("gem-target").options].some(option=>option.value===tool.dataset.gemTarget))document.getElementById("gem-target").value=tool.dataset.gemTarget;if(tool.dataset.gemPhase||tool.dataset.gemTarget)renderGemAssistant();
+  if(tool.dataset.partyPhase&&[...document.getElementById("party-phase").options].some(option=>option.value===tool.dataset.partyPhase)){document.getElementById("party-phase").value=tool.dataset.partyPhase;populatePartySelectors();}if(tool.dataset.partyMembers){const phase=phaseById(document.getElementById("party-phase").value),requested=tool.dataset.partyMembers.split(",").filter(id=>phase.roster.includes(id)),leader=phase.roster.includes(tool.dataset.partyLeader)?tool.dataset.partyLeader:requested[0],ordered=[leader,...requested.filter(id=>id!==leader)].filter(Boolean);phase.roster.forEach(id=>{if(ordered.length<Math.min(3,phase.roster.length)&&!ordered.includes(id))ordered.push(id);});["party-leader","party-two","party-three"].forEach((id,index)=>{const select=document.getElementById(id);if(ordered[index]&&[...select.options].some(option=>option.value===ordered[index]))select.value=ordered[index];});renderPartyChemistry();}
+  if(tool.dataset.giftRoute){const names=BUILD_DATA.characters.filter(character=>tool.dataset.giftRoute.toLowerCase().includes(character.name.toLowerCase()));if(names[0])document.getElementById("gift-giver").value=names[0].id;if(names[1])document.getElementById("gift-recipient").value=names[1].id;renderGiftOptimizer();}return;}const panel=event.target.closest("[data-open-panel]");if(panel){activatePanel(panel.dataset.openPanel);if(panel.dataset.searchMonsterDrop&&monsterReady){document.getElementById("monster-q").value=panel.dataset.searchMonsterDrop;renderMonsterpedia(true);}return;}});
 
 function setSaveStatus(message, error = false){
   const el = document.getElementById("save-status");
@@ -3083,10 +3417,17 @@ document.getElementById("restore").addEventListener("click", () => {
 });
 document.getElementById("reset").addEventListener("click", () => {
   if (!confirm("Clear Route, world-tracker, Completion Hub, Monsterpedia, drop and Collectopaedia progress? An automatic local backup will be kept.")) return;
-  backupCurrent(); state = emptyState(); syncStateRefs(); save(); rebuildAll();
+  backupCurrent(); state = emptyState(); visionShownThisSession = Object.create(null);
+  try { localStorage.removeItem(VISION_SEEN); } catch(e){}
+  syncStateRefs(); save(); rebuildAll();
   setSaveStatus("All progress cleared. Use Restore last reset to undo.");
 });
 updateRestoreAvailability();
+
+const initialDestination=location.hash.includes("/")?location.hash.split("/").pop():"route";
+const safeInitialDestination=HUB_BY_DESTINATION[initialDestination]?initialDestination:"route";
+if(history?.replaceState)history.replaceState({destination:safeInitialDestination,scrollY:0},"",destinationHash(safeInitialDestination));
+activatePanel(safeInitialDestination,false,false);
 
 // Load local data with cache-busting timestamps so edits always appear on reload.
 function loadData(file){
@@ -3103,13 +3444,15 @@ function ensurePanelData(name){
     if (!bindingsReady && !bindingsLoad) bindingsLoad = loadData("data/route-bindings-data.js").then(() => { bindingsReady = true; if (completionReady) renderCompletion(); if (worldReady) renderQuestLookup(); renderCompanion(); });
     renderCompanion();
   }
+  if (name === "workshop") initWorkshop();
+  if (name === "chain") ensurePanelData("monsters");
   if (name === "completion" && !completionReady && !completionLoad) {
     completionLoad = loadData("data/completion-data.js").then(() => { initCompletion(); renderCompanion(); }).catch(() => {
       completionEl.innerHTML = '<div class="callout"><p><strong>Could not load <code>data/completion-data.js</code>.</strong> Run <code>node build-completion-data.js</code> or keep the data folder beside this file.</p></div>';
     });
   }
   if (name === "monsters" && !monsterReady && !monsterLoad) {
-    monsterLoad = loadData("data/monsterpedia-data.js").then(() => { initMonsterpedia(); renderCompanion(); }).catch(() => {
+    monsterLoad = loadData("data/monsterpedia-data.js").then(() => { initMonsterpedia(); populateChainTargets(); renderCompanion(); }).catch(() => {
       monsterEl.innerHTML = '<div class="callout"><p><strong>Could not load <code>data/monsterpedia-data.js</code>.</strong> Run <code>node build-monsterpedia-data.js</code>.</p></div>';
     });
   }

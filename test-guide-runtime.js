@@ -7,7 +7,7 @@ const jsdomPath = process.argv[2] || "jsdom";
 const { JSDOM, VirtualConsole } = require(jsdomPath);
 
 const root = __dirname;
-const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "world-route-anchors-early.js", "world-route-anchors-mid.js", "world-route-anchors-late.js", "build-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js"];
+const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "world-route-anchors-early.js", "world-route-anchors-mid.js", "world-route-anchors-late.js", "build-data.js", "workshop-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js"];
 const injectedData = dataFiles.map(file => `<script>${fs.readFileSync(path.join(root, "data", file), "utf8")}</script>`).join("");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8").replace("</head>", `${injectedData}</head>`);
 const errors = [];
@@ -77,6 +77,14 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(document.querySelector(".header-tools > #guide-search-results")?.textContent.includes("Avalanche Abaasy"), "global search results are not anchored to the header search region");
   globalSearch.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
   assert(!document.getElementById("guide-search-results"), "Escape did not dismiss global search results");
+  globalSearch.value = "Territorial Rotbart";
+  globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  await waitFor(() => document.getElementById("guide-search-results")?.textContent.includes("Monsterpedia: Territorial Rotbart"), "global search lazy Monsterpedia index");
+  globalSearch.value = "no-such-xenoblade-record-zzzz";
+  globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  assert(!document.getElementById("guide-search-results") && document.getElementById("guide-search-count").textContent === "No matches", "empty global search results leave a click-blocking overlay");
+  globalSearch.value = "";
+  globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
 
   document.querySelector('[data-p="companion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   await waitFor(() => document.querySelector("#inventory-list input[data-inventory-id]"), "Play Mode inventory planner render");
@@ -87,6 +95,12 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.getElementById("encounter-select").dispatchEvent(new Event("change", { bubbles: true }));
   assert(document.getElementById("encounter-detail").textContent.includes("Shulk / Reyn / Fiora · control Shulk"), "Play Mode recommends a party that is unavailable for Verdant Bluchal");
   assert(!document.getElementById("encounter-detail").textContent.includes("Shulk / Dunban / Riki"), "Play Mode leaked the late-game Unique Monster party into Chapter 1");
+  document.getElementById("session-length").value = "30";
+  document.getElementById("session-focus").value = "completion";
+  document.getElementById("session-build").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.querySelectorAll("#session-dashboard .session-check").length > 0 && document.getElementById("session-dashboard").textContent.includes("route order preserved"), "Adventure Companion did not build a route-ordered session");
+  assert(!document.getElementById("session-dashboard").textContent.includes("Party data is loading"), "Adventure Companion shows a false loading state when the current chapter has no scheduled party swap");
+  assert(JSON.parse(localStorage.getItem("xc1de-guide-state-v4")).preferences.sessionIds.length > 0, "Adventure Companion session did not persist");
   document.querySelector("#play-current [data-complete-play]").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   let companionSaved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(companionSaved.route["c0-02"], "Play Mode did not persist the current route checkpoint");
@@ -144,6 +158,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   routeSearch.dispatchEvent(new Event("input", { bubbles: true }));
   const bafalgar = [...document.querySelectorAll("#route .world-it")].find(row => row.textContent.includes("Bafalgar Tomb"));
   assert(bafalgar && !bafalgar.classList.contains("hide") && bafalgar.closest("section").style.display !== "none", "route search did not find a world discovery");
+  const hiddenRouteBundles = [...document.querySelectorAll("#route .route-cue-bundle.hide")];
+  assert(hiddenRouteBundles.length > 0 && hiddenRouteBundles.every(bundle => dom.window.getComputedStyle(bundle).display === "none"), "route search leaves nonmatching location bundles visibly stacked below its results");
   routeSearch.value = ""; routeSearch.dispatchEvent(new Event("input", { bubbles: true }));
   document.querySelector('#p-route .chip[data-f="d"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert([...document.querySelectorAll('#route .world-it[data-deadline="true"]')].some(row => !row.classList.contains("hide")), "deadline filter omitted lockout-map discoveries");
@@ -186,6 +202,10 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(document.querySelectorAll("#monster-results .result-card").length > 0, "Monsterpedia drop search returned nothing");
   assert(document.getElementById("monster-count").textContent.includes("of 866"), "Monsterpedia count is incorrect");
   assert(document.getElementById("monster-ledger").textContent.includes("0 / 12,582 drops logged"), "Monsterpedia ledger total is missing or incorrect");
+  monsterSearch.value = "Territorial Rotbart";
+  monsterSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  assert(document.getElementById("monster-more").hidden, "Monsterpedia pagination control is not hidden when all filtered results fit");
+  assert(document.querySelector("#monster-results [data-chain-phase]")?.dataset.chainPhase === "ch12", "high-level Monsterpedia encounters fall back to the opening-party Chain Planner phase");
   assert(document.querySelectorAll("#monster-results .monster-portrait").length > 0, "Monsterpedia portraits did not render");
   assert([...document.querySelectorAll("#monster-results .monster-portrait")].some(image => image.getAttribute("src").startsWith("assets/monster-images/")), "Monsterpedia is not using its locally cached wiki portraits");
   assert([...document.querySelectorAll("#monster-results .monster-card")].every(card => card.dataset.family), "Monsterpedia cards lack their family identity");
@@ -245,6 +265,17 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   const verdantCard = document.querySelector("#monster-results .monster-card");
   assert(verdantCard?.textContent.includes("Shulk / Reyn / Fiora · control Shulk"), "Monsterpedia does not show the legal Chapter 1 party for Verdant Bluchal");
   assert(verdantCard?.querySelector('.combat-dossier[open]') && verdantCard.querySelector('details[open]'), "Monsterpedia disclosures do not start expanded");
+  const dossierChainLink = verdantCard.querySelector('[data-open-tool="chain"][data-chain-target]');
+  assert(dossierChainLink?.dataset.chainTarget === verdant.id && dossierChainLink.dataset.chainPhase === "ch1", "Unique Monster dossier does not carry target and story phase into Chain Planner");
+  dossierChainLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("p-chain").classList.contains("on") && document.getElementById("chain-target").value === verdant.id && document.getElementById("chain-phase").value === "ch1", "Unique Monster-to-Chain-Planner context was not applied");
+  document.querySelector('[data-hub="reference"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  monsterSearch.value = "Verdant Bluchal";
+  monsterSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  const monsterGemLink = document.querySelector('#monster-results [data-open-tool="gems"][data-gem-target]');
+  assert(monsterGemLink?.dataset.gemTarget === "Agility Up", "Monsterpedia dossier does not expose its relevant gem preparation");
+  monsterGemLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("p-gems").classList.contains("on") && document.getElementById("gem-target").value === "Agility Up", "Monsterpedia-to-Gem-Assistant context was not applied");
   monsterSearch.value = "";
   monsterSearch.dispatchEvent(new Event("input", { bubbles: true }));
 
@@ -275,7 +306,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   questBackLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.getElementById("p-route").classList.contains("on") && document.querySelector(`#route .it[data-id="${questRouteCardId}"]`), "Quest-to-route link did not open the exact route card");
 
-  document.querySelector('[data-p="quests"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('[data-p="monsters"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('[data-hub-destination="quests"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   const questSearch = document.getElementById("quest-q");
   questSearch.value = "Talia's Research";
   questSearch.dispatchEvent(new Event("input", { bubbles: true }));
@@ -287,6 +319,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.querySelector('[data-p="combat"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.querySelectorAll("#build-character-tabs .build-character-tab").length === 11, "Build Lab roster did not render 11 character tabs");
   assert([...document.querySelectorAll("#build-character-tabs [role=tab]")].every(tab => tab.id && tab.getAttribute("aria-controls") && tab.getAttribute("tabindex")), "Build character tabs lack complete keyboard/ARIA relationships");
+  assert([...document.querySelectorAll("#build-character-tabs [role=tab]")].every(tab => document.getElementById(tab.getAttribute("aria-controls"))), "A Build Lab character tab controls a missing panel");
   assert(document.querySelector("label[for=import-file]")?.textContent.includes("progress JSON"), "Import file control lacks a visible-to-assistive label");
   assert(document.querySelectorAll("#party-presets .preset-avatar[src^='assets/party-portraits/']").length > 0, "Party presets are missing their sourced character portraits");
   assert(document.getElementById("build-goal-note").textContent.includes("Same 8 normal Arts"), "Shulk's fortress comparison does not explain why its Arts match Reliable meta");
@@ -306,8 +339,93 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(document.querySelectorAll("#build-result .build-character-block").length === 1, "Build Lab did not return to single-character mode");
   document.querySelector("#party-presets .preset").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert(document.getElementById("preset-detail").textContent.includes("Party:"), "party preset did not open");
+  assert(document.querySelectorAll("#tabs > button").length === 5 && !document.getElementById("mobile-section"), "global navigation did not consolidate to five hubs");
+  assert([...document.querySelectorAll("#tabs > button")].map(button => button.textContent.trim()).join("|") === "The Route|Companion|Completion|Reference|Workshop", "global navigation labels or order do not match the five-hub design");
+  const expectedHubSections = {
+    companion:["Adventure session","Next objective","Area briefing","Inventory","Encounter mode"],
+    completion:["Completion ledger","Colony 6","Decisions","Endgame"],
+    reference:["Monsterpedia","Quests","Atlas & planners","Time & weather"],
+    workshop:["Builds & presets","Chain Planner","Gem Crafting","Gift Optimizer","Party Chemistry"]
+  };
+  for (const [hub, labels] of Object.entries(expectedHubSections)) {
+    document.querySelector(`[data-hub="${hub}"]`).dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    assert([...document.querySelectorAll("#hub-rail [data-hub-destination]")].map(button => button.textContent.trim()).join("|") === labels.join("|"), `${hub} hub rail is incomplete or out of order`);
+    assert(document.getElementById("hub-section-label").textContent === `${hub === "companion" ? "Companion" : hub[0].toUpperCase()+hub.slice(1)}:`, `${hub} mobile section picker is not context-labelled`);
+  }
+  document.querySelector('[data-hub="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(["hub-breadcrumb","hub-rail","hub-section-picker"].every(id => document.getElementById(id).hidden), "Workshop hub chrome remains active after returning to the Route");
+  document.querySelector('[data-hub="workshop"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('#p-combat [data-open-tool="chain"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("p-chain").classList.contains("on") && document.querySelectorAll("#chain-result .chain-art").length >= 2, "Chain Planner did not render a phase-legal sequence");
+  assert(!document.getElementById("chain-result").textContent.includes("Dunban") && !document.getElementById("chain-result").textContent.includes("Riki"), "Chain Planner leaked later party members into the opening phase");
+  document.querySelector('[data-hub-destination="gems"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("gem-result").textContent.includes("100% makes a gem") && document.getElementById("gem-result").textContent.includes("300% Mega Heat"), "Gem Crafting Assistant is missing its threshold plan");
+  document.querySelector('[data-hub-destination="gifts"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("gift-source").textContent.includes("300-item matrix") && document.querySelectorAll("#gift-result .gift-row").length === 20, "Gift Optimizer did not load the complete gift matrix or ranked results");
+  const giftArea = document.getElementById("gift-area");
+  document.getElementById("gift-protect").checked = false;
+  for (const option of [...giftArea.options].filter(option => option.value)) {
+    giftArea.value = option.value;
+    giftArea.dispatchEvent(new Event("change", { bubbles: true }));
+    assert(document.querySelectorAll("#gift-result .gift-row").length > 0, `Gift Optimizer area filter returned nothing for ${option.value}`);
+  }
+  giftArea.value = "Colony 9";
+  document.getElementById("gift-q").value = "Sweet Wasabi";
+  document.getElementById("gift-q").dispatchEvent(new Event("input", { bubbles: true }));
+  assert(document.getElementById("gift-result").textContent.includes("Sweet Wasabi") && !document.getElementById("gift-result").textContent.includes("Sweet Wasabi Colony 9"), "Gift Optimizer did not separate gift names from their areas");
+  document.getElementById("gift-q").value = "";
+  giftArea.value = "";
+  giftArea.dispatchEvent(new Event("change", { bubbles: true }));
+  document.querySelector('[data-hub-destination="party"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("party-leader").options.length === 3 && !document.getElementById("party-result").textContent.includes("Dunban"), "Party Chemistry Lab did not enforce Chapter 1 roster availability");
+  document.getElementById("party-phase").value = "ch3";
+  document.getElementById("party-phase").dispatchEvent(new Event("change", { bubbles: true }));
+  assert(document.getElementById("party-three").disabled && document.getElementById("party-three").closest("label").hidden, "Party Lab did not represent the Chapter 3 forced pair");
+  assert(document.getElementById("party-result").textContent.includes("Forced two-person phase") && !document.getElementById("party-result").textContent.includes("Invalid party"), "Party Lab incorrectly scores the Chapter 3 forced pair as illegal");
 
-  document.querySelector('[data-p="reference"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  const ch5PartyLink = document.querySelector('#s-ch5 .route-build [data-open-tool="party"]');
+  assert(ch5PartyLink?.dataset.partyPhase === "ch5" && ch5PartyLink.dataset.partyMembers === "shulk,dunban,sharla", "route build update does not carry its phase and party into Party Lab");
+  ch5PartyLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("party-phase").value === "ch5" && document.getElementById("party-leader").value === "shulk" && document.getElementById("party-two").value === "dunban" && document.getElementById("party-three").value === "sharla", "route-to-Party-Lab context was not applied");
+  document.querySelector('#party-result [data-open-tool="chain"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("chain-phase").value === "ch5" && document.getElementById("chain-preset").value === "__context" && /Shulk \/ Dunban \/ Sharla/.test(document.getElementById("chain-result").textContent), "Party Lab did not carry the selected party into Chain Planner");
+
+  document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  const ch5GemLink = document.querySelector('#s-ch5 .route-build [data-open-tool="gems"]');
+  assert(ch5GemLink?.dataset.gemTarget === "Agility Up", "route build update did not identify its primary gem need");
+  ch5GemLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("gem-phase").value === "ch5" && document.getElementById("gem-target").value === "Agility Up", "route-to-Gem-Assistant context was not applied");
+  document.querySelector('#gem-result [data-search-monster-drop]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("p-monsters").classList.contains("on") && document.getElementById("monster-q").value === "Agility Up" && document.querySelectorAll("#monster-results .monster-card").length > 0, "Gem Assistant did not open relevant Monsterpedia encounter/drop context");
+
+  const ch5Record = dom.window.playableRouteCards().find(record => record.chapter.id === "ch5");
+  dom.window.renderAreaBriefing(ch5Record);
+  const companionAgilityLink = document.querySelector('#area-briefing [data-open-tool="gems"][data-gem-target="Agility Up"]');
+  assert(companionAgilityLink && companionAgilityLink.textContent.includes("Craft Agility Up"), "Companion does not turn the Chapter 5 Dunban agility need into a contextual gem action");
+
+  document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  const heartGiftLink = document.querySelector('#route [data-open-tool="gifts"][data-gift-route]');
+  assert(heartGiftLink, "Heart-to-Heart route card does not link to Gift Optimizer");
+  heartGiftLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("p-gifts").classList.contains("on") && document.getElementById("gift-giver").value !== document.getElementById("gift-recipient").value, "Heart-to-Heart link did not preselect its character pair");
+
+  document.querySelector('[data-p="completion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('[data-hub-destination="bosses"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('#p-bosses [data-open-tool="party"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.getElementById("party-phase").value === "post" && ["party-leader","party-two","party-three"].map(id => document.getElementById(id).value).join(",") === "shulk,dunban,riki", "Endgame guide did not load its superboss party in Workshop");
+
+  for (const query of ["Adventure Companion","Completion Hub","Quest Lookup","Atlas planners","Chain Planner","Gem Crafting Assistant","Gift Optimizer","Party Chemistry Lab"]) {
+    globalSearch.value = query;
+    globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
+    assert(document.getElementById("guide-search-results")?.textContent.toLowerCase().includes(query.split(" ")[0].toLowerCase()), `global search did not index the ${query} subsection`);
+  }
+  globalSearch.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+  document.querySelector('[data-hub="companion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.querySelectorAll("#recent-tools button").length > 0 && document.getElementById("recent-tools").textContent.includes("Party Chemistry"), "Companion does not retain recently used Workshop shortcuts");
+
+  document.querySelector('[data-p="monsters"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.querySelector('[data-hub-destination="reference"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   await waitFor(() => document.querySelector("#reference-atlas img"), "offline map atlas render");
   assert(document.querySelectorAll("#reference-atlas .frontier-tiles img").length === 4, "interactive atlas did not render its four local map tiles");
   assert(document.querySelectorAll("#reference-atlas .frontier-pin").length > 0, "interactive atlas did not render exact source pins");
@@ -328,11 +446,23 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   document.getElementById("affinity-q").dispatchEvent(new Event("input", { bubbles: true }));
   assert(document.querySelector("#affinity-residents .collect-page")?.textContent.includes("Dionysis"), "Affinity resident search failed");
 
-  const mobileSection = document.getElementById("mobile-section");
+  document.querySelector('[data-p="completion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  const mobileSection = document.getElementById("hub-section-select");
   mobileSection.value = "bosses";
   mobileSection.dispatchEvent(new Event("change", { bubbles: true }));
-  assert(document.getElementById("p-bosses").classList.contains("on") && mobileSection.value === "bosses", "mobile More navigation did not activate the selected section");
+  assert(document.getElementById("p-bosses").classList.contains("on") && mobileSection.value === "bosses", "mobile hub section picker did not activate the selected section");
+  assert(document.getElementById("tab-completion").getAttribute("aria-controls") === "p-bosses", "active hub tab does not identify its visible subsection panel");
   assert(document.querySelector("#p-bosses .guide-feature img")?.getAttribute("src") === "assets/game-icons/superboss-abaasy.png", "Superboss guide panel is missing its sourced in-game image");
+
+  // A Back navigation that restores a route-card state must not push a new
+  // history entry from inside popstate and discard the Forward destination.
+  const historyRouteId = dom.window.playableRouteCards()[12].item.id;
+  dom.window.openRouteCard(historyRouteId);
+  dom.window.activatePanel("gifts");
+  const historyLength = dom.window.history.length;
+  dom.window.history.back();
+  await waitFor(() => dom.window.history.state?.routeItem === historyRouteId, "route-card history restore");
+  assert(dom.window.history.length === historyLength && document.getElementById("p-route").classList.contains("on"), "route-card popstate created a replacement history entry");
 
   document.getElementById("reset").dispatchEvent(new MouseEvent("click", { bubbles: true }));
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
@@ -349,5 +479,5 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   const previousSaved = JSON.parse(previousDom.window.localStorage.getItem("xc1de-guide-state-v4"));
   assert(previousSaved.route["c1-01"] && previousSaved.version === 4 && previousSaved.world && previousSaved.routeSteps, "v2 structured state did not migrate to v4");
   previousDom.window.close();
-  console.log("OK: v1/v2 migration, route/world render, searches, Monsterpedia ledger and hunt filters, builds, presets, reset and restore interactions.");
+  console.log("OK: migration, route/world render, five hubs, Companion sessions, searches, Monsterpedia, Workshop tools, builds, presets, reset and restore interactions.");
 })().catch(error => { console.error(error.stack || error); process.exit(1); });
