@@ -863,7 +863,7 @@ html[data-theme="xenoblade"] .guide-feature,html[data-theme="xenoblade"] .guide-
 @media(max-width:640px){html:not([data-theme="xenoblade"]) .hrow{display:flex!important;grid-template-columns:initial!important;grid-template-rows:initial!important;grid-template-areas:initial!important;min-height:initial!important;padding:12px 14px!important}html:not([data-theme="xenoblade"]) .theme-control{position:static!important;font-size:13px!important;letter-spacing:normal!important;text-transform:none!important}html:not([data-theme="xenoblade"]) .theme-control select{max-width:150px!important;font-size:inherit!important}html:not([data-theme="xenoblade"]) .tabs{padding-left:8px!important}html:not([data-theme="xenoblade"]) .tabs button{min-width:0!important}html:not([data-theme="xenoblade"]) .pct{font-size:14px!important}html:not([data-theme="xenoblade"]) .bar{height:9px!important}}
 /* Companion + release pass. */
 .header-console{display:flex;align-items:center;gap:12px;flex:1;min-width:520px}.header-status{display:flex;align-items:center;gap:12px;flex:1;min-width:260px}.header-status .bar{flex:1}.header-status .pct{flex:0 0 auto;min-width:130px}.header-tools{position:relative;display:flex;align-items:center;gap:12px;margin-left:auto}.search-label{font-size:12px;font-weight:750;letter-spacing:.03em;text-transform:uppercase;color:#d4e8f4}.global-search{position:relative;display:block;min-width:360px;margin:0}.global-search .ui-icon{position:absolute;z-index:1;left:14px;top:50%;width:19px;height:19px;color:#66dcff;transform:translateY(-50%);pointer-events:none}.global-search input{width:100%;max-width:none!important;padding-left:44px!important;padding-right:92px!important;border-width:2px!important;background:#143f5c!important;box-shadow:inset 0 0 16px rgba(89,213,255,.08),0 0 0 1px rgba(89,213,255,.08)}.global-search-count{position:absolute;right:13px;top:50%;max-width:76px;overflow:hidden;text-overflow:ellipsis;transform:translateY(-50%);font-size:11px}
-#guide-search-results{position:absolute;z-index:90;top:calc(100% + 62px);left:0;right:0;max-height:min(62vh,560px);overflow:auto;display:grid;gap:6px;padding:10px;border:2px solid var(--accent);background:var(--bg);box-shadow:0 18px 45px rgba(0,0,0,.48)}#guide-search-results .route-link{display:block;width:100%;text-align:left;padding:10px 12px;background:var(--bg2)}
+#guide-search-results{position:absolute;z-index:90;max-height:min(62vh,560px);overflow:auto;display:grid;gap:6px;padding:10px;border:2px solid var(--accent);background:var(--bg);box-shadow:0 18px 45px rgba(0,0,0,.48)}#guide-search-results .route-link{display:block;width:100%;text-align:left;padding:10px 12px;background:var(--bg2)}
 input[type=search]{border-width:2px;background:color-mix(in srgb,var(--accent) 11%,var(--bg2));box-shadow:inset 0 0 13px color-mix(in srgb,var(--accent) 8%,transparent)}input[type=search]::placeholder{color:var(--fg2);opacity:.92}
 .tabs .game-icon{width:24px;height:24px;object-fit:contain;background:radial-gradient(circle,rgba(78,205,246,.15),transparent 68%);filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 4px rgba(79,211,255,.24))}.tabs button.on .game-icon{filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 7px rgba(103,225,255,.7))}
 .companion-shell{display:grid;gap:18px}.companion-topbar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:15px;border:1px solid var(--line);background:var(--bg2)}.companion-topbar .filter-field{min-width:210px;flex:1}.companion-topbar select{display:block;width:100%;min-height:44px;margin-top:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.advance-status{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border:2px solid var(--green);background:var(--greenbg)}.advance-status.is-blocked{border-color:var(--redline);background:var(--redbg)}.advance-status strong{display:block;font-size:22px}.mission-current{padding:22px;border:2px solid var(--accent);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 13%,var(--bg2)),var(--bg2));box-shadow:0 10px 28px rgba(0,0,0,.14)}.mission-current h3{margin:0 0 8px;font-size:27px}.mission-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:8px 0 13px;color:var(--fg2);font-weight:700}.next-steps{display:grid;gap:9px}.step-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:start;padding:13px 15px;border:1px solid var(--line);background:var(--bg2)}.step-card .step-number{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--accent);color:var(--accent);font-weight:800}.step-card p{margin:0}.brief-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}.brief-card{padding:16px;border:1px solid var(--line);background:var(--bg2)}.brief-card h3{margin:0 0 8px}.brief-stat{font-size:27px;font-weight:780;color:var(--accent)}.inventory-list{display:grid;gap:8px}.inventory-row{display:grid;grid-template-columns:minmax(180px,1fr) 90px minmax(180px,1fr) auto;gap:10px;align-items:center;padding:11px 13px;border:1px solid var(--line);background:var(--bg2)}.inventory-row input[type=number]{width:82px;min-height:40px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;padding:5px 8px}.inventory-need{color:var(--fg2);font-size:14px}.encounter-console{padding:16px;border:1px solid var(--redline);background:var(--redbg)}.encounter-console select{width:min(560px,100%);min-height:44px;margin:6px 0 12px;border:1px solid var(--redline);background:var(--bg2);color:var(--fg);font:inherit;padding:7px 34px 7px 10px}.quest-readiness{margin:10px 0;padding:10px 12px;border-left:4px solid var(--green);background:var(--greenbg)}.quest-readiness.is-blocked{border-color:var(--red);background:var(--redbg)}.binding-note{display:inline-flex;align-items:center;gap:5px;color:var(--fg3);font-size:12px}.offline-note{padding:10px 13px;border:1px solid var(--line);background:var(--bg2);color:var(--fg2);font-size:14px}
@@ -1026,7 +1026,24 @@ html[data-theme="xenoblade"] .hub-rail,html[data-theme="xenoblade"] .session-car
 @media(max-width:900px){#main.hub-active{display:grid;grid-template-columns:1fr}.hub-breadcrumb{margin-top:-8px}.hub-rail{display:none}.hub-section-picker{display:block}#main.hub-active>.panel.on{grid-column:1}.session-dashboard,.workshop-grid{grid-template-columns:1fr}}
 @media(max-width:640px){html,body{overflow-x:clip!important}.tabs{grid-template-columns:repeat(5,minmax(0,1fr))!important;padding:0!important}.tabs button{min-height:54px!important;padding:7px 2px!important;border-right:1px solid rgba(120,170,195,.24)!important;font-size:10.5px!important;line-height:1.1}.tabs button:last-child{border-right:0!important}.tabs button .game-icon,.tabs button .nav-game-icon{display:none!important}.session-builder{grid-template-columns:1fr}.session-check{grid-template-columns:24px minmax(0,1fr)}.session-estimate{grid-column:2}.workshop-controls,.workshop-result,.session-card{padding:13px}}
 @media(max-width:1280px) and (min-width:641px){html[data-theme="xenoblade"] .tabs{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
-@media(max-width:640px){html[data-theme="xenoblade"] .tabs,html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}.tabs button:nth-child(-n+3){grid-column:span 2}.tabs button:nth-child(n+4){grid-column:span 3}.tabs button{min-height:52px!important;font-size:13px!important}.global-search .ui-icon{top:25px!important}#guide-search-results{top:calc(100% + 140px)}.pan>summary{min-height:44px}.chip,.ghost,.theme-control select{min-height:44px}}
+@media(max-width:640px){html[data-theme="xenoblade"] .tabs,html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}.tabs button:nth-child(-n+3){grid-column:span 2}.tabs button:nth-child(n+4){grid-column:span 3}.tabs button{min-height:52px!important;font-size:13px!important}.global-search .ui-icon{top:25px!important}.pan>summary{min-height:44px}.chip,.ghost,.theme-control select{min-height:44px}}
+
+/* Search results are portalled to <body>; fixed positioning keeps them outside
+   the extreme theme's clipped header console at every breakpoint. */
+#guide-search-results{position:fixed!important;right:auto!important;bottom:auto!important;z-index:1200!important;width:min(640px,calc(100vw - 24px));max-height:min(62vh,560px);overflow:auto;display:grid;gap:6px;padding:10px;border:2px solid var(--accent);border-radius:7px;background:var(--bg);box-shadow:0 18px 45px rgba(0,0,0,.52)}
+.guide-search-hit{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:stretch}.guide-search-hit>.route-link{display:block;width:100%;min-height:48px;padding:10px 12px;text-align:left;background:var(--bg2)}.guide-search-hit>.route-link[aria-selected="true"]{outline:2px solid var(--accent);outline-offset:-2px;background:var(--cyanbg)}.guide-search-secondary{min-width:44px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--bg3);color:var(--accent);cursor:pointer}.guide-search-secondary:hover,.guide-search-secondary:focus{border-color:var(--accent);outline:2px solid color-mix(in srgb,var(--accent) 48%,transparent)}
+
+/* One compact discovery board at each area's arrival point. */
+.area-arrival{margin:10px 14px 14px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--accent) 4%,var(--bg2));overflow:hidden;scroll-margin-top:78px}.area-arrival-head{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;min-height:58px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--bg3)}.area-arrival-head>div{display:flex;align-items:center;gap:9px;min-width:0}.area-arrival-head .game-icon{width:24px;height:30px;object-fit:contain}.area-arrival-head b{display:block;color:var(--fg);font-size:16px}.area-arrival-head small{display:block;margin-top:1px;color:var(--fg3);font-size:12px;font-weight:500}.area-arrival-head .gcount{color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums}.area-atlas-link{min-height:40px;padding:7px 10px;white-space:nowrap}
+.world-arrival-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}.world-arrival-item{display:grid;grid-template-columns:22px minmax(0,1fr) 44px;gap:8px;align-items:center;min-width:0;min-height:58px;padding:6px 6px 6px 10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:transparent}.world-arrival-item:nth-child(4n){border-right:0}.world-arrival-item input{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:pointer}.world-arrival-item label{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1px 7px;align-items:baseline;min-width:0;cursor:pointer}.world-arrival-kind{color:var(--accent);font:800 9px/1.2 "Segoe UI Variable Text","Segoe UI",sans-serif;letter-spacing:.045em;text-transform:uppercase}.world-arrival-name{overflow:hidden;color:var(--fg);font:650 13.5px/1.3 var(--display);text-overflow:ellipsis;white-space:nowrap}.world-arrival-item label small{grid-column:1/-1;overflow:hidden;color:var(--fg3);font-size:11px;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}.world-arrival-item.is-secret .world-arrival-kind{color:var(--purple)}.world-arrival-item[data-deadline="true"]{background:var(--redbg)}.world-arrival-item.done{opacity:.62}.world-arrival-item.done .world-arrival-name{text-decoration:line-through}.world-pin-link{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid transparent;border-radius:5px;background:transparent;color:var(--accent);cursor:pointer}.world-pin-link .ui-icon{width:20px;height:20px}.world-pin-link:hover,.world-pin-link:focus{border-color:var(--accent);background:var(--cyanbg);outline:none}
+.route-subcheck-copy{display:block;min-width:0}.route-subcheck-copy>span{display:block}.route-subcheck-copy small{display:block;margin-top:2px;color:var(--fg3);font-size:12px;font-weight:500;line-height:1.35}.route-subcheck.is-done .route-subcheck-copy>span{text-decoration:line-through;opacity:.66}.route-subcheck.is-done .route-subcheck-copy small{opacity:.7;text-decoration:none}.route-subcheck.is-done>.route-subcheck-copy{text-decoration:none;opacity:1}
+.route-subcheck-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent)}.it .route-subcheck-row>label.route-subcheck{height:100%;border-bottom:0}.route-subcheck-atlas{display:grid;grid-template-columns:repeat(2,72px);align-items:stretch;gap:4px;padding:4px}.subcheck-atlas-link{display:grid;grid-template-columns:auto auto;place-content:center;gap:4px;width:72px;min-width:72px;height:46px;min-height:46px;padding:4px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg3);color:var(--accent);font:750 10px/1.1 "Segoe UI Variable Text","Segoe UI",sans-serif;cursor:pointer}.subcheck-atlas-link .game-icon{width:14px;height:18px;object-fit:contain}.subcheck-atlas-link:hover,.subcheck-atlas-link:focus{border-color:var(--accent);background:var(--cyanbg);outline:2px solid color-mix(in srgb,var(--accent) 45%,transparent)}html[data-theme="xenoblade"] .subcheck-atlas-link{border-color:#2d7199;background:rgba(8,42,64,.8);color:#86e8ff}
+.frontier-pin.is-focused{z-index:7!important;scale:1.6!important;outline:3px solid #fff!important;box-shadow:0 0 0 5px var(--accent),0 2px 12px #000!important}.frontier-results button.is-focused{background:var(--cyanbg);outline:2px solid var(--accent);outline-offset:-2px}
+html[data-theme="xenoblade"] .area-arrival{border-color:#2d7199;border-radius:0;background:linear-gradient(110deg,rgba(7,48,76,.72),rgba(2,21,36,.9));box-shadow:inset 3px 0 #54d8fb}html[data-theme="xenoblade"] .area-arrival-head{border-color:#2d7199;background:linear-gradient(90deg,#0a3552,#08253b)}html[data-theme="xenoblade"] .world-arrival-item{border-color:#19455f}html[data-theme="xenoblade"] .world-arrival-item:hover{background:rgba(62,185,226,.08)}
+@media(max-width:1450px){.world-arrival-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.world-arrival-item:nth-child(4n){border-right:1px solid var(--line)}.world-arrival-item:nth-child(3n){border-right:0}}
+@media(max-width:1200px){.route-subcheck-list{grid-template-columns:1fr}}
+@media(max-width:900px){.world-arrival-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.world-arrival-item:nth-child(3n){border-right:1px solid var(--line)}.world-arrival-item:nth-child(2n){border-right:0}.area-arrival-head{grid-template-columns:minmax(0,1fr) auto}.area-atlas-link{grid-column:1/-1;width:100%}}
+@media(max-width:600px){.area-arrival{margin:8px 4px 12px}.world-arrival-grid{grid-template-columns:1fr}.world-arrival-item{border-right:0!important}.area-arrival-head{padding:9px}.area-arrival-head small{font-size:11px}.route-subcheck-row{grid-template-columns:1fr}.route-subcheck-atlas{padding:3px 7px 7px;justify-content:start}}
 </style>
 </head>
 <body>
@@ -1614,7 +1631,7 @@ html[data-theme="xenoblade"] .hub-rail,html[data-theme="xenoblade"] .session-car
 </main>
 
 <footer>
-  Updated 2026-08-01 · Progress saves only in each visitor's browser profile and is never written to GitHub · Export/import provides a portable backup · Installable for offline use · Research and source notes: <code>research/</code>
+  Updated 2026-08-02 · Progress saves only in each visitor's browser profile and is never written to GitHub · Export/import provides a portable backup · Installable for offline use · Research and source notes: <code>research/</code>
 </footer>
 
 <script src="data/workshop-data.js"></script>
@@ -1835,11 +1852,13 @@ function routeQuickLinks(item){
   const monster = routeMonsterReference(item);
   const quest = routeQuestReference(item);
   const heart = item.f === "h";
-  if (!monster && !quest && !heart) return "";
+  const atlasLocation = item.atlasLocationId;
+  if (!monster && !quest && !heart && !atlasLocation) return "";
   return `<div class="route-card-actions" aria-label="Open guide reference">`
     + (monster ? `<button type="button" class="route-link" data-open-monster="${esc(monster.id)}">${gameIcon("enemy")}Open ${esc(monster.name)} in Monsterpedia</button>` : "")
     + (quest ? `<button type="button" class="route-link" data-open-quest="${esc(quest.id)}">${gameIcon("quest")}Open ${esc(quest.name)} in Quest Lookup</button>` : "")
     + (heart ? `<button type="button" class="route-link" data-open-tool="gifts" data-gift-route="${esc(plainText(item.t||""))}">Open Gift Optimizer for this pair</button>` : "")
+    + (atlasLocation ? `<button type="button" class="route-link" data-open-world-id="${esc(atlasLocation)}">${gameIcon("landmark")}Show the exact Atlas pin</button>` : "")
     + `</div>`;
 }
 function routeItemReference(name, filter){
@@ -1924,14 +1943,14 @@ function syncChapterJump(){
 
 function worldEntriesForChapter(ch){
   if (!worldReady) return [];
-  return WORLD_DATA.areas.flatMap(area => area.entries
+  return WORLD_DATA.areas.flatMap((area, areaOrder) => area.entries
     .filter(entry => {
       const key = entry.routeChapterId || area.routeChapterId;
       if (key) return key === ch.id;
       const recommended = entry.recommendedChapter ?? area.recommendedChapter;
       return (recommended === "Future Connected" ? "fc" : `ch${recommended}`) === ch.id;
     })
-    .map(entry => ({ ...entry, area: area.name, areaDeadline: area.lockoutDeadline })));
+    .map(entry => ({ ...entry, area: area.name, areaId: area.id, areaOrder, areaDeadline: area.lockoutDeadline })));
 }
 function renderWorldTracker(ch, entries){
   if (!entries.length) return "";
@@ -1994,6 +2013,58 @@ function renderWorldGroup(group){
 function renderWorldAt(groups, anchorId, position="after"){
   return groups.filter(group => group.anchorId === anchorId && group.position === position).map(renderWorldGroup).join("");
 }
+
+// Area discoveries belong to one compact arrival board, not dozens of full-width
+// cards scattered through the walkthrough. Existing anchor data still supplies
+// the realistic walking order inside each board and the arrival point for later
+// areas in a multi-area chapter.
+function worldArrivalTrackersForChapter(ch, entries){
+  if (!entries.length) return [];
+  const anchors = worldRouteAnchorMap();
+  const itemOrder = new Map(ch.items.filter(item => item.id).map((item, index) => [item.id, index]));
+  const grouped = new Map();
+  entries.forEach(entry => {
+    const source = anchors[entry.id] || {};
+    const validAnchor = itemOrder.has(source.anchorId) ? source.anchorId : "@end";
+    const placement = {
+      anchorId: validAnchor,
+      order: Number(source.order) || 999,
+      effort: WORLD_EFFORT_LABELS[source.effort] ? source.effort : "return-later",
+      note: source.note || entry.accessNotes || "Discover while crossing this area."
+    };
+    if (!grouped.has(entry.areaId)) grouped.set(entry.areaId, { areaId:entry.areaId, area:entry.area, areaOrder:entry.areaOrder, entries:[] });
+    grouped.get(entry.areaId).entries.push({...entry, routePlacement:placement});
+  });
+  return [...grouped.values()].sort((a,b)=>a.areaOrder-b.areaOrder).map((tracker, areaIndex) => {
+    const usable = tracker.entries.filter(entry => entry.routePlacement.anchorId !== "@end" && entry.routePlacement.effort !== "return-later");
+    const arrival = usable.sort((a,b)=>(itemOrder.get(a.routePlacement.anchorId)??9999)-(itemOrder.get(b.routePlacement.anchorId)??9999) || a.routePlacement.order-b.routePlacement.order)[0];
+    const anchorId = areaIndex === 0 ? "@start" : (arrival?.routePlacement.anchorId || "@end");
+    const sorted = tracker.entries.sort((a,b)=>{
+      const ai = itemOrder.get(a.routePlacement.anchorId) ?? 9999, bi = itemOrder.get(b.routePlacement.anchorId) ?? 9999;
+      return ai-bi || a.routePlacement.order-b.routePlacement.order || a.name.localeCompare(b.name);
+    });
+    return {...tracker, anchorId, entries:sorted};
+  });
+}
+function renderWorldArrivalItem(entry){
+  const inputId=`track-${entry.id}`, checked=!!worldDone[entry.id], deadline=entry.lockoutDeadline||entry.areaDeadline;
+  const effort=WORLD_EFFORT_LABELS[entry.routePlacement.effort] || "Route stop";
+  return `<div class="world-arrival-item world-it${entry.type==="secret-area"?" is-secret":""}${checked?" done":""}" data-f="world" data-id="${esc(entry.id)}" data-world-id="${esc(entry.id)}"${deadline?' data-deadline="true"':""}>
+    <input type="checkbox" id="${esc(inputId)}" data-world-id="${esc(entry.id)}"${checked?" checked":""}>
+    <label for="${esc(inputId)}"><span class="world-arrival-kind">${esc(entry.type.replace(/-/g," "))}</span><span class="world-arrival-name">${esc(entry.name)}</span><small>${esc(effort)}${deadline?" · lockout":""}</small></label>
+    <button type="button" class="world-pin-link" data-open-world-id="${esc(entry.id)}" title="Show ${esc(entry.name)} on the Atlas" aria-label="Show ${esc(entry.name)} on the Atlas">${uiIcon("location")}</button>
+  </div>`;
+}
+function renderWorldArrivalTracker(tracker){
+  const complete=tracker.entries.filter(entry=>worldDone[entry.id]).length;
+  return `<section class="area-arrival" data-world-group="arrival-${esc(tracker.areaId)}" data-area-id="${esc(tracker.areaId)}">
+    <header class="area-arrival-head"><div>${gameIcon("landmark")}<span><b>Area arrival · ${esc(tracker.area)}</b><small>Tick discoveries as this route reaches them; detours and later returns are labelled.</small></span></div><span class="gcount world-count">${complete}/${tracker.entries.length}</span><button type="button" class="route-link area-atlas-link" data-open-world-area="${esc(tracker.areaId)}">Open area in Atlas</button></header>
+    <div class="world-arrival-grid">${tracker.entries.map(renderWorldArrivalItem).join("")}</div>
+  </section>`;
+}
+function renderWorldArrivalAt(trackers, anchorId){
+  return trackers.filter(tracker=>tracker.anchorId===anchorId).map(renderWorldArrivalTracker).join("");
+}
 function buildName(id){
   if (!buildReady) return id;
   const all = [...BUILD_DATA.characters, ...BUILD_DATA.futureConnected.characters];
@@ -2034,13 +2105,13 @@ function renderRouteBuildUpdate(ch){
 function build(){
   routeEl.innerHTML = ROUTE.map(ch => {
     const worldEntries = worldEntriesForChapter(ch);
-    const worldGroups = worldGroupsForChapter(ch, worldEntries);
+    const arrivalTrackers = worldArrivalTrackersForChapter(ch, worldEntries);
     const leaderTasks = ch.items.filter(item => !item.k && requiredLeader(item)).length;
     const deadlineTasks = ch.items.filter(item => !item.k && item.f === "d").length
       + worldEntries.filter(entry => entry.lockoutDeadline || entry.areaDeadline).length;
     const items = ch.items.map(it => {
-      const before = it.id ? renderWorldAt(worldGroups,it.id,"before") : "";
-      const after = it.id ? renderWorldAt(worldGroups,it.id,"after") : "";
+      const before = it.id ? renderWorldArrivalAt(arrivalTrackers,it.id) : "";
+      const after = "";
       // Inline info panel (not tickable)
       if (it.k){
         const [icon, deflabel] = KINDS[it.k] || KINDS.info;
@@ -2061,7 +2132,7 @@ function build(){
       const det = it.d ? `<div class="det">${it.d}</div>` : "";
       const subchecks = (it.steps || []).length ? (() => {
         const bucket = routeStepsDone[it.id] || Object.create(null), complete = it.steps.filter(step => bucket[step.id]).length;
-        return `<fieldset class="route-subchecks" data-subcheck-group="${esc(it.id)}"><legend>Sub-checkpoints · <span class="route-subcheck-count">${complete}/${it.steps.length}</span></legend><div class="route-subcheck-list">${it.steps.map(step => { const inputId=`sub-${it.id}-${step.id}`,checked=!!bucket[step.id]; return `<label class="route-subcheck${checked?" is-done":""}" for="${esc(inputId)}"><input type="checkbox" id="${esc(inputId)}" data-subcheck-parent="${esc(it.id)}" data-subcheck-id="${esc(step.id)}"${checked?" checked":""}><span>${esc(step.label)}</span></label>`; }).join("")}</div></fieldset>`;
+        return `<fieldset class="route-subchecks" data-subcheck-group="${esc(it.id)}"><legend>Sub-checkpoints · <span class="route-subcheck-count">${complete}/${it.steps.length}</span></legend><div class="route-subcheck-list">${it.steps.map(step => { const inputId=`sub-${it.id}-${step.id}`,checked=!!bucket[step.id],atlasLinks=step.atlasLinks||[]; return `<div class="route-subcheck-row"><label class="route-subcheck${checked?" is-done":""}" for="${esc(inputId)}"><input type="checkbox" id="${esc(inputId)}" data-subcheck-parent="${esc(it.id)}" data-subcheck-id="${esc(step.id)}"${checked?" checked":""}><span class="route-subcheck-copy"><span>${esc(step.label)}</span>${step.hint?`<small>${esc(step.hint)}</small>`:""}</span></label>${atlasLinks.length?`<div class="route-subcheck-atlas">${atlasLinks.map(link=>{const actionAttrs=link.worldId?`data-open-world-id="${esc(link.worldId)}"`:`data-open-atlas-area="${esc(link.areaId)}" data-open-atlas-query="${esc(link.query)}" data-open-atlas-type="${esc(link.type||"")}"`;return `<button type="button" class="subcheck-atlas-link" ${actionAttrs} aria-label="Open ${esc(link.label)} map point for ${esc(step.label)}">${gameIcon("landmark")}<span>${esc(link.label)}</span></button>`;}).join("")}</div>`:""}</div>`; }).join("")}</div></fieldset>`;
       })() : "";
       const references = routeQuickLinks(it);
       return `${before}<div class="it ${it.f}${it.f === "m" ? " resource-cue" : ""}${on}${leader ? " leader-needed" : ""}" data-f="${it.f}" data-id="${it.id}">
@@ -2075,7 +2146,7 @@ function build(){
       </button></h2>
       ${ch.note ? `<div class="chnote">${ch.note}</div>` : ""}
       ${leaderTasks || deadlineTasks ? `<div class="chapter-alert">${deadlineTasks ? gameIcon("timed") : uiIcon("warning")}${deadlineTasks ? `This chapter contains <b>${deadlineTasks} deadline/missable task${deadlineTasks === 1 ? "" : "s"}</b>` : ""}${deadlineTasks && leaderTasks ? " and " : ""}${leaderTasks ? `<b>${leaderTasks} party-leader gate${leaderTasks === 1 ? "" : "s"}</b>` : ""}. ${deadlineTasks ? "Clear every red or lockout-marked card before advancing." : "Set the named party leader before starting those quests."}</div>` : ""}
-      <div class="chb" id="b-${ch.id}">${renderRouteBuildUpdate(ch)}${renderWorldAt(worldGroups,"@start")}${items}${renderWorldAt(worldGroups,"@end")}</div></section>`;
+      <div class="chb" id="b-${ch.id}">${renderRouteBuildUpdate(ch)}${renderWorldArrivalAt(arrivalTrackers,"@start")}${items}${renderWorldArrivalAt(arrivalTrackers,"@end")}</div></section>`;
   }).join("");
   syncChapterJump();
   tally();
@@ -2304,7 +2375,7 @@ function showVision(lock, manifest){
 
 routeEl.addEventListener("change", e => {
   if (e.target.type !== "checkbox") return;
-  const row = e.target.closest(".it");
+  const row = e.target.closest(".it, .world-arrival-item");
   const subcheckParent = e.target.dataset.subcheckParent;
   if (subcheckParent) {
     const subcheckId = e.target.dataset.subcheckId;
@@ -2326,6 +2397,12 @@ routeEl.addEventListener("change", e => {
 });
 
 routeEl.addEventListener("click", e => {
+  const atlasSearchLink = e.target.closest("button[data-open-atlas-query]");
+  if (atlasSearchLink) { openAtlasSearch(atlasSearchLink.dataset.openAtlasArea, atlasSearchLink.dataset.openAtlasQuery, atlasSearchLink.dataset.openAtlasType); return; }
+  const worldLocation = e.target.closest("button[data-open-world-id]");
+  if (worldLocation) { openWorldAtlas(worldLocation.dataset.openWorldId); return; }
+  const worldArea = e.target.closest("button[data-open-world-area]");
+  if (worldArea) { openWorldAtlasArea(worldArea.dataset.openWorldArea); return; }
   const h = e.target.closest(".chh");
   if (h) {
     const closed = h.parentElement.classList.toggle("closed");
@@ -2396,7 +2473,7 @@ function filter(){
   ROUTE.forEach(ch => {
     const sec = document.getElementById("s-" + ch.id);
     let shown = 0;
-    sec.querySelectorAll(".it").forEach(row => {
+    sec.querySelectorAll(".it, .world-arrival-item").forEach(row => {
       const f = row.dataset.f;
       const txt = row.textContent.toLowerCase();
       let ok = true;
@@ -2985,7 +3062,39 @@ questEl.addEventListener("click", event => {
 // Atlas, Collectopaedia and affinity planner. The atlas intentionally does not
 // manufacture coordinates: it displays only verified game maps plus their
 // canonical named discovery entries.
-let atlasArea = "";
+let atlasArea = "", atlasFocus = null, atlasSearch = null;
+function atlasKey(value){return String(value||"").normalize("NFKD").toLowerCase().replace(/&/g," and ").replace(/['’]/g,"").replace(/\([^)]*\)\s*$/g,"").replace(/[^a-z0-9]+/g," ").trim();}
+function worldRecord(worldId){
+  if(!worldReady)return null;
+  for(const area of WORLD_DATA.areas){const entry=area.entries.find(candidate=>candidate.id===worldId);if(entry)return{area,entry};}
+  return null;
+}
+function frontierWorldLocation(worldId){
+  if(!frontierReady)return null;
+  const record=worldRecord(worldId);if(!record)return null;
+  const areaKey=atlasKey(record.area.name),entryKey=atlasKey(record.entry.name);
+  const maps=FRONTIER_MAP_DATA.maps.filter(map=>map.regionId===record.area.id||atlasKey(map.region)===areaKey);
+  const exact=[];
+  maps.forEach(map=>map.points.filter(point=>point.type==="Landmark"&&atlasKey(point.name)===entryKey).forEach(point=>exact.push({map,point,record})));
+  if(exact.length)return exact.sort((a,b)=>(a.map.regionId===record.area.id?-1:0)-(b.map.regionId===record.area.id?-1:0))[0];
+  for(const map of maps){const point=map.points.find(candidate=>candidate.type==="Landmark"&&(atlasKey(candidate.name).includes(entryKey)||entryKey.includes(atlasKey(candidate.name))));if(point)return{map,point,record};}
+  return {map:maps[0]||null,point:null,record};
+}
+function openWorldAtlasArea(areaId){
+  atlasFocus=null;atlasSearch=null;activatePanel("reference");ensurePanelData("reference");
+  const apply=()=>{if(frontierReady){const map=FRONTIER_MAP_DATA.maps.find(candidate=>candidate.regionId===areaId)||FRONTIER_MAP_DATA.maps.find(candidate=>atlasKey(candidate.region)===atlasKey(WORLD_DATA.areas.find(area=>area.id===areaId)?.name));if(map)atlasArea=map.id;}else atlasArea=areaId;setReferenceView("atlas");};
+  if(frontierReady)apply();else Promise.allSettled([frontierLoad,atlasLoad,coordinateLoad].filter(Boolean)).then(apply);
+}
+function openWorldAtlas(worldId){
+  atlasSearch=null;activatePanel("reference");ensurePanelData("reference");
+  const apply=()=>{atlasFocus={worldId};const match=frontierWorldLocation(worldId);if(match?.map)atlasArea=match.map.id;else{const record=worldRecord(worldId);if(record)atlasArea=record.area.id;}setReferenceView("atlas");};
+  if(frontierReady)apply();else Promise.allSettled([frontierLoad,atlasLoad,coordinateLoad].filter(Boolean)).then(apply);
+}
+function openAtlasSearch(areaId, query, type){
+  activatePanel("reference");ensurePanelData("reference");
+  const apply=()=>{const map=FRONTIER_MAP_DATA.maps.find(candidate=>candidate.regionId===areaId)||FRONTIER_MAP_DATA.maps.find(candidate=>atlasKey(candidate.region)===atlasKey(areaId));if(map)atlasArea=map.id;atlasFocus=null;atlasSearch={areaId,query,type};setReferenceView("atlas");};
+  if(frontierReady)apply();else Promise.allSettled([frontierLoad,atlasLoad,coordinateLoad].filter(Boolean)).then(apply);
+}
 function mercatorPoint(coordinates){const lng=coordinates[0],lat=Math.max(-85.0511,Math.min(85.0511,coordinates[1])),sin=Math.sin(lat*Math.PI/180);return{x:(lng+180)/360*100,y:(.5-Math.log((1+sin)/(1-sin))/(4*Math.PI))*100};}
 function nearestRoute(points){if(points.length<2)return points;const remaining=points.map(point=>({...point,screen:mercatorPoint(point.coordinates)})).sort((a,b)=>a.screen.x-b.screen.x),route=[remaining.shift()];while(remaining.length){const from=route.at(-1).screen;let best=0,distance=Infinity;remaining.forEach((point,index)=>{const d=(point.screen.x-from.x)**2+(point.screen.y-from.y)**2;if(d<distance){distance=d;best=index;}});route.push(remaining.splice(best,1)[0]);}return route;}
 function frontierPointText(point){if(point.type==="CollectionPoint")return point.items.map(item=>`${item.name}${item.rate!==null?` ${item.rate}%`:""}`).join(" · ");if(point.type==="EnemySpawnPoint")return point.spawns.map(spawn=>`${spawn.name}${spawn.level!==null?` Lv${spawn.level}`:""}${spawn.rate!==null?` ${spawn.rate}%`:""}`).join(" · ");return point.name;}
@@ -2993,12 +3102,21 @@ function frontierPointKind(point){return point.type==="CollectionPoint"?"Collect
 function frontierPointLabel(point,map){const number=Math.max(1,map.points.indexOf(point)+1);return `${frontierPointKind(point)} ${number} · ${point.name||"Unnamed marker"}`;}
 function renderAtlas(){
   if(frontierReady){
-    const maps=FRONTIER_MAP_DATA.maps;atlasArea=maps.some(map=>map.id===atlasArea)?atlasArea:(maps.find(map=>map.id==="colony-9-map")?.id||maps[0]?.id);const map=maps.find(item=>item.id===atlasArea);if(!map)return;
+    const maps=FRONTIER_MAP_DATA.maps,focusMatch=atlasFocus?.worldId?frontierWorldLocation(atlasFocus.worldId):null;if(focusMatch?.map)atlasArea=focusMatch.map.id;atlasArea=maps.some(map=>map.id===atlasArea)?atlasArea:(maps.find(map=>map.id==="colony-9-map")?.id||maps[0]?.id);const map=maps.find(item=>item.id===atlasArea);if(!map)return;
     atlasEl.innerHTML=`<div class="lookup-status"><div class="lookup-count">${FRONTIER_MAP_DATA.counts.maps} maps · ${FRONTIER_MAP_DATA.counts.collectionPoints.toLocaleString()} collection pins · ${FRONTIER_MAP_DATA.counts.enemySpawnPoints.toLocaleString()} enemy-spawn pins · ${FRONTIER_MAP_DATA.counts.landmarks.toLocaleString()} landmarks</div><a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">Interactive source</a></div><div class="atlas-controls"><label class="filter-field">Map<select id="atlas-area">${maps.map(item=>`<option value="${esc(item.id)}"${item.id===map.id?" selected":""}>${esc(item.name)} · ${esc(item.region)}</option>`).join("")}</select></label><label class="filter-field">Find collectible, monster or landmark<input id="atlas-q" type="search" placeholder="Ice Cabbage, Rotbart, secret area…"></label><div class="atlas-checks"><label><input type="checkbox" data-atlas-type="CollectionPoint" checked>Collectibles</label><label><input type="checkbox" data-atlas-type="Landmark" checked>Landmarks</label><label><input type="checkbox" data-atlas-type="EnemySpawnPoint">Enemies</label></div>${map.lockoutDeadline?`<span class="deadline-badge">${gameIcon("timed")}Missable zone · ${esc(map.lockoutDeadline)}</span>`:""}</div><div class="frontier-layout"><div class="frontier-map-stage${map.lockoutDeadline?" is-lockout":""}" aria-label="Interactive ${esc(map.name)} map"><div class="frontier-tiles">${map.tiles.sort((a,b)=>a.y-b.y||a.x-b.x).map(tile=>`<img src="${esc(tile.local)}" width="512" height="512" alt="" decoding="async">`).join("")}</div><svg class="frontier-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg><div id="frontier-pins"></div></div><aside class="frontier-side"><div id="frontier-detail" class="frontier-detail"><h3>${esc(map.name)}</h3><p>${esc(map.region)} · choose a pin for exact contents.</p>${map.lockoutDeadline?`<p class="deadline-badge">Clear this map before ${esc(map.lockoutDeadline)}</p>`:""}</div><div id="frontier-results" class="frontier-results"></div></aside></div><p class="source-note">Exact GeoJSON pin geometry and collection/enemy relationships come from <a href="${esc(FRONTIER_MAP_DATA.source.url)}" target="_blank" rel="noopener">${esc(FRONTIER_MAP_DATA.source.label)}</a>; locally cached tiles are the same map layer. ${esc(FRONTIER_MAP_DATA.license.label)}. A line shown for a collectible search is a suggested nearest-neighbour sweep, not a claimed optimal route.</p>`;
     const q=document.getElementById("atlas-q"),typeInputs=[...atlasEl.querySelectorAll("[data-atlas-type]")],pins=document.getElementById("frontier-pins"),results=document.getElementById("frontier-results"),detail=document.getElementById("frontier-detail"),routeSvg=atlasEl.querySelector(".frontier-route");
+    const requestedSearch=atlasSearch&&map.regionId===atlasSearch.areaId?atlasSearch:null;
+    if(requestedSearch){q.value=requestedSearch.query;typeInputs.forEach(input=>{input.checked=!requestedSearch.type||input.dataset.atlasType===requestedSearch.type;});atlasSearch=null;}
     const showPoint=point=>{detail.innerHTML=`<h3>${esc(frontierPointLabel(point,map))}</h3><p><b>${esc(map.name)} · ${esc(map.region)}</b><br><span class="muted">Marker ID: ${esc(point.id||"not supplied")}</span></p>${point.type==="CollectionPoint"?`<ul class="dossier-list">${point.items.map(item=>`<li>${esc(item.name)}${item.rate!==null?` · <b>${esc(item.rate)}%</b>`:""}</li>`).join("")}</ul>`:point.type==="EnemySpawnPoint"?`<ul class="dossier-list">${point.spawns.map(spawn=>`<li>${esc(spawn.name)}${spawn.level!==null?` · Lv ${esc(spawn.level)}`:""}${spawn.rate!==null?` · ${esc(spawn.rate)}%`:""}${spawn.quest?" · quest":""}${spawn.missable?" · missable":""}</li>`).join("")}</ul>`:""}<p class="muted">GeoJSON: ${point.coordinates.map(value=>Number(value).toFixed(5)).join(", ")} · <a href="${esc(point.source)}" target="_blank" rel="noopener">source record</a></p>`;};
-    const draw=()=>{const query=q.value.trim().toLowerCase(),enabled=new Set(typeInputs.filter(input=>input.checked).map(input=>input.dataset.atlasType));const found=map.points.filter(point=>(query||enabled.has(point.type))&&(!query||`${point.name} ${point.id||""} ${frontierPointText(point)}`.toLowerCase().includes(query)));pins.innerHTML=found.map((point,index)=>{const screen=mercatorPoint(point.coordinates),label=frontierPointLabel(point,map);return`<button type="button" class="frontier-pin ${esc(point.type)}" style="left:${screen.x}%;top:${screen.y}%" data-frontier-point="${index}" title="${esc(`${label} · ${map.name} · ${map.region}`)}" aria-label="${esc(`${label}, ${map.name}, ${map.region}. ${frontierPointText(point)}`)}"><span class="sr-only">${esc(`${label} · ${map.name} · ${map.region}`)}</span></button>`;}).join("");results.innerHTML=found.slice(0,180).map((point,index)=>`<button type="button" data-frontier-point="${index}" aria-label="Open ${esc(frontierPointLabel(point,map))}"><b>${esc(frontierPointLabel(point,map))}</b><br><span class="muted">${esc(map.name)} · ${esc(map.region)} · marker ${esc(point.id||"not supplied")}</span><br>${esc(frontierPointText(point)).slice(0,180)}</button>`).join("")||'<p class="frontier-detail muted">No pins match.</p>';const route=query?nearestRoute(found.filter(point=>point.type==="CollectionPoint")):[];routeSvg.innerHTML=route.length>1?`<polyline points="${route.map(point=>`${point.screen.x},${point.screen.y}`).join(" ")}"></polyline>`:"";atlasEl._frontierFound=found;};
-    document.getElementById("atlas-area").addEventListener("change",event=>{atlasArea=event.target.value;renderAtlas();});q.addEventListener("input",draw);typeInputs.forEach(input=>input.addEventListener("change",draw));atlasEl.onclick=event=>{const button=event.target.closest("[data-frontier-point]");const point=atlasEl._frontierFound?.[Number(button?.dataset.frontierPoint)];if(point)showPoint(point);};draw();return;
+    const draw=()=>{const query=q.value.trim().toLowerCase(),enabled=new Set(typeInputs.filter(input=>input.checked).map(input=>input.dataset.atlasType));const found=map.points.filter(point=>enabled.has(point.type)&&(!query||`${point.name} ${point.id||""} ${frontierPointText(point)}`.toLowerCase().includes(query)));pins.innerHTML=found.map((point,index)=>{const screen=mercatorPoint(point.coordinates),label=frontierPointLabel(point,map);return`<button type="button" class="frontier-pin ${esc(point.type)}" style="left:${screen.x}%;top:${screen.y}%" data-frontier-point="${index}" title="${esc(`${label} · ${map.name} · ${map.region}`)}" aria-label="${esc(`${label}, ${map.name}, ${map.region}. ${frontierPointText(point)}`)}"><span class="sr-only">${esc(`${label} · ${map.name} · ${map.region}`)}</span></button>`;}).join("");results.innerHTML=found.slice(0,180).map((point,index)=>`<button type="button" data-frontier-point="${index}" aria-label="Open ${esc(frontierPointLabel(point,map))}"><b>${esc(frontierPointLabel(point,map))}</b><br><span class="muted">${esc(map.name)} · ${esc(map.region)} · marker ${esc(point.id||"not supplied")}</span><br>${esc(frontierPointText(point)).slice(0,180)}</button>`).join("")||'<p class="frontier-detail muted">No pins match.</p>';const route=query?nearestRoute(found.filter(point=>point.type==="CollectionPoint")):[];routeSvg.innerHTML=route.length>1?`<polyline points="${route.map(point=>`${point.screen.x},${point.screen.y}`).join(" ")}"></polyline>`:"";atlasEl._frontierFound=found;};
+    document.getElementById("atlas-area").addEventListener("change",event=>{atlasFocus=null;atlasArea=event.target.value;renderAtlas();});q.addEventListener("input",()=>{atlasFocus=null;draw();});typeInputs.forEach(input=>input.addEventListener("change",draw));atlasEl.onclick=event=>{const button=event.target.closest("[data-frontier-point]");const point=atlasEl._frontierFound?.[Number(button?.dataset.frontierPoint)];if(point)showPoint(point);};draw();
+    if(focusMatch?.map?.id===map.id&&focusMatch.point){
+      q.value=focusMatch.record.entry.name;draw();
+      const index=atlasEl._frontierFound?.findIndex(point=>point===focusMatch.point)??-1;
+      if(index>=0){showPoint(focusMatch.point);atlasEl.querySelectorAll(`[data-frontier-point="${index}"]`).forEach(button=>button.classList.add("is-focused"));atlasEl.querySelector(`.frontier-results [data-frontier-point="${index}"]`)?.scrollIntoView({block:"center"});detail.setAttribute("tabindex","-1");detail.focus({preventScroll:true});}
+      atlasFocus=null;
+    }
+    return;
   }
   if (!atlasReady) { atlasEl.innerHTML = '<div class="callout"><p>Loading interactive map atlas…</p></div>'; return; }
   const usable = MAP_ATLAS_DATA.areas.filter(area => area.map);
@@ -3133,17 +3251,53 @@ function ensureGlobalSearchData(){
   const pending=[completionLoad,monsterLoad,collectLoad,atlasLoad,frontierLoad,coordinateLoad,affinityLoad].filter(Boolean);
   globalSearchLoad=Promise.allSettled(pending).then(()=>{globalSearchLoad=null;if(document.getElementById("guide-search").value.trim())guideSearch(false);});
 }
+let guideSearchIndex=0,guideSearchQuery="";
+function placeGuideSearchResults(){
+  const box=document.getElementById("guide-search-results"),input=document.getElementById("guide-search");
+  if(!box||!input)return;
+  const rect=input.getBoundingClientRect(),viewportWidth=window.innerWidth||1200;
+  const width=Math.min(Math.max(rect.width||520,360),Math.max(296,viewportWidth-24));
+  const left=Math.min(Math.max(rect.left||12,12),Math.max(12,viewportWidth-width-12));
+  box.style.setProperty("left",`${left}px`,"important");box.style.setProperty("top",`${(rect.bottom||64)+8}px`,"important");box.style.setProperty("width",`${width}px`,"important");
+}
+function closeGuideSearch(clear=false){
+  const input=document.getElementById("guide-search"),count=document.getElementById("guide-search-count"),box=document.getElementById("guide-search-results");
+  if(clear){input.value="";count.textContent="";guideSearchQuery="";}
+  input.removeAttribute("aria-activedescendant");box?.remove();
+}
+function updateGuideSearchSelection(scroll=true){
+  const box=document.getElementById("guide-search-results"),rows=box?[...box.querySelectorAll(".guide-search-hit")]:[];
+  if(!rows.length)return;
+  guideSearchIndex=Math.max(0,Math.min(guideSearchIndex,rows.length-1));
+  rows.forEach((row,index)=>{const active=index===guideSearchIndex,button=row.querySelector("[data-guide-hit]");row.classList.toggle("is-selected",active);button?.setAttribute("aria-selected",String(active));if(active){document.getElementById("guide-search").setAttribute("aria-activedescendant",button.id);if(scroll&&typeof row.scrollIntoView==="function")row.scrollIntoView({block:"nearest"});}});
+}
+function runGuideSearchHit(index,secondary=false){
+  const box=document.getElementById("guide-search-results"),hit=box?._hits?.[index],action=secondary?hit?.secondaryAction:hit?.action;
+  if(!action)return;
+  closeGuideSearch(true);action();
+}
 function guideSearch(loadMissing=true){
   const input=document.getElementById("guide-search"), query=input.value.trim().toLowerCase(), count=document.getElementById("guide-search-count");
-  if(!query){ count.textContent=""; document.getElementById("guide-search-results")?.remove(); return; }
+  if(!query){ count.textContent=""; closeGuideSearch(); return; }
+  if(query!==guideSearchQuery){guideSearchIndex=0;guideSearchQuery=query;}
   const indexIncomplete=!completionReady||!monsterReady||!collectReady||!affinityReady||!frontierReady;
   if(loadMissing&&indexIncomplete)ensureGlobalSearchData();
-  const hits=[]; const push=(kind,name,detail,action)=>{ if(hits.length<30 && [name,detail].filter(Boolean).join(" ").toLowerCase().includes(query)) hits.push({kind,name,detail,action}); };
-  if(routeReady) ROUTE.forEach(ch=>ch.items.filter(item=>!item.k).forEach(item=>push("Route",plainText(item.t),plainText(item.d),()=>openRouteCard(item.id))));
+  const hits=[];
+  const push=(kind,name,detail,action,options={})=>{
+    const cleanName=name||"",cleanDetail=detail||"",lowerName=cleanName.toLowerCase(),haystack=`${cleanName} ${cleanDetail}`.toLowerCase();
+    if(!haystack.includes(query))return;
+    const matchScore=lowerName===query?0:lowerName.startsWith(query)?8:lowerName.includes(query)?18:36;
+    const kindScore=kind==="Route"?-30:kind==="Location"?-8:0;
+    hits.push({kind,name:cleanName,detail:cleanDetail,action,score:matchScore+kindScore,secondaryAction:options.secondaryAction,secondaryLabel:options.secondaryLabel});
+  };
+  if(routeReady) ROUTE.forEach(ch=>ch.items.filter(item=>!item.k).forEach(item=>{
+    const subcheckText=(item.steps||[]).map(step=>`${step.label} ${step.hint||""}`).join(" ");
+    push("Route",plainText(item.t),`${plainText(item.d)} ${subcheckText}`,()=>openRouteCard(item.id),item.atlasLocationId?{secondaryAction:()=>openWorldAtlas(item.atlasLocationId),secondaryLabel:"Show Atlas pin"}:{});
+  }));
   if(monsterReady) MONSTERPEDIA_DATA.entries.forEach(entry=>push("Monsterpedia",entry.name,`${entry.area} ${(entry.drops?.confirmed||[]).map(drop=>drop.item).join(" ")}`,()=>openMonster(entry.id)));
   if(worldReady) WORLD_DATA.quests.forEach(quest=>push("Quest",quest.name,`${quest.area} ${quest.requirements}`,()=>openQuest(quest.id)));
   if(affinityReady) AFFINITY_DATA.residents.forEach(resident=>push("Affinity resident",resident.name,`${resident.areas.join(" ")} ${resident.locations.map(location=>`${location.location} ${location.time}`).join(" ")}`,()=>{activatePanel("reference");setReferenceView("affinity");setTimeout(()=>{const input=document.getElementById("affinity-q");if(input){input.value=resident.name;input.dispatchEvent(new Event("input"));}},0);}));
-  if(worldReady) WORLD_DATA.areas.forEach(area=>area.entries.forEach(entry=>push("Location",entry.name,`${area.name} ${entry.type} ${entry.accessNotes||""}`,()=>{ activatePanel("reference"); setReferenceView("atlas"); atlasArea=area.id; renderAtlas(); })));
+  if(worldReady) WORLD_DATA.areas.forEach(area=>area.entries.forEach(entry=>push("Location",entry.name,`${area.name} ${entry.type} ${entry.accessNotes||""}`,()=>openWorldAtlas(entry.id))));
   if(frontierReady) FRONTIER_MAP_DATA.maps.forEach(map=>map.points.forEach(point=>push(point.type==="CollectionPoint"?"Map collection pin":point.type==="EnemySpawnPoint"?"Map enemy spawn":"Map landmark",point.name,`${map.name} ${map.region} ${frontierPointText(point)}`,()=>{activatePanel("reference");setReferenceView("atlas");atlasArea=map.id;renderAtlas();setTimeout(()=>{const input=document.getElementById("atlas-q");if(input){input.value=frontierPointText(point).split(" · ")[0];input.dispatchEvent(new Event("input"));}},0);})));
   if(buildReady) { allBuildCharacters().forEach(character=>push("Build",character.name,`${character.role} ${(character.levelPriority||[]).join(" ")} ${(character.gear?.gems||character.gems||[]).join(" ")}`,()=>{ activatePanel("combat"); selectedBuildCharacter=character.id; showAllBuilds=false; renderBuild(); })); BUILD_DATA.partyPresets.forEach(preset=>push("Party preset",preset.activity,`${preset.phase} ${preset.party.map(buildName).join(" ")}`,()=>{ activatePanel("combat"); selectedPreset=preset.id; renderPresets(); })); }
   if(completionReady)COMPLETION_DATA.categories.forEach(category=>category.groups.forEach(group=>group.items.forEach(item=>push("Completion",item.name,`${category.title} ${group.title} ${item.meta||""} ${item.details||""}`,()=>{activatePanel("completion");document.getElementById("ccat").value=category.id;document.getElementById("cq").value=item.name;completionUnresolved=false;document.getElementById("c-unresolved").classList.remove("on");document.getElementById("c-unresolved").setAttribute("aria-pressed","false");renderCompletion();}))));
@@ -3151,18 +3305,29 @@ function guideSearch(loadMissing=true){
   Object.values(HUBS).forEach(hub=>hub.sections.forEach(section=>push("Guide section",section.label,`${hub.label} ${sectionSearchTerms[section.id]||""}`,()=>activatePanel(section.id))));
   if(typeof WORKSHOP_DATA!=="undefined")WORKSHOP_DATA.gifts.forEach(gift=>push("Gift",gift.name,`${gift.area} ${gift.category} ${Object.values(gift.affinity).join(" ")}`,()=>{activatePanel("gifts");document.getElementById("gift-q").value=gift.name;renderGiftOptimizer();}));
   if(collectReady) COLLECTOPAEDIA_DATA.collections.forEach(page=>page.groups.forEach(group=>group.items.forEach(item=>push("Collectopaedia",item.name,`${page.area} ${group.type}`,()=>{ activatePanel("reference"); setReferenceView("collect"); }))));
-  const loading=indexIncomplete&&!!globalSearchLoad;
-  count.textContent=hits.length?`${hits.length}${hits.length===30?"+":""} matches${loading?" · indexing…":""}`:loading?"Indexing…":"No matches";
+  hits.sort((a,b)=>a.score-b.score||a.kind.localeCompare(b.kind)||a.name.localeCompare(b.name));
+  const total=hits.length,visibleHits=hits.slice(0,30),loading=indexIncomplete&&!!globalSearchLoad;
+  count.textContent=total?`${total} match${total===1?"":"es"}${total>30?" · showing 30":""}${loading?" · indexing…":""}`:loading?"Indexing…":"No matches";
   let box=document.getElementById("guide-search-results");
-  if(!hits.length){box?.remove();return;}
-  if(!box){ box=document.createElement("div"); box.id="guide-search-results"; box.setAttribute("role","listbox"); document.querySelector(".header-tools").append(box); }
-  box.innerHTML=hits.map((hit,index)=>`<button type="button" class="route-link" data-guide-hit="${index}"><b>${esc(hit.kind)}:</b> ${esc(hit.name)}${hit.detail?` <span class="muted">· ${esc(hit.detail).slice(0,120)}</span>`:""}</button>`).join("");
-  box._hits=hits;
+  if(!visibleHits.length){box?.remove();input.removeAttribute("aria-activedescendant");return;}
+  if(!box){ box=document.createElement("div"); box.id="guide-search-results"; box.setAttribute("role","listbox"); box.setAttribute("aria-label","Guide search results"); document.body.append(box); }
+  box.innerHTML=visibleHits.map((hit,index)=>`<div class="guide-search-hit"><button type="button" id="guide-search-hit-${index}" class="route-link" role="option" aria-selected="false" data-guide-hit="${index}"><b>${esc(hit.kind)}:</b> ${esc(hit.name)}${hit.detail?` <span class="muted">· ${esc(hit.detail).slice(0,150)}</span>`:""}</button>${hit.secondaryAction?`<button type="button" class="guide-search-secondary" data-guide-secondary="${index}" aria-label="${esc(hit.secondaryLabel)} for ${esc(hit.name)}">${gameIcon("landmark")}<span>${esc(hit.secondaryLabel)}</span></button>`:""}</div>`).join("");
+  box._hits=visibleHits;placeGuideSearchResults();updateGuideSearchSelection(false);
 }
 document.getElementById("guide-search").addEventListener("input",guideSearch);
 document.addEventListener("keydown",event=>{ if(event.key==="/" && !/input|textarea|select/i.test(document.activeElement?.tagName||"")){ event.preventDefault(); document.getElementById("guide-search").focus(); } });
-document.addEventListener("click",event=>{ const button=event.target.closest("button[data-guide-hit]"), box=document.getElementById("guide-search-results"); if(button&&box?._hits?.[button.dataset.guideHit]){ box._hits[button.dataset.guideHit].action(); document.getElementById("guide-search").value=""; document.getElementById("guide-search-count").textContent=""; box.remove(); } else if(box&&!event.target.closest(".header-tools")) box.remove(); });
-document.getElementById("guide-search").addEventListener("keydown",event=>{if(event.key==="Escape"){event.currentTarget.value="";guideSearch();event.currentTarget.blur();}});
+document.addEventListener("click",event=>{ const primary=event.target.closest("button[data-guide-hit]"),secondary=event.target.closest("button[data-guide-secondary]"),box=document.getElementById("guide-search-results");if(primary&&box){runGuideSearchHit(Number(primary.dataset.guideHit));}else if(secondary&&box){runGuideSearchHit(Number(secondary.dataset.guideSecondary),true);}else if(box&&!event.target.closest(".global-search, #guide-search-results"))closeGuideSearch(); });
+document.getElementById("guide-search").addEventListener("keydown",event=>{
+  const box=document.getElementById("guide-search-results"),last=(box?._hits?.length||1)-1;
+  if(event.key==="Escape"){event.preventDefault();closeGuideSearch(true);event.currentTarget.blur();return;}
+  if(!box)return;
+  if(event.key==="ArrowDown"){event.preventDefault();guideSearchIndex=guideSearchIndex>=last?0:guideSearchIndex+1;updateGuideSearchSelection();}
+  else if(event.key==="ArrowUp"){event.preventDefault();guideSearchIndex=guideSearchIndex<=0?last:guideSearchIndex-1;updateGuideSearchSelection();}
+  else if(event.key==="Home"){event.preventDefault();guideSearchIndex=0;updateGuideSearchSelection();}
+  else if(event.key==="End"){event.preventDefault();guideSearchIndex=last;updateGuideSearchSelection();}
+  else if(event.key==="Enter"){event.preventDefault();runGuideSearchHit(guideSearchIndex);}
+});
+window.addEventListener("resize",placeGuideSearchResults);window.addEventListener("scroll",placeGuideSearchResults,true);
 
 // Detailed character builds and party presets
 function allBuildCharacters(){ return buildReady ? [...BUILD_DATA.characters, ...BUILD_DATA.futureConnected.characters] : []; }
@@ -3424,6 +3589,10 @@ document.getElementById("reset").addEventListener("click", () => {
 });
 updateRestoreAvailability();
 
+// These lazy-load handles must exist before hash restoration activates a hub.
+// A reload on #/reference otherwise enters ensurePanelData during the temporal
+// dead zone and leaves the whole guide at 0 / 0.
+let completionLoad = null, monsterLoad = null, collectLoad = null, atlasLoad = null, frontierLoad = null, coordinateLoad = null, dossierLoad = null, affinityLoad = null, bindingsLoad = null, anchorsLoad = null;
 const initialDestination=location.hash.includes("/")?location.hash.split("/").pop():"route";
 const safeInitialDestination=HUB_BY_DESTINATION[initialDestination]?initialDestination:"route";
 if(history?.replaceState)history.replaceState({destination:safeInitialDestination,scrollY:0},"",destinationHash(safeInitialDestination));
@@ -3437,7 +3606,6 @@ function loadData(file){
     document.head.appendChild(s);
   });
 }
-let completionLoad = null, monsterLoad = null, collectLoad = null, atlasLoad = null, frontierLoad = null, coordinateLoad = null, dossierLoad = null, affinityLoad = null, bindingsLoad = null, anchorsLoad = null;
 function ensurePanelData(name){
   if (name === "companion") {
     ensurePanelData("completion"); ensurePanelData("monsters");
