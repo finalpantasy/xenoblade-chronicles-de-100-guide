@@ -22,12 +22,17 @@ function norm(value) { return text(value).normalize("NFKD").replace(/[\u0300-\u0
 const ROUTE = load("data/route-data.js", "ROUTE");
 const COMPLETION_DATA = load("data/completion-data.js", "COMPLETION_DATA");
 const WORLD_DATA = load("data/world-data.js", "WORLD_DATA");
+const QUEST_SCHEDULE_DATA = load("data/quest-schedule-data.js", "QUEST_SCHEDULE_DATA");
 const cards = ROUTE.flatMap((chapter, chapterIndex) => chapter.items.filter(item => item.id).map((item, itemIndex) => ({
   id: item.id, chapterId: chapter.id, chapterTitle: chapter.title, chapterIndex, itemIndex,
+  storyQuestId: item.storyQuestId || "",
+  title: text(item.t || ""), titleNormalized: norm(item.t || ""),
+  bodyNormalized: norm(item.d || ""),
   text: text(`${item.t || ""} ${item.d || ""}`), normalized: norm(`${item.t || ""} ${item.d || ""}`)
 })));
 const cardById = new Map(cards.map(card => [card.id, card]));
 const questById = new Map(WORLD_DATA.quests.map(quest => [quest.id, quest]));
+const scheduleByQuestId = new Map(QUEST_SCHEDULE_DATA.schedules.map(schedule => [schedule.questId, schedule]));
 
 const AREA_ANCHORS = Object.freeze({
   "Colony 9": "c1-22", "Tephra Cave": "c3-22", "Bionis' Leg": "c4-30", "Colony 6": "c17-18",
@@ -48,11 +53,46 @@ const LATE_ANCHORS = Object.freeze({
   "Mechonis Field": "c14-19", "Central Factory": "c16-02", "Agniratha": "c14-19"
 });
 
-function exactCard(name) {
-  const needle = norm(name);
-  if (!needle || needle.length < 4) return null;
-  const matches = cards.filter(card => card.normalized.includes(needle));
-  return matches.sort((a, b) => a.chapterIndex - b.chapterIndex || a.itemIndex - b.itemIndex)[0] || null;
+function questNameNeedles(name) {
+  const corrected = String(name || "").replace(/\bAdventureres\b/gi, "Adventurers");
+  return [...new Set([corrected, corrected.replace(/\s*\([^)]*\)\s*$/, "")].map(norm).filter(needle => needle.length >= 4))];
+}
+function exactCard(name, quest = null) {
+  const needles = questNameNeedles(name);
+  if (!needles.length) return null;
+  const giverNeedles = (scheduleByQuestId.get(quest?.id)?.givers || []).map(giver => norm(giver.name)).filter(needle => needle.length >= 3);
+  let titleMatches = cards.filter(card => needles.some(needle => card.titleNormalized.includes(needle)));
+  // Several regions have a quest literally named "Challenge". It must not bind
+  // to Challenge 1/2/3 merely because its one-word name is a prefix.
+  if (quest && norm(name) === "challenge") {
+    const areaNeedle = norm(quest.area);
+    titleMatches = titleMatches.filter(card =>
+      (areaNeedle && card.titleNormalized.includes(areaNeedle)) || giverNeedles.some(needle => card.titleNormalized.includes(needle))
+    );
+    if (!titleMatches.length) return null;
+  }
+  const matches = titleMatches.length ? titleMatches : cards.filter(card => needles.some(needle => card.bodyNormalized.includes(needle)));
+  const areaAnchor = quest?.area ? cardById.get(AREA_ANCHORS[quest.area]) : null;
+  return matches.sort((a, b) => {
+    // The real quest card conventionally begins with its quest name. Mentions in
+    // prerequisites and "Unlocks" notes must never steal the Completion binding.
+    const aStarts = needles.some(needle => a.titleNormalized.startsWith(needle)) ? 1 : 0;
+    const bStarts = needles.some(needle => b.titleNormalized.startsWith(needle)) ? 1 : 0;
+    if (aStarts !== bStarts) return bStarts - aStarts;
+    // A title naming the actual giver is stronger than a later warning or spawn
+    // reference that happens to repeat the quest name.
+    const aGiver = giverNeedles.some(needle => a.titleNormalized.includes(needle)) ? 1 : 0;
+    const bGiver = giverNeedles.some(needle => b.titleNormalized.includes(needle)) ? 1 : 0;
+    if (aGiver !== bGiver) return bGiver - aGiver;
+    // Generic names such as Challenge 1 repeat in several regions. Choose the
+    // route visit nearest that quest's canonical area anchor before chronology.
+    if (areaAnchor) {
+      const aDistance = Math.abs(a.chapterIndex - areaAnchor.chapterIndex);
+      const bDistance = Math.abs(b.chapterIndex - areaAnchor.chapterIndex);
+      if (aDistance !== bDistance) return aDistance - bDistance;
+    }
+    return a.chapterIndex - b.chapterIndex || a.itemIndex - b.itemIndex;
+  })[0] || null;
 }
 function bind(targetId, targetType, routeItemId, handling, rationale) {
   const card = cardById.get(routeItemId);
@@ -61,7 +101,9 @@ function bind(targetId, targetType, routeItemId, handling, rationale) {
 }
 function questBinding(item) {
   const quest = questById.get(item.id);
-  const exact = exactCard(item.name);
+  const explicitStoryCard = cards.find(card => card.storyQuestId === item.id);
+  if (explicitStoryCard) return bind(item.id, "quest", explicitStoryCard.id, "exact", "Formal story quest is linked by its retained source ID.");
+  const exact = exactCard(item.name, quest);
   if (exact) return bind(item.id, "quest", exact.id, "exact", "Quest name is printed on this route card.");
   if (!quest) return bind(item.id, "quest", "c17-18", "post", "Source quest lacks a dependency record; resolve during the final quest ledger cleanup.");
   const late = /mechonis core cleared|after mechonis core|replica monado|high entia emblem/i.test(quest.requirements);

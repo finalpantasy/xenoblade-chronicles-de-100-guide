@@ -7,7 +7,7 @@ const dir = __dirname;
 eval(fs.readFileSync(path.join(dir, "data/route-data.js"), "utf8").replace("const ROUTE", "global.ROUTE"));
 
 const FLAG = {
-  d: "🔴", s: "🟡", h: "💜", m: "⛏️", u: "👾", g: "🏁", q: "📜", x: "⚪"
+  d: "🔴", s: "🟡", h: "💜", m: "⛏️", u: "👾", g: "🏁", q: "📜", story: "➡️", x: "⚪"
 };
 const KIND = {
   lvl: "📊 Set your level", build: "⚔️ Party & build", weather: "🌦️ Weather / time",
