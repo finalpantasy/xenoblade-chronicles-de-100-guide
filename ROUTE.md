@@ -120,46 +120,81 @@ A pair cannot reach high affinity before they have been in the party together a 
 > **Monster Quests** (kill N of an enemy), **Challenges** (kill one Unique Monster), **Material**, **Collection** and **Search** Quests all come from unnamed NPCs and **complete automatically in the field** the moment you satisfy them. No walk back.
 >
 > **Named-NPC quests are the opposite** — you must return to the person who gave it. Every named quest below tells you where to return.
+>
+> The one-line pickup schedules and objectives below are cross-checked against the <a href="https://nightlygamingbinge.com/xenoblade-chronicles-colony-9-side-quests/" target="_blank" rel="noopener">Colony 9 side-quest ledger</a> and individual <a href="https://xenoblade.fandom.com/wiki/Colony_9_Quests" target="_blank" rel="noopener">Xenoblade Wiki quest records</a>.
+
+> **ℹ️ Note — First arrival circuit — follow the clock, not the category list**
+>
+> If you reach Colony 9 at **night**, do this compact loop first: **Central Plaza** (take Search Quest 1) → **Commercial District** (take Material Quest 2) → **Gem Man's Stall** (take The Broken Watch with Shulk leading) → **Dunban's House** (pick up the Wedding Ring behind it) → **Tranquil Square** and **Fortress Entrance** (register the night Defence Force members).
+>
+> At **day**, sweep Tranquil Square → Ether Light → Fortress Entrance for the remaining named quests and Defence Force members. The cards below are ordered around those two real walking circuits; individual generic quests have their own sub-checkboxes, so taking one does not imply the whole bundle is finished.
 
 1. 🔴 🔴 Earn **The Brave Protectors** before inviting Nic to Colony 6
    Register all nine Colony 9 Defence Force members on the Affinity Chart: **Andreas, Dorothy, Kantz, Emmy Leater, Miller, Minnie, Monica, Nic and Raoul**. Talk to named NPCs twice and at their active time until the link registers. Inviting Nic to Colony 6 before this is complete can make the achievement unobtainable on this file.
    **Sub-checkpoints:**
-   - [ ] Register Andreas
-   - [ ] Register Dorothy
-   - [ ] Register Kantz
-   - [ ] Register Emmy Leater
-   - [ ] Register Miller
-   - [ ] Register Minnie
-   - [ ] Register Monica
-   - [ ] Register Nic
-   - [ ] Register Raoul
+   - [ ] Register Andreas — 18:00–06:00 · Fortress Entrance
+   - [ ] Register Dorothy — 06:00–18:00 · Ether Light
+   - [ ] Register Kantz — 06:00–18:00 · Fortress Entrance
+   - [ ] Register Emmy Leater — 06:00–18:00 · Fortress Entrance
+   - [ ] Register Miller — 06:00–18:00 · Fortress Entrance
+   - [ ] Register Minnie — 18:00–06:00 · Tranquil Square
+   - [ ] Register Monica — 18:00–06:00 · Fortress Entrance
+   - [ ] Register Nic — 18:00–06:00 · Fortress Entrance · do this before inviting him
+   - [ ] Register Raoul — 06:00–18:00 · Fortress Entrance
 
-2. 📜 **The Key to a Long Life** — Dionysis
+2. 🔴 **Search Quests 1-4** — start with the **Wedding Ring** at night
+   - **First-night pickup:** take **Search Quest 1** from the unnamed resident in **Central Plaza, 18:00–06:00**.
+   - **Do:** collect the **Wedding Ring behind Dunban's House** in the Residential District. It auto-completes immediately.
+   **Sub-checkpoints:**
+   - [ ] Search Quest 1 — Wedding Ring — Pickup 18:00–06:00 · Central Plaza. Wedding Ring is directly behind Dunban's House.
+   - [ ] Search Quest 2 — Blue Glass Bead — Pickup 06:00–18:00 · Residential District. Blue Glass Bead is behind the southwest building near the exit bridge.
+   - [ ] Search Quest 3 — Key — Pickup 06:00–18:00 · Gem Man's Stall. The Key is behind the fenced building in southeast Residential District.
+   - [ ] Search Quest 4 — Spanner — Pickup 18:00–06:00 · south of Tranquil Square. The Spanner is on the balcony west of Gem Man's Stall; loop behind the building.
+
+3. 🔴 **Material Quests 1-4** — generic, auto-complete
+   - **First-night pickup:** take **Material Quest 2** from the unnamed resident in the **Commercial District, 18:00–06:00**.
+   - **Known objectives:** Material Quest 2 — a Small Scale from the piranhas in the water below the colony. Material Quest 4 — a Yolkless Flamil Egg from **Lake Flamii, near Anti-Air Battery 1**.
+   - These consume the items when they complete, so do not sell anything odd you pick up in Colony 9 until the board is clear.
+   **Sub-checkpoints:**
+   - [ ] Material Quest 1 — 2× Small Shells — Pickup 06:00–18:00 · Weapon Dev. Lab stairs. Collect 2 Small Shells from Beach Krabbles below the Main Entrance bridge.
+   - [ ] Material Quest 2 — 1× Small Scale — Pickup 18:00–06:00 · Commercial District near Ether Light. Collect 1 Small Scale from Piranhaxes below Outlook Park.
+   - [ ] Material Quest 3 — 2× Vang Teeth — Pickup 06:00–18:00 · Commercial District bridge to Central Plaza. Collect 2 Vang Teeth from Little Vangs near the Main Entrance at night.
+   - [ ] Material Quest 4 — 1× Yolkless Flamii Egg — Pickup 18:00–06:00 · Residential District near Tranquil Square. Collect 1 Yolkless Flamii Egg from Lake Flamii south of Anti-Air Battery 1.
+
+4. 🔴 **The Broken Watch** — Désirée · **Shulk must be leading**
+   - **Pick up:** Désirée, **18:00–06:00** at the **Gem Man's Stall**. She will not give it to you unless **Shulk is the active party leader**.
+   - **Do:** collect **3x Blue Chain** around Colony 9, then go to the **Weapon Development Lab** (Shulk's lab) and mend the watch.
+   - **Turn in:** back to Désirée.
+   - **Pays:** 750 G · 80 EXP · Muscle Up II.
+   - **Why it is flagged:** this is step one of the chain to **Désirée's Future** in Chapter 6, the only source of **Shulk's hidden Pessimism skill tree**. Miss this and that tree never becomes available.
+
+5. 🔴 **Collection Quests 1-4** — generic, auto-complete
+   - **Known objective:** Collection Quest 2 — one **Plate Snow**, from the field outside town. Given by an old man in the northwest of the Commercial District.
+   **Sub-checkpoints:**
+   - [ ] Collection Quest 1 — 2× Rabbit Diodes — Pickup 06:00–18:00 · Commercial District near Ether Light. Collect 2 Rabbit Diodes between Mechon Wreckage Site and Tephra Hill.
+   - [ ] Collection Quest 2 — 1× Plate Snow — Pickup 18:00–06:00 · upper northwest Commercial District behind Gem Man's Stall. Collect 1 Plate Snow from Colony 9 ground points.
+   - [ ] Collection Quest 3 — 2× Rainbow Zirconias — Pickup 06:00–18:00 · shop east of Tranquil Square. Collect 2 Rainbow Zirconias from Colony 9 ground points; Dionysis trades them at 1★.
+   - [ ] Collection Quest 4 — 1× Giant Hornet — Pickup 06:00–18:00 · east of Tranquil Square. Collect 1 Giant Hornet from Colony 9 ground points; Dean trades it at 1★.
+
+6. 📜 **The Key to a Long Life** — Dionysis
    - **Pick up:** Dionysis, Residential District (near Tranquil Square).
    - **Do:** kill Brogs around Colony 9 until you have **2x Medicinal Brog Oil**.
    - **Turn in:** back to Dionysis.
    - **Pays:** 500 G · 50 EXP · Light Shoes (has an empty gem slot) · +100 Colony 9 affinity.
 
-3. 📜 **Lonely Niranira** — Niranira
+7. 📜 **Lonely Niranira** — Niranira
    - **Pick up:** Niranira, Tranquil Square.
    - **Do:** take her letter to **Lukas**, also in Tranquil Square.
    - **Turn in:** back to Niranira.
    - **Pays:** 100 G · 50 EXP · Block Guarder.
    - **Unlocks:** Pride and Courage — **do not skip this**, the chain eventually reaches Friendship Tokens in Ch17, which is Reyn's hidden Camaraderie skill tree.
 
-4. 📜 **Biscuits for a Grandson** — Marcia
+8. 📜 **Biscuits for a Grandson** — Marcia
    - **Pick up:** Marcia, Ether Light (Commercial District).
    - **Do:** take Marcia's Biscuits to **Jiroque** in the Residential District — he is training to beat his older brother.
    - **Turn in:** back to Marcia.
    - **Pays:** 800 G · 30 EXP · Swimming Sandals.
    - **Unlocks:** A Big Brother's Fight, which is the branch below.
-
-5. 🔴 **The Broken Watch** — Désirée · **Shulk must be leading**
-   - **Pick up:** Désirée, at the **Gem Man's Stall**. She will not give it to you unless **Shulk is the active party leader**.
-   - **Do:** collect **3x Blue Chain** around Colony 9, then go to the **Weapon Development Lab** (Shulk's lab) and mend the watch.
-   - **Turn in:** back to Désirée.
-   - **Pays:** 750 G · 80 EXP · Muscle Up II.
-   - **Why it is flagged:** this is step one of the chain to **Désirée's Future** in Chapter 6, the only source of **Shulk's hidden Pessimism skill tree**. Miss this and that tree never becomes available.
 
 > **🔀 Branch choice — A Big Brother's Fight vs A Little Brother's Fight**
 >
@@ -169,7 +204,7 @@ A pair cannot reach high affinity before they have been in the party together a 
 >
 > Slightly better affinity, and it changes which follow-up quest you receive. Marcia herself is quietly rooting for the younger one.
 
-6. 🔴 **A Little Brother's Fight** — give the pollen to **Jiroque**
+9. 🔴 **A Little Brother's Fight** — give the pollen to **Jiroque**
    Not A Big Brother's Fight. See the branch note above.
 
 > **ℹ️ Note — The four Challenge quests ARE the Unique Monster fights**
@@ -178,22 +213,22 @@ A pair cannot reach high affinity before they have been in the party together a 
 >
 > So: take the Challenge, go kill the thing, it auto-completes. Each one also gives every party member an **Affinity Coin**, which is the currency for Skill Links later.
 
-7. 👾 **Challenge 1** → kill **Evil Rhangrot** (Lv6)
+10. 👾 **Challenge 1** → kill **Evil Rhangrot** (Lv6)
    - **Pick up:** Defence Force Soldier, **Military District** — the dark alley by the containers to the northeast.
    - **Do:** kill Evil Rhangrot near **Tephra Hill**. It is escorted by two Hand Bunnits. It drops a **Gold Chest**.
    - **Pays:** 1,800 G · +50 Rep · one Affinity Coin for all seven characters.
 
-8. 👾 **Challenge 2** → kill **Verdant Bluchal** (Lv5)
+11. 👾 **Challenge 2** → kill **Verdant Bluchal** (Lv5)
    - **Pick up:** a Colony 9 Resident in the **Commercial District** (around Ether Light).
    - **Do:** kill Verdant Bluchal on the beach near **Anti-Air Battery 1**.
    - **Pays:** 1,800 G · +50 Rep · Affinity Coin.
 
-9. 👾 **Challenge 3** → kill **Lake Magdalena** (Lv6) · **night only**
+12. 👾 **Challenge 3** → kill **Lake Magdalena** (Lv6) · **night only**
    - **Pick up:** Defence Force Soldier, **Military District**.
    - **Do:** Lake Magdalena appears **only at night**, in the pool **below Outlook Park**. If it is daytime, rest at an inn or wait for the clock.
    - **Pays:** 3,000 G · +50 Rep · Affinity Coin.
 
-10. 👾 **Itinerant Dorothea** (Lv6) — free-roaming, no quest needed
+13. 👾 **Itinerant Dorothea** (Lv6) — free-roaming, no quest needed
    Cliff Lake, **daytime**. Not tied to any Challenge — just go and kill it.
 
 > **🌦️ Weather / time — Time-of-day targets in Colony 9**
@@ -210,20 +245,24 @@ A pair cannot reach high affinity before they have been in the party together a 
 >
 > **So treat the expiry as unknown and clear the block in Chapter 1.** It costs about an hour. If they turn out to last until Mechonis Core, you lost nothing; if they expire early, you kept three Unique Monsters and a pile of Affinity Coins that are otherwise gone.
 
-11. 🔴 **Monster Quests 1-4** (all parts) — generic, auto-complete
+14. 🔴 **Monster Quests 1-4** (all parts) — generic, auto-complete
    - **Pick up:** Defence Force Soldiers at the Fortress Entrance, Colony 9 Residents at Ether Light, and a guard outside Tephra Cave.
    - **Known objectives:** Monster Quest 1 — kill Ridge Antois near the water, then a Lv6 Cute Brog that only appears **at night** by the shore, then 3x Lv9 Colony Krabble at **Cliff Lake at night**. Monster Quest 4 — kill 1 Willow Bunniv, 2x Lv8 Singing Brog, and 5x Lv5 Meil Lizard, all inside Tephra Cave / the ruins.
    - **Note:** several parts are night-only, so fold them into the same night trip as Lake Magdalena.
-
-12. 🔴 **Material Quests 1-4** — generic, auto-complete
-   - **Known objectives:** Material Quest 2 — a Small Scale from the piranhas in the water below the colony. Material Quest 4 — a Yolkless Flamil Egg from **Lake Flamii, near Anti-Air Battery 1**.
-   - These consume the items when they complete, so do not sell anything odd you pick up in Colony 9 until the board is clear.
-
-13. 🔴 **Collection Quests 1-4** — generic, auto-complete
-   - **Known objective:** Collection Quest 2 — one **Plate Snow**, from the field outside town. Given by an old man in the northwest of the Commercial District.
-
-14. 🔴 **Search Quests 1-4** — generic, auto-complete
-   - **Known objective:** Search Quest 1 — find a man's ring, **behind Dunban's house** in the Commercial District. Given by a man in the central plaza.
+   **Sub-checkpoints:**
+   - [ ] Monster Quest 1 — Part 1 — 2× Ridge Antols — Pickup 18:00–06:00 · Fortress Entrance. Defeat 2 Ridge Antols on the Outlook Park beach.
+   - [ ] Monster Quest 1 — Part 2 — 1× Cute Brog — Pickup 18:00–06:00 · Fortress Entrance. Defeat 1 Cute Brog at Cliff Lake.
+   - [ ] Monster Quest 1 — Part 3 — 3× Colony Krabbles — Pickup 18:00–06:00 · Fortress Entrance. Defeat 3 Colony Krabbles around Cliff Lake / Mechon Wreckage Site at night.
+   - [ ] Monster Quest 2 — Part 1 — 2× Lake Flamii — Pickup 06:00–18:00 · Fortress Entrance. Defeat 2 Lake Flamii on the shore south of Anti-Air Battery 1.
+   - [ ] Monster Quest 2 — Part 2 — 1× Baby Armu — Pickup 06:00–18:00 · Fortress Entrance. Defeat 1 Baby Armu southwest of Anti-Air Battery 1.
+   - [ ] Monster Quest 2 — Part 3 — 2× Stone Krabbles — Pickup 06:00–18:00 · Fortress Entrance. Defeat 2 Stone Krabbles at Hazzai Cape, east of Anti-Air Battery 3.
+   - [ ] Monster Quest 3 — Part 1 — 2× Hand Bunnits — Pickup 06:00–18:00 · Gem Man's Stall. Defeat 2 Hand Bunnits on the Main Entrance → Tephra Hill trail by day.
+   - [ ] Monster Quest 3 — Part 2 — 3× Beach Krabbles — Pickup 06:00–18:00 · Gem Man's Stall. Defeat 3 Beach Krabbles below the Main Entrance bridge.
+   - [ ] Monster Quest 3 — Part 3 — 2× Wood Bunnits — Pickup 06:00–18:00 · Gem Man's Stall. Defeat 2 Wood Bunnits on Tephra Hill by day.
+   - [ ] Monster Quest 3 — Part 4 — 3× Light Skeeters — Pickup 06:00–18:00 · Gem Man's Stall. Defeat 3 Light Skeeters on the shore south of Anti-Air Battery 1 by day.
+   - [ ] Monster Quest 4 — Part 1 — 1× Willow Bunniv — Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 1 Willow Bunniv at the end of the entrance tunnel.
+   - [ ] Monster Quest 4 — Part 2 — 2× Singing Brogs — Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 2 Singing Brogs just beyond Caterpile Nest.
+   - [ ] Monster Quest 4 — Part 3 — 5× Mell Lizards — Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 5 Mell Lizards just beyond Warehouse 2.
 
 > **ℹ️ Note — Affinity gate reached — 1.25★ quests now appear**
 >
@@ -595,28 +634,28 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Generic, auto-complete:** Monster Quest 2 · Monster Quest 3 Parts 1-2 · Challenge 1 Parts 1-2 · Challenge 2 Parts 1-2 · Material Quest 1-4 · Collection Quest 1-2 · Search Quest 1-2.
    - **All of it dies at the relocation.** The generic ones auto-complete in the field, so take every one before you go monster hunting and they will tick off as you go.
    **Sub-checkpoints:**
-   - [ ] Being a Good Grandfather
-   - [ ] A Thoughtful Idea
-   - [ ] A Dash of Colour
-   - [ ] The Greedy Monster
-   - [ ] Earnest's Fibs
-   - [ ] Earnest's Mischief
-   - [ ] Earnest's Solitude
-   - [ ] Monster Quest 2
-   - [ ] Monster Quest 3 — Part 1
-   - [ ] Monster Quest 3 — Part 2
-   - [ ] Challenge 1 — Part 1
-   - [ ] Challenge 1 — Part 2
-   - [ ] Challenge 2 — Part 1
-   - [ ] Challenge 2 — Part 2
-   - [ ] Material Quest 1
-   - [ ] Material Quest 2
-   - [ ] Material Quest 3
-   - [ ] Material Quest 4
-   - [ ] Collection Quest 1
-   - [ ] Collection Quest 2
-   - [ ] Search Quest 1
-   - [ ] Search Quest 2
+   - [ ] Being a Good Grandfather — 3× Sticky Web Fibre — Pickup 06:00–15:00 · Satata, Refugee Camp. Collect Sticky Web Fibre from Arachno, then follow the Kiroki handoff.
+   - [ ] A Thoughtful Idea — 3× Ponio Neck Meat — Pickup 09:00–18:00 · Matryona, Refugee Camp. Speak to Ewan and collect Ponio Neck Meat from Field Ponios.
+   - [ ] A Dash of Colour — 4× Sour Gooseberries — Pickup 06:00–18:00 · Ewan, Refugee Camp. Collect Sour Gooseberries, then deliver the paints through Matryona.
+   - [ ] The Greedy Monster — Abnormal Brog — Pickup 06:00–15:00 · Satata, Refugee Camp. Defeat Abnormal Brog near Raguel Lake and return.
+   - [ ] Earnest's Fibs — first ether deposit — Pickup anytime · Earnest, Refugee Camp. Inspect the first ether deposit and return.
+   - [ ] Earnest's Mischief — second ether deposit — Pickup anytime · Earnest, Refugee Camp. Inspect the cave-side ether deposit at Raguel Lake and return.
+   - [ ] Earnest's Solitude — grave and Arrogant Tirkin — Pickup anytime · Earnest, Refugee Camp. Place flowers on the grave, then defeat Arrogant Tirkin north of Kasharpa Falls.
+   - [ ] Monster Quest 2 — 2× Basin Antols — Pickup 06:00–18:00 · Refugee Camp. Defeat Basin Antols around Daksha Shrine / the camp.
+   - [ ] Monster Quest 3 — Part 1 — 5× M64 Mechon — Pickup 18:00–06:00 · Refugee Camp. Defeat M64 Mechon along Maguel Road.
+   - [ ] Monster Quest 3 — Part 2 — 2× Brave Tirkins — Pickup 18:00–06:00 · Refugee Camp. Defeat Brave Tirkins at Tirkin Headquarters.
+   - [ ] Challenge 1 — Part 1 — White Eduardo — Pickup anytime · Refugee Camp. Defeat White Eduardo at Raguel Lake during a thunderstorm.
+   - [ ] Challenge 1 — Part 2 — Violent Andante — Pickup anytime · Refugee Camp. Defeat Violent Andante around Sky Stage / Viliera Hill.
+   - [ ] Challenge 2 — Part 1 — Trainer Harmelon — Pickup 06:00–18:00 · Refugee Camp. Defeat Trainer Harmelon north of Spiral Valley.
+   - [ ] Challenge 2 — Part 2 — Vagrant Alfead — Pickup 06:00–18:00 · Refugee Camp. Defeat Vagrant Alfead at Tirkin Headquarters.
+   - [ ] Material Quest 1 — 2× Brog Leg Meat + 2× Fertile Flamii Eggs — Pickup 18:00–06:00 · Refugee Camp. Collect Brog Leg Meat from Big Brogs and Fertile Flamii Eggs from Flamiis.
+   - [ ] Material Quest 2 — 2× Tirkin Crests + 2× Tail Feathers — Pickup 18:00–06:00 · Refugee Camp. Collect Tirkin Crests and Tail Feathers at Tirkin Headquarters.
+   - [ ] Material Quest 3 — 1× Bunnit Sapling — Pickup 18:00–06:00 · Refugee Camp. Collect a Bunnit Sapling from Slugger Bunnits north of Jabo Rock Rest Area.
+   - [ ] Material Quest 4 — 3× Vang Third Molars — Pickup 18:00–06:00 · Refugee Camp. Collect Vang Third Molars from Vangs on Bionis' Leg.
+   - [ ] Collection Quest 1 — 2× Clear Almonds — Pickup 18:00–06:00 · Refugee Camp. Collect Clear Almonds from Tephra Cave collection points.
+   - [ ] Collection Quest 2 — 3× Moth Crawlers — Pickup 06:00–18:00 · Refugee Camp. Collect Moth Crawlers from Bionis' Leg collection points.
+   - [ ] Search Quest 1 — Bird Necklace — Pickup 06:00–18:00 · Refugee Camp. Find the Bird Necklace near Raguel Bridge.
+   - [ ] Search Quest 2 — Torn Paper — Pickup 18:00–06:00 · Refugee Camp. Find the Torn Paper on Gaur Plain.
 
 > **ℹ️ Note — The four Challenge parts are Unique Monster fights again**
 >
@@ -1013,6 +1052,11 @@ A pair cannot reach high affinity before they have been in the party together a 
    - 2. Kill **3x Coppice Quadwing** — 6,200 G. These also drop **Quadwing Bag**, which Colony 6 Nature 2 wants ×2.
    - 3. Kill **2x Mist Rhogul** at **Barren Moor** — 6,800 G
    - 4. Kill **1x Officer Volff** (Lv23-26, six spawn points, **not at night**) — 6,500 G
+   **Sub-checkpoints:**
+   - [ ] Nopon Merchant Monster Quest 1 — defeat 2× Detox Brog — Pickup anytime · Nopon Merchant Camp. Defeat Detox Brogs in Satorl Marsh.
+   - [ ] Nopon Merchant Monster Quest 2 — defeat 3× Coppice Quadwing — Pickup anytime · Nopon Merchant Camp. Defeat Coppice Quadwings by day around Crown Tree / Lacus Swamp.
+   - [ ] Nopon Merchant Monster Quest 3 — defeat 2× Mist Rhogul — Pickup anytime · Nopon Merchant Camp. Defeat Mist Rhoguls by day around Nopon Refuge / Altar of Fate.
+   - [ ] Nopon Merchant Monster Quest 4 — defeat 1× Officer Volff — Pickup anytime · Nopon Merchant Camp. Defeat Officer Volff in Satorl Marsh.
 
 22. 👾 UM: **Stormy Widardun** (25) — Zaldania Waterfall, **day**
 
@@ -1231,6 +1275,11 @@ A pair cannot reach high affinity before they have been in the party together a 
 28. 📜 **Makna Monster Quests 1-4** — Nopon Merchant, Agni Tablet · generic, auto-complete
    - 1. Kill 5x Jungle Quadwing — 15,000 G · 2. Kill 2x Makna Feris — 9,600 G · 3. Kill 2x Makna Ansel — 8,500 G · 4. Kill 3x Makna Eks — 12,000 G
    - Quest 4's Makna Eks also drop **Eks Iron Heart**, which Colony 6 Housing 3 needs. Do them together.
+   **Sub-checkpoints:**
+   - [ ] Makna Monster Quest 1 — 5× Jungle Quadwings — Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Jungle Quadwings below Agni Tablet / near Waypoint Beacon.
+   - [ ] Makna Monster Quest 2 — 2× Makna Feris — Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Feris around Waypoint Beacon or Sparkling Pool.
+   - [ ] Makna Monster Quest 3 — 2× Makna Ansels — Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Ansels around Eks Watering Hole in clear weather.
+   - [ ] Makna Monster Quest 4 — 3× Makna Eks — Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Eks at Eks Watering Hole.
 
 > **ℹ️ Note — 🔴 The Old Soldier's Test becomes possible now — and it can be destroyed**
 >
@@ -1413,10 +1462,10 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **Do:** talk to **Kaleka** → **1x Attachment Part** from the **Second Treasury** in the High Entia Tomb → Kaleka → Elior.
    - **Pays:** 6,900 G · 2,700 EXP · +200 Rep · Amethyst Leggings.
    **Sub-checkpoints:**
-   - [ ] Speak to Kaleka
-   - [ ] Collect the Attachment Part in the Second Treasury
-   - [ ] Return to Kaleka
-   - [ ] Return to Elior
+   - [ ] Speak to Kaleka — 18:00–06:00 · Frontier Village · Nopon Tower
+   - [ ] Collect the Attachment Part in the Second Treasury — High Entia Tomb B2F · Second Treasury off the central hallway
+   - [ ] Return to Kaleka — 18:00–06:00 · Frontier Village · Nopon Tower
+   - [ ] Return to Elior — 06:00–18:00 · Alcamoth · Fountain of Eternity
 
 > **ℹ️ Note — ALCAMOTH PHASE 4 — after the Whitewing Palace scene. This is the gold.**
 >
@@ -1451,12 +1500,38 @@ A pair cannot reach high affinity before they have been in the party together a 
 25. 🔴 🔴 **Alcamoth Monster Quests 1-4**, three parts each — **231,000 G**
    - Imperial Guards and Citizens at the **Imperial Palace** and **Ascension Hall**. Every target is an Eryth Sea monster — Chloro Laia, Stella Eks, Racti Lexos, Somati Kromar and similar.
    - Generic, so they auto-complete in the field. Take all twelve parts before you go hunting.
+   **Sub-checkpoints:**
+   - [ ] Alcamoth Monster Quest 1 — Part 1 — 5× Cruz Paguls — Pickup 06:00–18:00 · Imperial Palace. Defeat Cruz Paguls at Latael Shore or Hovering Reef 5.
+   - [ ] Alcamoth Monster Quest 1 — Part 2 — 3× Eryth Ansels — Pickup 06:00–18:00 · Imperial Palace. Defeat Eryth Ansels by day around Hovering Reefs 4, 5, 7 or 9.
+   - [ ] Alcamoth Monster Quest 1 — Part 3 — 2× Ciconia Ekidnos — Pickup 06:00–18:00 · Imperial Palace. Defeat Ciconia Ekidnos around Hovering Reefs 7 or 10.
+   - [ ] Alcamoth Monster Quest 2 — Part 1 — 3× Chloro Laias — Pickup 18:00–06:00 · Imperial Palace. Defeat Chloro Laias at night around Hovering Reefs 2, 4, 5 or 9.
+   - [ ] Alcamoth Monster Quest 2 — Part 2 — 5× Stella Eks — Pickup 18:00–06:00 · Imperial Palace. Defeat Stella Eks around Anu Shore, Khatorl Seal Island or the outer reefs.
+   - [ ] Alcamoth Monster Quest 2 — Part 3 — 1× Racti Lexos — Pickup 18:00–06:00 · Imperial Palace. Defeat Racti Lexos around Soltnar Seal Island or Hovering Reefs 5 and 9.
+   - [ ] Alcamoth Monster Quest 3 — Part 1 — 5× Unine Hodes — Pickup 06:00–18:00 · Melfica Road. Defeat Unine Hodes around Showdown Cliff or Hovering Reefs 2 and 3.
+   - [ ] Alcamoth Monster Quest 3 — Part 2 — 2× Tocos Orluga — Pickup 06:00–18:00 · Melfica Road. Defeat Tocos Orluga around Hode Refuge or Khatorl Seal Island.
+   - [ ] Alcamoth Monster Quest 3 — Part 3 — 1× Pelargos Ekidno — Pickup 06:00–18:00 · Melfica Road. Defeat Pelargos Ekidno around Hode Refuge or Khatorl Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 1 — 3× Somati Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Somati Kromars at Soltnar Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 2 — 4× Tussock Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Tussock Kromars at Soltnar Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 3 — 5× Otol Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Otol Kromars at Soltnar Seal Island.
 
 26. 🔴 🔴 **Alcamoth Material / Collection / Search Quests 1-4 each** — **215,000 G**
    - **Material** (~92,500 G): Glossy Grady Fan from Lunar Gradys, Orluga Grass Skirt from Orlugas in Makna, and similar.
    - **Collection** (~80,500 G): Gold Burdock, White Tail and other Eryth Sea collectables.
    - **Search** (~42,000 G): lost items **inside Alcamoth itself** — Mother's Necklace on the second level, Silver Ring, and so on.
    - All generic and auto-completing. Take the entire board in one pass.
+   **Sub-checkpoints:**
+   - [ ] Alcamoth Material Quest 1 — 2× Glossy Grady Fans — Pickup 06:00–18:00 · Main Entrance. Collect Glossy Grady Fans from Lunar Gradys at Eryth Sea.
+   - [ ] Alcamoth Material Quest 2 — 5× Orluga Grass Skirts — Pickup 06:00–18:00 · Imperial Palace. Collect Orluga Grass Skirts from Orlugas in Makna Forest.
+   - [ ] Alcamoth Material Quest 3 — 3× Orluga Slacks — Pickup 06:00–18:00 · Main Entrance. Collect Orluga Slacks from Orlugas at Eryth Sea.
+   - [ ] Alcamoth Material Quest 4 — 2× Lexos Beards — Pickup 06:00–18:00 · Imperial Palace. Collect Lexos Beards from Racti Lexos at Eryth Sea.
+   - [ ] Alcamoth Collection Quest 1 — 3× Gold Burdock — Pickup 06:00–18:00 · Melfica Road. Collect Gold Burdock from Eryth Sea collection points.
+   - [ ] Alcamoth Collection Quest 2 — 2× White Tails — Pickup 06:00–18:00 · Main Entrance. Collect White Tails from Eryth Sea collection points.
+   - [ ] Alcamoth Collection Quest 3 — 5× Stardrops — Pickup 06:00–18:00 · Fountain of Hope. Collect Stardrops from Alcamoth collection points.
+   - [ ] Alcamoth Collection Quest 4 — 2× Spiral Lamps — Pickup 18:00–06:00 · Melfica Road. Collect Spiral Lamps from High Entia Tomb collection points.
+   - [ ] Alcamoth Search Quest 1 — Mother's Necklace — Pickup 18:00–06:00 · Fountain of Hope. Find the Mother's Necklace on Alcamoth's second level.
+   - [ ] Alcamoth Search Quest 2 — Silver Ring — Pickup 18:00–06:00 · Fountain of Hope. Find the Silver Ring in Alcamoth.
+   - [ ] Alcamoth Search Quest 3 — Merchant's Gift — Pickup 06:00–18:00 · Fountain of Eternity. Find the Merchant's Gift on Alcamoth's lower level.
+   - [ ] Alcamoth Search Quest 4 — Health Amulet — Pickup 18:00–06:00 · Fountain of Hope. Find the Health Amulet on Alcamoth's lower level.
 
 27. 🟡 🟡 **Repair the Alcamoth warps**
    Three of the six Alcamoth Heart-to-Hearts need repaired warps to reach. The Heart-to-Hearts themselves survive Mechonis Core, but the **repair quests die with the NPCs**. Do the repairs now or those three become a long walk you cannot make.
@@ -1701,6 +1776,11 @@ A pair cannot reach high affinity before they have been in the party together a 
 12. 📜 **Valak Monster Quests 1-4** — Nopon Merchant, **Zokhed Pass** · big money
    - 1. 2x Monta Moramora — 23,000 G · 2. 5x Sparas Pagul — 25,500 G · 3. 3x Bow Chilkin — 28,000 G · 4. 1x Sesna Lexos — 30,000 G
    - **106,500 G total.** Generic, so they auto-complete. Take all four before hunting. The merchant says there is no rush; sources disagree on whether they are timed, so just do them.
+   **Sub-checkpoints:**
+   - [ ] Valak Monster Quest 1 — 2× Monta Moramoras — Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Monta Moramoras by day around Zokhed Pass / Nagul Waterfall.
+   - [ ] Valak Monster Quest 2 — 5× Sparas Paguls — Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Sparas Paguls around Nagul Waterfall.
+   - [ ] Valak Monster Quest 3 — 3× Bow Chilkins — Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Bow Chilkins around Url Crevasse / Bagnar Snowfield.
+   - [ ] Valak Monster Quest 4 — 1× Sesna Lexos — Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Sesna Lexos by day around Bagnar Snowfield.
 
 13. ⛏️ ⛏️ **Ice Cabbage** ×2 — Nature 3. Valak collection, **the grindiest item in the game**
    Find a landmark with clustered collection points and run the Skip Travel loop. **If it resists you more than twenty minutes, trade Yura on Valak Mountain instead**, or buy it with Noponstone at 13,600. This item is not worth an hour of your life.
@@ -2184,14 +2264,23 @@ A pair cannot reach high affinity before they have been in the party together a 
    - **2-1:** 6x M55/DREAD, scattered — 36,000 G
    - **2-2:** 4x M67/RADAR, mainly Zedonia Plaza — 41,500 G
    - **2-3:** 4x M87/GRAND at the Dios, Cleas and Helas Pillars — 39,500 G
+   **Sub-checkpoints:**
+   - [ ] Civil Protection 1-1 — 5× M67/HASTE — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M67/HASTE in Residential Districts 1 and 2.
+   - [ ] Civil Protection 1-2 — 6× M36/SACRE — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M36/SACRE around Helas Pillar.
+   - [ ] Civil Protection 1-3 — 3× Offensive/BRAVE — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat Offensive/BRAVE around Zedonia Plaza, Cleas or Calcos Pillar.
+   - [ ] Civil Protection 2-1 — 6× M55/DREAD — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M55/DREAD around Helas or Dios Pillar.
+   - [ ] Civil Protection 2-2 — 4× M67/RADAR — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M67/RADAR around Zedonia Plaza, Dios Pillar or the upper districts.
+   - [ ] Civil Protection 2-3 — 4× M87/GRAND — Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M87/GRAND in Agniratha.
 
 6. 🔴 🔴 **Agniratha Beautification 1 & 2** — City Planning Terminal · 104,500 G
    - **1:** 4x New Part S (small Mechon) + 5x Fairy Tale Diode (collectables) — 51,000 G
    - **2:** 3x New Part L (large Mechon) + 6x Grape Spring (collectables) — 53,500 G
    - Collect these while sweeping for Lewisia Silver and Blue Light Amp — same collection points.
    **Sub-checkpoints:**
+   - [ ] Complete Agniratha Beautification 1
    - [ ] Bank 4× New Part S
    - [ ] Bank 5× Fairy Tale Diode
+   - [ ] Complete Agniratha Beautification 2
    - [ ] Bank 3× New Part L
    - [ ] Bank 6× Grape Spring
 
@@ -2204,10 +2293,12 @@ A pair cannot reach high affinity before they have been in the party together a 
    - [ ] Examine Phoenix corpse — Dios Pillar
    - [ ] Examine Phoenix corpse — Effigy of Meyneth
    - [ ] Examine Phoenix corpse — Calcos Pillar
+   - [ ] Complete Telethia Investigation 1
    - [ ] Examine Gigas corpse — Residential District 1
    - [ ] Examine Gigas corpse — Helas Pillar
    - [ ] Examine Gigas corpse — Telethia Bridge
    - [ ] Examine Gigas corpse — Judicial District
+   - [ ] Complete Telethia Investigation 2
 
 8. 🔴 🔴 After all 14 terminal quests, claim the **Cloister Key** and find the secret area
    Interact with the final Central Tower terminal after completing all fourteen optional Agniratha quests. Use the key on the locked 3F door to discover the **Seventh Sage Cloister** before the Meyneth Shrine cutoff.
@@ -2361,16 +2452,45 @@ A pair cannot reach high affinity before they have been in the party together a 
    - [ ] Going Out to Play
    - [ ] Getting a Member's Card
 
-2. 🔴 The ~48 Alcamoth Monster / Challenge / Material / Collection / Search quests from citizens and guards.
+2. 🔴 The **28 Alcamoth generic quests**: 12 Monster parts, 4 Challenges, 4 Material, 4 Collection and 4 Search quests.
+   **Sub-checkpoints:**
+   - [ ] Alcamoth Monster Quest 1 — Part 1 — 5× Cruz Paguls — Pickup 06:00–18:00 · Imperial Palace. Defeat Cruz Paguls at Latael Shore or Hovering Reef 5.
+   - [ ] Alcamoth Monster Quest 1 — Part 2 — 3× Eryth Ansels — Pickup 06:00–18:00 · Imperial Palace. Defeat Eryth Ansels by day around Hovering Reefs 4, 5, 7 or 9.
+   - [ ] Alcamoth Monster Quest 1 — Part 3 — 2× Ciconia Ekidnos — Pickup 06:00–18:00 · Imperial Palace. Defeat Ciconia Ekidnos around Hovering Reefs 7 or 10.
+   - [ ] Alcamoth Monster Quest 2 — Part 1 — 3× Chloro Laias — Pickup 18:00–06:00 · Imperial Palace. Defeat Chloro Laias at night around Hovering Reefs 2, 4, 5 or 9.
+   - [ ] Alcamoth Monster Quest 2 — Part 2 — 5× Stella Eks — Pickup 18:00–06:00 · Imperial Palace. Defeat Stella Eks around Anu Shore, Khatorl Seal Island or the outer reefs.
+   - [ ] Alcamoth Monster Quest 2 — Part 3 — 1× Racti Lexos — Pickup 18:00–06:00 · Imperial Palace. Defeat Racti Lexos around Soltnar Seal Island or Hovering Reefs 5 and 9.
+   - [ ] Alcamoth Monster Quest 3 — Part 1 — 5× Unine Hodes — Pickup 06:00–18:00 · Melfica Road. Defeat Unine Hodes around Showdown Cliff or Hovering Reefs 2 and 3.
+   - [ ] Alcamoth Monster Quest 3 — Part 2 — 2× Tocos Orluga — Pickup 06:00–18:00 · Melfica Road. Defeat Tocos Orluga around Hode Refuge or Khatorl Seal Island.
+   - [ ] Alcamoth Monster Quest 3 — Part 3 — 1× Pelargos Ekidno — Pickup 06:00–18:00 · Melfica Road. Defeat Pelargos Ekidno around Hode Refuge or Khatorl Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 1 — 3× Somati Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Somati Kromars at Soltnar Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 2 — 4× Tussock Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Tussock Kromars at Soltnar Seal Island.
+   - [ ] Alcamoth Monster Quest 4 — Part 3 — 5× Otol Kromars — Pickup 18:00–06:00 · Ascension Hall. Defeat Otol Kromars at Soltnar Seal Island.
+   - [ ] Alcamoth Challenge 1 — Proper Bandaz (shooting stars) — Pickup 18:00–06:00 · Fountain of Hope. Proper Bandaz appears near Secluded Island during shooting stars.
+   - [ ] Alcamoth Challenge 2 — Tempestuous Edegia (night) — Pickup 18:00–06:00 · Fountain of Eternity. Tempestuous Edegia appears on Hovering Reef 10 at night.
+   - [ ] Alcamoth Challenge 3 — Peeling Kircheis — Pickup 06:00–18:00 · Ascension Hall. Peeling Kircheis is on Hovering Reef 7.
+   - [ ] Alcamoth Challenge 4 — Lightspeed Sonid — Pickup 06:00–18:00 · Fountain of Eternity. Lightspeed Sonid is around Anu Shore.
+   - [ ] Alcamoth Material Quest 1 — 2× Glossy Grady Fans — Pickup 06:00–18:00 · Main Entrance. Collect Glossy Grady Fans from Lunar Gradys at Eryth Sea.
+   - [ ] Alcamoth Material Quest 2 — 5× Orluga Grass Skirts — Pickup 06:00–18:00 · Imperial Palace. Collect Orluga Grass Skirts from Orlugas in Makna Forest.
+   - [ ] Alcamoth Material Quest 3 — 3× Orluga Slacks — Pickup 06:00–18:00 · Main Entrance. Collect Orluga Slacks from Orlugas at Eryth Sea.
+   - [ ] Alcamoth Material Quest 4 — 2× Lexos Beards — Pickup 06:00–18:00 · Imperial Palace. Collect Lexos Beards from Racti Lexos at Eryth Sea.
+   - [ ] Alcamoth Collection Quest 1 — 3× Gold Burdock — Pickup 06:00–18:00 · Melfica Road. Collect Gold Burdock from Eryth Sea collection points.
+   - [ ] Alcamoth Collection Quest 2 — 2× White Tails — Pickup 06:00–18:00 · Main Entrance. Collect White Tails from Eryth Sea collection points.
+   - [ ] Alcamoth Collection Quest 3 — 5× Stardrops — Pickup 06:00–18:00 · Fountain of Hope. Collect Stardrops from Alcamoth collection points.
+   - [ ] Alcamoth Collection Quest 4 — 2× Spiral Lamps — Pickup 18:00–06:00 · Melfica Road. Collect Spiral Lamps from High Entia Tomb collection points.
+   - [ ] Alcamoth Search Quest 1 — Mother's Necklace — Pickup 18:00–06:00 · Fountain of Hope. Find the Mother's Necklace on Alcamoth's second level.
+   - [ ] Alcamoth Search Quest 2 — Silver Ring — Pickup 18:00–06:00 · Fountain of Hope. Find the Silver Ring in Alcamoth.
+   - [ ] Alcamoth Search Quest 3 — Merchant's Gift — Pickup 06:00–18:00 · Fountain of Eternity. Find the Merchant's Gift on Alcamoth's lower level.
+   - [ ] Alcamoth Search Quest 4 — Health Amulet — Pickup 18:00–06:00 · Fountain of Hope. Find the Health Amulet on Alcamoth's lower level.
 
 3. 🔴 **Preparing for Adventure 3** spawns **Lakebed Orthlus** (40) back at Agora Shore, Colony 9. Quest-exclusive UM, dies with the quest.
 
 4. 🔴 **Zel Argentis vs En Argentis.** Speak to **both** and invite **Don** first, then take one. Both +4 Pop, functionally identical.
    **Sub-checkpoints:**
-   - [ ] Speak to Zel Argentis
-   - [ ] Speak to En Argentis
-   - [ ] Invite Don first
-   - [ ] Invite either Zel or En Argentis
+   - [ ] Speak to Zel Argentis — 18:00–06:00 · Alcamoth lower level · fountain by the south escalator
+   - [ ] Speak to En Argentis — 18:00–06:00 · Alcamoth lower level · south of Fountain of Hope
+   - [ ] Invite Don first — 18:00–06:00 · Alcamoth · northeast of Fountain of Eternity
+   - [ ] Invite either Zel or En Argentis — Return to the chosen sister at her same night location
 
 5. 🔴 Confirm the **Alcamoth Grand Prix courses** are cleared with all seven characters.
 
@@ -2933,4 +3053,4 @@ A pair cannot reach high affinity before they have been in the party together a 
 - **Source conflicts** are flagged inline where they exist rather than silently resolved.
 
 
-**Totals:** 20 chapters · 417 tracked items · 119 inline guidance panels.
+**Totals:** 20 chapters · 417 tracked items · 120 inline guidance panels.

@@ -21,12 +21,12 @@ const waitFor = async (test, message, timeout = 5000) => {
 };
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
-async function makeDom({ legacy = null, previous = null } = {}) {
+async function makeDom({ legacy = null, previous = null, url = "https://guide.local/index.html" } = {}) {
   const virtualConsole = new VirtualConsole();
   virtualConsole.on("jsdomError", error => errors.push(error.message));
   virtualConsole.on("error", error => errors.push(String(error)));
   const dom = new JSDOM(html, {
-    url: "https://guide.local/index.html",
+    url,
     runScripts: "dangerously",
     pretendToBeVisual: true,
     virtualConsole,
@@ -52,7 +52,8 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   });
   await waitFor(() => dom.window.document.querySelectorAll("#route section.ch").length === 20, "route render");
   await waitFor(() => dom.window.document.querySelectorAll("#route .world-it").length === 461, "world tracker render");
-  assert(dom.window.document.querySelectorAll("#route .route-cue-bundle").length > 50, "world discoveries were not distributed into anchored route bundles");
+  assert(dom.window.document.querySelectorAll("#route .area-arrival").length >= 20, "world discoveries were not grouped into area-arrival trackers");
+  assert([...dom.window.document.querySelectorAll("#route .world-it")].every(row => row.closest(".area-arrival")), "a world discovery escaped its compact area-arrival tracker");
   assert(!dom.window.document.querySelector("#route .world-it .rec-level"), "minor discovery cues still repeat thick recommended-level metadata");
   await waitFor(() => dom.window.document.querySelectorAll("#quest-results .result-card").length === 80, "quest lookup render");
   await waitFor(() => dom.window.document.querySelectorAll("#party-presets .preset").length === 17, "party presets render");
@@ -74,7 +75,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   const globalSearch = document.getElementById("guide-search");
   globalSearch.value = "Avalanche Abaasy";
   globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
-  assert(document.querySelector(".header-tools > #guide-search-results")?.textContent.includes("Avalanche Abaasy"), "global search results are not anchored to the header search region");
+  assert(document.querySelector("body > #guide-search-results")?.textContent.includes("Avalanche Abaasy"), "global search results are not portalled above the clipped header region");
   globalSearch.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
   assert(!document.getElementById("guide-search-results"), "Escape did not dismiss global search results");
   globalSearch.value = "Territorial Rotbart";
@@ -85,6 +86,12 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(!document.getElementById("guide-search-results") && document.getElementById("guide-search-count").textContent === "No matches", "empty global search results leave a click-blocking overlay");
   globalSearch.value = "";
   globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
+
+  globalSearch.value = "wedding ring";
+  globalSearch.dispatchEvent(new Event("input", { bubbles: true }));
+  await waitFor(() => document.querySelector("#guide-search-results [data-guide-hit]")?.textContent.includes("Route:"), "route-first Wedding Ring result");
+  globalSearch.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+  assert(document.getElementById("p-route").classList.contains("on") && document.activeElement?.id === "c1-13", "Enter on global search did not navigate to the Wedding Ring route card");
 
   document.querySelector('[data-p="companion"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   await waitFor(() => document.querySelector("#inventory-list input[data-inventory-id]"), "Play Mode inventory planner render");
@@ -111,7 +118,7 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   assert(companionSaved.inventory[inventoryInput.dataset.inventoryId] === 3, "Play Mode did not persist a manual inventory quantity");
   document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
-  assert(document.querySelectorAll("#route .it").length === 878, "route did not render 417 route tasks plus 461 map discoveries");
+  assert(document.querySelectorAll("#route .it").length === 417 && document.querySelectorAll("#route .world-arrival-item").length === 461, "route did not render 417 major tasks plus 461 compact map discoveries");
   assert(!document.getElementById("p-route").hidden && document.getElementById("p-completion").hidden, "inactive tab panels are not semantically hidden");
   assert(document.querySelectorAll("#route .chh[aria-expanded]").length === 20, "chapter buttons lack expanded state");
   assert(document.querySelectorAll("#route .it:not(.world-it) .rec-level").length === 417, "not every major route card has a recommended level");
@@ -146,6 +153,26 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(saved.routeSteps["c1-miss-brave-protectors"][braveStep.dataset.subcheckId] && !braveParent.checked, "Sub-checkpoint progress did not persist independently from its parent card");
   assert(braveStep.closest(".route-subchecks").textContent.includes("1/9"), "Sub-checkpoint completion count did not update");
+  assert(braveStep.closest(".route-subchecks").textContent.includes("18:00–06:00"), "Brave Protectors sub-checkpoints lack a time and location hint");
+  const genericQuestGroups = {"c1-10":13,"c1-11":4,"c1-12":4,"c1-13":4,"c4-06":22,"c6-21":4,"c7-28":4,"c8-25":12,"c8-26":12,"c10-12":4,"c14-05":6,"c15-02":28};
+  for (const [id, count] of Object.entries(genericQuestGroups)) {
+    assert(document.querySelectorAll(`[data-subcheck-parent="${id}"]`).length === count, `${id} did not render ${count} grouped-quest checkboxes`);
+    const group = document.querySelector(`[data-subcheck-group="${id}"]`), buttons = [...group.querySelectorAll(".subcheck-atlas-link")];
+    assert(buttons.length === count * 2, `${id} does not expose exactly two map actions per small quest`);
+    assert(buttons.every((button, index) => button.textContent.trim() === (index % 2 ? "Target" : "Pickup")), `${id} does not use consistent Pickup / Target labels`);
+    assert([...group.querySelectorAll(".route-subcheck-copy > span")].every(label => label.textContent.includes("—")), `${id} still contains a vague objective-free title`);
+    assert([...group.querySelectorAll(".route-subcheck-copy small")].every(hint => hint.textContent.startsWith("Pickup ")), `${id} contains an inconsistent one-line pickup hint`);
+  }
+  assert(document.querySelector('[data-subcheck-group="c1-13"] [data-subcheck-id="search-quest-2"]'), "Search Quest objective enrichment changed the stable progress key");
+  const normalizedButtons = [...document.querySelectorAll('[data-subcheck-group="c1-13"] .subcheck-atlas-link')];
+  assert(normalizedButtons.every(button => dom.window.getComputedStyle(button).width === "72px" && dom.window.getComputedStyle(button).height === "46px"), "Pickup / Target buttons do not share one fixed size");
+  assert([...document.querySelectorAll('[data-subcheck-group="c1-13"] .route-subcheck-copy small')].every(hint => /Pickup \d{2}:\d{2}–\d{2}:\d{2}/.test(hint.textContent)), "Colony 9 Search Quest sub-checkpoints lack concise pickup schedules and item directions");
+
+  const ridgeTarget = document.querySelector('[data-subcheck-group="c1-10"] [data-open-atlas-query="Ridge Antol"]');
+  ridgeTarget.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  await waitFor(() => document.getElementById("atlas-q")?.value === "Ridge Antol" && document.querySelectorAll("#frontier-pins .EnemySpawnPoint").length > 0, "quest Target Atlas search");
+  assert(document.getElementById("atlas-area").value === "colony-9-map" && document.querySelector('[data-atlas-type="EnemySpawnPoint"]').checked, "quest Target action did not open the correct map and pin type");
+  document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
   const worldCheck = document.querySelector("#route input[data-world-id]");
   worldCheck.checked = true;
@@ -153,13 +180,20 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(saved.world[worldCheck.dataset.worldId], "world discovery tick was not saved");
 
+  const dunbanAtlasButton = document.querySelector('.world-arrival-item [data-open-world-id="world-colony-9-dunban-s-house-eee084ec"]');
+  assert(dunbanAtlasButton, "Dunban's House arrival checkpoint lacks an Atlas deep link");
+  dunbanAtlasButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  await waitFor(() => document.querySelector("#reference-atlas .frontier-pin.is-focused"), "Dunban's House exact Atlas focus");
+  assert(document.getElementById("atlas-area").value === "colony-9-map" && document.getElementById("atlas-q").value === "Dunban's House" && document.getElementById("frontier-detail").textContent.includes("Dunban's House"), "area-arrival Atlas link opened the map without focusing its exact pin");
+  document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+
   const routeSearch = document.getElementById("q");
   routeSearch.value = "Bafalgar Tomb";
   routeSearch.dispatchEvent(new Event("input", { bubbles: true }));
   const bafalgar = [...document.querySelectorAll("#route .world-it")].find(row => row.textContent.includes("Bafalgar Tomb"));
   assert(bafalgar && !bafalgar.classList.contains("hide") && bafalgar.closest("section").style.display !== "none", "route search did not find a world discovery");
-  const hiddenRouteBundles = [...document.querySelectorAll("#route .route-cue-bundle.hide")];
-  assert(hiddenRouteBundles.length > 0 && hiddenRouteBundles.every(bundle => dom.window.getComputedStyle(bundle).display === "none"), "route search leaves nonmatching location bundles visibly stacked below its results");
+  const hiddenArrivalTrackers = [...document.querySelectorAll("#route .area-arrival.hide")];
+  assert(hiddenArrivalTrackers.length > 0 && hiddenArrivalTrackers.every(bundle => dom.window.getComputedStyle(bundle).display === "none"), "route search leaves nonmatching area-arrival trackers visibly stacked below its results");
   routeSearch.value = ""; routeSearch.dispatchEvent(new Event("input", { bubbles: true }));
   document.querySelector('#p-route .chip[data-f="d"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
   assert([...document.querySelectorAll('#route .world-it[data-deadline="true"]')].some(row => !row.classList.contains("hide")), "deadline filter omitted lockout-map discoveries");
@@ -479,5 +513,9 @@ async function makeDom({ legacy = null, previous = null } = {}) {
   const previousSaved = JSON.parse(previousDom.window.localStorage.getItem("xc1de-guide-state-v4"));
   assert(previousSaved.route["c1-01"] && previousSaved.version === 4 && previousSaved.world && previousSaved.routeSteps, "v2 structured state did not migrate to v4");
   previousDom.window.close();
+  const referenceDom = await makeDom({ url: "https://guide.local/index.html#/reference" });
+  await waitFor(() => referenceDom.window.document.querySelectorAll("#atlas-area option").length === 73, "direct Reference-hub data load");
+  assert(referenceDom.window.document.getElementById("p-reference").classList.contains("on") && referenceDom.window.document.querySelectorAll("#route .world-arrival-item").length === 461, "direct Reference-hub reload aborted route/data initialization");
+  referenceDom.window.close();
   console.log("OK: migration, route/world render, five hubs, Companion sessions, searches, Monsterpedia, Workshop tools, builds, presets, reset and restore interactions.");
 })().catch(error => { console.error(error.stack || error); process.exit(1); });

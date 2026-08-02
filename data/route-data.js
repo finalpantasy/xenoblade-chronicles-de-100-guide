@@ -48,7 +48,12 @@ const ROUTE = [
          + "Work top to bottom. If a quest below is not showing up, you have not done enough of the ones above it." },
       { k: "info", t: "Generic quests do not need turning in",
         d: "<b>Monster Quests</b> (kill N of an enemy), <b>Challenges</b> (kill one Unique Monster), <b>Material</b>, <b>Collection</b> and <b>Search</b> Quests all come from unnamed NPCs and <b>complete automatically in the field</b> the moment you satisfy them. No walk back.<br><br>"
-         + "<b>Named-NPC quests are the opposite</b> — you must return to the person who gave it. Every named quest below tells you where to return." },
+         + "<b>Named-NPC quests are the opposite</b> — you must return to the person who gave it. Every named quest below tells you where to return.<br><br>"
+         + "The one-line pickup schedules and objectives below are cross-checked against the <a href=\"https://nightlygamingbinge.com/xenoblade-chronicles-colony-9-side-quests/\" target=\"_blank\" rel=\"noopener\">Colony 9 side-quest ledger</a> and individual <a href=\"https://xenoblade.fandom.com/wiki/Colony_9_Quests\" target=\"_blank\" rel=\"noopener\">Xenoblade Wiki quest records</a>." },
+
+      { k: "info", t: "First arrival circuit — follow the clock, not the category list",
+        d: "If you reach Colony 9 at <b>night</b>, do this compact loop first: <b>Central Plaza</b> (take Search Quest 1) → <b>Commercial District</b> (take Material Quest 2) → <b>Gem Man's Stall</b> (take The Broken Watch with Shulk leading) → <b>Dunban's House</b> (pick up the Wedding Ring behind it) → <b>Tranquil Square</b> and <b>Fortress Entrance</b> (register the night Defence Force members).<br><br>"
+         + "At <b>day</b>, sweep Tranquil Square → Ether Light → Fortress Entrance for the remaining named quests and Defence Force members. The cards below are ordered around those two real walking circuits; individual generic quests have their own sub-checkboxes, so taking one does not imply the whole bundle is finished." },
 
       { id: "c1-miss-brave-protectors", f: "d", t: "🔴 Earn <b>The Brave Protectors</b> before inviting Nic to Colony 6",
         d: "Register all nine Colony 9 Defence Force members on the Affinity Chart: <b>Andreas, Dorothy, Kantz, Emmy Leater, Miller, Minnie, Monica, Nic and Raoul</b>. Talk to named NPCs twice and at their active time until the link registers. Inviting Nic to Colony 6 before this is complete can make the achievement unobtainable on this file." },
@@ -71,7 +76,7 @@ const ROUTE = [
          + "<span class=step><b>Pays:</b> 800 G · 30 EXP · Swimming Sandals.</span>"
          + "<span class=step><b>Unlocks:</b> A Big Brother's Fight, which is the branch below.</span>" },
       { id: "c1-04", f: "d", t: "<b>The Broken Watch</b> — Désirée · <b>Shulk must be leading</b>",
-        d: "<span class=step><b>Pick up:</b> Désirée, at the <b>Gem Man's Stall</b>. She will not give it to you unless <b>Shulk is the active party leader</b>.</span>"
+        d: "<span class=step><b>Pick up:</b> Désirée, <b>18:00–06:00</b> at the <b>Gem Man's Stall</b>. She will not give it to you unless <b>Shulk is the active party leader</b>.</span>"
          + "<span class=step><b>Do:</b> collect <b>3x Blue Chain</b> around Colony 9, then go to the <b>Weapon Development Lab</b> (Shulk's lab) and mend the watch.</span>"
          + "<span class=step><b>Turn in:</b> back to Désirée.</span>"
          + "<span class=step><b>Pays:</b> 750 G · 80 EXP · Muscle Up II.</span>"
@@ -116,12 +121,14 @@ const ROUTE = [
          + "<span class=step><b>Known objectives:</b> Monster Quest 1 — kill Ridge Antois near the water, then a Lv6 Cute Brog that only appears <b>at night</b> by the shore, then 3x Lv9 Colony Krabble at <b>Cliff Lake at night</b>. Monster Quest 4 — kill 1 Willow Bunniv, 2x Lv8 Singing Brog, and 5x Lv5 Meil Lizard, all inside Tephra Cave / the ruins.</span>"
          + "<span class=step><b>Note:</b> several parts are night-only, so fold them into the same night trip as Lake Magdalena.</span>" },
       { id: "c1-11", f: "d", t: "<b>Material Quests 1-4</b> — generic, auto-complete",
-        d: "<span class=step><b>Known objectives:</b> Material Quest 2 — a Small Scale from the piranhas in the water below the colony. Material Quest 4 — a Yolkless Flamil Egg from <b>Lake Flamii, near Anti-Air Battery 1</b>.</span>"
+        d: "<span class=step><b>First-night pickup:</b> take <b>Material Quest 2</b> from the unnamed resident in the <b>Commercial District, 18:00–06:00</b>.</span>"
+         + "<span class=step><b>Known objectives:</b> Material Quest 2 — a Small Scale from the piranhas in the water below the colony. Material Quest 4 — a Yolkless Flamil Egg from <b>Lake Flamii, near Anti-Air Battery 1</b>.</span>"
          + "<span class=step>These consume the items when they complete, so do not sell anything odd you pick up in Colony 9 until the board is clear.</span>" },
       { id: "c1-12", f: "d", t: "<b>Collection Quests 1-4</b> — generic, auto-complete",
         d: "<span class=step><b>Known objective:</b> Collection Quest 2 — one <b>Plate Snow</b>, from the field outside town. Given by an old man in the northwest of the Commercial District.</span>" },
-      { id: "c1-13", f: "d", t: "<b>Search Quests 1-4</b> — generic, auto-complete",
-        d: "<span class=step><b>Known objective:</b> Search Quest 1 — find a man's ring, <b>behind Dunban's house</b> in the Commercial District. Given by a man in the central plaza.</span>" },
+      { id: "c1-13", f: "d", atlasLocationId: "world-colony-9-dunban-s-house-eee084ec", t: "<b>Search Quests 1-4</b> — start with the <b>Wedding Ring</b> at night",
+        d: "<span class=step><b>First-night pickup:</b> take <b>Search Quest 1</b> from the unnamed resident in <b>Central Plaza, 18:00–06:00</b>.</span>"
+         + "<span class=step><b>Do:</b> collect the <b>Wedding Ring behind Dunban's House</b> in the Residential District. It auto-completes immediately.</span>" },
 
       { k: "info", t: "Affinity gate reached — 1.25★ quests now appear",
         d: "If the next quest is not showing, go back and finish more of the block above." },
@@ -1501,7 +1508,7 @@ const ROUTE = [
          + "<b>5. <code>A Gift?</code></b> — the Satorl Marsh Zazadan chain finale, from all the way back in Chapter 6.<br><br>"
          + "<b>What survives:</b> the Alcamoth <b>area</b> (on foot from the Eryth Sea Centre Gate), its six Heart-to-Hearts, and Fallen Arm entirely." },
       { id: "c15-01", f: "d", t: "<b>Every Alcamoth quest.</b> Dangerous Ambition, Find the Kingpin, Adviser Hunt, Evidence Collection, Destroying the City Trade, The Deciphering Machine, A Necessary Upgrade, Talia's Research, Bring Back My Son!, Teaching Materials, Brave Actions, Protect the Capital!, How Do They Feel?, How Do I Feel?, Together Forever, A Friend in Need, Preparing for Adventure 1-3, Adventurers in Peril, Building Bridges, Believing Again, Starlight Seeker, Starlight Gazer, Back Pain, Looking for Gold Bugs, Losing the Taste for Alcohol, Looking for a Lost Son, Looking for a Lost Daughter, Going Out to Play, Getting a Member's Card." },
-      { id: "c15-02", f: "d", t: "The ~48 Alcamoth Monster / Challenge / Material / Collection / Search quests from citizens and guards." },
+      { id: "c15-02", f: "d", t: "The <b>28 Alcamoth generic quests</b>: 12 Monster parts, 4 Challenges, 4 Material, 4 Collection and 4 Search quests." },
       { id: "c15-03", f: "d", t: "<b>Preparing for Adventure 3</b> spawns <b>Lakebed Orthlus</b> (40) back at Agora Shore, Colony 9. Quest-exclusive UM, dies with the quest." },
       { id: "c15-04", f: "d", t: "<b>Zel Argentis vs En Argentis.</b> Speak to <b>both</b> and invite <b>Don</b> first, then take one. Both +4 Pop, functionally identical." },
       { id: "c15-05", f: "d", t: "Confirm the <b>Alcamoth Grand Prix courses</b> are cleared with all seven characters." },
@@ -1791,21 +1798,31 @@ const ROUTE = [
 // sweeps from disappearing into paragraph text.
 const ROUTE_SUBCHECK_LABELS = {
   "c1-miss-brave-protectors": ["Register Andreas", "Register Dorothy", "Register Kantz", "Register Emmy Leater", "Register Miller", "Register Minnie", "Register Monica", "Register Nic", "Register Raoul"],
+  "c1-10": ["Monster Quest 1 — Part 1", "Monster Quest 1 — Part 2", "Monster Quest 1 — Part 3", "Monster Quest 2 — Part 1", "Monster Quest 2 — Part 2", "Monster Quest 2 — Part 3", "Monster Quest 3 — Part 1", "Monster Quest 3 — Part 2", "Monster Quest 3 — Part 3", "Monster Quest 3 — Part 4", "Monster Quest 4 — Part 1", "Monster Quest 4 — Part 2", "Monster Quest 4 — Part 3"],
+  "c1-11": ["Material Quest 1", "Material Quest 2", "Material Quest 3", "Material Quest 4"],
+  "c1-12": ["Collection Quest 1", "Collection Quest 2", "Collection Quest 3", "Collection Quest 4"],
+  "c1-13": ["Search Quest 1 — Wedding Ring", "Search Quest 2", "Search Quest 3", "Search Quest 4"],
   "c1-21": ["Bank 3× Rainbow Zirconia", "Bank 3× Rabbit Diode"],
   "c4-06": ["Being a Good Grandfather", "A Thoughtful Idea", "A Dash of Colour", "The Greedy Monster", "Earnest's Fibs", "Earnest's Mischief", "Earnest's Solitude", "Monster Quest 2", "Monster Quest 3 — Part 1", "Monster Quest 3 — Part 2", "Challenge 1 — Part 1", "Challenge 1 — Part 2", "Challenge 2 — Part 1", "Challenge 2 — Part 2", "Material Quest 1", "Material Quest 2", "Material Quest 3", "Material Quest 4", "Collection Quest 1", "Collection Quest 2", "Search Quest 1", "Search Quest 2"],
   "c5-03": ["Bank 2× Ready Coil", "Bank 2× Black Beetle"],
+  "c6-21": ["Nopon Merchant Monster Quest 1 — defeat 2× Detox Brog", "Nopon Merchant Monster Quest 2 — defeat 3× Coppice Quadwing", "Nopon Merchant Monster Quest 3 — defeat 2× Mist Rhogul", "Nopon Merchant Monster Quest 4 — defeat 1× Officer Volff"],
   "c7-41": ["Complete Makna Forest Collectopaedia", "Complete Frontier Village Collectopaedia"],
+  "c7-28": ["Makna Monster Quest 1", "Makna Monster Quest 2", "Makna Monster Quest 3", "Makna Monster Quest 4"],
   "c8-16": ["Collect 5× Green Diode", "Collect 3× Astas Remote Unit"],
   "c8-18": ["Speak to Kaleka", "Collect the Attachment Part in the Second Treasury", "Return to Kaleka", "Return to Elior"],
   "c8-39": ["Defeat Turbulent Belmo", "Defeat Subterranean Zomar", "Defeat Cumulus Danaemos", "Defeat Calm Anzabi"],
   "c8-53": ["Complete Eryth Sea Collectopaedia", "Complete Alcamoth Collectopaedia", "Complete High Entia Tomb Collectopaedia"],
+  "c8-25": ["Alcamoth Monster Quest 1 — Part 1", "Alcamoth Monster Quest 1 — Part 2", "Alcamoth Monster Quest 1 — Part 3", "Alcamoth Monster Quest 2 — Part 1", "Alcamoth Monster Quest 2 — Part 2", "Alcamoth Monster Quest 2 — Part 3", "Alcamoth Monster Quest 3 — Part 1", "Alcamoth Monster Quest 3 — Part 2", "Alcamoth Monster Quest 3 — Part 3", "Alcamoth Monster Quest 4 — Part 1", "Alcamoth Monster Quest 4 — Part 2", "Alcamoth Monster Quest 4 — Part 3"],
+  "c8-26": ["Alcamoth Material Quest 1", "Alcamoth Material Quest 2", "Alcamoth Material Quest 3", "Alcamoth Material Quest 4", "Alcamoth Collection Quest 1", "Alcamoth Collection Quest 2", "Alcamoth Collection Quest 3", "Alcamoth Collection Quest 4", "Alcamoth Search Quest 1", "Alcamoth Search Quest 2", "Alcamoth Search Quest 3", "Alcamoth Search Quest 4"],
   "c9-03": ["Alcamoth Orbital — Shulk", "Alcamoth Orbital — Reyn", "Alcamoth Orbital — Fiora", "Alcamoth Orbital — Dunban", "Alcamoth Orbital — Sharla", "Alcamoth Orbital — Riki", "Alcamoth Orbital — Melia", "Alcamoth at Dawn — Shulk", "Alcamoth at Dawn — Reyn", "Alcamoth at Dawn — Fiora", "Alcamoth at Dawn — Dunban", "Alcamoth at Dawn — Sharla", "Alcamoth at Dawn — Riki", "Alcamoth at Dawn — Melia"],
   "c10-09": ["Defeat Glorious Buer", "Defeat Moonlight Paimon", "Defeat Vague Barbas"],
   "c10-10": ["Defeat Agile Barbatos at night", "Defeat Hidden Gamigin at night", "Defeat North Star Gusion during a night blizzard"],
+  "c10-12": ["Valak Monster Quest 1", "Valak Monster Quest 2", "Valak Monster Quest 3", "Valak Monster Quest 4"],
   "c11-10": ["Complete Sword Valley Collectopaedia", "Complete Galahad Fortress Collectopaedia"],
   "c12-13": ["Bank 3× Warning Lamp", "Bank 3× Sour Turnip", "Bank 3× Oil Oyster", "Bank 3× White Plum", "Bank 2× Rainbow Slug"],
-  "c14-06": ["Bank 4× New Part S", "Bank 5× Fairy Tale Diode", "Bank 3× New Part L", "Bank 6× Grape Spring"],
-  "c14-07": ["Examine Phoenix corpse — Helas Pillar", "Examine Phoenix corpse — Dios Pillar", "Examine Phoenix corpse — Effigy of Meyneth", "Examine Phoenix corpse — Calcos Pillar", "Examine Gigas corpse — Residential District 1", "Examine Gigas corpse — Helas Pillar", "Examine Gigas corpse — Telethia Bridge", "Examine Gigas corpse — Judicial District"],
+  "c14-05": ["Civil Protection 1-1", "Civil Protection 1-2", "Civil Protection 1-3", "Civil Protection 2-1", "Civil Protection 2-2", "Civil Protection 2-3"],
+  "c14-06": ["Complete Agniratha Beautification 1", "Bank 4× New Part S", "Bank 5× Fairy Tale Diode", "Complete Agniratha Beautification 2", "Bank 3× New Part L", "Bank 6× Grape Spring"],
+  "c14-07": ["Examine Phoenix corpse — Helas Pillar", "Examine Phoenix corpse — Dios Pillar", "Examine Phoenix corpse — Effigy of Meyneth", "Examine Phoenix corpse — Calcos Pillar", "Complete Telethia Investigation 1", "Examine Gigas corpse — Residential District 1", "Examine Gigas corpse — Helas Pillar", "Examine Gigas corpse — Telethia Bridge", "Examine Gigas corpse — Judicial District", "Complete Telethia Investigation 2"],
   "c14-08": ["Defeat Experienced Tristan", "Defeat Destructive Bors", "Defeat Soothed Aglovale", "Defeat Sentimental Flamral"],
   "c14-17": ["Defeat Amorous Arca", "Defeat Destroyer Salvacion", "Defeat Commander Oracion"],
   "c14-18": ["Bank 2× Mossy Panel", "Bank 2× Azure Hollyhock"],
@@ -1814,6 +1831,7 @@ const ROUTE_SUBCHECK_LABELS = {
   "c14-24": ["Bank 2× Angel Engine X", "Bank 2× Black Styrene"],
   "c15-01": ["Dangerous Ambition", "Find the Kingpin", "Adviser Hunt", "Evidence Collection", "Destroying the City Trade", "The Deciphering Machine", "A Necessary Upgrade", "Talia's Research", "Bring Back My Son!", "Teaching Materials", "Brave Actions", "Protect the Capital!", "How Do They Feel?", "How Do I Feel?", "Together Forever", "A Friend in Need", "Preparing for Adventure 1", "Preparing for Adventure 2", "Preparing for Adventure 3", "Adventurers in Peril", "Building Bridges", "Believing Again", "Starlight Seeker", "Starlight Gazer", "Back Pain", "Looking for Gold Bugs", "Losing the Taste for Alcohol", "Looking for a Lost Son", "Looking for a Lost Daughter", "Going Out to Play", "Getting a Member's Card"],
   "c15-04": ["Speak to Zel Argentis", "Speak to En Argentis", "Invite Don first", "Invite either Zel or En Argentis"],
+  "c15-02": ["Alcamoth Monster Quest 1 — Part 1", "Alcamoth Monster Quest 1 — Part 2", "Alcamoth Monster Quest 1 — Part 3", "Alcamoth Monster Quest 2 — Part 1", "Alcamoth Monster Quest 2 — Part 2", "Alcamoth Monster Quest 2 — Part 3", "Alcamoth Monster Quest 3 — Part 1", "Alcamoth Monster Quest 3 — Part 2", "Alcamoth Monster Quest 3 — Part 3", "Alcamoth Monster Quest 4 — Part 1", "Alcamoth Monster Quest 4 — Part 2", "Alcamoth Monster Quest 4 — Part 3", "Alcamoth Challenge 1", "Alcamoth Challenge 2", "Alcamoth Challenge 3", "Alcamoth Challenge 4", "Alcamoth Material Quest 1", "Alcamoth Material Quest 2", "Alcamoth Material Quest 3", "Alcamoth Material Quest 4", "Alcamoth Collection Quest 1", "Alcamoth Collection Quest 2", "Alcamoth Collection Quest 3", "Alcamoth Collection Quest 4", "Alcamoth Search Quest 1", "Alcamoth Search Quest 2", "Alcamoth Search Quest 3", "Alcamoth Search Quest 4"],
   "c16-03": ["Bank 2× Angel Engine X", "Bank 2× Black Styrene"],
   "c17-03": ["Defeat Reckless Zanden", "Defeat Firework Geldesia"],
   "c17-05": ["Collect Transmission Bypass", "Collect Exhaust Pump", "Collect Mini Reactor", "Accept Stunted Growth with Dunban leading", "Turn in Stunted Growth with Shulk leading"],
@@ -1837,7 +1855,347 @@ function routeSubcheckId(label, index) {
   const slug = label.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 72);
   return slug || `step-${index + 1}`;
 }
+
+// Keep the original labels as the persistence key, then append the concrete
+// objective for display. This upgrades vague names such as "Search Quest 2"
+// without invalidating anybody's existing sub-checkpoint progress.
+const ALCAMOTH_GENERIC_OBJECTIVES = [
+  "5× Cruz Paguls", "3× Eryth Ansels", "2× Ciconia Ekidnos",
+  "3× Chloro Laias", "5× Stella Eks", "1× Racti Lexos",
+  "5× Unine Hodes", "2× Tocos Orluga", "1× Pelargos Ekidno",
+  "3× Somati Kromars", "4× Tussock Kromars", "5× Otol Kromars",
+  "Proper Bandaz (shooting stars)", "Tempestuous Edegia (night)", "Peeling Kircheis", "Lightspeed Sonid",
+  "2× Glossy Grady Fans", "5× Orluga Grass Skirts", "3× Orluga Slacks", "2× Lexos Beards",
+  "3× Gold Burdock", "2× White Tails", "5× Stardrops", "2× Spiral Lamps",
+  "Mother's Necklace", "Silver Ring", "Merchant's Gift", "Health Amulet"
+];
+
+const ROUTE_SUBCHECK_OBJECTIVES = {
+  "c1-10": ["2× Ridge Antols", "1× Cute Brog", "3× Colony Krabbles", "2× Lake Flamii", "1× Baby Armu", "2× Stone Krabbles", "2× Hand Bunnits", "3× Beach Krabbles", "2× Wood Bunnits", "3× Light Skeeters", "1× Willow Bunniv", "2× Singing Brogs", "5× Mell Lizards"],
+  "c1-11": ["2× Small Shells", "1× Small Scale", "2× Vang Teeth", "1× Yolkless Flamii Egg"],
+  "c1-12": ["2× Rabbit Diodes", "1× Plate Snow", "2× Rainbow Zirconias", "1× Giant Hornet"],
+  "c1-13": ["", "Blue Glass Bead", "Key", "Spanner"],
+  "c4-06": [
+    "3× Sticky Web Fibre", "3× Ponio Neck Meat", "4× Sour Gooseberries", "Abnormal Brog",
+    "first ether deposit", "second ether deposit", "grave and Arrogant Tirkin",
+    "2× Basin Antols", "5× M64 Mechon", "2× Brave Tirkins",
+    "White Eduardo", "Violent Andante", "Trainer Harmelon", "Vagrant Alfead",
+    "2× Brog Leg Meat + 2× Fertile Flamii Eggs", "2× Tirkin Crests + 2× Tail Feathers", "1× Bunnit Sapling", "3× Vang Third Molars",
+    "2× Clear Almonds", "3× Moth Crawlers", "Bird Necklace", "Torn Paper"
+  ],
+  "c7-28": ["5× Jungle Quadwings", "2× Makna Feris", "2× Makna Ansels", "3× Makna Eks"],
+  "c8-25": ALCAMOTH_GENERIC_OBJECTIVES.slice(0, 12),
+  "c8-26": ALCAMOTH_GENERIC_OBJECTIVES.slice(16),
+  "c10-12": ["2× Monta Moramoras", "5× Sparas Paguls", "3× Bow Chilkins", "1× Sesna Lexos"],
+  "c14-05": ["5× M67/HASTE", "6× M36/SACRE", "3× Offensive/BRAVE", "6× M55/DREAD", "4× M67/RADAR", "4× M87/GRAND"],
+  "c15-02": ALCAMOTH_GENERIC_OBJECTIVES
+};
+
+const ROUTE_GENERIC_QUEST_GROUPS = new Set(["c1-10", "c1-11", "c1-12", "c1-13", "c4-06", "c6-21", "c7-28", "c8-25", "c8-26", "c10-12", "c14-05", "c15-02"]);
+
+// Short, route-facing finding hints for interaction-only checkpoints. Times and
+// settlement landmarks are kept beside the checkbox so the player does not have
+// to reopen the Affinity Planner for every name.
+const ALCAMOTH_GENERIC_HINTS = [
+  "Pickup 06:00–18:00 · Imperial Palace. Defeat Cruz Paguls at Latael Shore or Hovering Reef 5.",
+  "Pickup 06:00–18:00 · Imperial Palace. Defeat Eryth Ansels by day around Hovering Reefs 4, 5, 7 or 9.",
+  "Pickup 06:00–18:00 · Imperial Palace. Defeat Ciconia Ekidnos around Hovering Reefs 7 or 10.",
+  "Pickup 18:00–06:00 · Imperial Palace. Defeat Chloro Laias at night around Hovering Reefs 2, 4, 5 or 9.",
+  "Pickup 18:00–06:00 · Imperial Palace. Defeat Stella Eks around Anu Shore, Khatorl Seal Island or the outer reefs.",
+  "Pickup 18:00–06:00 · Imperial Palace. Defeat Racti Lexos around Soltnar Seal Island or Hovering Reefs 5 and 9.",
+  "Pickup 06:00–18:00 · Melfica Road. Defeat Unine Hodes around Showdown Cliff or Hovering Reefs 2 and 3.",
+  "Pickup 06:00–18:00 · Melfica Road. Defeat Tocos Orluga around Hode Refuge or Khatorl Seal Island.",
+  "Pickup 06:00–18:00 · Melfica Road. Defeat Pelargos Ekidno around Hode Refuge or Khatorl Seal Island.",
+  "Pickup 18:00–06:00 · Ascension Hall. Defeat Somati Kromars at Soltnar Seal Island.",
+  "Pickup 18:00–06:00 · Ascension Hall. Defeat Tussock Kromars at Soltnar Seal Island.",
+  "Pickup 18:00–06:00 · Ascension Hall. Defeat Otol Kromars at Soltnar Seal Island.",
+  "Pickup 18:00–06:00 · Fountain of Hope. Proper Bandaz appears near Secluded Island during shooting stars.",
+  "Pickup 18:00–06:00 · Fountain of Eternity. Tempestuous Edegia appears on Hovering Reef 10 at night.",
+  "Pickup 06:00–18:00 · Ascension Hall. Peeling Kircheis is on Hovering Reef 7.",
+  "Pickup 06:00–18:00 · Fountain of Eternity. Lightspeed Sonid is around Anu Shore.",
+  "Pickup 06:00–18:00 · Main Entrance. Collect Glossy Grady Fans from Lunar Gradys at Eryth Sea.",
+  "Pickup 06:00–18:00 · Imperial Palace. Collect Orluga Grass Skirts from Orlugas in Makna Forest.",
+  "Pickup 06:00–18:00 · Main Entrance. Collect Orluga Slacks from Orlugas at Eryth Sea.",
+  "Pickup 06:00–18:00 · Imperial Palace. Collect Lexos Beards from Racti Lexos at Eryth Sea.",
+  "Pickup 06:00–18:00 · Melfica Road. Collect Gold Burdock from Eryth Sea collection points.",
+  "Pickup 06:00–18:00 · Main Entrance. Collect White Tails from Eryth Sea collection points.",
+  "Pickup 06:00–18:00 · Fountain of Hope. Collect Stardrops from Alcamoth collection points.",
+  "Pickup 18:00–06:00 · Melfica Road. Collect Spiral Lamps from High Entia Tomb collection points.",
+  "Pickup 18:00–06:00 · Fountain of Hope. Find the Mother's Necklace on Alcamoth's second level.",
+  "Pickup 18:00–06:00 · Fountain of Hope. Find the Silver Ring in Alcamoth.",
+  "Pickup 06:00–18:00 · Fountain of Eternity. Find the Merchant's Gift on Alcamoth's lower level.",
+  "Pickup 18:00–06:00 · Fountain of Hope. Find the Health Amulet on Alcamoth's lower level."
+];
+
+const ROUTE_SUBCHECK_HINTS = {
+  "c1-miss-brave-protectors": [
+    "18:00–06:00 · Fortress Entrance",
+    "06:00–18:00 · Ether Light",
+    "06:00–18:00 · Fortress Entrance",
+    "06:00–18:00 · Fortress Entrance",
+    "06:00–18:00 · Fortress Entrance",
+    "18:00–06:00 · Tranquil Square",
+    "18:00–06:00 · Fortress Entrance",
+    "18:00–06:00 · Fortress Entrance · do this before inviting him",
+    "06:00–18:00 · Fortress Entrance"
+  ],
+  "c1-10": [
+    "Pickup 18:00–06:00 · Fortress Entrance. Defeat 2 Ridge Antols on the Outlook Park beach.",
+    "Pickup 18:00–06:00 · Fortress Entrance. Defeat 1 Cute Brog at Cliff Lake.",
+    "Pickup 18:00–06:00 · Fortress Entrance. Defeat 3 Colony Krabbles around Cliff Lake / Mechon Wreckage Site at night.",
+    "Pickup 06:00–18:00 · Fortress Entrance. Defeat 2 Lake Flamii on the shore south of Anti-Air Battery 1.",
+    "Pickup 06:00–18:00 · Fortress Entrance. Defeat 1 Baby Armu southwest of Anti-Air Battery 1.",
+    "Pickup 06:00–18:00 · Fortress Entrance. Defeat 2 Stone Krabbles at Hazzai Cape, east of Anti-Air Battery 3.",
+    "Pickup 06:00–18:00 · Gem Man's Stall. Defeat 2 Hand Bunnits on the Main Entrance → Tephra Hill trail by day.",
+    "Pickup 06:00–18:00 · Gem Man's Stall. Defeat 3 Beach Krabbles below the Main Entrance bridge.",
+    "Pickup 06:00–18:00 · Gem Man's Stall. Defeat 2 Wood Bunnits on Tephra Hill by day.",
+    "Pickup 06:00–18:00 · Gem Man's Stall. Defeat 3 Light Skeeters on the shore south of Anti-Air Battery 1 by day.",
+    "Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 1 Willow Bunniv at the end of the entrance tunnel.",
+    "Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 2 Singing Brogs just beyond Caterpile Nest.",
+    "Pickup 06:00–18:00 · Tephra Cave Entrance. Defeat 5 Mell Lizards just beyond Warehouse 2."
+  ],
+  "c1-11": [
+    "Pickup 06:00–18:00 · Weapon Dev. Lab stairs. Collect 2 Small Shells from Beach Krabbles below the Main Entrance bridge.",
+    "Pickup 18:00–06:00 · Commercial District near Ether Light. Collect 1 Small Scale from Piranhaxes below Outlook Park.",
+    "Pickup 06:00–18:00 · Commercial District bridge to Central Plaza. Collect 2 Vang Teeth from Little Vangs near the Main Entrance at night.",
+    "Pickup 18:00–06:00 · Residential District near Tranquil Square. Collect 1 Yolkless Flamii Egg from Lake Flamii south of Anti-Air Battery 1."
+  ],
+  "c1-12": [
+    "Pickup 06:00–18:00 · Commercial District near Ether Light. Collect 2 Rabbit Diodes between Mechon Wreckage Site and Tephra Hill.",
+    "Pickup 18:00–06:00 · upper northwest Commercial District behind Gem Man's Stall. Collect 1 Plate Snow from Colony 9 ground points.",
+    "Pickup 06:00–18:00 · shop east of Tranquil Square. Collect 2 Rainbow Zirconias from Colony 9 ground points; Dionysis trades them at 1★.",
+    "Pickup 06:00–18:00 · east of Tranquil Square. Collect 1 Giant Hornet from Colony 9 ground points; Dean trades it at 1★."
+  ],
+  "c1-13": [
+    "Pickup 18:00–06:00 · Central Plaza. Wedding Ring is directly behind Dunban's House.",
+    "Pickup 06:00–18:00 · Residential District. Blue Glass Bead is behind the southwest building near the exit bridge.",
+    "Pickup 06:00–18:00 · Gem Man's Stall. The Key is behind the fenced building in southeast Residential District.",
+    "Pickup 18:00–06:00 · south of Tranquil Square. The Spanner is on the balcony west of Gem Man's Stall; loop behind the building."
+  ],
+  "c4-06": [
+    "Pickup 06:00–15:00 · Satata, Refugee Camp. Collect Sticky Web Fibre from Arachno, then follow the Kiroki handoff.",
+    "Pickup 09:00–18:00 · Matryona, Refugee Camp. Speak to Ewan and collect Ponio Neck Meat from Field Ponios.",
+    "Pickup 06:00–18:00 · Ewan, Refugee Camp. Collect Sour Gooseberries, then deliver the paints through Matryona.",
+    "Pickup 06:00–15:00 · Satata, Refugee Camp. Defeat Abnormal Brog near Raguel Lake and return.",
+    "Pickup anytime · Earnest, Refugee Camp. Inspect the first ether deposit and return.",
+    "Pickup anytime · Earnest, Refugee Camp. Inspect the cave-side ether deposit at Raguel Lake and return.",
+    "Pickup anytime · Earnest, Refugee Camp. Place flowers on the grave, then defeat Arrogant Tirkin north of Kasharpa Falls.",
+    "Pickup 06:00–18:00 · Refugee Camp. Defeat Basin Antols around Daksha Shrine / the camp.",
+    "Pickup 18:00–06:00 · Refugee Camp. Defeat M64 Mechon along Maguel Road.",
+    "Pickup 18:00–06:00 · Refugee Camp. Defeat Brave Tirkins at Tirkin Headquarters.",
+    "Pickup anytime · Refugee Camp. Defeat White Eduardo at Raguel Lake during a thunderstorm.",
+    "Pickup anytime · Refugee Camp. Defeat Violent Andante around Sky Stage / Viliera Hill.",
+    "Pickup 06:00–18:00 · Refugee Camp. Defeat Trainer Harmelon north of Spiral Valley.",
+    "Pickup 06:00–18:00 · Refugee Camp. Defeat Vagrant Alfead at Tirkin Headquarters.",
+    "Pickup 18:00–06:00 · Refugee Camp. Collect Brog Leg Meat from Big Brogs and Fertile Flamii Eggs from Flamiis.",
+    "Pickup 18:00–06:00 · Refugee Camp. Collect Tirkin Crests and Tail Feathers at Tirkin Headquarters.",
+    "Pickup 18:00–06:00 · Refugee Camp. Collect a Bunnit Sapling from Slugger Bunnits north of Jabo Rock Rest Area.",
+    "Pickup 18:00–06:00 · Refugee Camp. Collect Vang Third Molars from Vangs on Bionis' Leg.",
+    "Pickup 18:00–06:00 · Refugee Camp. Collect Clear Almonds from Tephra Cave collection points.",
+    "Pickup 06:00–18:00 · Refugee Camp. Collect Moth Crawlers from Bionis' Leg collection points.",
+    "Pickup 06:00–18:00 · Refugee Camp. Find the Bird Necklace near Raguel Bridge.",
+    "Pickup 18:00–06:00 · Refugee Camp. Find the Torn Paper on Gaur Plain."
+  ],
+  "c6-21": [
+    "Pickup anytime · Nopon Merchant Camp. Defeat Detox Brogs in Satorl Marsh.",
+    "Pickup anytime · Nopon Merchant Camp. Defeat Coppice Quadwings by day around Crown Tree / Lacus Swamp.",
+    "Pickup anytime · Nopon Merchant Camp. Defeat Mist Rhoguls by day around Nopon Refuge / Altar of Fate.",
+    "Pickup anytime · Nopon Merchant Camp. Defeat Officer Volff in Satorl Marsh."
+  ],
+  "c7-28": [
+    "Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Jungle Quadwings below Agni Tablet / near Waypoint Beacon.",
+    "Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Feris around Waypoint Beacon or Sparkling Pool.",
+    "Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Ansels around Eks Watering Hole in clear weather.",
+    "Pickup anytime · Nopon Merchant at Agni Tablet. Defeat Makna Eks at Eks Watering Hole."
+  ],
+  "c8-25": ALCAMOTH_GENERIC_HINTS.slice(0, 12),
+  "c8-26": ALCAMOTH_GENERIC_HINTS.slice(16),
+  "c10-12": [
+    "Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Monta Moramoras by day around Zokhed Pass / Nagul Waterfall.",
+    "Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Sparas Paguls around Nagul Waterfall.",
+    "Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Bow Chilkins around Url Crevasse / Bagnar Snowfield.",
+    "Pickup anytime · Nopon Researcher at Zokhed Pass. Defeat Sesna Lexos by day around Bagnar Snowfield."
+  ],
+  "c14-05": [
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M67/HASTE in Residential Districts 1 and 2.",
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M36/SACRE around Helas Pillar.",
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat Offensive/BRAVE around Zedonia Plaza, Cleas or Calcos Pillar.",
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M55/DREAD around Helas or Dios Pillar.",
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M67/RADAR around Zedonia Plaza, Dios Pillar or the upper districts.",
+    "Pickup anytime · Civil Protection Terminal, Central Tower. Defeat M87/GRAND in Agniratha."
+  ],
+  "c15-02": ALCAMOTH_GENERIC_HINTS,
+  "c8-18": [
+    "18:00–06:00 · Frontier Village · Nopon Tower",
+    "High Entia Tomb B2F · Second Treasury off the central hallway",
+    "18:00–06:00 · Frontier Village · Nopon Tower",
+    "06:00–18:00 · Alcamoth · Fountain of Eternity"
+  ],
+  "c15-04": [
+    "18:00–06:00 · Alcamoth lower level · fountain by the south escalator",
+    "18:00–06:00 · Alcamoth lower level · south of Fountain of Hope",
+    "18:00–06:00 · Alcamoth · northeast of Fountain of Eternity",
+    "Return to the chosen sister at her same night location"
+  ]
+};
+
+// Small Atlas actions that sit beside a sub-checkpoint. Generic quest NPCs do
+// not have unique pins, so "Pickup" opens their nearest named landmark and
+// "Target" opens the most useful landmark/location for the objective.
+const routeAtlasWorld = (label, worldId) => ({ label, worldId });
+const routeAtlasSearch = (label, areaId, query, type) => ({ label, areaId, query, type });
+const routeAtlasPair = (pickup, target) => [pickup, target];
+const routePickup = worldId => routeAtlasWorld("Pickup", worldId);
+const routeTarget = worldId => routeAtlasWorld("Target", worldId);
+const routeSearchPickup = (areaId, query) => routeAtlasSearch("Pickup", areaId, query, "Landmark");
+const routeSearchTarget = (areaId, query, type) => routeAtlasSearch("Target", areaId, query, type);
+
+const ALCAMOTH_GENERIC_ATLAS_LINKS = [
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Cruz Pagul", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Eryth Ansel", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Ciconia Ekidno", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Chloro Laia", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Stella Eks", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Racti Lexos", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-melfica-road-3a25be9e"), routeSearchTarget("eryth-sea", "Unine Hode", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-melfica-road-3a25be9e"), routeSearchTarget("eryth-sea", "Tocos Orluga", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-melfica-road-3a25be9e"), routeSearchTarget("eryth-sea", "Pelargos Ekidno", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-ascension-hall-f87fb085"), routeSearchTarget("eryth-sea", "Somati Kromar", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-ascension-hall-f87fb085"), routeSearchTarget("eryth-sea", "Tussock Kromar", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-ascension-hall-f87fb085"), routeSearchTarget("eryth-sea", "Otol Kromar", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-hope-e74790ff"), routeSearchTarget("eryth-sea", "Proper Bandaz", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-eternity-b8588346"), routeSearchTarget("eryth-sea", "Tempestuous Edegia", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-ascension-hall-f87fb085"), routeSearchTarget("eryth-sea", "Peeling Kircheis", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-eternity-b8588346"), routeSearchTarget("eryth-sea", "Lightspeed Sonid", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-main-entrance-7e8de530"), routeSearchTarget("eryth-sea", "Lunar Grady", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("makna-forest", "Orluga", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-main-entrance-7e8de530"), routeSearchTarget("eryth-sea", "Orluga", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-imperial-palace-451163a5"), routeSearchTarget("eryth-sea", "Racti Lexos", "EnemySpawnPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-melfica-road-3a25be9e"), routeSearchTarget("eryth-sea", "Gold Burdock", "CollectionPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-main-entrance-7e8de530"), routeSearchTarget("eryth-sea", "White Tail", "CollectionPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-hope-e74790ff"), routeSearchTarget("alcamoth", "Stardrop", "CollectionPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-melfica-road-3a25be9e"), routeSearchTarget("high-entia-tomb", "Spiral Lamp", "CollectionPoint")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-hope-e74790ff"), routeTarget("world-alcamoth-imperial-palace-451163a5")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-hope-e74790ff"), routeTarget("world-alcamoth-main-entrance-7e8de530")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-eternity-b8588346"), routeTarget("world-alcamoth-fountain-of-eternity-b8588346")),
+  routeAtlasPair(routePickup("world-alcamoth-fountain-of-hope-e74790ff"), routeTarget("world-alcamoth-fountain-of-hope-e74790ff"))
+];
+
+const ROUTE_SUBCHECK_ATLAS_LINKS = {
+  "c1-10": [
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Ridge Antol", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Cute Brog", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Colony Krabble", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Lake Flamii", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Baby Armu", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-fortress-entrance-5f82b8d6"), routeSearchTarget("colony-9", "Stone Krabble", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeSearchTarget("colony-9", "Hand Bunnit", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeSearchTarget("colony-9", "Beach Krabble", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeSearchTarget("colony-9", "Wood Bunnit", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeSearchTarget("colony-9", "Light Skeeter", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-tephra-cave-entrance-00ab1798"), routeSearchTarget("tephra-cave", "Willow Bunniv", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-tephra-cave-entrance-00ab1798"), routeSearchTarget("tephra-cave", "Singing Brog", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-tephra-cave-entrance-00ab1798"), routeSearchTarget("tephra-cave", "Mell Lizard", "EnemySpawnPoint"))
+  ],
+  "c1-11": [
+    routeAtlasPair(routePickup("world-colony-9-weapon-dev-lab-212f20de"), routeSearchTarget("colony-9", "Beach Krabble", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-ether-light-174db1c7"), routeSearchTarget("colony-9", "Piranhax", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-commercial-district-8dfb1b19"), routeSearchTarget("colony-9", "Little Vang", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-colony-9-residential-district-5e96fa4c"), routeSearchTarget("colony-9", "Lake Flamii", "EnemySpawnPoint"))
+  ],
+  "c1-12": [
+    routeAtlasPair(routePickup("world-colony-9-ether-light-174db1c7"), routeSearchTarget("colony-9", "Rabbit Diode", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeSearchTarget("colony-9", "Plate Snow", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-colony-9-tranquil-square-04fe781b"), routeSearchTarget("colony-9", "Rainbow Zirconia", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-colony-9-tranquil-square-04fe781b"), routeSearchTarget("colony-9", "Giant Hornet", "CollectionPoint"))
+  ],
+  "c1-13": [
+    routeAtlasPair(routePickup("world-colony-9-central-plaza-78b3e046"), routeTarget("world-colony-9-dunban-s-house-eee084ec")),
+    routeAtlasPair(routePickup("world-colony-9-residential-district-5e96fa4c"), routeTarget("world-colony-9-residential-district-5e96fa4c")),
+    routeAtlasPair(routePickup("world-colony-9-gem-man-s-stall-b49511e2"), routeTarget("world-colony-9-residential-district-5e96fa4c")),
+    routeAtlasPair(routePickup("world-colony-9-tranquil-square-04fe781b"), routeTarget("world-colony-9-gem-man-s-stall-b49511e2"))
+  ],
+  "c4-06": [
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Arachno", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Field Ponio", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Sour Gooseberry", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Abnormal Brog", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-gaur-plain-de480ca1")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-raguel-lake-f3385b58")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-kasharpa-falls-4a808151")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Basin Antol", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "M64", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Brave Tirkin", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "White Eduardo", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Violent Andante", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Trainer Harmelon", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Vagrant Alfead", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Big Brog", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-tirkin-headquarters-c22d7b1c")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Slugger Bunnit", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Vang", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("tephra-cave", "Clear Almond", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeSearchTarget("bionis-leg", "Moth Crawler", "CollectionPoint")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-raguel-bridge-south-af6f5861")),
+    routeAtlasPair(routePickup("world-bionis-leg-refugee-camp-2abe34da"), routeTarget("world-bionis-leg-gaur-plain-de480ca1"))
+  ],
+  "c6-21": [
+    routeAtlasPair(routePickup("world-satorl-marsh-nopon-merchant-camp-735cb7f7"), routeSearchTarget("satorl-marsh", "Detox Brog", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-satorl-marsh-nopon-merchant-camp-735cb7f7"), routeSearchTarget("satorl-marsh", "Coppice Quadwing", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-satorl-marsh-nopon-merchant-camp-735cb7f7"), routeSearchTarget("satorl-marsh", "Mist Rhogul", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-satorl-marsh-nopon-merchant-camp-735cb7f7"), routeSearchTarget("satorl-marsh", "Officer Volff", "EnemySpawnPoint"))
+  ],
+  "c7-28": [
+    routeAtlasPair(routeSearchPickup("makna-forest", "Agni Tablet"), routeSearchTarget("makna-forest", "Jungle Quadwing", "EnemySpawnPoint")),
+    routeAtlasPair(routeSearchPickup("makna-forest", "Agni Tablet"), routeSearchTarget("makna-forest", "Makna Feris", "EnemySpawnPoint")),
+    routeAtlasPair(routeSearchPickup("makna-forest", "Agni Tablet"), routeSearchTarget("makna-forest", "Makna Ansel", "EnemySpawnPoint")),
+    routeAtlasPair(routeSearchPickup("makna-forest", "Agni Tablet"), routeSearchTarget("makna-forest", "Makna Eks", "EnemySpawnPoint"))
+  ],
+  "c8-25": ALCAMOTH_GENERIC_ATLAS_LINKS.slice(0, 12),
+  "c8-26": ALCAMOTH_GENERIC_ATLAS_LINKS.slice(16),
+  "c10-12": [
+    routeAtlasPair(routePickup("world-valak-mountain-zokhed-pass-a7398881"), routeSearchTarget("valak-mountain", "Monta Moramora", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-valak-mountain-zokhed-pass-a7398881"), routeSearchTarget("valak-mountain", "Sparas Pagul", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-valak-mountain-zokhed-pass-a7398881"), routeSearchTarget("valak-mountain", "Bow Chilkin", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-valak-mountain-zokhed-pass-a7398881"), routeSearchTarget("valak-mountain", "Sesna Lexos", "EnemySpawnPoint"))
+  ],
+  "c14-05": [
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "M67/HASTE", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "M36/SACRE", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "Offensive/BRAVE", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "M55/DREAD", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "M67/RADAR", "EnemySpawnPoint")),
+    routeAtlasPair(routePickup("world-agniratha-central-tower-bca30f8d"), routeSearchTarget("agniratha", "M87/GRAND", "EnemySpawnPoint"))
+  ],
+  "c15-02": ALCAMOTH_GENERIC_ATLAS_LINKS
+};
+
+// Colony 9's original data was category-first. Keep every stable card ID, but
+// present the first visit in the order a new player actually encounters it at
+// night: plaza pickup, Commercial District pickup, watch, then the day circuit.
+const colony9 = ROUTE.find(chapter => chapter.id === "ch1");
+if (colony9) {
+  const firstTask = colony9.items.findIndex(item => item.id === "c1-miss-brave-protectors");
+  const priority = ["c1-miss-brave-protectors", "c1-13", "c1-11", "c1-04", "c1-12", "c1-01", "c1-02", "c1-03"];
+  const byId = new Map(colony9.items.filter(item => item.id).map(item => [item.id, item]));
+  const selected = new Set(priority);
+  colony9.items = [
+    ...colony9.items.slice(0, firstTask),
+    ...priority.map(id => byId.get(id)).filter(Boolean),
+    ...colony9.items.slice(firstTask).filter(item => !item.id || !selected.has(item.id))
+  ];
+}
+
 for (const chapter of ROUTE) for (const item of chapter.items) {
   const labels = ROUTE_SUBCHECK_LABELS[item.id];
-  if (labels) item.steps = labels.map((label, index) => ({ id: routeSubcheckId(label, index), label }));
+  const objectives = ROUTE_SUBCHECK_OBJECTIVES[item.id] || [];
+  const hints = ROUTE_SUBCHECK_HINTS[item.id] || [];
+  const atlasLinks = ROUTE_SUBCHECK_ATLAS_LINKS[item.id] || [];
+  if (labels) item.steps = labels.map((label, index) => ({
+    id: routeSubcheckId(label, index),
+    label: objectives[index] ? `${label} — ${objectives[index]}` : label,
+    hint: hints[index] || "",
+    atlasLinks: atlasLinks[index] || [],
+    genericQuest: ROUTE_GENERIC_QUEST_GROUPS.has(item.id)
+  }));
 }

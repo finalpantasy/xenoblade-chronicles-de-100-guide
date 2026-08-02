@@ -132,7 +132,7 @@ for (const ch of ROUTE) {
     if (it.d) md(it.d).split("\n").filter(l => l.trim()).forEach(l => out.push(l.replace(/^\s*/, "   ")));
     if (it.steps?.length) {
       out.push("   **Sub-checkpoints:**");
-      it.steps.forEach(step => out.push(`   - [ ] ${step.label}`));
+      it.steps.forEach(step => out.push(`   - [ ] ${step.label}${step.hint ? ` — ${step.hint}` : ""}`));
     }
     out.push("");
   }

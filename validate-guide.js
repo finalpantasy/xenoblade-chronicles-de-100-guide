@@ -46,7 +46,7 @@ const routeItems = route.flatMap(chapter => chapter.items.filter(item => !item.k
 const panels = route.flatMap(chapter => chapter.items.filter(item => item.k));
 assert(route.length === 20, `Expected 20 route sections, got ${route.length}`);
 assert(routeItems.length === 417, `Expected 417 route tasks, got ${routeItems.length}`);
-assert(panels.length === 119, `Expected 119 guidance panels, got ${panels.length}`);
+assert(panels.length === 120, `Expected 120 guidance panels, got ${panels.length}`);
 assert(new Set(routeItems.map(item => item.id)).size === routeItems.length, "Duplicate route IDs");
 assert(routeItems.every(item => item.id), "A tickable route item has no persistent ID");
 const groupedRouteItems = routeItems.filter(item => item.steps?.length);
@@ -57,6 +57,18 @@ for (const item of groupedRouteItems) {
   assert(item.steps.every(step => step.id && step.label), `${item.id} contains an incomplete sub-checkpoint`);
 }
 assert(routeItems.find(item => item.id === "c1-miss-brave-protectors")?.steps?.length === 9, "The Brave Protectors must expose all nine Defence Force registrations");
+for (const [id, count] of Object.entries({"c1-10":13,"c1-11":4,"c1-12":4,"c1-13":4,"c6-21":4,"c7-28":4,"c8-25":12,"c8-26":12,"c10-12":4,"c14-05":6,"c15-02":28})) {
+  assert(routeItems.find(item => item.id === id)?.steps?.length === count, `${id} must expose ${count} independently persistent grouped-quest checkpoints`);
+}
+assert(routeItems.find(item => item.id === "c1-13")?.steps?.[0]?.label.includes("Wedding Ring"), "Search Quest 1 does not identify the Wedding Ring in its own checkpoint");
+const genericQuestGroups = ["c1-10","c1-11","c1-12","c1-13","c4-06","c6-21","c7-28","c8-25","c8-26","c10-12","c14-05","c15-02"];
+for (const id of genericQuestGroups) {
+  const item = routeItems.find(candidate => candidate.id === id);
+  assert(item.steps.every(step => step.genericQuest && step.hint && step.atlasLinks?.length === 2), `${id} lacks a one-line pickup/objective hint or exactly two Atlas actions`);
+  assert(item.steps.every(step => step.label.includes("—")), `${id} contains a vague checkpoint title without its objective`);
+  assert(item.steps.every(step => step.atlasLinks.map(link => link.label).join("|") === "Pickup|Target"), `${id} does not use the normalized Pickup / Target actions`);
+}
+assert(routeItems.find(item => item.id === "c1-13").steps[1].id === "search-quest-2", "Objective enrichment changed the stable Search Quest 2 progress key");
 
 const expected = { quests: 480, achievements: 200, monsters: 157, hearts: 63, "grand-prix": 70 };
 const completionItems = [];
@@ -104,6 +116,16 @@ assert(world.areas.length === 21, `Expected 21 map areas, got ${world.areas.leng
 assert(worldEntries.length === 461, `Expected 461 map discoveries, got ${worldEntries.length}`);
 assert(worldEntries.filter(entry => entry.type === "secret-area").length === 19, "Expected all 19 base + Future Connected secret areas");
 const worldEntryIds = new Set(worldEntries.map(entry => entry.id));
+const subcheckAtlasLinks = routeItems.flatMap(item => (item.steps || []).flatMap(step => step.atlasLinks || []));
+const frontierPointText = point => [point.name, ...(point.items || []).map(item => item.name), ...(point.spawns || []).map(spawn => spawn.name)].join(" ").toLowerCase();
+const validSubcheckAtlasLink = link => {
+  if (!link.label) return false;
+  if (link.worldId) return worldEntryIds.has(link.worldId);
+  if (!link.areaId || !link.query) return false;
+  const query = link.query.toLowerCase();
+  return frontier.maps.filter(map => map.regionId === link.areaId).some(map => map.points.some(point => (!link.type || point.type === link.type) && frontierPointText(point).includes(query)));
+};
+assert(subcheckAtlasLinks.every(validSubcheckAtlasLink), "A route sub-checkpoint Atlas action points to a missing discovery or exact map search");
 const worldAnchorIds = Object.keys(worldAnchors);
 assert(worldAnchorIds.length === worldEntries.length, `Expected ${worldEntries.length} route-anchored discoveries, got ${worldAnchorIds.length}`);
 assert(worldAnchorIds.every(id => worldEntryIds.has(id)), "World route anchors contain a non-discovery ID");
