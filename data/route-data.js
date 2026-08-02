@@ -1,6 +1,6 @@
 // Xenoblade Chronicles DE (Switch 2) - 100% Route data
 // Item flags: d = hard deadline, s = soft deadline, h = heart-to-heart, m = Colony 6 material,
-//             u = unique monster, q = quest/branch, g = grand prix, x = safe/optional
+//             u = unique monster, q = side quest/branch, story = main story, g = grand prix, x = safe/optional
 const ROUTE = [
   {
     id: "ch0", title: "Chapter 0", subtitle: "Before you press start", level: "—",
@@ -74,20 +74,13 @@ const ROUTE = [
          + "<span class=step><b>Do:</b> take Marcia's Biscuits to <b>Jiroque</b> in the Residential District — he is training to beat his older brother.</span>"
          + "<span class=step><b>Turn in:</b> back to Marcia.</span>"
          + "<span class=step><b>Pays:</b> 800 G · 30 EXP · Swimming Sandals.</span>"
-         + "<span class=step><b>Unlocks:</b> A Big Brother's Fight, which is the branch below.</span>" },
+         + "<span class=step><b>Unlocks later:</b> the brothers' branch becomes available after Riki joins. It is routed at the first valid Chapter 7 return visit, not during this opening sweep.</span>" },
       { id: "c1-04", f: "d", t: "<b>The Broken Watch</b> — Désirée · <b>Shulk must be leading</b>",
         d: "<span class=step><b>Pick up:</b> Désirée, <b>18:00–06:00</b> at the <b>Gem Man's Stall</b>. She will not give it to you unless <b>Shulk is the active party leader</b>.</span>"
          + "<span class=step><b>Do:</b> collect <b>3x Blue Chain</b> around Colony 9, then go to the <b>Weapon Development Lab</b> (Shulk's lab) and mend the watch.</span>"
          + "<span class=step><b>Turn in:</b> back to Désirée.</span>"
          + "<span class=step><b>Pays:</b> 750 G · 80 EXP · Muscle Up II.</span>"
          + "<span class=step><b>Why it is flagged:</b> this is step one of the chain to <b>Désirée's Future</b> in Chapter 6, the only source of <b>Shulk's hidden Pessimism skill tree</b>. Miss this and that tree never becomes available.</span>" },
-
-      { k: "branch", t: "A Big Brother's Fight vs A Little Brother's Fight",
-        d: "Unlocked by Biscuits for a Grandson. These are mutually exclusive — doing one kills the other permanently.<br><br>"
-         + "<b>Take A Little Brother's Fight. Give the pollen to Jiroque</b> (the younger grandson).<br><br>"
-         + "Slightly better affinity, and it changes which follow-up quest you receive. Marcia herself is quietly rooting for the younger one." },
-      { id: "c1-05", f: "d", t: "<b>A Little Brother's Fight</b> — give the pollen to <b>Jiroque</b>",
-        d: "Not A Big Brother's Fight. See the branch note above." },
 
       { k: "info", t: "The four Challenge quests ARE the Unique Monster fights",
         d: "This trips people up. A <b>Challenge</b> quest's entire objective is <i>kill one named Unique Monster</i>. You are not doing a quest and then separately hunting a monster — they are the same action, and the monster will not be there until you take the quest.<br><br>"
@@ -719,6 +712,14 @@ const ROUTE = [
          + "<b>Mystery of Makna Ruins 1-4</b> — Ch10.<br>"
          + "<b>Bridge Repair</b> — Ch10, needs Prison Island visited.<br><br>"
          + "What you must do <b>now</b> is the two gateway quests that make all of that possible: <code>Mushy Mushrooms</code> and <code>Kind Lupa's Grampypon</code>. Skip those and the Chapter 10 chains never appear." },
+      { k: "branch", t: "First valid return visit — A Big Brother's Fight vs A Little Brother's Fight",
+        d: "<b>This branch could not exist during Chapter 1.</b> It requires Riki in the party and An Errand for the Heropon, so handle it now, immediately after Riki joins.<br><br>"
+         + "The quests are mutually exclusive: finishing one permanently cancels the other. <b>Take A Little Brother's Fight and give the Red Pollen Orb to Jiroque</b>. It gives the route's preferred affinity outcome and unlocks Thawing Relationships." },
+      { id: "c1-05", f: "d", t: "<b>A Little Brother's Fight</b> — give the Red Pollen Orb to <b>Jiroque</b>",
+        d: "<span class=step><b>Pick up:</b> Skip Travel back to Colony 9. First accept <b>A Big Brother's Fight</b> from Zukazu, then speak to <b>Jiroque</b> in the Residential District from <b>18:00–03:00</b>. Requires Riki, An Errand for the Heropon, and Colony 9 affinity ★2½.</span>"
+         + "<span class=step><b>Do:</b> Skip Travel to <b>Nopon Refuge</b> in Satorl Marsh (north of the Glowing Obelisk) and collect the <b>Red Pollen Orb behind Zazadan</b>.</span>"
+         + "<span class=step><b>Turn in:</b> return to Jiroque in the Residential District from <b>18:00–03:00</b>.</span>"
+         + "<span class=step><b>Branch warning:</b> finishing this permanently cancels A Big Brother's Fight. This route intentionally chooses Jiroque's quest.</span>" },
       { id: "c7-01", f: "d", t: "🔴 <b>Mushy Mushrooms</b> — Kofuko, Sacred Altar · <b>gateway to the whole Ch10 doctor chain</b>",
         d: "<span class=step><b>Do:</b> collect <b>8x Kelp Mushroom</b> in Makna Forest.</span>"
          + "<span class=step><b>Pays:</b> 1,000 G · 1,150 EXP · +100 Rep · Jungle Gloves · Bleed Attack II.</span>"
@@ -1300,13 +1301,13 @@ const ROUTE = [
          + "<b>Fallen Arm itself never closes.</b> You return in Chapter 17 and the superboss spawns here post-game." },
       { id: "c12-01", f: "d", t: "🔴 <b>Last safe trip to Sword Valley and Galahad Fortress</b> — check Chapter 11 is empty" },
       { id: "c12-02", f: "d", t: "🔴 <b>The History of Mechonis</b> — Zilex, Junks bridge (next to Miqol), any hour",
-        d: "<span class=step><b>Do:</b> collect <b>4x Memory 925 Piece</b> in <b>Mechonis Field</b>.</span>"
-         + "<span class=step><b>Pays:</b> 15,000 G · 11,000 EXP · <b>+500 Rep</b> · Paralysis IV.</span>"
-         + "<span class=step><b>Dies with Mechonis Field</b> in Ch14.</span>" },
+        d: "<span class=step><b>Pick up now:</b> after first entering <b>Mechonis Field</b>, Skip Travel back to <b>Zilex on the Junks bridge</b>; this quest does not exist during Chapter 12.</span>"
+         + "<span class=step><b>Do:</b> return to Mechonis Field and collect <b>4x Memory 925 Piece</b>.</span>"
+         + "<span class=step><b>Turn in:</b> return to Zilex before Mechonis Field closes.</span>"
+         + "<span class=step><b>Pays:</b> 15,000 G · 11,000 EXP · <b>+500 Rep</b> · Paralysis IV.</span>" },
       { id: "c12-03", f: "d", t: "🔴 <b>The History of the Capital</b> — Zilex, Junks",
-        d: "<span class=step><b>Do:</b> collect <b>1x Memory 903</b> from the <b>Judicial District, Agniratha</b>.</span>"
-         + "<span class=step><b>Pays:</b> 16,800 G · 14,500 EXP · <b>+500 Rep</b> · M100 Helm, M100 Arms, Slow IV.</span>"
-         + "<span class=step>Needs Agniratha, so it completes in Ch14 — and dies at the Meyneth Shrine. Take it now, finish it there.</span>" },
+        d: "<span class=step><b>Pick up now:</b> after first entering <b>Agniratha</b>, Skip Travel back to <b>Zilex on the Junks bridge</b>. It only appears after The History of Mechonis is complete.</span>"
+         + "<span class=step><b>Next:</b> return to Agniratha and collect <b>1x Memory 903</b> from the <b>Judicial District</b>. The separate finish card later in this chapter keeps the turn-in ahead of the Meyneth Shrine lockout.</span>" },
       { id: "c12-04", f: "d", t: "🔴 <b>For My Loved One...</b> — Zarkort, Digit 2 Plain · <b>thunderstorm only</b>",
         d: "<span class=step><b>Do:</b> collect <b>1x Tear of the Sky</b> at the <b>Distant Fingertip</b> — <b>only during a thunderstorm</b>. Wait for weather; there is no other way.</span>"
          + "<span class=step><b>Pays:</b> 10,000 G · 7,600 EXP · +300 Rep · Alcyone Bottoms.</span>" },
@@ -1793,6 +1794,283 @@ const ROUTE = [
   }
 ];
 
+// The formal story-quest spine is deliberately placed into the same walking order as
+// the completion route. These are progression hand-offs, not a separate chapter-start
+// checklist: finish the nearby optional work above each card, then advance the story.
+// Completion-Hub quest IDs are retained so validation can prove all 31 canonical story
+// quests have one exact route handling point.
+const STORY_ROUTE_SPINE = [
+  {
+    chapterId: "ch1", before: "c1-miss-brave-protectors", id: "story-delivering-food", lv: 5,
+    storyQuestId: "quest-colony-9-delivering-food-ff6d1a95", f: "story",
+    t: "<b>MAIN STORY · Delivering Food</b> — Dunban's House to Outlook Park",
+    d: "<span class=step><b>Start:</b> control Fiora at <b>Dunban's House</b> after the opening Colony 9 scenes.</span>"
+      + "<span class=step><b>Route:</b> take the southeast path to <b>Outlook Park</b> and give Shulk the food.</span>"
+      + "<span class=step><b>Before advancing:</b> the first-arrival Colony 9 circuit below is now open; clear it before leaving for Tephra Cave.</span>"
+  },
+  {
+    chapterId: "ch6", after: "c6-33", id: "story-the-ancient-ceremony", lv: 28,
+    storyQuestId: "quest-satorl-marsh-the-ancient-ceremony-0559117c", f: "story",
+    t: "<b>MAIN STORY · The Ancient Ceremony</b> — begin at the Sororal Statues",
+    d: "<span class=step><b>Start:</b> speak to the Nopon Merchant at the <b>Sororal Statues</b>.</span>"
+      + "<span class=step><b>Do:</b> begin the coming-of-age preparations; the next story card tracks the four required offerings.</span>"
+      + "<span class=step><b>Finish:</b> present the offerings at the Adulthood Emblem and defeat the <b>Lv28 Satorl Guardian</b>.</span>"
+  },
+  {
+    chapterId: "ch6", after: "story-the-ancient-ceremony", id: "story-ancient-ceremony-offerings", lv: 28,
+    storyQuestId: "quest-satorl-marsh-ancient-ceremony-offerings-6ccb2479", f: "story",
+    t: "<b>MAIN STORY · Ancient Ceremony Offerings</b> — collect all four Radiants",
+    d: "<span class=step><b>Igna Territory:</b> collect the <b>Blue Radiant</b>.</span>"
+      + "<span class=step><b>Altar of Fate:</b> collect the <b>Rainbow Radiant</b>.</span>"
+      + "<span class=step><b>Dark Swamp:</b> collect the <b>Dull Radiant</b>.</span>"
+      + "<span class=step><b>Basin Cave:</b> collect the <b>White Radiant</b>, then return to the Sororal Statues.</span>"
+  },
+  {
+    chapterId: "ch7", before: "c7-01", id: "story-mystery-girl-rescue", lv: 35,
+    storyQuestId: "quest-makna-forest-mystery-girl-rescue-96776777", f: "story",
+    t: "<b>MAIN STORY · Mystery Girl Rescue</b> — collect Water Ether Crystals",
+    d: "<span class=step><b>Start:</b> automatic at Makna Forest's <b>Contaminated Area</b>.</span>"
+      + "<span class=step><b>Do:</b> gather the marked <b>Water Ether Crystals</b> nearby and return to the mystery girl.</span>"
+      + "<span class=step><b>Then:</b> continue to Frontier Village; this opens the route's first full Makna/Nopon sweep.</span>"
+  },
+  {
+    chapterId: "ch7", after: "story-mystery-girl-rescue", id: "story-an-errand-for-the-heropon", lv: 35,
+    storyQuestId: "quest-frontier-village-an-errand-for-the-heropon-0207461b", f: "story",
+    t: "<b>MAIN STORY · An Errand for the Heropon</b> — collect Riki's gear",
+    d: "<span class=step><b>Weapon:</b> collect Riki's weapon from the <b>Frontier Village Weapon Shop</b>.</span>"
+      + "<span class=step><b>Armour:</b> collect Riki's armour from the <b>Armour Shop</b>.</span>"
+      + "<span class=step><b>Party check:</b> once Riki permanently joins, use the chapter build update before the side-quest circuit.</span>"
+  },
+  {
+    chapterId: "ch8", after: "c8-10", id: "story-save-the-worker", lv: 40,
+    storyQuestId: "quest-eryth-sea-save-the-worker-f2ef1b0c", f: "story",
+    t: "<b>MAIN STORY · Save the Worker</b> — Syrath Lighthouse and Hovering Reef 4",
+    d: "<span class=step><b>Ask:</b> travel to <b>Syrath Lighthouse</b> on Hovering Reef 4 and ask about the missing worker.</span>"
+      + "<span class=step><b>Find:</b> go behind the lighthouse toward the <b>Ether Crystal Deposit</b>.</span>"
+      + "<span class=step><b>Rescue:</b> defeat the attacking Kromars and speak to the worker.</span>"
+  },
+  {
+    chapterId: "ch8", after: "c8-53", id: "story-path-to-prison-island", lv: 43,
+    storyQuestId: "quest-eryth-sea-path-to-prison-island-48dacbcc", f: "story",
+    t: "<b>MAIN STORY · Path to Prison Island</b> — open the two sister gates",
+    d: "<span class=step><b>Safe-to-advance gate:</b> finish every red Alcamoth card above before proceeding.</span>"
+      + "<span class=step><b>Do:</b> travel through Eryth Sea and open the <b>Khatorl</b> and <b>Soltnar</b> sister gates.</span>"
+      + "<span class=step><b>Then:</b> unlock the seal that appears and continue toward Prison Island.</span>"
+  },
+  {
+    chapterId: "ch8", after: "story-path-to-prison-island", id: "story-sister-seals", lv: 43,
+    storyQuestId: "quest-eryth-sea-sister-seals-c9046416", f: "story",
+    t: "<b>MAIN STORY · Sister Seals</b> — Khatorl and Soltnar Seal Islands",
+    d: "<span class=step><b>Khatorl:</b> release the seal on <b>Khatorl Seal Island</b>.</span>"
+      + "<span class=step><b>Soltnar:</b> release the seal on <b>Soltnar Seal Island</b>.</span>"
+      + "<span class=step><b>Restart point:</b> after both seals are released, the route continues in Chapter 9 at Prison Island.</span>"
+  },
+  {
+    chapterId: "ch10", replaceId: "c10-02", id: "c10-02", lv: 45,
+    storyQuestId: "quest-valak-mountain-the-magma-rock-be7e2048", f: "story",
+    t: "<b>MAIN STORY · The Magma Rock</b> — defeat Conflagrant Raxeal (Lv45)",
+    d: "<span class=step><b>Start:</b> automatically received at <b>Harict Chapel</b>.</span>"
+      + "<span class=step><b>Fight:</b> defeat <b>Conflagrant Raxeal</b> in the <b>Lava Cave</b>; it always drops the Magma Rock.</span>"
+      + "<span class=step><b>Use:</b> return to the frozen door and melt the ice to open the upper half of Valak Mountain.</span>"
+  },
+  {
+    chapterId: "ch11", after: "c11-10", id: "story-lift-battle", lv: 55,
+    storyQuestId: "quest-sword-valley-lift-battle-b601ae54", f: "story",
+    t: "<b>MAIN STORY · Lift Battle</b> — Main Maintenance Bay",
+    d: "<span class=step><b>Before advancing:</b> Sword Valley and Galahad Fortress are temporary areas; clear every red card above.</span>"
+      + "<span class=step><b>Do:</b> defeat the Mechon guarding the lift, then inspect its <b>verification device</b>.</span>"
+  },
+  {
+    chapterId: "ch11", after: "story-lift-battle", id: "story-supply-station-battle", lv: 55,
+    storyQuestId: "quest-sword-valley-supply-station-battle-d408cebf", f: "story",
+    t: "<b>MAIN STORY · Supply Station Battle</b> — stop the fortress machinery",
+    d: "<span class=step><b>Goal:</b> stop the turbines supplying power inside Galahad Fortress.</span>"
+      + "<span class=step><b>Piston room:</b> investigate the control panel in the <b>Piston Control Room</b> and stop the piston.</span>"
+  },
+  {
+    chapterId: "ch11", after: "story-supply-station-battle", id: "story-turbine-battle", lv: 55,
+    storyQuestId: "quest-sword-valley-turbine-battle-b3f2fea9", f: "story",
+    t: "<b>MAIN STORY · Turbine Battle</b> — shut down both turbine rooms",
+    d: "<span class=step><b>First:</b> use the control panel in the <b>1st Turbine Room</b>.</span>"
+      + "<span class=step><b>Second:</b> use the control panel in the <b>2nd Turbine Room</b>.</span>"
+      + "<span class=step><b>Then:</b> return to the Main Control Room and continue deeper into the fortress.</span>"
+  },
+  {
+    chapterId: "ch11", after: "story-turbine-battle", id: "story-fioras-conviction", lv: 55,
+    storyQuestId: "quest-sword-valley-fiora-s-conviction-242777dd", f: "story",
+    t: "<b>MAIN STORY · Fiora's Conviction</b> — Face Maintenance Bay",
+    d: "<span class=step><b>Do:</b> destroy the Mechon defending Fiora in the <b>Face Maintenance Bay</b>.</span>"
+      + "<span class=step><b>Party reality:</b> use the Chapter 11 roster/build above; Fiora is not yet available as a controllable party member.</span>"
+  },
+  {
+    chapterId: "ch12", before: "c12-01", id: "story-reunion-with-fiora", lv: 58,
+    storyQuestId: "quest-fallen-arm-reunion-with-fiora-b00e4e65", f: "story",
+    t: "<b>MAIN STORY · Reunion with Fiora</b> — search Wreckage Beach",
+    d: "<span class=step><b>Start:</b> automatic on first reaching the Fallen Arm.</span>"
+      + "<span class=step><b>Do:</b> investigate the beach, find water for Fiora, and follow the marked route inland.</span>"
+  },
+  {
+    chapterId: "ch12", after: "story-reunion-with-fiora", id: "story-we-made-it", lv: 58,
+    storyQuestId: "quest-fallen-arm-we-made-it-4429533c", f: "story",
+    t: "<b>MAIN STORY · We Made It</b> — reunite the party",
+    d: "<span class=step><b>First:</b> find the nearby friends separated on the Fallen Arm.</span>"
+      + "<span class=step><b>Then:</b> continue to the Hidden Machina Village and reunite with the rest of the party.</span>"
+  },
+  {
+    chapterId: "ch12", after: "story-we-made-it", id: "story-fioras-treatment", lv: 58,
+    storyQuestId: "quest-fallen-arm-fiora-s-treatment-203a0705", f: "story",
+    t: "<b>MAIN STORY · Fiora's Treatment</b> — Digit 5 Beach",
+    d: "<span class=step><b>Start:</b> speak with Linada after meeting Miqol in the Hidden Machina Village.</span>"
+      + "<span class=step><b>Do:</b> search the Mechon wreckage on <b>Digit 5 Beach</b> for the <b>Piezoelectric Unit</b>.</span>"
+      + "<span class=step><b>Then:</b> return to Linada; Fiora becomes available for the chapter's build and affinity work.</span>"
+  },
+  {
+    chapterId: "ch13", before: "c13-02", id: "story-aiming-for-the-top", lv: 61,
+    storyQuestId: "quest-mechonis-field-aiming-for-the-top-dc2d2e44", f: "story",
+    t: "<b>MAIN STORY · Aiming for the Top</b> — start the 2nd Lift",
+    d: "<span class=step><b>Do:</b> use the <b>GF Master Power Panel</b> to start the 2nd Lift.</span>"
+      + "<span class=step><b>Collect on the way:</b> watch for the Mossy Panels and Azure Hollyhocks called out in the next route cards.</span>"
+  },
+  {
+    chapterId: "ch13", after: "c13-02", id: "story-get-the-3rd-lift-moving", lv: 61,
+    storyQuestId: "quest-mechonis-field-get-the-3rd-lift-moving-73bf4423", f: "story",
+    t: "<b>MAIN STORY · Get the 3rd Lift Moving</b> — restore three power links",
+    d: "<span class=step><b>1F:</b> use the Master Power Panel, then the Cylinder Activation Panel.</span>"
+      + "<span class=step><b>Engine room:</b> use the <b>3rd Lift Activation Panel</b> to connect the power plug.</span>"
+  },
+  {
+    chapterId: "ch13", after: "c13-03", id: "story-opening-the-bulkhead", lv: 61,
+    storyQuestId: "quest-mechonis-field-opening-the-bulkhead-2e419184", f: "story",
+    t: "<b>MAIN STORY · Opening the Bulkhead</b> — 3rd Lift, 3F",
+    d: "<span class=step><b>Power:</b> use the <b>3F Master Power Panel</b>.</span>"
+      + "<span class=step><b>Open:</b> use the Bulkhead Control Panel to release the bulkhead.</span>"
+  },
+  {
+    chapterId: "ch13", after: "c13-04", id: "story-the-high-velocity-lift", lv: 61,
+    storyQuestId: "quest-mechonis-field-the-high-velocity-lift-7e8ecd3d", f: "story",
+    t: "<b>MAIN STORY · The High-Velocity Lift</b> — Upper Bulkhead Bridge",
+    d: "<span class=step><b>Start:</b> inspect the High-Velocity Lift Panel after opening the bulkhead.</span>"
+      + "<span class=step><b>Dependency:</b> complete <b>Need Power!</b> on the next card, then return here and connect the power plug.</span>"
+  },
+  {
+    chapterId: "ch13", after: "story-the-high-velocity-lift", id: "story-need-power", lv: 61,
+    storyQuestId: "quest-mechonis-field-need-power-514fff96", f: "story",
+    t: "<b>MAIN STORY · Need Power!</b> — Power Supply Areas 1 and 2",
+    d: "<span class=step><b>Area 1:</b> use the 1st Power Supply Panel.</span>"
+      + "<span class=step><b>Area 2:</b> use the 2nd Power Supply Panel.</span>"
+      + "<span class=step><b>Return:</b> go back to the High-Velocity Lift Panel and activate it.</span>"
+  },
+  {
+    chapterId: "ch14", before: "c14-01", id: "story-to-the-central-tower", lv: 65,
+    storyQuestId: "quest-central-factory-to-the-central-tower-8f337a65", f: "story",
+    t: "<b>MAIN STORY · To the Central Tower</b> — Central Gate to Maintenance Entrance 1",
+    d: "<span class=step><b>Route:</b> enter Central Factory and make for <b>Maintenance Entrance 1</b>.</span>"
+      + "<span class=step><b>Pickups:</b> grab Central Factory collectables and any surprise quests encountered on this crossing.</span>"
+  },
+  {
+    chapterId: "ch14", after: "story-to-the-central-tower", id: "story-maintenance-wing-escape", lv: 65,
+    storyQuestId: "quest-central-factory-maintenance-wing-escape-4eed6fe9", f: "story",
+    t: "<b>MAIN STORY · Maintenance Wing Escape</b> — release the barrier",
+    d: "<span class=step><b>Do:</b> use the <b>Barrier Control Panel</b> to release the electrical barrier in the Maintenance Wing.</span>"
+  },
+  {
+    chapterId: "ch14", after: "story-maintenance-wing-escape", id: "story-find-a-path-to-the-top", lv: 65,
+    storyQuestId: "quest-central-factory-find-a-path-to-the-top-ee4f7c11", f: "story",
+    t: "<b>MAIN STORY · Find a Path to the Top</b> — build a way into the factory",
+    d: "<span class=step><b>Start:</b> find the blocked factory route from the Central Warehouse Lift.</span>"
+      + "<span class=step><b>Dependency:</b> collect the three bomb parts on the next card.</span>"
+      + "<span class=step><b>Finish:</b> create the bomb at the Maintenance Wing Weapon Creation Panel and blast open the vent.</span>"
+  },
+  {
+    chapterId: "ch14", after: "story-find-a-path-to-the-top", id: "story-materials-for-a-bomb", lv: 65,
+    storyQuestId: "quest-central-factory-materials-for-a-bomb-b65dfdde", f: "story",
+    t: "<b>MAIN STORY · Materials for a Bomb</b> — collect all three components",
+    d: "<span class=step><b>Electrical Fuse:</b> defeat the <b>M88 Watchtower</b> at the Main Factory Gate.</span>"
+      + "<span class=step><b>Ether Explosive:</b> defeat the <b>M97 Commander</b> in the Large Mechon Store.</span>"
+      + "<span class=step><b>Timer:</b> defeat the marked flying Mechon in the central container storeroom.</span>"
+  },
+  {
+    chapterId: "ch14", after: "story-materials-for-a-bomb", id: "story-the-central-tower-barrier", lv: 65,
+    storyQuestId: "quest-central-factory-the-central-tower-barrier-500279fe", f: "story",
+    t: "<b>MAIN STORY · The Central Tower Barrier</b> — Tower Boarding Gate",
+    d: "<span class=step><b>Do:</b> turn off the electrical barrier at the Tower Boarding Gate.</span>"
+      + "<span class=step><b>Then:</b> reach the top of the tower and continue into Agniratha.</span>"
+  },
+  {
+    chapterId: "ch14", after: "c14-19", id: "story-shrine-transport", lv: 68,
+    storyQuestId: "quest-agniratha-shrine-transport-793d97cb", f: "story",
+    t: "<b>MAIN STORY · Shrine Transport</b> — unlock the Meyneth Shrine route",
+    d: "<span class=step><b>Safe-to-advance gate:</b> clear all fourteen Agniratha terminal quests and the red city checklist above.</span>"
+      + "<span class=step><b>Do:</b> begin the four-pillar verification sequence tracked on the next card.</span>"
+      + "<span class=step><b>Finish:</b> activate the Data Centre transport, then use the transporter to Meyneth Shrine.</span>"
+  },
+  {
+    chapterId: "ch14", after: "story-shrine-transport", id: "story-pillar-verification-devices", lv: 68,
+    storyQuestId: "quest-agniratha-pillar-verification-devices-19c243b2", f: "story",
+    t: "<b>MAIN STORY · Pillar Verification Devices</b> — verify all four pillars",
+    d: "<span class=step><b>Calcos Pillar:</b> use its Verification Device.</span>"
+      + "<span class=step><b>Helas Pillar:</b> use its Verification Device.</span>"
+      + "<span class=step><b>Dios Pillar:</b> use its Verification Device.</span>"
+      + "<span class=step><b>Cleas Pillar:</b> use its Verification Device, then return to the Central Tower.</span>"
+  },
+  {
+    chapterId: "ch15", after: "c15-08", id: "story-save-bionis", lv: 72,
+    storyQuestId: "quest-agniratha-save-bionis-45732bab", f: "story",
+    t: "<b>MAIN STORY · Save Bionis</b> — Mechonis Core",
+    d: "<span class=step><b>Point of no return:</b> do not enter until every Chapter 15 deadline card above is complete.</span>"
+      + "<span class=step><b>Do:</b> defeat the <b>three Energy Devices</b> surrounding Yaldabaoth.</span>"
+      + "<span class=step><b>Then:</b> finish the Mechonis Core sequence; the world state changes immediately afterward.</span>"
+  },
+  {
+    chapterId: "ch17", before: "c17-24", id: "story-chase-dickson", lv: 79,
+    storyQuestId: "quest-sword-valley-chase-dickson-331c7524", f: "story",
+    t: "<b>MAIN STORY · Chase Dickson</b> — Prison Island, second visit",
+    d: "<span class=step><b>Behemoth Nest:</b> descend through the Kitchen and open the right-hand gate to reach the lower Control Device.</span>"
+      + "<span class=step><b>Bone Pillar:</b> use the Control Device to restore it.</span>"
+      + "<span class=step><b>Arena:</b> return and defeat the story enemy; sweep the second-visit Prison Island content before climbing farther.</span>"
+  },
+  {
+    chapterId: "ch17", after: "c17-30", id: "story-path-to-the-top", lv: 80,
+    storyQuestId: "quest-sword-valley-path-to-the-top-94cea14c", f: "story",
+    t: "<b>MAIN STORY · Path to the Top</b> — Corridor of Silence",
+    d: "<span class=step><b>Before advancing:</b> finish the Prison Island Unique Monsters and Heart-to-Hearts above.</span>"
+      + "<span class=step><b>Summon:</b> use the Dragon Summon at the altar and defeat the dragon.</span>"
+      + "<span class=step><b>Open:</b> fit the <b>Dragon's Eye</b> into the altar and continue to the final ascent.</span>"
+  }
+];
+
+for (const storyCard of STORY_ROUTE_SPINE) {
+  const chapter = ROUTE.find(entry => entry.id === storyCard.chapterId);
+  if (!chapter) throw new Error(`Story route references missing chapter ${storyCard.chapterId}`);
+  const card = {...storyCard};
+  delete card.chapterId; delete card.before; delete card.after; delete card.replaceId;
+  if (storyCard.replaceId) {
+    const index = chapter.items.findIndex(item => item.id === storyCard.replaceId);
+    if (index < 0) throw new Error(`Story route replacement is missing ${storyCard.replaceId}`);
+    chapter.items[index] = {...chapter.items[index], ...card};
+    continue;
+  }
+  const referenceId = storyCard.before || storyCard.after;
+  const index = chapter.items.findIndex(item => item.id === referenceId);
+  if (index < 0) throw new Error(`Story route anchor is missing ${referenceId}`);
+  chapter.items.splice(index + (storyCard.after ? 1 : 0), 0, card);
+}
+
+// These hub quests only appear after entering a later region. Keep their stable
+// checkbox IDs, but place them at the first moment they can actually be accepted.
+function moveRouteCard(itemId, targetChapterId, afterId) {
+  const source = ROUTE.find(chapter => chapter.items.some(item => item.id === itemId));
+  const target = ROUTE.find(chapter => chapter.id === targetChapterId);
+  if (!source || !target) throw new Error(`Cannot move route card ${itemId} to ${targetChapterId}`);
+  const sourceIndex = source.items.findIndex(item => item.id === itemId);
+  const [item] = source.items.splice(sourceIndex, 1);
+  const targetIndex = target.items.findIndex(candidate => candidate.id === afterId);
+  if (targetIndex < 0) throw new Error(`Cannot place route card ${itemId} after ${afterId}`);
+  target.items.splice(targetIndex + 1, 0, item);
+}
+moveRouteCard("c12-02", "ch13", "story-aiming-for-the-top");
+moveRouteCard("c12-03", "ch14", "story-the-central-tower-barrier");
+
 // Optional, independently persistent checkpoints for route cards that bundle several
 // objectives. The parent card remains the final confirmation; these prevent partial
 // sweeps from disappearing into paragraph text.
@@ -1814,11 +2092,13 @@ const ROUTE_SUBCHECK_LABELS = {
   "c8-53": ["Complete Eryth Sea Collectopaedia", "Complete Alcamoth Collectopaedia", "Complete High Entia Tomb Collectopaedia"],
   "c8-25": ["Alcamoth Monster Quest 1 — Part 1", "Alcamoth Monster Quest 1 — Part 2", "Alcamoth Monster Quest 1 — Part 3", "Alcamoth Monster Quest 2 — Part 1", "Alcamoth Monster Quest 2 — Part 2", "Alcamoth Monster Quest 2 — Part 3", "Alcamoth Monster Quest 3 — Part 1", "Alcamoth Monster Quest 3 — Part 2", "Alcamoth Monster Quest 3 — Part 3", "Alcamoth Monster Quest 4 — Part 1", "Alcamoth Monster Quest 4 — Part 2", "Alcamoth Monster Quest 4 — Part 3"],
   "c8-26": ["Alcamoth Material Quest 1", "Alcamoth Material Quest 2", "Alcamoth Material Quest 3", "Alcamoth Material Quest 4", "Alcamoth Collection Quest 1", "Alcamoth Collection Quest 2", "Alcamoth Collection Quest 3", "Alcamoth Collection Quest 4", "Alcamoth Search Quest 1", "Alcamoth Search Quest 2", "Alcamoth Search Quest 3", "Alcamoth Search Quest 4"],
+  "c8-34": ["Monster Quest 1", "Monster Quest 2", "Collect Quest 1", "Collect Quest 2"],
   "c9-03": ["Alcamoth Orbital — Shulk", "Alcamoth Orbital — Reyn", "Alcamoth Orbital — Fiora", "Alcamoth Orbital — Dunban", "Alcamoth Orbital — Sharla", "Alcamoth Orbital — Riki", "Alcamoth Orbital — Melia", "Alcamoth at Dawn — Shulk", "Alcamoth at Dawn — Reyn", "Alcamoth at Dawn — Fiora", "Alcamoth at Dawn — Dunban", "Alcamoth at Dawn — Sharla", "Alcamoth at Dawn — Riki", "Alcamoth at Dawn — Melia"],
   "c10-09": ["Defeat Glorious Buer", "Defeat Moonlight Paimon", "Defeat Vague Barbas"],
   "c10-10": ["Defeat Agile Barbatos at night", "Defeat Hidden Gamigin at night", "Defeat North Star Gusion during a night blizzard"],
   "c10-12": ["Valak Monster Quest 1", "Valak Monster Quest 2", "Valak Monster Quest 3", "Valak Monster Quest 4"],
   "c11-10": ["Complete Sword Valley Collectopaedia", "Complete Galahad Fortress Collectopaedia"],
+  "c12-05": ["Accept To My Loved One... from Zarkort", "Deliver the Tear of the Sky to Bozatrox"],
   "c12-13": ["Bank 3× Warning Lamp", "Bank 3× Sour Turnip", "Bank 3× Oil Oyster", "Bank 3× White Plum", "Bank 2× Rainbow Slug"],
   "c14-05": ["Civil Protection 1-1", "Civil Protection 1-2", "Civil Protection 1-3", "Civil Protection 2-1", "Civil Protection 2-2", "Civil Protection 2-3"],
   "c14-06": ["Complete Agniratha Beautification 1", "Bank 4× New Part S", "Bank 5× Fairy Tale Diode", "Complete Agniratha Beautification 2", "Bank 3× New Part L", "Bank 6× Grape Spring"],
@@ -1837,7 +2117,7 @@ const ROUTE_SUBCHECK_LABELS = {
   "c17-05": ["Collect Transmission Bypass", "Collect Exhaust Pump", "Collect Mini Reactor", "Accept Stunted Growth with Dunban leading", "Turn in Stunted Growth with Shulk leading"],
   "c17-10": ["Complete Replica Monado 1 — Monado Rudra", "Complete Replica Monado 2 — Monado Agni", "Complete Replica Monado 3 — Monado Abyss", "Complete Replica Monado 4 — Monado Dogma", "Complete Replica Monado 5 — Monado Saga"],
   "c17-13": ["Collect Truth of the Giants", "Collect Daring of the Giants", "Collect Heart of the Giants", "Unseal the door at Three Sage Summit"],
-  "c17-18": ["The Elite Captain's Anguish", "Getting to Know Minnie", "Getting to Know Dorothy", "Lifespan of a Machine", "A Poet's Concerns", "Delivering the Undeliverable", "Finding the Unfindable", "A Dauntless Trader", "Nopon Determination (only on Mefimefi route)", "Defend Colony 6 — Ancient", "Defend Colony 6 — Demon"],
+  "c17-18": ["The Elite Captain's Anguish", "Getting to Know Minnie", "Getting to Know Dorothy", "Lifespan of a Machina", "A Poet's Concerns", "Delivering the Undeliverable", "Finding the Unfindable", "A Dauntless Trader", "Nopon Determination (only on Mefimefi route)", "Defend Colony 6 — Ancient", "Defend Colony 6 — Demon"],
   "c17-19": ["Challenge", "For a Friend", "A Merciful End", "A Release from Duty", "The Imperial Ceremony", "Imperial Ceremony Offerings", "The Ancient Ceremony", "Ancient Ceremony Offerings"],
   "c17-21": ["Bank 3× Flexible Selua Cell", "Bank 3× Steel Selua Cell"],
   "c17-22": ["Bank 2× Inferno Element", "Bank 2× Bolt Element"],
@@ -1886,12 +2166,13 @@ const ROUTE_SUBCHECK_OBJECTIVES = {
   "c7-28": ["5× Jungle Quadwings", "2× Makna Feris", "2× Makna Ansels", "3× Makna Eks"],
   "c8-25": ALCAMOTH_GENERIC_OBJECTIVES.slice(0, 12),
   "c8-26": ALCAMOTH_GENERIC_OBJECTIVES.slice(16),
+  "c8-34": ["5× Palti Kromar", "5× Maleza Kromar", "3× Hiln Coin Purse + 5× Doomsday Poppy", "3× Andos Antenna + 3× Old Dragon Spine + 3× Pink Asparagus"],
   "c10-12": ["2× Monta Moramoras", "5× Sparas Paguls", "3× Bow Chilkins", "1× Sesna Lexos"],
   "c14-05": ["5× M67/HASTE", "6× M36/SACRE", "3× Offensive/BRAVE", "6× M55/DREAD", "4× M67/RADAR", "4× M87/GRAND"],
   "c15-02": ALCAMOTH_GENERIC_OBJECTIVES
 };
 
-const ROUTE_GENERIC_QUEST_GROUPS = new Set(["c1-10", "c1-11", "c1-12", "c1-13", "c4-06", "c6-21", "c7-28", "c8-25", "c8-26", "c10-12", "c14-05", "c15-02"]);
+const ROUTE_GENERIC_QUEST_GROUPS = new Set(["c1-10", "c1-11", "c1-12", "c1-13", "c4-06", "c6-21", "c7-28", "c8-25", "c8-26", "c8-34", "c10-12", "c14-05", "c15-02"]);
 
 // Short, route-facing finding hints for interaction-only checkpoints. Times and
 // settlement landmarks are kept beside the checkbox so the player does not have
@@ -1928,6 +2209,10 @@ const ALCAMOTH_GENERIC_HINTS = [
 ];
 
 const ROUTE_SUBCHECK_HINTS = {
+  "c12-05": [
+    "Anytime · Fallen Arm, Digit 2 · appears after For My Loved One... is complete.",
+    "Chapter 13 · Machina Refuge in Mechonis Field · speaking to Bozatrox completes the quest."
+  ],
   "c1-miss-brave-protectors": [
     "18:00–06:00 · Fortress Entrance",
     "06:00–18:00 · Ether Light",

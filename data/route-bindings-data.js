@@ -5,9 +5,9 @@ const ROUTE_BINDINGS_DATA = {
   "policy": "Every Completion Hub item has one explicit safe route handling point. Exact means named on-card; batch/post/fc means resolved through the linked ledger sweep, not silently assumed complete.",
   "counts": {
     "total": 1053,
-    "exact": 425,
-    "batch": 160,
-    "post": 462,
+    "exact": 464,
+    "batch": 123,
+    "post": 460,
     "fc": 6
   },
   "bindings": [
@@ -126,7 +126,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-financial-planning-1b77dae6",
       "targetType": "quest",
-      "routeItemId": "c3-03",
+      "routeItemId": "c3-04",
       "routeChapterId": "ch3",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -134,8 +134,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-overworked-and-underpaid-771d15a5",
       "targetType": "quest",
-      "routeItemId": "c1-15",
-      "routeChapterId": "ch1",
+      "routeItemId": "c3-11",
+      "routeChapterId": "ch3",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -198,8 +198,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-a-young-captain-s-suffering-7b367e25",
       "targetType": "quest",
-      "routeItemId": "c1-14",
-      "routeChapterId": "ch1",
+      "routeItemId": "c3-06",
+      "routeChapterId": "ch3",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -214,8 +214,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-a-young-captain-s-challenge-3b6e8a3c",
       "targetType": "quest",
-      "routeItemId": "c3-10",
-      "routeChapterId": "ch3",
+      "routeItemId": "c17-08",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -230,15 +230,15 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-a-young-captain-s-revival-6417f76a",
       "targetType": "quest",
-      "routeItemId": "c1-14",
-      "routeChapterId": "ch1",
+      "routeItemId": "c17-07",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-9-pride-and-courage-87817643",
       "targetType": "quest",
-      "routeItemId": "c1-02",
+      "routeItemId": "c1-17",
       "routeChapterId": "ch1",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -246,16 +246,16 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-friendship-tokens-f32a6115",
       "targetType": "quest",
-      "routeItemId": "c1-02",
-      "routeChapterId": "ch1",
+      "routeItemId": "c17-09",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-9-a-big-brother-s-fight-ccc402f4",
       "targetType": "quest",
-      "routeItemId": "c1-03",
-      "routeChapterId": "ch1",
+      "routeItemId": "c1-05",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -263,7 +263,7 @@ const ROUTE_BINDINGS_DATA = {
       "targetId": "quest-colony-9-a-little-brother-s-fight-c5e7ea1a",
       "targetType": "quest",
       "routeItemId": "c1-05",
-      "routeChapterId": "ch1",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -294,7 +294,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-dean-s-shady-request-d2e3cc6a",
       "targetType": "quest",
-      "routeItemId": "c1-16",
+      "routeItemId": "c1-18",
       "routeChapterId": "ch1",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -302,7 +302,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-liliana-s-sincere-request-a992ff79",
       "targetType": "quest",
-      "routeItemId": "c1-18",
+      "routeItemId": "c1-19",
       "routeChapterId": "ch1",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -334,8 +334,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-desiree-s-future-f8d99dfa",
       "targetType": "quest",
-      "routeItemId": "c1-04",
-      "routeChapterId": "ch1",
+      "routeItemId": "c6-35",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -654,10 +654,10 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-9-delivering-food-ff6d1a95",
       "targetType": "quest",
-      "routeItemId": "c1-22",
+      "routeItemId": "story-delivering-food",
       "routeChapterId": "ch1",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Colony 9 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-tephra-cave-missing-in-action-780cfec2",
@@ -894,7 +894,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-bionis-leg-a-flower-for-a-rose-41910338",
       "targetType": "quest",
-      "routeItemId": "c17-01",
+      "routeItemId": "c17-02",
       "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -902,7 +902,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-bionis-leg-battling-brutes-adab749b",
       "targetType": "quest",
-      "routeItemId": "c17-02",
+      "routeItemId": "c17-03",
       "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -910,7 +910,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-bionis-leg-supplies-for-satorl-d827c5dd",
       "targetType": "quest",
-      "routeItemId": "c17-01",
+      "routeItemId": "c17-04",
       "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -1054,8 +1054,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-bionis-leg-search-quest-1-a3fd7be5",
       "targetType": "quest",
-      "routeItemId": "c1-13",
-      "routeChapterId": "ch1",
+      "routeItemId": "c4-06",
+      "routeChapterId": "ch4",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -1070,8 +1070,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-6-the-road-home-43a85355",
       "targetType": "quest",
-      "routeItemId": "c5-13",
-      "routeChapterId": "ch5",
+      "routeItemId": "c6-01",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -1182,23 +1182,23 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-6-miss-sweetness-showdown-berryjammy-058f80d0",
       "targetType": "quest",
-      "routeItemId": "c10-46",
+      "routeItemId": "c10-42",
       "routeChapterId": "ch10",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-miss-sweetness-showdown-ma-crish-91417867",
       "targetType": "quest",
-      "routeItemId": "c10-46",
+      "routeItemId": "c10-42",
       "routeChapterId": "ch10",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-the-most-transparent-thing-8d36938d",
       "targetType": "quest",
-      "routeItemId": "c10-42",
+      "routeItemId": "c10-43",
       "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -1254,50 +1254,50 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-6-family-secrets-zel-argentis-7b51e99a",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "post",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-family-secrets-en-argentis-4268080f",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-betrothal-test-zel-argentis-3fbc2130",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "post",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-betrothal-test-en-argentis-184f7886",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-stopping-the-elopement-zel-argentis-ed304437",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "post",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-stopping-the-elopement-en-argentis-79415ed3",
       "targetType": "quest",
-      "routeItemId": "c17-18",
+      "routeItemId": "c17-15",
       "routeChapterId": "ch17",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Colony 6 ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-colony-6-a-butler-s-concerns-cb513ea0",
@@ -1470,7 +1470,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-colony-6-for-the-restoration-d8293354",
       "targetType": "quest",
-      "routeItemId": "c6-09",
+      "routeItemId": "c6-10",
       "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -1702,8 +1702,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-satorl-marsh-monster-quest-2-a146d173",
       "targetType": "quest",
-      "routeItemId": "c4-06",
-      "routeChapterId": "ch4",
+      "routeItemId": "c6-32",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -1718,18 +1718,18 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-satorl-marsh-monster-quest-4-ccb0a9ec",
       "targetType": "quest",
-      "routeItemId": "c1-10",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-36",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-satorl-marsh-challenge-123635e9",
       "targetType": "quest",
-      "routeItemId": "c1-06",
-      "routeChapterId": "ch1",
-      "handling": "exact",
-      "rationale": "Quest name is printed on this route card."
+      "routeItemId": "c17-19",
+      "routeChapterId": "ch17",
+      "handling": "post",
+      "rationale": "Area quest is included in the Satorl Marsh ledger sweep; inspect its dependency card before turn-in."
     },
     {
       "targetId": "quest-satorl-marsh-for-a-friend-65689534",
@@ -1774,18 +1774,18 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-satorl-marsh-the-ancient-ceremony-0559117c",
       "targetType": "quest",
-      "routeItemId": "c17-19",
-      "routeChapterId": "ch17",
+      "routeItemId": "story-the-ancient-ceremony",
+      "routeChapterId": "ch6",
       "handling": "exact",
-      "rationale": "Quest name is printed on this route card."
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-satorl-marsh-ancient-ceremony-offerings-6ccb2479",
       "targetType": "quest",
-      "routeItemId": "c17-19",
-      "routeChapterId": "ch17",
+      "routeItemId": "story-ancient-ceremony-offerings",
+      "routeChapterId": "ch6",
       "handling": "exact",
-      "rationale": "Quest name is printed on this route card."
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-makna-forest-legend-of-the-sage-c39bf375",
@@ -1806,8 +1806,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-makna-forest-final-challenge-of-the-sage-3d8ee72d",
       "targetType": "quest",
-      "routeItemId": "c8-36",
-      "routeChapterId": "ch8",
+      "routeItemId": "c17-06",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -1830,8 +1830,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-makna-forest-monster-quest-2-fa0c16cc",
       "targetType": "quest",
-      "routeItemId": "c4-06",
-      "routeChapterId": "ch4",
+      "routeItemId": "c6-32",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -1846,26 +1846,26 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-makna-forest-monster-quest-4-5f56b842",
       "targetType": "quest",
-      "routeItemId": "c1-10",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-36",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-makna-forest-challenge-7ec939fe",
       "targetType": "quest",
-      "routeItemId": "c1-06",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-26",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-makna-forest-mystery-girl-rescue-96776777",
       "targetType": "quest",
-      "routeItemId": "c7-41",
+      "routeItemId": "story-mystery-girl-rescue",
       "routeChapterId": "ch7",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Makna Forest ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-frontier-village-leku-s-food-crisis-55789eb3",
@@ -1974,8 +1974,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-medical-advancements-d38e6c42",
       "targetType": "quest",
-      "routeItemId": "c7-01",
-      "routeChapterId": "ch7",
+      "routeItemId": "c10-28",
+      "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2014,7 +2014,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-ingredients-for-a-brew-99e4433b",
       "targetType": "quest",
-      "routeItemId": "c7-18",
+      "routeItemId": "c7-19",
       "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2022,8 +2022,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-healing-the-healer-87cebe81",
       "targetType": "quest",
-      "routeItemId": "c7-01",
-      "routeChapterId": "ch7",
+      "routeItemId": "c10-29",
+      "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2038,16 +2038,16 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-mislabelling-problem-8c276339",
       "targetType": "quest",
-      "routeItemId": "c7-01",
-      "routeChapterId": "ch7",
+      "routeItemId": "c10-30",
+      "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-frontier-village-getting-bigger-f8926db1",
       "targetType": "quest",
-      "routeItemId": "c7-01",
-      "routeChapterId": "ch7",
+      "routeItemId": "c10-31",
+      "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2070,7 +2070,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-musical-genius-2f8caef8",
       "targetType": "quest",
-      "routeItemId": "c7-12",
+      "routeItemId": "c7-13",
       "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2102,8 +2102,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-avenge-a-mamapon-s-death-afae25ff",
       "targetType": "quest",
-      "routeItemId": "c7-11",
-      "routeChapterId": "ch7",
+      "routeItemId": "c8-35",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2118,8 +2118,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-it-definitely-exist-86e39ec6",
       "targetType": "quest",
-      "routeItemId": "c4-27",
-      "routeChapterId": "ch4",
+      "routeItemId": "c7-09",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2206,8 +2206,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-honouring-the-nopon-sage-3b8a2f5a",
       "targetType": "quest",
-      "routeItemId": "c7-12",
-      "routeChapterId": "ch7",
+      "routeItemId": "c8-36",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2278,7 +2278,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-secret-ingredient-hunt-658b9ff1",
       "targetType": "quest",
-      "routeItemId": "c7-14",
+      "routeItemId": "c7-16",
       "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2286,7 +2286,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-secret-innovation-5cf8ce52",
       "targetType": "quest",
-      "routeItemId": "c7-14",
+      "routeItemId": "c7-15",
       "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2294,7 +2294,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-the-master-s-successor-64e36cf7",
       "targetType": "quest",
-      "routeItemId": "c7-15",
+      "routeItemId": "c7-17",
       "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2302,8 +2302,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-dangerous-ambition-0c01efad",
       "targetType": "quest",
-      "routeItemId": "c7-15",
-      "routeChapterId": "ch7",
+      "routeItemId": "c15-01",
+      "routeChapterId": "ch15",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2422,24 +2422,24 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-challenge-1-904ff9bc",
       "targetType": "quest",
-      "routeItemId": "c1-06",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-23",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-frontier-village-challenge-2-e229b41e",
       "targetType": "quest",
-      "routeItemId": "c1-07",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-24",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-frontier-village-challenge-3-47955942",
       "targetType": "quest",
-      "routeItemId": "c1-08",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-25",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2510,8 +2510,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-search-quest-1-a29b0ccd",
       "targetType": "quest",
-      "routeItemId": "c1-13",
-      "routeChapterId": "ch1",
+      "routeItemId": "c4-06",
+      "routeChapterId": "ch4",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2534,10 +2534,10 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-frontier-village-an-errand-for-the-heropon-0207461b",
       "targetType": "quest",
-      "routeItemId": "c7-41",
+      "routeItemId": "story-an-errand-for-the-heropon",
       "routeChapterId": "ch7",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Frontier Village ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-eryth-sea-trouble-at-the-plant-09ca325d",
@@ -2638,16 +2638,16 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-eryth-sea-monster-quest-2-028f026d",
       "targetType": "quest",
-      "routeItemId": "c4-06",
-      "routeChapterId": "ch4",
+      "routeItemId": "c6-32",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-eryth-sea-challenge-bb182f57",
       "targetType": "quest",
-      "routeItemId": "c1-06",
-      "routeChapterId": "ch1",
+      "routeItemId": "c8-33",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -2670,26 +2670,26 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-eryth-sea-save-the-worker-f2ef1b0c",
       "targetType": "quest",
-      "routeItemId": "c8-53",
+      "routeItemId": "story-save-the-worker",
       "routeChapterId": "ch8",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Eryth Sea ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-eryth-sea-path-to-prison-island-48dacbcc",
       "targetType": "quest",
-      "routeItemId": "c8-53",
+      "routeItemId": "story-path-to-prison-island",
       "routeChapterId": "ch8",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Eryth Sea ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-eryth-sea-sister-seals-c9046416",
       "targetType": "quest",
-      "routeItemId": "c8-53",
+      "routeItemId": "story-sister-seals",
       "routeChapterId": "ch8",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Eryth Sea ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-alcamoth-the-deciphering-machine-e8f9b65c",
@@ -2742,7 +2742,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-protect-the-capital-2ca874b2",
       "targetType": "quest",
-      "routeItemId": "c8-11",
+      "routeItemId": "c8-12",
       "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2774,7 +2774,7 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-together-forever-b4a3ce0a",
       "targetType": "quest",
-      "routeItemId": "c8-03",
+      "routeItemId": "c8-04",
       "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2814,10 +2814,10 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-adventureres-in-peril-4a2d710a",
       "targetType": "quest",
-      "routeItemId": "c15-02",
-      "routeChapterId": "ch15",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Alcamoth ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "c10-44",
+      "routeChapterId": "ch10",
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-alcamoth-building-bridges-7492aa71",
@@ -2830,15 +2830,15 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-believing-again-66f7b260",
       "targetType": "quest",
-      "routeItemId": "c8-05",
-      "routeChapterId": "ch8",
+      "routeItemId": "c10-45",
+      "routeChapterId": "ch10",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-alcamoth-starlight-seeker-cae55fa5",
       "targetType": "quest",
-      "routeItemId": "c8-14",
+      "routeItemId": "c8-15",
       "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -2910,8 +2910,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-vidian-rescue-mission-70909031",
       "targetType": "quest",
-      "routeItemId": "c8-05",
-      "routeChapterId": "ch8",
+      "routeItemId": "c17-12",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3014,32 +3014,32 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-challenge-1-4a226e64",
       "targetType": "quest",
-      "routeItemId": "c1-06",
-      "routeChapterId": "ch1",
+      "routeItemId": "c8-21",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-alcamoth-challenge-2-b349a7b0",
       "targetType": "quest",
-      "routeItemId": "c1-07",
-      "routeChapterId": "ch1",
+      "routeItemId": "c8-22",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-alcamoth-challenge-3-4f62e955",
       "targetType": "quest",
-      "routeItemId": "c1-08",
-      "routeChapterId": "ch1",
+      "routeItemId": "c8-23",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-alcamoth-challenge-4-25825bda",
       "targetType": "quest",
-      "routeItemId": "c2-05",
-      "routeChapterId": "ch2",
+      "routeItemId": "c8-24",
+      "routeChapterId": "ch8",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3110,8 +3110,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-alcamoth-search-quest-1-226d3221",
       "targetType": "quest",
-      "routeItemId": "c1-13",
-      "routeChapterId": "ch1",
+      "routeItemId": "c4-06",
+      "routeChapterId": "ch4",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3222,8 +3222,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-valak-mountain-monster-quest-2-4447734f",
       "targetType": "quest",
-      "routeItemId": "c4-06",
-      "routeChapterId": "ch4",
+      "routeItemId": "c6-32",
+      "routeChapterId": "ch6",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3238,8 +3238,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-valak-mountain-monster-quest-4-4dc843a9",
       "targetType": "quest",
-      "routeItemId": "c1-10",
-      "routeChapterId": "ch1",
+      "routeItemId": "c7-36",
+      "routeChapterId": "ch7",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3249,7 +3249,7 @@ const ROUTE_BINDINGS_DATA = {
       "routeItemId": "c10-02",
       "routeChapterId": "ch10",
       "handling": "exact",
-      "rationale": "Quest name is printed on this route card."
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-secure-dolgan-outpost-b6ba581d",
@@ -3286,50 +3286,50 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-sword-valley-lift-battle-b601ae54",
       "targetType": "quest",
-      "routeItemId": "c11-10",
+      "routeItemId": "story-lift-battle",
       "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-supply-station-battle-d408cebf",
       "targetType": "quest",
-      "routeItemId": "c11-10",
+      "routeItemId": "story-supply-station-battle",
       "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-turbine-battle-b3f2fea9",
       "targetType": "quest",
-      "routeItemId": "c11-10",
+      "routeItemId": "story-turbine-battle",
       "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-fiora-s-conviction-242777dd",
       "targetType": "quest",
-      "routeItemId": "c11-10",
+      "routeItemId": "story-fioras-conviction",
       "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-chase-dickson-331c7524",
       "targetType": "quest",
-      "routeItemId": "c11-10",
-      "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-chase-dickson",
+      "routeChapterId": "ch17",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-sword-valley-path-to-the-top-94cea14c",
       "targetType": "quest",
-      "routeItemId": "c11-10",
-      "routeChapterId": "ch11",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Sword Valley + ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-path-to-the-top",
+      "routeChapterId": "ch17",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-fallen-arm-save-the-machina-6988cd50",
@@ -3407,7 +3407,7 @@ const ROUTE_BINDINGS_DATA = {
       "targetId": "quest-fallen-arm-the-history-of-mechonis-a92d0c19",
       "targetType": "quest",
       "routeItemId": "c12-02",
-      "routeChapterId": "ch12",
+      "routeChapterId": "ch13",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3415,7 +3415,7 @@ const ROUTE_BINDINGS_DATA = {
       "targetId": "quest-fallen-arm-the-history-of-the-capital-b1ab126c",
       "targetType": "quest",
       "routeItemId": "c12-03",
-      "routeChapterId": "ch12",
+      "routeChapterId": "ch14",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
@@ -3462,15 +3462,15 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-fallen-arm-the-oath-sword-ed4e9dff",
       "targetType": "quest",
-      "routeItemId": "c12-06",
-      "routeChapterId": "ch12",
+      "routeItemId": "c13-15",
+      "routeChapterId": "ch13",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-fallen-arm-scheduled-inspection-c2eb28c6",
       "targetType": "quest",
-      "routeItemId": "c12-06",
+      "routeItemId": "c12-07",
       "routeChapterId": "ch12",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
@@ -3550,98 +3550,98 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-fallen-arm-reunion-with-fiora-b00e4e65",
       "targetType": "quest",
-      "routeItemId": "c12-20",
+      "routeItemId": "story-reunion-with-fiora",
       "routeChapterId": "ch12",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Fallen Arm ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-fallen-arm-we-made-it-4429533c",
       "targetType": "quest",
-      "routeItemId": "c12-20",
+      "routeItemId": "story-we-made-it",
       "routeChapterId": "ch12",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Fallen Arm ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-fallen-arm-fiora-s-treatment-203a0705",
       "targetType": "quest",
-      "routeItemId": "c12-20",
+      "routeItemId": "story-fioras-treatment",
       "routeChapterId": "ch12",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Fallen Arm ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-mechonis-field-best-boots-349f0765",
       "targetType": "quest",
-      "routeItemId": "c12-05",
-      "routeChapterId": "ch12",
+      "routeItemId": "c14-13",
+      "routeChapterId": "ch14",
       "handling": "exact",
       "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-mechonis-field-monster-quest-mechonis-field-eac3d06b",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "c1-10",
+      "routeChapterId": "ch1",
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-mechonis-field-challenge-quest-1-mechonis-field-4cf669b1",
       "targetType": "quest",
-      "routeItemId": "c14-19",
+      "routeItemId": "c14-14",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-mechonis-field-challenge-quest-2-mechonis-field-85c5b30a",
       "targetType": "quest",
-      "routeItemId": "c14-19",
+      "routeItemId": "c14-15",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Timed quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Quest name is printed on this route card."
     },
     {
       "targetId": "quest-mechonis-field-aiming-for-the-top-dc2d2e44",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-aiming-for-the-top",
+      "routeChapterId": "ch13",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-mechonis-field-get-the-3rd-lift-moving-73bf4423",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-get-the-3rd-lift-moving",
+      "routeChapterId": "ch13",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-mechonis-field-opening-the-bulkhead-2e419184",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-opening-the-bulkhead",
+      "routeChapterId": "ch13",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-mechonis-field-the-high-velocity-lift-7e8ecd3d",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-the-high-velocity-lift",
+      "routeChapterId": "ch13",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-mechonis-field-need-power-514fff96",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Mechonis Field ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-need-power",
+      "routeChapterId": "ch13",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-central-factory-eliminate-the-backup-69778f1d",
@@ -3678,42 +3678,42 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-central-factory-to-the-central-tower-8f337a65",
       "targetType": "quest",
-      "routeItemId": "c14-25",
+      "routeItemId": "story-to-the-central-tower",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Central Factory ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-central-factory-maintenance-wing-escape-4eed6fe9",
       "targetType": "quest",
-      "routeItemId": "c14-25",
+      "routeItemId": "story-maintenance-wing-escape",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Central Factory ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-central-factory-find-a-path-to-the-top-ee4f7c11",
       "targetType": "quest",
-      "routeItemId": "c14-25",
+      "routeItemId": "story-find-a-path-to-the-top",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Central Factory ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-central-factory-materials-for-a-bomb-b65dfdde",
       "targetType": "quest",
-      "routeItemId": "c14-25",
+      "routeItemId": "story-materials-for-a-bomb",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Central Factory ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-central-factory-the-central-tower-barrier-500279fe",
       "targetType": "quest",
-      "routeItemId": "c14-25",
+      "routeItemId": "story-the-central-tower-barrier",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Central Factory ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-agniratha-civil-protection-1-1-ebee732b",
@@ -3830,26 +3830,26 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "quest-agniratha-shrine-transport-793d97cb",
       "targetType": "quest",
-      "routeItemId": "c14-19",
+      "routeItemId": "story-shrine-transport",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Agniratha ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-agniratha-pillar-verification-devices-19c243b2",
       "targetType": "quest",
-      "routeItemId": "c14-19",
+      "routeItemId": "story-pillar-verification-devices",
       "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Agniratha ledger sweep; inspect its dependency card before turn-in."
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "quest-agniratha-save-bionis-45732bab",
       "targetType": "quest",
-      "routeItemId": "c14-19",
-      "routeChapterId": "ch14",
-      "handling": "batch",
-      "rationale": "Area quest is included in the Agniratha ledger sweep; inspect its dependency card before turn-in."
+      "routeItemId": "story-save-bionis",
+      "routeChapterId": "ch15",
+      "handling": "exact",
+      "rationale": "Formal story quest is linked by its retained source ID."
     },
     {
       "targetId": "achievement-trials-hunter-in-training-71b0b9d9",
@@ -4502,8 +4502,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "achievement-records-second-wind-15923b3c",
       "targetType": "achievements",
-      "routeItemId": "c14-23",
-      "routeChapterId": "ch14",
+      "routeItemId": "c16-01",
+      "routeChapterId": "ch16",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },
@@ -5494,8 +5494,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "monster-base-game-wallslide-gwynry-1a3da059",
       "targetType": "monsters",
-      "routeItemId": "c2-05",
-      "routeChapterId": "ch2",
+      "routeItemId": "c3-17",
+      "routeChapterId": "ch3",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },
@@ -6430,8 +6430,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "monster-base-game-fiendish-auburn-0ed446a1",
       "targetType": "monsters",
-      "routeItemId": "c9-01",
-      "routeChapterId": "ch9",
+      "routeItemId": "c17-25",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },
@@ -6518,8 +6518,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "monster-base-game-eternal-palsadia-a97733ff",
       "targetType": "monsters",
-      "routeItemId": "c6-19",
-      "routeChapterId": "ch6",
+      "routeItemId": "c17-14",
+      "routeChapterId": "ch17",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },
@@ -6582,8 +6582,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "monster-base-game-furious-jozan-3b635500",
       "targetType": "monsters",
-      "routeItemId": "c17-19",
-      "routeChapterId": "ch17",
+      "routeItemId": "pg-08",
+      "routeChapterId": "post",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },
@@ -6694,8 +6694,8 @@ const ROUTE_BINDINGS_DATA = {
     {
       "targetId": "monster-base-game-blizzard-belgazas-d686988e",
       "targetType": "monsters",
-      "routeItemId": "c17-07",
-      "routeChapterId": "ch17",
+      "routeItemId": "pg-04",
+      "routeChapterId": "post",
       "handling": "exact",
       "rationale": "Target name is printed on this route card."
     },

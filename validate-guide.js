@@ -31,10 +31,28 @@ const dossiers = loadConst("data/combat-dossier-data.js", "COMBAT_DOSSIER_DATA")
 const affinity = loadConst("data/affinity-data.js", "AFFINITY_DATA");
 const frontier = loadConst("data/frontier-map-data.js", "FRONTIER_MAP_DATA");
 const bindings = loadConst("data/route-bindings-data.js", "ROUTE_BINDINGS_DATA");
+const questSchedules = loadConst("data/quest-schedule-data.js", "QUEST_SCHEDULE_DATA");
 const html = read("index.html");
+assert(questSchedules.counts.quests === world.quests.length, `Quest schedule count ${questSchedules.counts.quests} does not match ${world.quests.length} world quests`);
+const schedulesByQuest = new Map(questSchedules.schedules.map(schedule => [schedule.questId, schedule]));
+assert(schedulesByQuest.size === world.quests.length, "Quest schedule IDs are missing or duplicated");
+for (const quest of world.quests) {
+  const schedule = schedulesByQuest.get(quest.id);
+  assert(schedule && schedule.givers.length, `${quest.name}: missing quest giver schedule`);
+  assert(schedule.givers.every(giver => giver.name && giver.locations.length && giver.locations.every(slot => slot.location && slot.time)), `${quest.name}: incomplete quest giver location/time`);
+}
+const dionysisSchedule = schedulesByQuest.get("quest-colony-9-the-key-to-a-long-life-c651adfb");
+assert(dionysisSchedule?.givers?.[0]?.name === "Dionysis" && dionysisSchedule.givers[0].locations[0].time === "06:00–13:00" && /Residential District/.test(dionysisSchedule.givers[0].locations[0].location), "The Key to a Long Life does not carry Dionysis's verified schedule");
+const lukasSchedule = schedulesByQuest.get("quest-colony-9-pride-and-courage-87817643");
+assert(lukasSchedule?.givers?.[0]?.name === "Lukas" && lukasSchedule.givers[0].locations[0].time === "09:00–15:00" && /Residential District/.test(lukasSchedule.givers[0].locations[0].location), "Pride and Courage does not carry Lukas's verified schedule");
+const adventurersSchedule = schedulesByQuest.get("quest-alcamoth-adventureres-in-peril-4a2d710a");
+assert(adventurersSchedule?.questName === "Adventurers in Peril", "The source-ledger Adventurers in Peril typo was not normalized for route matching");
 assert(html.includes("[hidden]{display:none!important}.hide{display:none!important}"), "Global hidden and filtered-state CSS guards are missing");
 assert(html.includes('html[data-theme="xenoblade"] .tabs,html:not([data-theme="xenoblade"]) .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}'), "Mobile five-hub navigation does not use its readable 3+2 stack");
 assert(html.includes("workshopPhaseIdForEncounter(entry,routeReference)"), "Encounter tools do not use level-aware Workshop phases");
+assert(html.includes("routeDisclosure: cleanDisclosureMap(src.routeDisclosure)"), "Route-card disclosure state is not normalized for reload persistence");
+assert(html.includes("setRouteItemDisclosure(subcheckParent, allComplete, false)"), "Grouped route tasks do not synchronize parent completion and disclosure state");
+assert(html.includes("function routeSubcheckHint(item, step)") && html.includes("hint=routeSubcheckHint(it,step)"), "Grouped named quests do not derive compact giver/time/location hints");
 const heartsResearch = read("research/03-heart-to-hearts.md");
 
 const htmlIds = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]));
@@ -45,10 +63,31 @@ for (const [, attribute, targets] of html.matchAll(/\s(aria-labelledby|aria-desc
 const routeItems = route.flatMap(chapter => chapter.items.filter(item => !item.k));
 const panels = route.flatMap(chapter => chapter.items.filter(item => item.k));
 assert(route.length === 20, `Expected 20 route sections, got ${route.length}`);
-assert(routeItems.length === 417, `Expected 417 route tasks, got ${routeItems.length}`);
+assert(routeItems.length === 447, `Expected 447 route tasks, got ${routeItems.length}`);
 assert(panels.length === 120, `Expected 120 guidance panels, got ${panels.length}`);
 assert(new Set(routeItems.map(item => item.id)).size === routeItems.length, "Duplicate route IDs");
 assert(routeItems.every(item => item.id), "A tickable route item has no persistent ID");
+const canonicalStoryQuests = [
+  "Aiming for the Top", "An Errand for the Heropon", "Ancient Ceremony Offerings", "Chase Dickson",
+  "Delivering Food", "Find a Path to the Top", "Fiora's Conviction", "Fiora's Treatment",
+  "Get the 3rd Lift Moving", "Lift Battle", "Maintenance Wing Escape", "Materials for a Bomb",
+  "Mystery Girl Rescue", "Need Power!", "Opening the Bulkhead", "Path to Prison Island",
+  "Path to the Top", "Pillar Verification Devices", "Reunion with Fiora", "Save Bionis",
+  "Save the Worker", "Shrine Transport", "Sister Seals", "Supply Station Battle",
+  "The Ancient Ceremony", "The Central Tower Barrier", "The High-Velocity Lift", "The Magma Rock",
+  "To the Central Tower", "Turbine Battle", "We Made It"
+];
+const storyItems = routeItems.filter(item => item.f === "story");
+const storyText = item => String(`${item.t || ""} ${item.d || ""}`).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+assert(storyItems.length === canonicalStoryQuests.length, `Expected ${canonicalStoryQuests.length} formal story checkpoints, got ${storyItems.length}`);
+assert(storyItems.every(item => item.storyQuestId && item.d && Number.isFinite(item.lv)), "A story checkpoint lacks its quest binding, directions, or recommended level");
+const formalStoryLedger = completion.categories.flatMap(category => category.groups.flatMap(group => group.items)).filter(item => /Story Quest/i.test(item.meta || ""));
+assert(formalStoryLedger.length === canonicalStoryQuests.length, `Completion ledger should contain ${canonicalStoryQuests.length} formal story quests, got ${formalStoryLedger.length}`);
+assert(formalStoryLedger.map(item => item.name).sort().join("|") === [...canonicalStoryQuests].sort().join("|"), "Canonical story quest list drifted from the Completion Hub ledger");
+for (const quest of formalStoryLedger) {
+  const matches = storyItems.filter(item => item.storyQuestId === quest.id);
+  assert(matches.length === 1 && storyText(matches[0]).includes(quest.name), `${quest.name}: expected one exact named story route checkpoint, got ${matches.length}`);
+}
 const groupedRouteItems = routeItems.filter(item => item.steps?.length);
 const routeSubcheckCount = groupedRouteItems.reduce((sum, item) => sum + item.steps.length, 0);
 assert(groupedRouteItems.length >= 40 && routeSubcheckCount >= 250, `Route granularity sweep is incomplete: ${groupedRouteItems.length} grouped cards / ${routeSubcheckCount} sub-checkpoints`);
@@ -57,7 +96,13 @@ for (const item of groupedRouteItems) {
   assert(item.steps.every(step => step.id && step.label), `${item.id} contains an incomplete sub-checkpoint`);
 }
 assert(routeItems.find(item => item.id === "c1-miss-brave-protectors")?.steps?.length === 9, "The Brave Protectors must expose all nine Defence Force registrations");
-for (const [id, count] of Object.entries({"c1-10":13,"c1-11":4,"c1-12":4,"c1-13":4,"c6-21":4,"c7-28":4,"c8-25":12,"c8-26":12,"c10-12":4,"c14-05":6,"c15-02":28})) {
+const littleBrother = routeItems.find(item => item.id === "c1-05");
+assert(/18:00–03:00/.test(littleBrother?.d || "") && /Nopon Refuge/.test(littleBrother?.d || "") && /behind Zazadan/.test(littleBrother?.d || ""), "A Little Brother's Fight lacks pickup time or Red Pollen Orb directions");
+assert(route.find(chapter => chapter.items.some(item => item.id === "c1-05"))?.id === "ch7", "A Little Brother's Fight must be routed after Riki joins in Chapter 7");
+assert(route.find(chapter => chapter.items.some(item => item.id === "c12-02"))?.id === "ch13", "The History of Mechonis must be routed after Mechonis Field opens");
+assert(route.find(chapter => chapter.items.some(item => item.id === "c12-03"))?.id === "ch14", "The History of the Capital must be routed after Agniratha opens");
+assert(routeItems.find(item => item.id === "c12-05")?.steps?.length === 2, "To My Loved One must separately track its Chapter 12 pickup and Chapter 13 delivery");
+for (const [id, count] of Object.entries({"c1-10":13,"c1-11":4,"c1-12":4,"c1-13":4,"c6-21":4,"c7-28":4,"c8-25":12,"c8-26":12,"c8-34":4,"c10-12":4,"c14-05":6,"c15-02":28})) {
   assert(routeItems.find(item => item.id === id)?.steps?.length === count, `${id} must expose ${count} independently persistent grouped-quest checkpoints`);
 }
 assert(routeItems.find(item => item.id === "c1-13")?.steps?.[0]?.label.includes("Wedding Ring"), "Search Quest 1 does not identify the Wedding Ring in its own checkpoint");
@@ -83,6 +128,15 @@ assert(new Set(completionItems.map(item => item.id)).size === completionItems.le
 assert(bindings.bindings.length === completionItems.length, `Expected ${completionItems.length} route bindings, got ${bindings.bindings.length}`);
 assert(new Set(bindings.bindings.map(binding => binding.targetId)).size === completionItems.length, "Completion route bindings are duplicated or incomplete");
 assert(bindings.bindings.every(binding => routeItems.some(item => item.id === binding.routeItemId)), "A Completion Hub binding points to a missing route task");
+assert(bindings.bindings.find(binding => binding.targetId === "quest-colony-9-pride-and-courage-87817643")?.routeItemId === "c1-17", "Pride and Courage is not bound to its own route card");
+assert(bindings.bindings.find(binding => binding.targetId === "quest-colony-9-challenge-1-c25ea720")?.routeItemId === "c1-06", "Colony 9 Challenge 1 is not disambiguated to Evil Rhangrot");
+assert(bindings.bindings.find(binding => binding.targetId === "quest-alcamoth-adventureres-in-peril-4a2d710a")?.routeItemId === "c10-44", "Adventurers in Peril is not bound to its own route card");
+assert(bindings.bindings.find(binding => binding.targetId === "quest-alcamoth-preparing-for-adventure-b544ce81")?.routeItemId === "c8-06", "Preparing for Adventure is not bound to its pickup card");
+assert(bindings.bindings.find(binding => binding.targetId === "quest-alcamoth-preparing-for-adventure-3-c3600c9e")?.routeItemId === "c8-14", "Preparing for Adventure 3 is not bound to its pickup card");
+for (const item of storyItems) {
+  const binding = bindings.bindings.find(entry => entry.targetId === item.storyQuestId);
+  assert(binding?.handling === "exact" && binding.routeItemId === item.id, `${item.id} does not own its exact story-quest dependency link`);
+}
 for (const name of ["Heartwarming", "Heartbreaking", "The Brave Protectors"]) {
   const item = completionItems.find(entry => entry.name === name);
   assert(item && item.missable, `${name} is not marked as missable`);

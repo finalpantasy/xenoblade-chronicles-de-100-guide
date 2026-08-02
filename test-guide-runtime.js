@@ -7,7 +7,7 @@ const jsdomPath = process.argv[2] || "jsdom";
 const { JSDOM, VirtualConsole } = require(jsdomPath);
 
 const root = __dirname;
-const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "world-route-anchors-early.js", "world-route-anchors-mid.js", "world-route-anchors-late.js", "build-data.js", "workshop-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js"];
+const dataFiles = ["route-data.js", "completion-data.js", "monsterpedia-data.js", "world-data.js", "world-route-anchors-early.js", "world-route-anchors-mid.js", "world-route-anchors-late.js", "build-data.js", "workshop-data.js", "collectopaedia-data.js", "map-atlas-data.js", "map-coordinates-data.js", "frontier-map-data.js", "combat-dossier-data.js", "affinity-data.js", "route-bindings-data.js", "quest-schedule-data.js"];
 const injectedData = dataFiles.map(file => `<script>${fs.readFileSync(path.join(root, "data", file), "utf8")}</script>`).join("");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8").replace("</head>", `${injectedData}</head>`);
 const errors = [];
@@ -21,7 +21,7 @@ const waitFor = async (test, message, timeout = 5000) => {
 };
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
-async function makeDom({ legacy = null, previous = null, url = "https://guide.local/index.html" } = {}) {
+async function makeDom({ legacy = null, previous = null, current = null, url = "https://guide.local/index.html" } = {}) {
   const virtualConsole = new VirtualConsole();
   virtualConsole.on("jsdomError", error => errors.push(error.message));
   virtualConsole.on("error", error => errors.push(String(error)));
@@ -41,13 +41,14 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
       const appendChild = window.Node.prototype.appendChild;
       window.Node.prototype.appendChild = function(node) {
         const result = appendChild.call(this, node);
-        if (node.tagName === "SCRIPT" && /\/data\/(?:world-route-anchors-(?:early|mid|late)|(route|completion|monsterpedia|world|build|route-bindings)-data)\.js/.test(node.src)) {
+        if (node.tagName === "SCRIPT" && /\/data\/(?:world-route-anchors-(?:early|mid|late)|(route|completion|monsterpedia|world|build|route-bindings|quest-schedule)-data)\.js/.test(node.src)) {
           window.setTimeout(() => node.onload?.(), 0);
         }
         return result;
       };
       if (legacy) window.localStorage.setItem("xc1de-100-v1", JSON.stringify(legacy));
       if (previous) window.localStorage.setItem("xc1de-guide-state-v2", JSON.stringify(previous));
+      if (current) window.localStorage.setItem("xc1de-guide-state-v4", JSON.stringify(current));
     }
   });
   await waitFor(() => dom.window.document.querySelectorAll("#route section.ch").length === 20, "route render");
@@ -56,6 +57,29 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
   assert([...dom.window.document.querySelectorAll("#route .world-it")].every(row => row.closest(".area-arrival")), "a world discovery escaped its compact area-arrival tracker");
   assert(!dom.window.document.querySelector("#route .world-it .rec-level"), "minor discovery cues still repeat thick recommended-level metadata");
   await waitFor(() => dom.window.document.querySelectorAll("#quest-results .result-card").length === 80, "quest lookup render");
+  await waitFor(() => dom.window.document.querySelector("#route [data-id='c1-01'] .quest-schedule")?.textContent.includes("Dionysis"), "route quest-giver schedules");
+  assert(dom.window.document.querySelector("#route [data-id='c1-01'] .quest-schedule").textContent.includes("06:00–13:00"), "Dionysis route schedule has the wrong time");
+  const prideSchedule = dom.window.document.querySelector("#route [data-id='c1-17'] .quest-schedule");
+  assert(prideSchedule?.textContent.includes("Lukas") && prideSchedule.textContent.includes("09:00–15:00"), "Pride and Courage did not render Lukas's correct active time");
+  const colonyChallengeSchedule = dom.window.document.querySelector("#route [data-id='c1-06'] .quest-schedule");
+  assert(colonyChallengeSchedule?.querySelectorAll(".quest-schedule-row").length === 1, "Evil Rhangrot did not render exactly one regional Challenge 1 schedule");
+  assert(colonyChallengeSchedule.textContent.includes("Defence Force Soldier") && colonyChallengeSchedule.textContent.includes("06:00–18:00") && colonyChallengeSchedule.textContent.includes("Military District"), "Evil Rhangrot rendered the wrong regional Challenge 1 giver");
+  for (const id of ["c1-07", "c1-08", "c7-23", "c7-24", "c7-25", "c7-26", "c8-21", "c8-22", "c8-23", "c8-24", "c8-33"]) {
+    assert(dom.window.document.querySelectorAll(`#route [data-id='${id}'] .quest-schedule-row`).length === 1, `${id} did not render exactly one area-correct Challenge giver`);
+  }
+  const adventurersSchedule = dom.window.document.querySelector("#route [data-id='c10-44'] .quest-schedule");
+  assert(adventurersSchedule?.textContent.includes("Miriall") && adventurersSchedule.textContent.includes("06:00–18:00") && adventurersSchedule.textContent.includes("Imperial Palace"), "Adventurers in Peril did not render Miriall's schedule after source-name normalization");
+  const alcamothQuestSteps = [...dom.window.document.querySelectorAll("#route [data-id='c15-01'] .route-subcheck")];
+  assert(alcamothQuestSteps.length === 31 && alcamothQuestSteps.every(step => step.querySelector("small")?.textContent), "The Alcamoth named-quest checklist does not show availability on every quest");
+  assert(alcamothQuestSteps.find(step => step.textContent.includes("Adventurers in Peril"))?.textContent.includes("Miriall"), "Adventurers in Peril lacks its compact grouped-quest schedule");
+  for (const [id, count] of [["c17-18", 11], ["c17-19", 8]]) {
+    const namedQuestSteps = [...dom.window.document.querySelectorAll(`#route [data-id='${id}'] .route-subcheck`)];
+    assert(namedQuestSteps.length === count && namedQuestSteps.every(step => step.querySelector("small")?.textContent), `${id} does not show giver availability on every named quest`);
+  }
+  const erythQuestSteps = [...dom.window.document.querySelectorAll("#route [data-id='c8-34'] .route-subcheck")];
+  assert(erythQuestSteps.length === 4 && erythQuestSteps.every(step => step.querySelector("small")?.textContent.includes("Anytime")), "The Eryth Sea Monster/Collect quest group lacks four independently scheduled checkpoints");
+  assert([...dom.window.document.querySelectorAll("#route .it")].every(row => row.querySelectorAll(".quest-schedule-row").length <= 3), "A route card accumulated an ambiguous wall of quest-giver schedules");
+  assert(dom.window.document.querySelectorAll("#quest-results .result-card .quest-schedule").length === 80, "Quest Lookup did not render a schedule for every visible quest");
   await waitFor(() => dom.window.document.querySelectorAll("#party-presets .preset").length === 17, "party presets render");
   return dom;
 }
@@ -118,10 +142,12 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
   assert(companionSaved.inventory[inventoryInput.dataset.inventoryId] === 3, "Play Mode did not persist a manual inventory quantity");
   document.querySelector('[data-p="route"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
-  assert(document.querySelectorAll("#route .it").length === 417 && document.querySelectorAll("#route .world-arrival-item").length === 461, "route did not render 417 major tasks plus 461 compact map discoveries");
+  assert(document.querySelectorAll("#route .it").length === 447 && document.querySelectorAll("#route .world-arrival-item").length === 461, "route did not render 447 major tasks plus 461 compact map discoveries");
+  assert(document.querySelectorAll('#route .it[data-f="story"]').length === 31, "all 31 formal main-story quests did not render as route checkpoints");
+  assert(document.querySelectorAll('#route .it[data-f="story"] [data-open-quest]').length === 31, "a main-story checkpoint lacks its exact Quest Lookup action");
   assert(!document.getElementById("p-route").hidden && document.getElementById("p-completion").hidden, "inactive tab panels are not semantically hidden");
   assert(document.querySelectorAll("#route .chh[aria-expanded]").length === 20, "chapter buttons lack expanded state");
-  assert(document.querySelectorAll("#route .it:not(.world-it) .rec-level").length === 417, "not every major route card has a recommended level");
+  assert(document.querySelectorAll("#route .it:not(.world-it) .rec-level").length === 447, "not every major route card has a recommended level");
   assert(document.querySelectorAll("#route .world-it .rec-level").length === 0, "minor discovery cues still repeat recommended-level badges");
   assert(document.querySelectorAll("#route .leader-badge").length === 24, "the 23 later party-leader steps plus the Chapter 0 setup are not all badged");
   assert([...document.querySelectorAll("#route .leader-badge")].some(badge => badge.textContent.includes("DUNBAN → SHULK")), "Stunted Growth does not show its two-leader handoff");
@@ -134,7 +160,16 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
   assert(document.querySelector("#route .route-build-grid"), "route build updates are not split into readable sections");
   assert(!document.querySelector("#route .route-build").textContent.includes("Slot nowShulk"), "route build text still collapses Slot now and Shulk together");
   assert([...document.querySelectorAll("#route .it label")].every(label => !/^\p{Extended_Pictographic}/u.test(label.textContent.trim())), "route titles still use leading emoji instead of the shared icon/tag system");
-  assert(document.getElementById("route-count").textContent.includes("878 checkpoints"), "route search result count is missing or incorrect");
+  assert(document.getElementById("route-count").textContent.includes("908 checkpoints"), "route search result count is missing or incorrect");
+  const storyFilter = document.querySelector('#p-route .chip[data-f="story"]');
+  storyFilter.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  assert(document.querySelectorAll('#route .it[data-f="story"]:not(.hide)').length === 31 && document.querySelectorAll('#route .it:not([data-f="story"]):not(.hide)').length === 0, "Main Story filter does not isolate the full story spine");
+  document.querySelector('#p-route .chip[data-f="all"]').dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  document.getElementById("q").value = "Materials for a Bomb";
+  document.getElementById("q").dispatchEvent(new Event("input", { bubbles: true }));
+  assert(document.querySelectorAll('#route .it[data-f="story"]:not(.hide)').length === 1 && document.querySelector('#route .it[data-f="story"]:not(.hide)').textContent.includes("Materials for a Bomb"), "route search cannot find a formal story objective");
+  document.getElementById("q").value = "";
+  document.getElementById("q").dispatchEvent(new Event("input", { bubbles: true }));
   const chapterJump = document.getElementById("chapter-jump");
   assert(chapterJump.options.length === 21, "chapter jump control did not list every route chapter");
   chapterJump.value = "ch14";
@@ -152,6 +187,7 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
   braveStep.dispatchEvent(new Event("change", { bubbles: true }));
   saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
   assert(saved.routeSteps["c1-miss-brave-protectors"][braveStep.dataset.subcheckId] && !braveParent.checked, "Sub-checkpoint progress did not persist independently from its parent card");
+  assert(braveParent.indeterminate, "a partially completed grouped card does not expose its mixed parent state");
   assert(braveStep.closest(".route-subchecks").textContent.includes("1/9"), "Sub-checkpoint completion count did not update");
   assert(braveStep.closest(".route-subchecks").textContent.includes("18:00–06:00"), "Brave Protectors sub-checkpoints lack a time and location hint");
   const genericQuestGroups = {"c1-10":13,"c1-11":4,"c1-12":4,"c1-13":4,"c4-06":22,"c6-21":4,"c7-28":4,"c8-25":12,"c8-26":12,"c10-12":4,"c14-05":6,"c15-02":28};
@@ -164,6 +200,29 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
     assert([...group.querySelectorAll(".route-subcheck-copy small")].every(hint => hint.textContent.startsWith("Pickup ")), `${id} contains an inconsistent one-line pickup hint`);
   }
   assert(document.querySelector('[data-subcheck-group="c1-13"] [data-subcheck-id="search-quest-2"]'), "Search Quest objective enrichment changed the stable progress key");
+  const materialParent = document.getElementById("c1-11"), materialSteps = [...document.querySelectorAll('[data-subcheck-parent="c1-11"]')];
+  materialSteps.forEach(step => { step.checked = true; step.dispatchEvent(new Event("change", { bubbles: true })); });
+  saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
+  assert(materialParent.checked && !materialParent.indeterminate && materialParent.closest(".it").classList.contains("done") && saved.route["c1-11"], "completing every grouped quest sub-checkpoint did not automatically complete and persist its parent card");
+  materialSteps[0].checked = false;
+  materialSteps[0].dispatchEvent(new Event("change", { bubbles: true }));
+  saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
+  assert(!materialParent.checked && materialParent.indeterminate && !saved.route["c1-11"], "reopening a grouped quest sub-checkpoint did not reopen its parent card");
+  assert(!materialParent.closest(".it").classList.contains("is-collapsed"), "reopening a grouped quest sub-checkpoint did not expand its parent card");
+  const materialToggle = materialParent.closest(".it").querySelector(".route-item-toggle");
+  materialToggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  const collectionParent = document.getElementById("c1-12"), collectionRow = collectionParent.closest(".it"), collectionToggle = collectionRow.querySelector(".route-item-toggle");
+  collectionParent.checked = true;
+  collectionParent.dispatchEvent(new Event("change", { bubbles: true }));
+  assert(collectionRow.classList.contains("is-collapsed") && collectionRow.querySelector(".route-item-content").hidden, "checking a regular route task did not automatically collapse it");
+  collectionToggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  saved = JSON.parse(localStorage.getItem("xc1de-guide-state-v4"));
+  assert(saved.routeDisclosure["c1-11"] === "collapsed" && saved.routeDisclosure["c1-12"] === "expanded", "manual collapsed and expanded route-card states were not persisted");
+  const reloadDom = await makeDom({ current: saved, url: "https://reload.guide.local/index.html" });
+  const reloadedMaterial = reloadDom.window.document.getElementById("c1-11").closest(".it"), reloadedCollection = reloadDom.window.document.getElementById("c1-12").closest(".it");
+  assert(reloadedMaterial.classList.contains("is-collapsed") && reloadedMaterial.querySelector(".route-item-content").hidden, "a manually collapsed route card did not stay collapsed after reload");
+  assert(!reloadedCollection.classList.contains("is-collapsed") && !reloadedCollection.querySelector(".route-item-content").hidden, "a manually expanded completed route card did not stay expanded after reload");
+  reloadDom.window.close();
   const normalizedButtons = [...document.querySelectorAll('[data-subcheck-group="c1-13"] .subcheck-atlas-link')];
   assert(normalizedButtons.every(button => dom.window.getComputedStyle(button).width === "72px" && dom.window.getComputedStyle(button).height === "46px"), "Pickup / Target buttons do not share one fixed size");
   assert([...document.querySelectorAll('[data-subcheck-group="c1-13"] .route-subcheck-copy small')].every(hint => /Pickup \d{2}:\d{2}–\d{2}:\d{2}/.test(hint.textContent)), "Colony 9 Search Quest sub-checkpoints lack concise pickup schedules and item directions");
@@ -219,6 +278,7 @@ async function makeDom({ legacy = null, previous = null, url = "https://guide.lo
 
   category.value = "quests";
   category.dispatchEvent(new Event("change", { bubbles: true }));
+  assert(document.querySelectorAll("#completion .citem").length === 480 && document.querySelectorAll("#completion .citem .quest-schedule").length === 480, "Completion Hub does not show one availability hint for every quest outcome");
   const skip = document.querySelector("#completion button.skip");
   assert(skip, "no mutually exclusive quest branch control rendered");
   skip.dispatchEvent(new MouseEvent("click", { bubbles: true }));
