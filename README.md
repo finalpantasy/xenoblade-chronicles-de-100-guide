@@ -1,5 +1,7 @@
 # Xenoblade Chronicles: Definitive Edition — 100% Guide
 
+[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-buy%20me%20a%20coffee-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/finalpantasy)
+
 An unofficial, source-backed walkthrough, completion ledger, Monsterpedia, build lab, map planner, and second-screen Play Mode for *Xenoblade Chronicles: Definitive Edition*.
 
 ## What is included
@@ -70,3 +72,7 @@ If a partial `node_modules` already exists here, delete it — it will shadow a 
 This is a non-commercial, unofficial fan project. Xenoblade Chronicles, its names, game artwork, icons, maps, screenshots, and logos are property of Nintendo and MONOLITHSOFT. Those materials are not covered by the repository’s code license.
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) and [assets/game-icons/SOURCES.md](assets/game-icons/SOURCES.md) for dataset, wiki, map, image, and guide sources.
+
+## Support
+
+Free hobby project. If it helps you, you can [buy me a coffee on Ko-fi](https://ko-fi.com/finalpantasy). Thank you!
